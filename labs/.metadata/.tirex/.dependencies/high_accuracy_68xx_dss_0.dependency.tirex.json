@@ -1,0 +1,30 @@
+[
+    {
+        "files": [
+            "+dss/dss_main.c -> dss/dss_main.c",
+            "+dss/dss_mmw.cfg -> dss/dss_mmw.cfg",
+            "+dss/dss_mmw.h -> dss/dss_mmw.h",
+            "+dss/dss_config_edma_util.c -> dss/dss_config_edma_util.c",
+            "+dss/dss_config_edma_util.h -> dss/dss_config_edma_util.h",
+            "+dss/dss_data_path.c -> dss/dss_data_path.c",
+            "+dss/dss_data_path.h -> dss/dss_data_path.h",
+            "+dss/RADARDEMO_highAccuRangeProc_utils.c -> dss/RADARDEMO_highAccuRangeProc_utils.c",
+            "+dss/RADARDEMO_highAccuRangeProc.c -> dss/RADARDEMO_highAccuRangeProc.c",
+            "+dss/RADARDEMO_highAccuRangeProc_priv.c -> dss/RADARDEMO_highAccuRangeProc_priv.c",
+            "+dss/RADARDEMO_highAccuRangeProc_priv.h -> dss/RADARDEMO_highAccuRangeProc_priv.h",
+            "+common/RADARDEMO_highAccuRangeProc.h -> common/RADARDEMO_highAccuRangeProc.h",
+            "+common/radarProcess.h -> dss/radarProcess.h",
+            "+common/mmw_config.h -> common/mmw_config.h",
+            "+common/mmw_messages.h -> common/mmw_messages.h",
+            "+common/cplx_types.h -> common/cplx_types.h",
+            "+common/swpform.h -> common/swpform.h",
+            "+utils/cycle_measure.c -> utils/cycle_measure.c",
+            "+utils/cycle_measure.h -> utils/cycle_measure.h",
+            "+utils/radarOsal_malloc.c -> utils/radarOsal_malloc.c",
+            "+utils/radarOsal_malloc.h -> utils/radarOsal_malloc.h",
+            "+utils/radar_c674x.h -> utils/radar_c674x.h",
+            "+dss/c674x_linker.cmd -> dss/c674x_linker.cmd",
+            "+dss/dss_mmw_linker.cmd -> dss/dss_mmw_linker.cmd"
+        ]
+    }
+]

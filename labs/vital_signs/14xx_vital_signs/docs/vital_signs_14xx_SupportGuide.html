@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Vital Signs Support Guide</title>
+</head>
+
+<!-- START PRE -->
+<link rel="stylesheet" href="../../../.metadata/.html/scripts/strapdown/v/0.2/fonts/ubuntu-regular-woff.css"/>
+<link rel="stylesheet" href="../../../.metadata/.html/scripts/strapdown/v/0.2/fonts/glyphicons-halflings-regular.css"/>
+<link rel="stylesheet" href="../../../.metadata/.html/scripts/strapdown/v/0.2/themes/united2.min.css"/>
+<link rel="stylesheet" href="../../../.metadata/.html/scripts/strapdown/v/0.2/themes/bootstrap-responsive.min.css"/>
+<link rel="stylesheet" href="../../../.metadata/.html/scripts/strapdown/v/0.2/strapdown.css"/>
+<link rel="stylesheet" href="../../../.metadata/.html/styles/link.css"/>
+<!-- END PRE -->
+
+<xmp style="display:none;" class="col-xs-6">
+
+
+Support Guide Overview
+===========
+* The Vital Signs Lab is no longer receiving updates as of February 2021 and mmWave Industrial Toolbox 4.6.0. 
+* This applies to only the 14xx and 68xx versions of the Vital Signs Lab in the **mmWave Industrial Toolbox**
+* This does **NOT** apply to any of the labs in the mmWave Automotive Toolbox. 
+* This document is meant to serve as a support supplement for new and existing projects.
+* Support for the Vital Signs Lab will be limited to both existing documentation and existing discussion on E2E forums. We ask that you do not open new threads regarding software or engineering support regarding the Vital Signs Lab on E2E Forums.
+
+
+Physical Setup
+===========
+The 68xx/16xx versions of the Vital Signs Lab can use the sensor facing the subject either in **front** or in **back**. The 14xx version is **front facing** only.
+* For **Sensor in Front** the EVM shuld be mounted upright while subject should sit facing in a chair about .3-.8m in front.
+* For initial measurement subject should stay still for 10-15 seconds to allow the application to calibrate. For subsequent measurements the subject must stay still for 5-10 seconds.
+
+<img src="images/cushion2.png" width="500"/>
+
+* For **Sensor in Back**, the EVM can be placed in the back of a car seat or in a seat cushion. This can be done by placing the EVM in an enclosure as shown below. 
+
+<img src="images/cushion1.png" width="500"/>
+
+
+Chirp Configuration for Demo 
+===========
+* 100 ADC Samples per chirp. Chirp duration is 50 ms based on the IF sampling rate of 2 MHz
+* Each frame is configured to have 2 chirps. However only the 1st Chirp in the frame is used for processing
+* A single TX-RX antenna pair is currently used for processing (Although all the RX antennas are enabled)
+* Vital signs waveform is sampled along the “slow time axis” hence the vital signs sampling rate is equal to the Frame-rate of system
+<img src="images/ccfd1.png" width="800"/>
+
+
+Vital Signs Configuration
+===========
+* Configuration commands relevant to the vital signs algorithm are **vitalSignsCfg** and **motionDetection**
+* Please note that the algorithm does not support vital signs detection at ranges further than 1 meter.
+* **vitalSignsCfg** 
+
+<img src="images/cfg1.png" width="800"/>
+* **motionDetection** The purpose of this block is to discard the data segments that might be corrupted by large amplitude movements. The heart waveform is divided into segment of L samples. If the energy within this data segment exceeds a user-defined threshold ETh then all the samples are discarded from the time-domain heart waveform.
+<img src="images/cfg2.png" width="800"/>
+
+Output Data Structure
+===========
+
+The format of the UART Data Stream is below:
+
+<img src="images/outputformat16_68.png" width="800"/>
+
+
+Frequently Asked Questions
+===========
+
+Algorithm 
+-----------
+
+**Q:** What are the minimum and maximum beats per minute for detection?
+
+**A:** 	 
+* 6 to 30 beats per minute (respiratory)
+* 48 to 120 beats per minute (heart rate)
+
+..
+
+  		
+**Q:** What is the default frame rate?
+
+**A:** 20 frames per second.
+
+..
+
+
+**Q:** What is FFT size used for the three FFT's?
+
+**A:** The first FFT is 128 points, the second and third FFTs are 1024 points.
+
+
+..
+
+
+**Q:** Why does the Peak Finder function select 4 different peaks?
+
+**A:** It selects only one peak because it may be produced by one of the harmonics and thus may miss the peak produced by the heart or breathing rates.
+
+..
+
+**Q:** What the meaning of **freqIncrement_Hz**?
+
+**A:** **freqIncrement_Hz** is the defined in the code `obj->freqIncrement_Hz = obj->samplingFreq_Hz / PHASE_FFT_SIZE;`
+
+..
+
+**Q:** What is the difference between **heartRateEst_FFT** and **heartRateEst_FFT_4Hz**？
+
+**A:** **heartRateEst_FFT** is the FFT computed between 0.9Hz (48beats/min) and 2Hz (120 beats/min) This is where we expect the main peak for the heart rate to be. However, it is possible that we get some harmonics from the breathing rate in this spectrum and the correct peak is not selected. Therefore, we also perform and FFT between 2Hz and 4Hz. This is the **heartRateEst_FFT_4Hz**. If we detect a strong peak in this spectrum we know it must be the first harmonic from the heart rate and we will use this information to determine the heart rate.
+
+..
+
+**Q:** The demo uses only first chirp for processing, would two chirps improve reliability or accuracy? 
+
+**A:** Multiple chirps in a frame can be averaged to increase the SNR, though in terms of vital signs multiple chirps might not significantly increase the reliability/accuracy. 
+
+..
+
+**Q:** The demo uses only one TX-RX pair while all RX and TX are enabled. Is there benefit to enabling more antenna?
+
+**A:** The demo measures the vital signs of a single person. Multiple TX-RX channels can be utilized to measure the vital signs of multiple people by adding additional processing to utilize the multiple channels to separate people in the angle domain.
+
+
+Vizualizer 
+-----------
+
+**Q:** What GUI editor was used to create the Vital Signs Lab Vizualizer
+
+**A:** The 68xx and 16xx versions of the visualizer were created using Qt 5.9.1 and the 14xx version of the visualizer was created using MATLAB 9.2 (R2017a). The 14xx version of the lab requires installation of either [MATLAB Runtime 9.2](https://ssd.mathworks.com/supportfiles/downloads/R2017a/deployment_files/R2017a/installers/win64/MCR_R2017a_win64_installer.exe) or a full version of MATLAB to run the visualizer.
+
+
+<img src="images/gui3.png" width="850"/>
+
+
+
+</xmp>
+
+<link rel="stylesheet" href="../../../.metadata/.html/scripts/highlight/styles/zenburn.css"/>
+<script src="../../../.metadata/.html/scripts/strapdown/vendor/jquery-1.11.2.min.js"></script>
+<script src="../../../.metadata/.html/scripts/strapdown/vendor/bootstrap.min.js"></script>
+<script src="../../../.metadata/.html/scripts/highlight/highlight.pack.js"></script>
+<script src="../../../.metadata/.html/scripts/strapdown/v/0.2/strapdown.js"></script>
+<script src="../../../.metadata/.html/scripts/toolbox.js"></script>
+<script src="../../../.metadata/.html/scripts/toolbox_fixes.js"></script>
+
+</html>

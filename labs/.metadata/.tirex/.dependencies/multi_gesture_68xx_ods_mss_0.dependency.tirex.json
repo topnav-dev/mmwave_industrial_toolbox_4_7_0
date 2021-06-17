@@ -1,0 +1,28 @@
+[
+    {
+        "files": [
+            "+mss/mss_main.c -> mss/mss_main.c",
+            "+mss/mss_cli.c -> mss/mss_cli.c",
+            "+mss/inference.c -> mss/inference.c",
+            "+mss/utils.c -> mss/utils.c",
+            "+mss/mss_data_path.h -> mss/mss_data_path.h",
+            "+mss/mss_mmw.h -> mss/mss_mmw.h",
+            "+mss/mss_mmw.cfg -> mss/mss_mmw.cfg",
+            "+mss/mss_mmw_linker.cmd -> mss/mss_mmw_linker.cmd",
+            "+common/cli.c -> common/cli.c",
+            "+common/cli_mmwave.c -> common/cli_mmwave.c",
+            "+common/detected_obj.h -> common/detected_obj.h",
+            "+common/mmw_config.h -> common/mmw_config.h",
+            "+common/mmw_gesture_out.h -> common/mmw_gesture_out.h",
+            "+common/mmw_messages.h -> common/mmw_messages.h",
+            "+common/mmw_output.h -> common/mmw_output.h",
+            "+common/ANN/ANN_params_60Ghz.h -> common/ANN/ANN_params_60Ghz.h",
+            "+common/ANN/b0.h -> common/ANN/b0.h",
+            "+common/ANN/b1.h -> common/ANN/b1.h",
+            "+common/ANN/b2.h -> common/ANN/b2.h",
+            "+common/ANN/w0.h -> common/ANN/w0.h",
+            "+common/ANN/w1.h -> common/ANN/w1.h",
+            "+common/ANN/w2.h -> common/ANN/w2.h"
+        ]
+    }
+]

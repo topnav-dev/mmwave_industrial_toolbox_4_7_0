@@ -1,0 +1,9 @@
+[
+["Lab/Experiment/Chirp Name", "Changes"],
+["<a href=\"http://dev.ti.com/tirex/#/?link=Software%2FmmWave%20Sensors%2FIndustrial%20Toolbox%2FLabs%2FmmWave%20SDK%20Demo%2F68xx%20AoP%20-%20mmWave%20SDK%20Demo%20-%20HWA%20Version\">Multiple Gesture and Motion Detection -- 68xx</a>", "<ul><li>Added support for IWR6843AOP EVM </li> <li>Added support for mmWave-SDK 3.2.0.4 for ODS version</li></ul>"],
+["<a href=\"http://dev.ti.com/tirex/#/?link=Software%2FmmWave%20Sensors%2FIndustrial%20Toolbox%2FLabs%2FROS%20Point%20Cloud%20Visualizer\">People Counting Demo -- 68xx</a>", "<ul><li>Added support for mmWave-SDK 3.2.0.4</li></ul>"],
+["<a href=\"http://dev.ti.com/tirex/#/?link=Software%2FmmWave%20Sensors%2FIndustrial%20Toolbox%2FLabs%2FROS%20Point%20Cloud%20Visualizer\">50m Outdoor People Tracking and False Detection Filtering -- 68xx</a>", "<ul><li>Added support for mmWave-SDK 3.2.0.4</li></ul>"]
+
+]
+
+

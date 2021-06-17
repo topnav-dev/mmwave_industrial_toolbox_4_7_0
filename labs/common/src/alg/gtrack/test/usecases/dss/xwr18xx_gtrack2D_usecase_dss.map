@@ -1,0 +1,2476 @@
+******************************************************************************
+               TMS320C6x Linker Unix v8.3.3                    
+******************************************************************************
+>> Linked Mon Mar 30 23:04:55 2020
+
+OUTPUT FILE NAME:   <test/usecases/dss/xwr18xx_gtrack2D_usecase_dss.xe674>
+ENTRY POINT SYMBOL: "_c_int00"  address: 007f8d00
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+PAGE 0:
+  L2SRAM_UMAP1          007e0000   00020000  0001c240  00003dc0  RWIX
+  L2SRAM_UMAP0          00800000   00020000  0001a846  000057ba  RWIX
+  L1PSRAM               00e00000   00004000  00000000  00004000  RWIX
+  L1DSRAM               00f00000   00004000  00000000  00004000  RWIX
+  L3SRAM                20000000   00100000  00002400  000fdc00  RWIX
+  HWA_RAM               21030000   00010000  00000000  00010000  RWIX
+  HSRAM                 21080000   00008000  00000000  00008000  RWIX
+
+PAGE 1:
+  L3SRAM                20000000   00100000  00000000  00100000  RWIX
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+007e0000    007e0000    0001c240   0001c240    r-x
+  007e0000    007e0000    00000200   00000200    r-x .vecs
+  007e0200    007e0200    00006d20   00006d20    r-x .gtrackLibSection
+  007e6f20    007e6f20    00015320   00015320    r-x .text
+00800000    00800000    000159d0   00000000    rw-
+  00800000    00800000    0000c000   00000000    rw- systemHeap
+  0080c000    0080c000    000099d0   00000000    rw- .far
+008159d0    008159d0    00002fce   00002fce    r--
+  008159d0    008159d0    00002fce   00002fce    r-- .const
+008189a0    008189a0    00001000   00000000    rw-
+  008189a0    008189a0    00001000   00000000    rw- .stack
+008199a0    008199a0    00000d0c   00000d0c    rw-
+  008199a0    008199a0    00000d0c   00000d0c    rw- .fardata.1
+0081a6ac    0081a6ac    00000004   00000004    r--
+  0081a6ac    0081a6ac    00000004   00000004    r-- .rodata
+0081a6b0    0081a6b0    00000128   00000004    rw-
+  0081a6b0    0081a6b0    00000004   00000004    rw- .fardata.2
+  0081a6b8    0081a6b8    00000120   00000000    rw- .cio
+0081a7d8    0081a7d8    00000060   00000060    r--
+  0081a7d8    0081a7d8    00000060   00000060    r-- .switch
+0081a838    0081a838    00000014   00000014    rw-
+  0081a838    0081a838    00000014   00000014    rw- .neardata
+20000000    20000000    00002400   00000000    rw-
+  20000000    20000000    00002400   00000000    rw- .MCPILogBuffer
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+xdc.meta   0    00000000    00000110     COPY SECTION
+                  00000000    00000110     dss_pe674.oe674 (xdc.meta)
+
+.vecs      0    007e0000    00000200     
+                  007e0000    00000200     dss_pe674.oe674 (.vecs)
+
+.gtrackLibSection 
+*          0    007e0200    00006d20     
+                  007e0200    000011e0     libgtrack2D.ae674 : gtrack_unit_update.oe674 (.text:gtrack_unitUpdate)
+                  007e13e0    00000a20                       : gtrack_create.oe674 (.text:gtrack_create)
+                  007e1e00    00000460                       : gtrack_unit_update.oe674 (.text:gtrack_velocityStateHandling)
+                  007e2260    00000440                       : gtrack_module.oe674 (.text:gtrack_moduleAllocate)
+                  007e26a0    000003c0                       : gtrack_utilities.oe674 (.text:gtrack_computeJacobian)
+                  007e2a60    00000300                       : gtrack_step.oe674 (.text:gtrack_step)
+                  007e2d60    00000300                       : gtrack_unit_score.oe674 (.text:gtrack_unitScore)
+                  007e3060    000002e0                       : gtrack_unit_event.oe674 (.text:gtrack_unitEvent)
+                  007e3340    00000280                       : gtrack_unit_predict.oe674 (.text:gtrack_unitPredict)
+                  007e35c0    00000240                       : gtrack_utilities_2d.oe674 (.text:gtrack_matrixInv)
+                  007e3800    00000220                       : gtrack_unit_start.oe674 (.text:gtrack_unitStart)
+                  007e3a20    00000200                       : gtrack_math.oe674 (.text:gtrack_matrixPrint2)
+                  007e3c20    00000200                       : gtrack_unit_create.oe674 (.text:gtrack_unitCreate)
+                  007e3e20    000001e0                       : gtrack_utilities.oe674 (.text:gtrack_cartesian2spherical)
+                  007e4000    00000180                       : gtrack_delete.oe674 (.text:gtrack_delete)
+                  007e4180    00000140                       : gtrack_utilities_2d.oe674 (.text:gtrack_matrixComputePJT)
+                  007e42c0    00000140                       : gtrack_math.oe674 (.text:gtrack_matrixPrint)
+                  007e4400    00000120                       : gtrack_listlib.oe674 (.text:gtrack_listRemoveElement)
+                  007e4520    00000100                       : gtrack_math.oe674 (.text:gtrack_matrixCovNormalize)
+                  007e4620    00000100                       : gtrack_math.oe674 (.text:gtrack_matrixMakeSymmetrical)
+                  007e4720    00000100                       : gtrack_math.oe674 (.text:gtrack_matrixMultiply)
+                  007e4820    00000100                       : gtrack_math.oe674 (.text:gtrack_matrixTransposeMultiply)
+                  007e4920    00000100                       : gtrack_module.oe674 (.text:gtrack_moduleUpdate)
+                  007e4a20    00000100                       : gtrack_utilities.oe674 (.text:gtrack_spherical2cartesian)
+                  007e4b20    000000e0                       : gtrack_math.oe674 (.text:gtrack_matrixCovAcc)
+                  007e4c00    000000e0                       : gtrack_math.oe674 (.text:gtrack_matrixCovFilter)
+                  007e4ce0    000000c0                       : gtrack_utilities_2d.oe674 (.text:gtrack_calcMeasurementLimits)
+                  007e4da0    000000c0                       : gtrack_module.oe674 (.text:gtrack_modulePredict)
+                  007e4e60    000000c0                       : gtrack_unit_stop.oe674 (.text:gtrack_unitStop)
+                  007e4f20    000000a0                       : gtrack_utilities_2d.oe674 (.text:gtrack_calcDistance)
+                  007e4fc0    000000a0                       : gtrack_utilities_2d.oe674 (.text:gtrack_computeMahalanobis)
+                  007e5060    000000a0                       : gtrack_math.oe674 (.text:gtrack_matrixSetDiag)
+                  007e5100    000000a0                       : gtrack_module.oe674 (.text:gtrack_moduleAssociate)
+                  007e51a0    000000a0                       : gtrack_module.oe674 (.text:gtrack_moduleReport)
+                  007e5240    000000a0                       : gtrack_math.oe674 (.text:gtrack_sincosd)
+                  007e52e0    000000a0                       : gtrack_unit_report.oe674 (.text:gtrack_unitReport)
+                  007e5380    000000a0                       : gtrack_utilities.oe674 (.text:gtrack_unrollRadialVelocity)
+                  007e5420    00000060                       : gtrack_utilities_2d.oe674 (.text:gtrack_calcDim)
+                  007e5480    00000060                       : gtrack_utilities_2d.oe674 (.text:gtrack_computeMahalanobisPartial)
+                  007e54e0    00000060                       : gtrack_math.oe674 (.text:gtrack_matrixAdd)
+                  007e5540    00000060                       : gtrack_math.oe674 (.text:gtrack_matrixGetDiag)
+                  007e55a0    00000060                       : gtrack_math.oe674 (.text:gtrack_matrixSub)
+                  007e5600    00000060                       : gtrack_utilities_2d.oe674 (.text:gtrack_sph2cart)
+                  007e5660    00000060                       : gtrack_math.oe674 (.text:gtrack_vectorScalarMulAcc)
+                  007e56c0    00000040                       : gtrack_utilities_2d.oe674 (.text:gtrack_isPointBehindTarget)
+                  007e5700    00000040                       : gtrack_utilities_2d.oe674 (.text:gtrack_isPointInsideBox)
+                  007e5740    00000040                       : gtrack_listlib.oe674 (.text:gtrack_listDequeue)
+                  007e5780    00000040                       : gtrack_listlib.oe674 (.text:gtrack_listEnqueue)
+                  007e57c0    00000040                       : gtrack_math.oe674 (.text:gtrack_matrixInit)
+                  007e5800    00000040                       : gtrack_math.oe674 (.text:gtrack_vectorAdd)
+                  007e5840    00000040                       : gtrack_math.oe674 (.text:gtrack_vectorScalarMul)
+                  007e5880    00000040                       : gtrack_math.oe674 (.text:gtrack_vectorSub)
+                  007e58c0    00000020                       : gtrack_listlib.oe674 (.text:gtrack_listGetCount)
+                  007e58e0    00000020                       : gtrack_listlib.oe674 (.text:gtrack_listGetFirst)
+                  007e5900    00000020                       : gtrack_listlib.oe674 (.text:gtrack_listGetNext)
+                  007e5920    00000020                       : gtrack_listlib.oe674 (.text:gtrack_listInit)
+                  007e5940    00000020                       : gtrack_unit_delete.oe674 (.text:gtrack_unitDelete)
+                  007e5960    00000020                       : gtrack_unit_get.oe674 (.text:gtrack_unitGetH)
+                  007e5980    00000020                       : gtrack_math.oe674 (.text:gtrack_vectorInit)
+                  007e59a0    000005a0                       : gtrack_math.oe674 (.const:cosTable)
+                  007e5f40    000005a0                       : gtrack_math.oe674 (.const:sinTable)
+                  007e64e0    00000374                       : gtrack_unit_update.oe674 (.const:.string)
+                  007e6854    00000004     --HOLE-- [fill = 0]
+                  007e6858    00000144                       : gtrack_create.oe674 (.const:$P$T3$3)
+                  007e699c    00000004     --HOLE-- [fill = 0]
+                  007e69a0    00000144                       : gtrack_create.oe674 (.const:$P$T4$4)
+                  007e6ae4    00000004     --HOLE-- [fill = 0]
+                  007e6ae8    00000090                       : gtrack_create.oe674 (.const:$P$T1$1)
+                  007e6b78    00000090                       : gtrack_create.oe674 (.const:$P$T2$2)
+                  007e6c08    0000007c                       : gtrack_unit_predict.oe674 (.const:.string)
+                  007e6c84    00000068                       : gtrack_create.oe674 (.const:defaultSceneryParams)
+                  007e6cec    00000054                       : gtrack_unit_start.oe674 (.const:.string)
+                  007e6d40    00000050                       : gtrack_unit_event.oe674 (.const:.string)
+                  007e6d90    00000038                       : gtrack_module.oe674 (.const:.string)
+                  007e6dc8    00000034                       : gtrack_unit_score.oe674 (.const:.string)
+                  007e6dfc    00000034                       : gtrack_unit_stop.oe674 (.const:.string)
+                  007e6e30    00000030                       : gtrack_step.oe674 (.const:.string)
+                  007e6e60    00000028                       : gtrack_math.oe674 (.const:.string)
+                  007e6e88    00000018                       : gtrack_create.oe674 (.const:defaultAllocationParams)
+                  007e6ea0    00000018                       : gtrack_utilities_2d.oe674 (.const:pInit)
+                  007e6eb8    00000014                       : gtrack_create.oe674 (.const:defaultGatingParams)
+                  007e6ecc    00000010                       : gtrack_create.oe674 (.const:defaultVariationParams)
+                  007e6edc    00000004     --HOLE-- [fill = 0]
+                  007e6ee0    0000000c                       : gtrack_utilities_2d.oe674 (.const:spreadInit)
+                  007e6eec    00000004     --HOLE-- [fill = 0]
+                  007e6ef0    0000000c                       : gtrack_utilities_2d.oe674 (.const:spreadMin)
+                  007e6efc    0000000a                       : gtrack_create.oe674 (.const:defaultStateParams)
+                  007e6f06    0000001a     --HOLE-- [fill = 00000000]
+
+.text      0    007e6f20    00015320     
+                  007e6f20    00001fe0     rts6740_elf.lib : _printfi.c.obj (.text:__TI_printfi)
+                  007e8f00    00000ee0     gtrackApp.oe674 (.text:Test_initTask)
+                  007e9de0    000008a0     ti.targets.rts6000.ae674 : System.oe674 (.text:xdc_runtime_System_doPrint__I)
+                  007ea680    000007c0     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_knl_Semaphore_pend__E)
+                  007eae40    00000780                   : BIOS.obj (.text:ti_sysbios_family_c64p_Exception_handler__I)
+                  007eb5c0    00000660     rts6740_elf.lib : _printfi.c.obj (.text:_pconv_a)
+                  007ebc20    00000660                     : powf.c.obj (.text:powf)
+                  007ec280    00000620     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_heaps_HeapMem_allocUnprotected__E)
+                  007ec8a0    00000600     rts6740_elf.lib : divd.c.obj (.text:__c6xabi_divd)
+                  007ecea0    000005c0     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_heaps_HeapMem_freeUnprotected__E)
+                  007ed460    00000520                   : BIOS.obj (.text:ti_sysbios_knl_Task_Instance_finalize__E)
+                  007ed980    00000440                   : BIOS.obj (.text:ti_sysbios_timers_rti_Timer_Module_startup__E)
+                  007eddc0    00000400     rts6740_elf.lib : _printfi.c.obj (.text:_pconv_g)
+                  007ee1c0    000003e0     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_knl_Task_Module_startup__E)
+                  007ee5a0    000003c0                   : BIOS.obj (.text:ti_sysbios_knl_Task_Instance_init__E)
+                  007ee960    00000380     dss_pe674.oe674 (.text:xdc_runtime_System_printfExtend__I)
+                  007eece0    00000360     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_knl_Semaphore_post__E)
+                  007ef040    00000320     rts6740_elf.lib : fputs.c.obj (.text:fputs)
+                  007ef360    000002e0     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_heaps_HeapMem_Instance_init__E)
+                  007ef640    000002c0                   : BIOS.obj (.text:ti_sysbios_knl_Clock_workFunc__E)
+                  007ef900    000002a0     rts6740_elf.lib : divf.c.obj (.text:__c6xabi_divf)
+                  007efba0    000002a0                     : _printfi.c.obj (.text:_pconv_e)
+                  007efe40    000002a0                     : _printfi.c.obj (.text:fcvt)
+                  007f00e0    00000280     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_family_c64p_Cache_Module_startup__E)
+                  007f0360    00000260     libtestlogger_xwr18xx.ae674 : logger.oe674 (.text:MCPI_setFeatureTestResult)
+                  007f05c0    00000260     rts6740_elf.lib : imath64.c.obj (.text:__c6xabi_divull)
+                  007f0820    00000260     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_family_c64p_Hwi_dispatchCore__I)
+                  007f0a80    00000260     ti.targets.rts6000.ae674 : Startup.oe674 (.text:xdc_runtime_Startup_startMods__I)
+                  007f0ce0    00000240     rts6740_elf.lib : fread.c.obj (.text:fread)
+                  007f0f20    00000240                     : tanf.c.obj (.text:tanf)
+                  007f1160    00000240     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_family_c64p_Exception_internalHandler__I)
+                  007f13a0    00000240                   : BIOS.obj (.text:ti_sysbios_timers_rti_Timer_getFreq__E)
+                  007f15e0    00000240     ti.targets.rts6000.ae674 : Core-mem.oe674 (.text:xdc_runtime_Core_createObject__I)
+                  007f1820    00000220     rts6740_elf.lib : open.c.obj (.text:open)
+                  007f1a40    00000220     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_family_c64p_Cache_setMode__E)
+                  007f1c60    00000220                   : BIOS.obj (.text:ti_sysbios_knl_Swi_run__I)
+                  007f1e80    00000200     rts6740_elf.lib : _printfi.c.obj (.text:_ltostr)
+                  007f2080    00000200     sysbios.ae674 : c64p_Hwi_disp_always.obj (.text:_ti_sysbios_family_c64p_Hwi_dispatchAlways)
+                  007f2280    00000200     ti.targets.rts6000.ae674 : Error.oe674 (.text:xdc_runtime_Error_policyDefault__E)
+                  007f2480    000001e0     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_family_c64p_EventCombiner_dispatchPlug__E)
+                  007f2660    000001e0                   : BIOS.obj (.text:ti_sysbios_gates_GateMutex_enter__E)
+                  007f2840    000001e0                   : BIOS.obj (.text:ti_sysbios_knl_Task_exit__E)
+                  007f2a20    000001e0     ti.targets.rts6000.ae674 : Text.oe674 (.text:xdc_runtime_Text_putSite__E)
+                  007f2c00    000001c0     rts6740_elf.lib : imath40.c.obj (.text:__c6xabi_divul)
+                  007f2dc0    000001c0                     : fopen.c.obj (.text:_openfile)
+                  007f2f80    000001c0                     : fputc.c.obj (.text:fputc)
+                  007f3140    000001c0                     : frexp.c.obj (.text:frexp)
+                  007f3300    000001c0                     : ldexp.c.obj (.text:ldexp)
+                  007f34c0    000001c0                     : ldexpf.c.obj (.text:ldexpf)
+                  007f3680    000001c0                     : setvbuf.c.obj (.text:setvbuf)
+                  007f3840    000001c0     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_knl_Task_checkStacks__E)
+                  007f3a00    000001a0     rts6740_elf.lib : hostrename.c.obj (.text:HOSTrename)
+                  007f3ba0    000001a0                     : frexpf.c.obj (.text:frexpf)
+                  007f3d40    000001a0     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_family_c64p_Cache_getL2InitSize__I)
+                  007f3ee0    000001a0                   : BIOS.obj (.text:ti_sysbios_family_c64p_EventCombiner_disableEvent__E)
+                  007f4080    000001a0                   : BIOS.obj (.text:ti_sysbios_family_c64p_EventCombiner_enableEvent__E)
+                  007f4220    000001a0                   : BIOS.obj (.text:ti_sysbios_heaps_HeapBuf_Module_startup__E)
+                  007f43c0    000001a0                   : BIOS.obj (.text:ti_sysbios_knl_Task_schedule__I)
+                  007f4560    000001a0                   : BIOS.obj (.text:ti_sysbios_timers_rti_Timer_startup__E)
+                  007f4700    000001a0     ti.targets.rts6000.ae674 : Core-smem.oe674 (.text:xdc_runtime_Core_constructObject__I)
+                  007f48a0    00000180     sysbios.ae674 : c64p_Exception_asm.obj (.text)
+                  007f4a20    00000180                   : BIOS.obj (.text:ti_sysbios_knl_Task_postInit__I)
+                  007f4ba0    00000180                   : BIOS.obj (.text:ti_sysbios_knl_Task_startCore__E)
+                  007f4d20    00000160     rts6740_elf.lib : _bufread.c.obj (.text:__TI_buff_read)
+                  007f4e80    00000160                     : sqrt.c.obj (.text:sqrt)
+                  007f4fe0    00000160     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_family_c64p_Cache_enable__E)
+                  007f5140    00000160                   : BIOS.obj (.text:ti_sysbios_family_c64p_Hwi_Module_startup__E)
+                  007f52a0    00000160                   : BIOS.obj (.text:ti_sysbios_knl_Swi_post__E)
+                  007f5400    00000160     ti.targets.rts6000.ae674 : Text.oe674 (.text:xdc_runtime_Text_putMod__E)
+                  007f5560    00000140     libsoc_xwr18xx.ae674 : soc.oe674 (.text:SOC_init)
+                  007f56a0    00000140     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_family_c64p_Cache_getL1DInitSize__I)
+                  007f57e0    00000140                   : BIOS.obj (.text:ti_sysbios_family_c64p_Cache_getL1PInitSize__I)
+                  007f5920    00000140                   : BIOS.obj (.text:ti_sysbios_knl_Semaphore_Instance_init__E)
+                  007f5a60    00000140                   : BIOS.obj (.text:ti_sysbios_knl_Task_blockI__E)
+                  007f5ba0    00000140                   : BIOS.obj (.text:ti_sysbios_timers_rti_Timer_initDevice__I)
+                  007f5ce0    00000140     ti.targets.rts6000.ae674 : Core-mem.oe674 (.text:xdc_runtime_Core_deleteObject__I)
+                  007f5e20    00000140                              : Text.oe674 (.text:xdc_runtime_Text_putLab__E)
+                  007f5f60    00000120     boot.ae674 : autoinit.oe674 (.text:_auto_init_elf)
+                  007f6080    00000120     rts6740_elf.lib : _printfi.c.obj (.text:_pconv_f)
+                  007f61a0    00000120                     : fopen.c.obj (.text:fopen)
+                  007f62c0    00000120                     : getdevice.c.obj (.text:getdevice)
+                  007f63e0    00000120                     : logf.c.obj (.text:logf)
+                  007f6500    00000120                     : sqrtf.c.obj (.text:sqrtf)
+                  007f6620    00000120     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_knl_Swi_restoreHwi__E)
+                  007f6740    00000120                   : BIOS.obj (.text:ti_sysbios_knl_Task_unblockI__E)
+                  007f6860    00000100     libsoc_xwr18xx.ae674 : soc_xwr18xx_dss.oe674 (.text:SOC_deviceInit)
+                  007f6960    00000100     rts6740_elf.lib : fclose.c.obj (.text:__TI_closefile)
+                  007f6a60    00000100                     : _printfi.c.obj (.text:_mcpy)
+                  007f6b60    00000100                     : atanf.c.obj (.text:atanf)
+                  007f6c60    00000100                     : atoi.c.obj (.text:atoi)
+                  007f6d60    00000100                     : fflush.c.obj (.text:fflush)
+                  007f6e60    00000100                     : fseek.c.obj (.text:fseek)
+                  007f6f60    00000100     main_dss.oe674 (.text:main)
+                  007f7060    00000100     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_knl_Swi_schedule__I)
+                  007f7160    00000100     ti.targets.rts6000.ae674 : Error.oe674 (.text:xdc_runtime_Error_print__E)
+                  007f7260    00000100                              : Memory.oe674 (.text:xdc_runtime_Memory_alloc__E)
+                  007f7360    00000100                              : Startup.oe674 (.text:xdc_runtime_Startup_exec__E)
+                  007f7460    000000e0     rts6740_elf.lib : hostlseek.c.obj (.text:HOSTlseek)
+                  007f7540    000000e0                     : hostopen.c.obj (.text:HOSTopen)
+                  007f7620    000000e0                     : hostwrite.c.obj (.text:HOSTwrite)
+                  007f7700    000000e0                     : _ltoa.c.obj (.text:__TI_ltoa)
+                  007f77e0    000000e0                     : _io_perm.c.obj (.text:__TI_wrt_ok)
+                  007f78c0    000000e0                     : close.c.obj (.text:close)
+                  007f79a0    000000e0                     : exit.c.obj (.text:exit)
+                  007f7a80    000000e0                     : memset.c.obj (.text:memset)
+                  007f7b60    000000e0                     : printf.c.obj (.text:printf)
+                  007f7c40    000000e0     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_heaps_HeapMem_alloc__E)
+                  007f7d20    000000e0                   : BIOS.obj (.text:ti_sysbios_knl_Swi_runLoop__I)
+                  007f7e00    000000e0                   : BIOS.obj (.text:ti_sysbios_knl_Swi_startup__E)
+                  007f7ee0    000000e0     ti.targets.rts6000.ae674 : Text.oe674 (.text:xdc_runtime_Text_visitRope2__I)
+                  007f7fc0    000000c0     rts6740_elf.lib : hostread.c.obj (.text:HOSTread)
+                  007f8080    000000c0                     : hostunlink.c.obj (.text:HOSTunlink)
+                  007f8140    000000c0                     : divu.asm.obj (.text:__divu)
+                  007f8200    000000c0     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_heaps_HeapMem_getStats__E)
+                  007f82c0    000000c0                   : BIOS.obj (.text:ti_sysbios_knl_Clock_logTick__E)
+                  007f8380    000000c0                   : BIOS.obj (.text:ti_sysbios_knl_Task_allBlockedFunction__I)
+                  007f8440    000000c0     dss_pe674.oe674 (.text:ti_sysbios_knl_Task_create)
+                  007f8500    000000c0     rts6740_elf.lib : tls.c.obj (.text:tls:init:__TI_tls_init)
+                  007f85c0    000000c0                     : vprintf.c.obj (.text:vprintf)
+                  007f8680    000000c0     ti.targets.rts6000.ae674 : Assert.oe674 (.text:xdc_runtime_Assert_raise__I)
+                  007f8740    000000c0                              : Error.oe674 (.text:xdc_runtime_Error_setX__E)
+                  007f8800    000000a0     rts6740_elf.lib : hostclose.c.obj (.text:HOSTclose)
+                  007f88a0    000000a0     libsoc_xwr18xx.ae674 : soc.oe674 (.text:SOC_SystemISR)
+                  007f8940    000000a0     rts6740_elf.lib : fopen.c.obj (.text:__TI_cleanup)
+                  007f89e0    000000a0                     : fflush.c.obj (.text:__TI_doflush)
+                  007f8a80    000000a0                     : _io_perm.c.obj (.text:__TI_rd_ok)
+                  007f8b20    000000a0                     : fixfu.c.obj (.text:__c6xabi_fixfu)
+                  007f8bc0    000000a0                     : fltullf.c.obj (.text:__c6xabi_fltullf)
+                  007f8c60    000000a0                     : remu.asm.obj (.text:__remu)
+                  007f8d00    000000a0     boot.ae674 : boot.oe674 (.text:_c_int00)
+                  007f8da0    000000a0     rts6740_elf.lib : _printfi.c.obj (.text:_ecpy)
+                  007f8e40    000000a0                     : getdevice.c.obj (.text:finddevice)
+                  007f8ee0    000000a0                     : memcpy64.asm.obj (.text:memcpy)
+                  007f8f80    000000a0     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_family_c64p_Exception_Module_startup__E)
+                  007f9020    000000a0                   : BIOS.obj (.text:ti_sysbios_family_c64p_Hwi_dispatchC__I)
+                  007f90c0    000000a0                   : BIOS.obj (.text:ti_sysbios_family_c64p_Hwi_getStackInfo__E)
+                  007f9160    000000a0     ti.targets.rts6000.ae674 : Core-params.oe674 (.text:xdc_runtime_Core_assignParams__I)
+                  007f9200    000000a0                              : System.oe674 (.text:xdc_runtime_System_formatNum__I)
+                  007f92a0    000000a0                              : System.oe674 (.text:xdc_runtime_System_putchar__I)
+                  007f9340    000000a0                              : Text.oe674 (.text:xdc_runtime_Text_printVisFxn__I)
+                  007f93e0    000000a0                              : Text.oe674 (.text:xdc_runtime_Text_xprintf__I)
+                  007f9480    00000080     rts6740_elf.lib : trgmsg.c.obj (.text:__TI_readmsg)
+                  007f9500    00000080                     : fixdu.c.obj (.text:__c6xabi_fixdu)
+                  007f9580    00000080                     : llshift.c.obj (.text:__c6xabi_llshl)
+                  007f9600    00000080                     : roundf.c.obj (.text:__c6xabi_roundf)
+                  007f9680    00000080                     : snprintf.c.obj (.text:_outs)
+                  007f9700    00000080     sysbios.ae674 : c62_TaskSupport_asm.obj (.text:_ti_sysbios_family_c62_TaskSupport_swap__E)
+                  007f9780    00000080     rts6740_elf.lib : fclose.c.obj (.text:fclose)
+                  007f9800    00000080                     : snprintf.c.obj (.text:snprintf)
+                  007f9880    00000080     dss_pe674.oe674 (.text:ti_sysbios_BIOS_atExitFunc__I)
+                  007f9900    00000080     dss_pe674.oe674 (.text:ti_sysbios_BIOS_registerRTSLock__I)
+                  007f9980    00000080     dss_pe674.oe674 (.text:ti_sysbios_gates_GateHwi_Object__create__S)
+                  007f9a00    00000080     dss_pe674.oe674 (.text:ti_sysbios_gates_GateMutex_Object__create__S)
+                  007f9a80    00000080     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_hal_Hwi_checkStack)
+                  007f9b00    00000080     dss_pe674.oe674 (.text:ti_sysbios_heaps_HeapMem_Object__create__S)
+                  007f9b80    00000080     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_heaps_HeapMem_init__I)
+                  007f9c00    00000080     dss_pe674.oe674 (.text:ti_sysbios_knl_Clock_doTick__I)
+                  007f9c80    00000080     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_knl_Idle_run__E)
+                  007f9d00    00000080                   : BIOS.obj (.text:ti_sysbios_knl_Semaphore_pendTimeout__I)
+                  007f9d80    00000080                   : BIOS.obj (.text:ti_sysbios_knl_Task_processVitalTaskFlag__I)
+                  007f9e00    00000080     dss_pe674.oe674 (.text:ti_sysbios_rts_MemAlloc_alloc)
+                  007f9e80    00000080     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_timers_rti_Timer_stop__E)
+                  007f9f00    00000080     rts6740_elf.lib : unlink.c.obj (.text:unlink)
+                  007f9f80    00000080     ti.targets.rts6000.ae674 : Core-label.oe674 (.text:xdc_runtime_Core_assignLabel__I)
+                  007fa000    00000080                              : SysStd.oe674 (.text:xdc_runtime_SysStd_abort__E)
+                  007fa080    00000080                              : System.oe674 (.text:xdc_runtime_System_atexit__E)
+                  007fa100    00000080                              : System.oe674 (.text:xdc_runtime_System_avprintf__E)
+                  007fa180    00000080                              : System.oe674 (.text:xdc_runtime_System_processAtExit__E)
+                  007fa200    00000080                              : System.oe674 (.text:xdc_runtime_System_vprintf__E)
+                  007fa280    00000060     libsoc_xwr18xx.ae674 : soc.oe674 (.text:SOC_unhaltBSS)
+                  007fa2e0    00000060     rts6740_elf.lib : trgmsg.c.obj (.text:__TI_writemsg)
+                  007fa340    00000060                     : llshift.c.obj (.text:__c6xabi_llshru)
+                  007fa3a0    00000060                     : imath64.c.obj (.text:_subcull)
+                  007fa400    00000060     sysbios.ae674 : c64p_Hwi_asm_switch.obj (.text:_ti_sysbios_family_c64p_Hwi_switchAndDispatch__I)
+                  007fa460    00000060                   : c64p_Hwi_asm_switch.obj (.text:_ti_sysbios_family_xxx_Hwi_switchAndRunFunc)
+                  007fa4c0    00000060     rts6740_elf.lib : lseek.c.obj (.text:lseek)
+                  007fa520    00000060                     : memccpy.c.obj (.text:memccpy)
+                  007fa580    00000060                     : modff.c.obj (.text:modff)
+                  007fa5e0    00000060                     : read.c.obj (.text:read)
+                  007fa640    00000060                     : sprintf.c.obj (.text:sprintf)
+                  007fa6a0    00000060     dss_pe674.oe674 (.text:ti_sysbios_BIOS_errorRaiseHook__I)
+                  007fa700    00000060     dss_pe674.oe674 (.text:ti_sysbios_BIOS_removeRTSLock__I)
+                  007fa760    00000060     dss_pe674.oe674 (.text:ti_sysbios_BIOS_startFunc__I)
+                  007fa7c0    00000060     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_family_c62_TaskSupport_start__E)
+                  007fa820    00000060                   : BIOS.obj (.text:ti_sysbios_family_c64p_Cache_setMar__E)
+                  007fa880    00000060                   : BIOS.obj (.text:ti_sysbios_family_c64p_EventCombiner_Module_startup__E)
+                  007fa8e0    00000060                   : BIOS.obj (.text:ti_sysbios_family_c64p_EventCombiner_unused__E)
+                  007fa940    00000060     dss_pe674.oe674 (.text:ti_sysbios_gates_GateMutex_Object__delete__S)
+                  007fa9a0    00000060     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_hal_Hwi_initStack)
+                  007faa00    00000060                   : BIOS.obj (.text:ti_sysbios_heaps_HeapMem_free__E)
+                  007faa60    00000060                   : BIOS.obj (.text:ti_sysbios_knl_Clock_Module_startup__E)
+                  007faac0    00000060     dss_pe674.oe674 (.text:ti_sysbios_knl_Queue_construct)
+                  007fab20    00000060     dss_pe674.oe674 (.text:ti_sysbios_knl_Semaphore_construct)
+                  007fab80    00000060     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_knl_Swi_Module_startup__E)
+                  007fabe0    00000060                   : BIOS.obj (.text:ti_sysbios_knl_Task_enter__I)
+                  007fac40    00000060     rts6740_elf.lib : write.c.obj (.text:write)
+                  007faca0    00000060     ti.targets.rts6000.ae674 : Memory.oe674 (.text:xdc_runtime_Memory_valloc__E)
+                  007fad00    00000060                              : Text.oe674 (.text:xdc_runtime_Text_cordText__E)
+                  007fad60    00000040     libsoc_xwr18xx.ae674 : soc.oe674 (.text:CSL_FEXTR)
+                  007fada0    00000040                          : soc.oe674 (.text:CSL_FINSR)
+                  007fade0    00000040                          : soc_xwr18xx_dss.oe674 (.text:CSL_FINSR)
+                  007fae20    00000040     libosal_xwr18xx.ae674 : HwiP_tirtos.oe674 (.text:HwiP_create)
+                  007fae60    00000040     libtestlogger_xwr18xx.ae674 : logger.oe674 (.text:MCPI_Initialize)
+                  007faea0    00000040     libsoc_xwr18xx.ae674 : soc_xwr18xx_dss.oe674 (.text:SOC_microDelay)
+                  007faee0    00000040     rts6740_elf.lib : frcmpyd_div.c.obj (.text:__TI_frcmpyd_div)
+                  007faf20    00000040                     : isinf.c.obj (.text:__c6xabi_isinf)
+                  007faf60    00000040                     : _printfi.c.obj (.text:__c6xabi_isnan)
+                  007fafa0    00000040                     : strasg.asm.obj (.text:__strasgi_64plus)
+                  007fafe0    00000040                     : args_main.c.obj (.text:_args_main)
+                  007fb020    00000040                     : snprintf.c.obj (.text:_outc)
+                  007fb060    00000040                     : sprintf.c.obj (.text:_outs)
+                  007fb0a0    00000040     sysbios.ae674 : c62_TaskSupport_asm.obj (.text:_ti_sysbios_family_c62_TaskSupport_buildTaskStack)
+                  007fb0e0    00000040     dss_pe674.oe674 (.text:free)
+                  007fb120    00000040     gtrackAlloc.oe674 (.text:gtrack_alloc)
+                  007fb160    00000040     gtrackLog.oe674 (.text:gtrack_log)
+                  007fb1a0    00000040     dss_pe674.oe674 (.text:ti_sysbios_BIOS_exitFunc__I)
+                  007fb1e0    00000040     dss_pe674.oe674 (.text:ti_sysbios_BIOS_rtsLock__I)
+                  007fb220    00000040     dss_pe674.oe674 (.text:ti_sysbios_BIOS_rtsUnlock__I)
+                  007fb260    00000040     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_family_c64p_Hwi_disableInterrupt__E)
+                  007fb2a0    00000040                   : BIOS.obj (.text:ti_sysbios_family_c64p_Hwi_enableInterrupt__E)
+                  007fb2e0    00000040     dss_pe674.oe674 (.text:ti_sysbios_gates_GateHwi_Handle__label__S)
+                  007fb320    00000040     dss_pe674.oe674 (.text:ti_sysbios_gates_GateHwi_Object__delete__S)
+                  007fb360    00000040     dss_pe674.oe674 (.text:ti_sysbios_gates_GateMutex_Handle__label__S)
+                  007fb3a0    00000040     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_gates_GateMutex_Instance_init__E)
+                  007fb3e0    00000040                   : BIOS.obj (.text:ti_sysbios_gates_GateMutex_leave__E)
+                  007fb420    00000040     dss_pe674.oe674 (.text:ti_sysbios_heaps_HeapMem_Handle__label__S)
+                  007fb460    00000040     dss_pe674.oe674 (.text:ti_sysbios_heaps_HeapMem_Object__delete__S)
+                  007fb4a0    00000040     dss_pe674.oe674 (.text:ti_sysbios_heaps_HeapMem_Object__get__S)
+                  007fb4e0    00000040     dss_pe674.oe674 (.text:ti_sysbios_knl_Semaphore_destruct)
+                  007fb520    00000040     dss_pe674.oe674 (.text:ti_sysbios_knl_Swi_Object__get__S)
+                  007fb560    00000040     dss_pe674.oe674 (.text:ti_sysbios_knl_Task_Object__get__S)
+                  007fb5a0    00000040     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_timers_rti_Timer_periodicStub__E)
+                  007fb5e0    00000040     rts6740_elf.lib : wcslen.c.obj (.text:wcslen)
+                  007fb620    00000040     ti.targets.rts6000.ae674 : Error.oe674 (.text:xdc_runtime_Error_check__E)
+                  007fb660    00000040                              : Error.oe674 (.text:xdc_runtime_Error_init__E)
+                  007fb6a0    00000040                              : Registry.oe674 (.text:xdc_runtime_Registry_findById__E)
+                  007fb6e0    00000040                              : System.oe674 (.text:xdc_runtime_System_abort__E)
+                  007fb720    00000040     dss_pe674.oe674 (.text:xdc_runtime_System_aprintf__E)
+                  007fb760    00000040     ti.targets.rts6000.ae674 : System.oe674 (.text:xdc_runtime_System_exit__E)
+                  007fb7a0    00000040     dss_pe674.oe674 (.text:xdc_runtime_System_printf__E)
+                  007fb7e0    00000020     libosal_xwr18xx.ae674 : HwiP_tirtos.oe674 (.text:HwiP_Params_init)
+                  007fb800    00000020                           : HwiP_tirtos.oe674 (.text:HwiP_disableInterrupt)
+                  007fb820    00000020     libtestlogger_xwr18xx.ae674 : logger.oe674 (.text:MCPI_setTestResult)
+                  007fb840    00000020     libosal_xwr18xx.ae674 : MemoryP_tirtos.oe674 (.text:MemoryP_ctrlAlloc)
+                  007fb860    00000020                           : MemoryP_tirtos.oe674 (.text:MemoryP_ctrlFree)
+                  007fb880    00000020     libsoc_xwr18xx.ae674 : soc_xwr18xx.oe674 (.text:SOC_ungateClock)
+                  007fb8a0    00000020     libosal_xwr18xx.ae674 : DebugP_tirtos.oe674 (.text:_DebugP_assert)
+                  007fb8c0    00000020     rts6740_elf.lib : errno.c.obj (.text:__c6xabi_errno_addr)
+                  007fb8e0    00000020                     : truncf.c.obj (.text:__c6xabi_truncf)
+                  007fb900    00000020                     : push.asm.obj (.text:__pop_rts)
+                  007fb920    00000020                     : push.asm.obj (.text:__push_rts)
+                  007fb940    00000020                     : _lock.c.obj (.text:_nop)
+                  007fb960    00000020                     : printf.c.obj (.text:_outc)
+                  007fb980    00000020                     : sprintf.c.obj (.text:_outc)
+                  007fb9a0    00000020                     : vprintf.c.obj (.text:_outc)
+                  007fb9c0    00000020                     : printf.c.obj (.text:_outs)
+                  007fb9e0    00000020                     : vprintf.c.obj (.text:_outs)
+                  007fba00    00000020                     : _lock.c.obj (.text:_register_lock)
+                  007fba20    00000020                     : _lock.c.obj (.text:_register_unlock)
+                  007fba40    00000020                     : signbit.c.obj (.text:_signbit)
+                  007fba60    00000020     sysbios.ae674 : c62_TaskSupport_asm.obj (.text:_ti_sysbios_family_c62_TaskSupport_glue)
+                  007fba80    00000020     rts6740_elf.lib : exit.c.obj (.text:abort)
+                  007fbaa0    00000020     gtrackAlloc.oe674 (.text:gtrack_free)
+                  007fbac0    00000020     rts6740_elf.lib : fputc.c.obj (.text:putchar)
+                  007fbae0    00000020     dss_pe674.oe674 (.text:ti_sysbios_BIOS_RtsGateProxy_enter__E)
+                  007fbb00    00000020     dss_pe674.oe674 (.text:ti_sysbios_BIOS_RtsGateProxy_leave__E)
+                  007fbb20    00000020     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_BIOS_exit__E)
+                  007fbb40    00000020                   : BIOS.obj (.text:ti_sysbios_BIOS_linkedWithIncorrectBootLibrary__E)
+                  007fbb60    00000020     dss_pe674.oe674 (.text:ti_sysbios_BIOS_nullFunc__I)
+                  007fbb80    00000020     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_BIOS_setThreadType__E)
+                  007fbba0    00000020                   : BIOS.obj (.text:ti_sysbios_BIOS_start__E)
+                  007fbbc0    00000020     dss_pe674.oe674 (.text:ti_sysbios_family_c62_TaskSupport_Module__startupDone__S)
+                  007fbbe0    00000020     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_family_c62_TaskSupport_checkStack__E)
+                  007fbc00    00000020                   : BIOS.obj (.text:ti_sysbios_family_c62_TaskSupport_getStackAlignment__E)
+                  007fbc20    00000020     dss_pe674.oe674 (.text:ti_sysbios_family_c64p_Hwi_Module__startupDone__F)
+                  007fbc40    00000020     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_family_c64p_Hwi_clearInterrupt__E)
+                  007fbc60    00000020                   : BIOS.obj (.text:ti_sysbios_family_c64p_Hwi_startup__E)
+                  007fbc80    00000020                   : BIOS.obj (.text:ti_sysbios_family_c64p_Hwi_switchFromBootStack__E)
+                  007fbca0    00000020                   : BIOS.obj (.text:ti_sysbios_gates_GateHwi_Instance_init__E)
+                  007fbcc0    00000020                   : BIOS.obj (.text:ti_sysbios_gates_GateHwi_enter__E)
+                  007fbce0    00000020                   : BIOS.obj (.text:ti_sysbios_gates_GateHwi_leave__E)
+                  007fbd00    00000020                   : BIOS.obj (.text:ti_sysbios_gates_GateHwi_query__E)
+                  007fbd20    00000020                   : BIOS.obj (.text:ti_sysbios_gates_GateMutex_Instance_finalize__E)
+                  007fbd40    00000020                   : BIOS.obj (.text:ti_sysbios_gates_GateMutex_query__E)
+                  007fbd60    00000020                   : BIOS.obj (.text:ti_sysbios_hal_Hwi_Module_startup__E)
+                  007fbd80    00000020     dss_pe674.oe674 (.text:ti_sysbios_heaps_HeapBuf_Object__get__S)
+                  007fbda0    00000020     dss_pe674.oe674 (.text:ti_sysbios_heaps_HeapMem_Module_GateProxy_enter__E)
+                  007fbdc0    00000020     dss_pe674.oe674 (.text:ti_sysbios_heaps_HeapMem_Module_GateProxy_leave__E)
+                  007fbde0    00000020     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_heaps_HeapMem_isBlocking__E)
+                  007fbe00    00000020     dss_pe674.oe674 (.text:ti_sysbios_knl_Clock_TimerProxy_getMaxTicks__E)
+                  007fbe20    00000020     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_knl_Idle_loop__E)
+                  007fbe40    00000020                   : BIOS.obj (.text:ti_sysbios_knl_Queue_Instance_init__E)
+                  007fbe60    00000020     dss_pe674.oe674 (.text:ti_sysbios_knl_Queue_Object__get__S)
+                  007fbe80    00000020     dss_pe674.oe674 (.text:ti_sysbios_knl_Queue_destruct)
+                  007fbea0    00000020     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_knl_Queue_empty__E)
+                  007fbec0    00000020                   : BIOS.obj (.text:ti_sysbios_knl_Semaphore_Instance_finalize__E)
+                  007fbee0    00000020                   : BIOS.obj (.text:ti_sysbios_knl_Swi_disable__E)
+                  007fbf00    00000020     dss_pe674.oe674 (.text:ti_sysbios_knl_Task_Params__init__S)
+                  007fbf20    00000020     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_knl_Task_disable__E)
+                  007fbf40    00000020                   : BIOS.obj (.text:ti_sysbios_knl_Task_startup__E)
+                  007fbf60    00000020     dss_pe674.oe674 (.text:ti_sysbios_timers_rti_Timer_Module__startupDone__F)
+                  007fbf80    00000020     sysbios.ae674 : BIOS.obj (.text:ti_sysbios_timers_rti_Timer_getMaxTicks__E)
+                  007fbfa0    00000020     ti.targets.rts6000.ae674 : Error.oe674 (.text:xdc_runtime_Error_getSite__E)
+                  007fbfc0    00000020                              : Error.oe674 (.text:xdc_runtime_Error_raiseX__E)
+                  007fbfe0    00000020                              : Gate.oe674 (.text:xdc_runtime_Gate_enterSystem__E)
+                  007fc000    00000020                              : Gate.oe674 (.text:xdc_runtime_Gate_leaveSystem__E)
+                  007fc020    00000020     dss_pe674.oe674 (.text:xdc_runtime_IHeap_alloc)
+                  007fc040    00000020     dss_pe674.oe674 (.text:xdc_runtime_IHeap_free)
+                  007fc060    00000020     ti.targets.rts6000.ae674 : Memory.oe674 (.text:xdc_runtime_Memory_calloc__E)
+                  007fc080    00000020                              : Memory.oe674 (.text:xdc_runtime_Memory_free__E)
+                  007fc0a0    00000020                              : Memory.oe674 (.text:xdc_runtime_Memory_getMaxDefaultTypeAlign__E)
+                  007fc0c0    00000020     dss_pe674.oe674 (.text:xdc_runtime_Startup_exec__I)
+                  007fc0e0    00000020     dss_pe674.oe674 (.text:xdc_runtime_Startup_reset__I)
+                  007fc100    00000020     ti.targets.rts6000.ae674 : Startup.oe674 (.text:xdc_runtime_Startup_rtsDone__E)
+                  007fc120    00000020                              : SysStd.oe674 (.text:xdc_runtime_SysStd_exit__E)
+                  007fc140    00000020                              : SysStd.oe674 (.text:xdc_runtime_SysStd_putch__E)
+                  007fc160    00000020                              : SysStd.oe674 (.text:xdc_runtime_SysStd_ready__E)
+                  007fc180    00000020     dss_pe674.oe674 (.text:xdc_runtime_System_Module_GateProxy_enter__E)
+                  007fc1a0    00000020     dss_pe674.oe674 (.text:xdc_runtime_System_Module_GateProxy_leave__E)
+                  007fc1c0    00000020     ti.targets.rts6000.ae674 : System.oe674 (.text:xdc_runtime_System_Module_startup__E)
+                  007fc1e0    00000020                              : System.oe674 (.text:xdc_runtime_System_vsnprintf__E)
+                  007fc200    00000020                              : Text.oe674 (.text:xdc_runtime_Text_ropeText__E)
+                  007fc220    00000020     dss_pe674.oe674 (.text:xdc_runtime_Text_visitRope__I)
+
+systemHeap 
+*          0    00800000    0000c000     UNINITIALIZED
+                  00800000    0000c000     dss_pe674.oe674 (systemHeap)
+
+.stack     0    008189a0    00001000     UNINITIALIZED
+                  008189a0    00000008     boot.ae674 : boot.oe674 (.stack)
+                  008189a8    00000ff8     --HOLE--
+
+.rodata    0    0081a6ac    00000004     
+                  0081a6ac    00000004     dss_pe674.oe674 (.rodata)
+
+.neardata 
+*          0    0081a838    00000014     
+                  0081a838    0000000c     libtestlogger_xwr18xx.ae674 : logger.oe674 (.neardata)
+                  0081a844    00000004     gtrackAlloc.oe674 (.neardata)
+                  0081a848    00000004     main_dss.oe674 (.neardata)
+
+.cinit     0    00800000    00000000     UNINITIALIZED
+
+.far       0    0080c000    000099d0     UNINITIALIZED
+                  0080c000    00005208     (.common:targetDescr)
+                  00811208    00003e80     (.common:pointCloud)
+                  00815088    00000800     dss_pe674.oe674 (.far:taskStackSection)
+                  00815888    00000140     (.common:__TI_tmpnams)
+                  008159c8    00000008     (.common:parmbuf)
+
+.MCPILogBuffer 
+*          0    20000000    00002400     UNINITIALIZED
+                  20000000    00002400     main_dss.oe674 (.MCPILogBuffer)
+
+.const     0    008159d0    00002fce     
+                  008159d0    000019be     dss_pe674.oe674 (.const:xdc_runtime_Text_charTab__A)
+                  0081738e    00000002     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Cache_Module__id__C)
+                  00817390    0000072c     gtrackApp.oe674 (.const:.string)
+                  00817abc    00000518     sysbios.ae674 : BIOS.obj (.const:.string)
+                  00817fd4    00000004     ti.targets.rts6000.ae674 : Assert.oe674 (.const:.string)
+                  00817fd8    00000101     rts6740_elf.lib : ctype.c.obj (.const:.string:_ctypes_)
+                  008180d9    00000001     --HOLE-- [fill = 0]
+                  008180da    00000002     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_EventCombiner_Module__id__C)
+                  008180dc    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c62_TaskSupport_stackAlignment__C)
+                  008180e0    000000c8     dss_pe674.oe674 (.const:xdc_runtime_Text_nodeTab__A)
+                  008181a8    000000ac     main_dss.oe674 (.const:.string)
+                  00818254    00000094     libtestlogger_xwr18xx.ae674 : logger.oe674 (.const:.string)
+                  008182e8    0000007c     dss_pe674.oe674 (.const:.string)
+                  00818364    00000058     ti.targets.rts6000.ae674 : Error.oe674 (.const:.string)
+                  008183bc    00000044     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_Object__PARAMS__C)
+                  00818400    00000040     ti.targets.rts6000.ae674 : Text.oe674 (.const:.string)
+                  00818440    0000003c     libsoc_xwr18xx.ae674 : soc_xwr18xx_dss.oe674 (.const:.string)
+                  0081847c    0000002c     ti.targets.rts6000.ae674 : Startup.oe674 (.const:.string)
+                  008184a8    0000002c     dss_pe674.oe674 (.const:xdc_runtime_Startup_sfxnTab__A)
+                  008184d4    00000028     dss_pe674.oe674 (.const:ti_sysbios_heaps_HeapMem_Module__FXNS__C)
+                  008184fc    00000024     rts6740_elf.lib : _printfi.c.obj (.const:.string)
+                  00818520    00000024     dss_pe674.oe674 (.const:ti_sysbios_gates_GateHwi_Module__FXNS__C)
+                  00818544    00000024     dss_pe674.oe674 (.const:ti_sysbios_gates_GateMutex_Module__FXNS__C)
+                  00818568    00000024     dss_pe674.oe674 (.const:ti_sysbios_heaps_HeapMem_Object__PARAMS__C)
+                  0081858c    00000024     dss_pe674.oe674 (.const:ti_sysbios_knl_Semaphore_Object__PARAMS__C)
+                  008185b0    00000020     dss_pe674.oe674 (.const:ti_sysbios_gates_GateHwi_Object__DESC__C)
+                  008185d0    00000020     dss_pe674.oe674 (.const:ti_sysbios_gates_GateMutex_Object__DESC__C)
+                  008185f0    00000020     dss_pe674.oe674 (.const:ti_sysbios_heaps_HeapMem_Object__DESC__C)
+                  00818610    00000020     dss_pe674.oe674 (.const:ti_sysbios_knl_Queue_Object__DESC__C)
+                  00818630    00000020     dss_pe674.oe674 (.const:ti_sysbios_knl_Semaphore_Object__DESC__C)
+                  00818650    00000020     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_Object__DESC__C)
+                  00818670    00000018     ti.targets.rts6000.ae674 : System.oe674 (.const:.string)
+                  00818688    00000018     dss_pe674.oe674 (.const:ti_sysbios_gates_GateHwi_Object__PARAMS__C)
+                  008186a0    00000018     dss_pe674.oe674 (.const:ti_sysbios_gates_GateMutex_Object__PARAMS__C)
+                  008186b8    00000018     dss_pe674.oe674 (.const:ti_sysbios_knl_Queue_Object__PARAMS__C)
+                  008186d0    00000016     dss_pe674.oe674 (.const:xdc_runtime_Startup_sfxnRts__A)
+                  008186e6    00000002     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Exception_Module__id__C)
+                  008186e8    00000010     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_EventCombiner_EVTMASK__C)
+                  008186f8    00000008     dss_pe674.oe674 (.const:ti_sysbios_knl_Idle_funcList__C)
+                  00818700    00000008     dss_pe674.oe674 (.const:xdc_runtime_Startup_firstFxns__A)
+                  00818708    00000008     dss_pe674.oe674 (.const:xdc_runtime_Startup_firstFxns__C)
+                  00818710    00000008     dss_pe674.oe674 (.const:xdc_runtime_Startup_lastFxns__C)
+                  00818718    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Cache_E_invalidL1CacheSize__C)
+                  0081871c    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Cache_E_invalidL2CacheSize__C)
+                  00818720    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Cache_MAR0_31__C)
+                  00818724    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Cache_MAR128_159__C)
+                  00818728    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Cache_MAR160_191__C)
+                  0081872c    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Cache_MAR192_223__C)
+                  00818730    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Cache_MAR224_255__C)
+                  00818734    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Cache_MAR32_63__C)
+                  00818738    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Cache_MAR64_95__C)
+                  0081873c    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Cache_MAR96_127__C)
+                  00818740    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Cache_Module__diagsEnabled__C)
+                  00818744    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Cache_Module__diagsIncluded__C)
+                  00818748    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Cache_Module__diagsMask__C)
+                  0081874c    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_EventCombiner_A_invalidEventId__C)
+                  00818750    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_EventCombiner_EVTRegs__C)
+                  00818754    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_EventCombiner_E_unpluggedEvent__C)
+                  00818758    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_EventCombiner_Module__diagsEnabled__C)
+                  0081875c    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_EventCombiner_Module__diagsIncluded__C)
+                  00818760    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_EventCombiner_Module__diagsMask__C)
+                  00818764    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Exception_E_exceptionMax__C)
+                  00818768    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Exception_exceptionHook__C)
+                  0081876c    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Exception_externalHook__C)
+                  00818770    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Exception_internalHook__C)
+                  00818774    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Exception_nmiHook__C)
+                  00818778    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Hwi_INTRMUX1Address__C)
+                  0081877c    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Hwi_LD_end__C)
+                  00818780    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Hwi_LM_begin__C)
+                  00818784    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Hwi_Module__diagsEnabled__C)
+                  00818788    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Hwi_Module__diagsIncluded__C)
+                  0081878c    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Hwi_Module__diagsMask__C)
+                  00818790    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Hwi_Module__loggerFxn1__C)
+                  00818794    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Hwi_Module__loggerFxn8__C)
+                  00818798    00000004     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Hwi_Module__loggerObj__C)
+                  0081879c    00000004     dss_pe674.oe674 (.const:ti_sysbios_gates_GateMutex_A_badContext__C)
+                  008187a0    00000004     dss_pe674.oe674 (.const:ti_sysbios_gates_GateMutex_Instance_State_sem__O)
+                  008187a4    00000004     dss_pe674.oe674 (.const:ti_sysbios_gates_GateMutex_Module__diagsEnabled__C)
+                  008187a8    00000004     dss_pe674.oe674 (.const:ti_sysbios_gates_GateMutex_Module__diagsIncluded__C)
+                  008187ac    00000004     dss_pe674.oe674 (.const:ti_sysbios_gates_GateMutex_Module__diagsMask__C)
+                  008187b0    00000004     dss_pe674.oe674 (.const:ti_sysbios_hal_Hwi_E_stackOverflow__C)
+                  008187b4    00000004     dss_pe674.oe674 (.const:ti_sysbios_heaps_HeapBuf_Instance_State_freeList__O)
+                  008187b8    00000004     dss_pe674.oe674 (.const:ti_sysbios_heaps_HeapBuf_Object__count__C)
+                  008187bc    00000004     dss_pe674.oe674 (.const:ti_sysbios_heaps_HeapBuf_numConstructedHeaps__C)
+                  008187c0    00000004     dss_pe674.oe674 (.const:ti_sysbios_heaps_HeapMem_A_align__C)
+                  008187c4    00000004     dss_pe674.oe674 (.const:ti_sysbios_heaps_HeapMem_A_heapSize__C)
+                  008187c8    00000004     dss_pe674.oe674 (.const:ti_sysbios_heaps_HeapMem_A_invalidFree__C)
+                  008187cc    00000004     dss_pe674.oe674 (.const:ti_sysbios_heaps_HeapMem_A_zeroBlock__C)
+                  008187d0    00000004     dss_pe674.oe674 (.const:ti_sysbios_heaps_HeapMem_E_memory__C)
+                  008187d4    00000004     dss_pe674.oe674 (.const:ti_sysbios_heaps_HeapMem_Module__diagsEnabled__C)
+                  008187d8    00000004     dss_pe674.oe674 (.const:ti_sysbios_heaps_HeapMem_Module__diagsIncluded__C)
+                  008187dc    00000004     dss_pe674.oe674 (.const:ti_sysbios_heaps_HeapMem_Module__diagsMask__C)
+                  008187e0    00000004     dss_pe674.oe674 (.const:ti_sysbios_heaps_HeapMem_Module__gateObj__C)
+                  008187e4    00000004     dss_pe674.oe674 (.const:ti_sysbios_heaps_HeapMem_Object__count__C)
+                  008187e8    00000004     dss_pe674.oe674 (.const:ti_sysbios_heaps_HeapMem_reqAlign__C)
+                  008187ec    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Clock_LM_begin__C)
+                  008187f0    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Clock_LM_tick__C)
+                  008187f4    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Clock_LW_delayed__C)
+                  008187f8    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Clock_Module_State_clockQ__O)
+                  008187fc    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Clock_Module__diagsEnabled__C)
+                  00818800    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Clock_Module__diagsIncluded__C)
+                  00818804    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Clock_Module__diagsMask__C)
+                  00818808    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Clock_Module__loggerFxn1__C)
+                  0081880c    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Clock_Module__loggerFxn2__C)
+                  00818810    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Clock_Module__loggerObj__C)
+                  00818814    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Semaphore_A_badContext__C)
+                  00818818    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Idle_funcList__A)
+                  0081881c    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Semaphore_A_noEvents__C)
+                  00818820    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Semaphore_A_overflow__C)
+                  00818824    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Semaphore_A_pendTaskDisabled__C)
+                  00818828    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Semaphore_Instance_State_pendQ__O)
+                  0081882c    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Semaphore_LM_pend__C)
+                  00818830    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Semaphore_LM_post__C)
+                  00818834    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Semaphore_Module__diagsEnabled__C)
+                  00818838    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Semaphore_Module__diagsIncluded__C)
+                  0081883c    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Semaphore_Module__diagsMask__C)
+                  00818840    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Semaphore_Module__loggerFxn2__C)
+                  00818844    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Semaphore_Module__loggerFxn4__C)
+                  00818848    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Semaphore_Module__loggerObj__C)
+                  0081884c    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Swi_LD_end__C)
+                  00818850    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Swi_LM_begin__C)
+                  00818854    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Swi_LM_post__C)
+                  00818858    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Swi_Module__diagsEnabled__C)
+                  0081885c    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Swi_Module__diagsIncluded__C)
+                  00818860    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Swi_Module__diagsMask__C)
+                  00818864    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Swi_Module__loggerFxn1__C)
+                  00818868    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Swi_Module__loggerFxn4__C)
+                  0081886c    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Swi_Module__loggerObj__C)
+                  00818870    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Swi_Object__count__C)
+                  00818874    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_A_badPriority__C)
+                  00818878    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_A_badTaskState__C)
+                  0081887c    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_A_badThreadType__C)
+                  00818880    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_A_noPendElem__C)
+                  00818884    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_E_spOutOfBounds__C)
+                  00818888    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_E_stackOverflow__C)
+                  0081888c    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_LD_block__C)
+                  00818890    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_LD_exit__C)
+                  00818894    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_LD_ready__C)
+                  00818898    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_LM_switch__C)
+                  0081889c    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_Module_State_inactiveQ__O)
+                  008188a0    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_Module__diagsEnabled__C)
+                  008188a4    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_Module__diagsIncluded__C)
+                  008188a8    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_Module__diagsMask__C)
+                  008188ac    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_Module__loggerFxn2__C)
+                  008188b0    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_Module__loggerFxn4__C)
+                  008188b4    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_Module__loggerObj__C)
+                  008188b8    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_Object__count__C)
+                  008188bc    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_allBlockedFunc__C)
+                  008188c0    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_defaultStackHeap__C)
+                  008188c4    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_defaultStackSize__C)
+                  008188c8    00000004     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_numConstructedTasks__C)
+                  008188cc    00000004     dss_pe674.oe674 (.const:ti_sysbios_timers_rti_Timer_E_cannotSupport__C)
+                  008188d0    00000004     dss_pe674.oe674 (.const:ti_sysbios_timers_rti_Timer_Module__diagsEnabled__C)
+                  008188d4    00000004     dss_pe674.oe674 (.const:ti_sysbios_timers_rti_Timer_Module__diagsIncluded__C)
+                  008188d8    00000004     dss_pe674.oe674 (.const:ti_sysbios_timers_rti_Timer_Module__diagsMask__C)
+                  008188dc    00000004     dss_pe674.oe674 (.const:ti_sysbios_timers_rti_Timer_numTimerDevices__C)
+                  008188e0    00000004     dss_pe674.oe674 (.const:ti_sysbios_timers_rti_Timer_startupNeeded__C)
+                  008188e4    00000004     dss_pe674.oe674 (.const:xdc_runtime_Assert_E_assertFailed__C)
+                  008188e8    00000004     dss_pe674.oe674 (.const:xdc_runtime_Core_A_initializedParams__C)
+                  008188ec    00000004     dss_pe674.oe674 (.const:xdc_runtime_Core_Module__diagsEnabled__C)
+                  008188f0    00000004     dss_pe674.oe674 (.const:xdc_runtime_Core_Module__diagsIncluded__C)
+                  008188f4    00000004     dss_pe674.oe674 (.const:xdc_runtime_Core_Module__diagsMask__C)
+                  008188f8    00000004     dss_pe674.oe674 (.const:xdc_runtime_Error_E_memory__C)
+                  008188fc    00000004     dss_pe674.oe674 (.const:xdc_runtime_Error_Module__diagsEnabled__C)
+                  00818900    00000004     dss_pe674.oe674 (.const:xdc_runtime_Error_Module__diagsIncluded__C)
+                  00818904    00000004     dss_pe674.oe674 (.const:xdc_runtime_Error_Module__diagsMask__C)
+                  00818908    00000004     dss_pe674.oe674 (.const:xdc_runtime_Error_Module__loggerFxn8__C)
+                  0081890c    00000004     dss_pe674.oe674 (.const:xdc_runtime_Error_Module__loggerObj__C)
+                  00818910    00000004     dss_pe674.oe674 (.const:xdc_runtime_Error_policyFxn__C)
+                  00818914    00000004     dss_pe674.oe674 (.const:xdc_runtime_Error_policy__C)
+                  00818918    00000004     dss_pe674.oe674 (.const:xdc_runtime_Error_raiseHook__C)
+                  0081891c    00000004     dss_pe674.oe674 (.const:xdc_runtime_IGateProvider_Interface__BASE__C)
+                  00818920    00000004     dss_pe674.oe674 (.const:xdc_runtime_IHeap_Interface__BASE__C)
+                  00818924    00000004     dss_pe674.oe674 (.const:xdc_runtime_IModule_Interface__BASE__C)
+                  00818928    00000004     dss_pe674.oe674 (.const:xdc_runtime_Log_L_error__C)
+                  0081892c    00000004     dss_pe674.oe674 (.const:xdc_runtime_Memory_defaultHeapInstance__C)
+                  00818930    00000004     dss_pe674.oe674 (.const:xdc_runtime_Startup_execImpl__C)
+                  00818934    00000004     dss_pe674.oe674 (.const:xdc_runtime_Startup_maxPasses__C)
+                  00818938    00000004     dss_pe674.oe674 (.const:xdc_runtime_Startup_sfxnRts__C)
+                  0081893c    00000004     dss_pe674.oe674 (.const:xdc_runtime_Startup_sfxnTab__C)
+                  00818940    00000004     dss_pe674.oe674 (.const:xdc_runtime_System_Module__gateObj__C)
+                  00818944    00000004     dss_pe674.oe674 (.const:xdc_runtime_System_abortFxn__C)
+                  00818948    00000004     dss_pe674.oe674 (.const:xdc_runtime_System_exitFxn__C)
+                  0081894c    00000004     dss_pe674.oe674 (.const:xdc_runtime_System_extendFxn__C)
+                  00818950    00000004     dss_pe674.oe674 (.const:xdc_runtime_System_maxAtexitHandlers__C)
+                  00818954    00000004     dss_pe674.oe674 (.const:xdc_runtime_Text_charTab__C)
+                  00818958    00000004     dss_pe674.oe674 (.const:xdc_runtime_Text_nameEmpty__C)
+                  0081895c    00000004     dss_pe674.oe674 (.const:xdc_runtime_Text_nameStatic__C)
+                  00818960    00000004     dss_pe674.oe674 (.const:xdc_runtime_Text_nameUnknown__C)
+                  00818964    00000004     dss_pe674.oe674 (.const:xdc_runtime_Text_nodeTab__C)
+                  00818968    00000004     dss_pe674.oe674 (.const:xdc_runtime_Text_visitRopeFxn__C)
+                  0081896c    00000002     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Exception_useInternalBuffer__C)
+                  0081896e    00000002     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Hwi_Module__id__C)
+                  00818970    00000002     dss_pe674.oe674 (.const:ti_sysbios_family_c64p_Hwi_Module__loggerDefined__C)
+                  00818972    00000002     dss_pe674.oe674 (.const:ti_sysbios_gates_GateMutex_Module__id__C)
+                  00818974    00000002     dss_pe674.oe674 (.const:ti_sysbios_hal_Hwi_Module__id__C)
+                  00818976    00000002     dss_pe674.oe674 (.const:ti_sysbios_heaps_HeapMem_Module__id__C)
+                  00818978    00000002     dss_pe674.oe674 (.const:ti_sysbios_knl_Clock_Module__id__C)
+                  0081897a    00000002     dss_pe674.oe674 (.const:ti_sysbios_knl_Clock_Module__loggerDefined__C)
+                  0081897c    00000002     dss_pe674.oe674 (.const:ti_sysbios_knl_Semaphore_Module__id__C)
+                  0081897e    00000002     dss_pe674.oe674 (.const:ti_sysbios_knl_Semaphore_Module__loggerDefined__C)
+                  00818980    00000002     dss_pe674.oe674 (.const:ti_sysbios_knl_Swi_Module__id__C)
+                  00818982    00000002     dss_pe674.oe674 (.const:ti_sysbios_knl_Swi_Module__loggerDefined__C)
+                  00818984    00000002     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_Module__id__C)
+                  00818986    00000002     dss_pe674.oe674 (.const:ti_sysbios_knl_Task_Module__loggerDefined__C)
+                  00818988    00000002     dss_pe674.oe674 (.const:ti_sysbios_timers_rti_Timer_Module__id__C)
+                  0081898a    00000002     dss_pe674.oe674 (.const:ti_sysbios_timers_rti_Timer_continueOnSuspend__C)
+                  0081898c    00000002     dss_pe674.oe674 (.const:xdc_runtime_Core_Module__id__C)
+                  0081898e    00000002     dss_pe674.oe674 (.const:xdc_runtime_Error_Module__loggerDefined__C)
+                  00818990    00000002     dss_pe674.oe674 (.const:xdc_runtime_Error_maxDepth__C)
+                  00818992    00000002     dss_pe674.oe674 (.const:xdc_runtime_Main_Module__id__C)
+                  00818994    00000002     dss_pe674.oe674 (.const:xdc_runtime_Memory_Module__id__C)
+                  00818996    00000002     dss_pe674.oe674 (.const:xdc_runtime_Text_charCnt__C)
+                  00818998    00000002     dss_pe674.oe674 (.const:xdc_runtime_Text_isLoaded__C)
+                  0081899a    00000002     dss_pe674.oe674 (.const:xdc_runtime_Text_registryModsLastId__C)
+                  0081899c    00000002     dss_pe674.oe674 (.const:xdc_runtime_Text_unnamedModsLastId__C)
+
+.fardata.1 
+*          0    008199a0    00000d0c     
+                  008199a0    00000400     dss_pe674.oe674 (.fardata:ti_sysbios_family_c64p_EventCombiner_Module__state__V)
+                  00819da0    000001e0     rts6740_elf.lib : defs.c.obj (.fardata:_ftable)
+                  00819f80    000000a0                     : write.c.obj (.fardata:_stream)
+                  0081a020    00000080     dss_pe674.oe674 (.fardata:ti_sysbios_knl_Swi_Module_State_0_readyQ__A)
+                  0081a0a0    00000080     dss_pe674.oe674 (.fardata:ti_sysbios_knl_Task_Module_State_0_readyQ__A)
+                  0081a120    00000078     rts6740_elf.lib : write.c.obj (.fardata:_device)
+                  0081a198    0000006c     dss_pe674.oe674 (.fardata:ti_sysbios_family_c64p_Hwi_Module__state__V)
+                  0081a204    00000068     gtrackApp.oe674 (.fardata:appSceneryParams)
+                  0081a26c    00000004     rts6740_elf.lib : _lock.c.obj (.fardata:_lock)
+                  0081a270    0000005c     dss_pe674.oe674 (.fardata:ti_sysbios_knl_Task_Object__table__V)
+                  0081a2cc    00000048     dss_pe674.oe674 (.fardata:ti_sysbios_knl_Task_Module__state__V)
+                  0081a314    00000004     rts6740_elf.lib : _lock.c.obj (.fardata:_unlock)
+                  0081a318    00000044                     : powf.c.obj (.fardata:A1$1)
+                  0081a35c    00000004                     : defs.c.obj (.fardata)
+                  0081a360    00000040     dss_pe674.oe674 (.fardata:ti_sysbios_gates_GateMutex_Object__table__V)
+                  0081a3a0    0000003c     dss_pe674.oe674 (.fardata:ti_sysbios_timers_rti_Timer_Object__table__V)
+                  0081a3dc    00000030     dss_pe674.oe674 (.fardata:ti_sysbios_family_c64p_Exception_Module__state__V)
+                  0081a40c    00000004     rts6740_elf.lib : errno.c.obj (.fardata)
+                  0081a410    00000030     dss_pe674.oe674 (.fardata:ti_sysbios_knl_Swi_Object__table__V)
+                  0081a440    0000002c     dss_pe674.oe674 (.fardata:ti_sysbios_knl_Clock_Module__state__V)
+                  0081a46c    00000024     dss_pe674.oe674 (.fardata:ti_sysbios_BIOS_Module__state__V)
+                  0081a490    00000020     rts6740_elf.lib : powf.c.obj (.fardata:A2$2)
+                  0081a4b0    00000020                     : atanf.c.obj (.fardata:arctan_consts$1)
+                  0081a4d0    00000020                     : logf.c.obj (.fardata:log_consts$1)
+                  0081a4f0    00000020     dss_pe674.oe674 (.fardata:xdc_runtime_Error_IgnoreBlock)
+                  0081a510    00000020     dss_pe674.oe674 (.fardata:xdc_runtime_System_Module_State_0_atexitHandlers__A)
+                  0081a530    0000001c     dss_pe674.oe674 (.fardata:ti_sysbios_knl_Swi_Module__state__V)
+                  0081a54c    00000018     gtrackApp.oe674 (.fardata:appAllocationParams)
+                  0081a564    00000018     libsoc_xwr18xx.ae674 : soc_xwr18xx_dss.oe674 (.fardata:gSOCHwAttrib)
+                  0081a57c    00000004     rts6740_elf.lib : fopen.c.obj (.fardata)
+                  0081a580    00000018     dss_pe674.oe674 (.fardata:ti_sysbios_family_c64p_Hwi_Object__table__V)
+                  0081a598    00000018     dss_pe674.oe674 (.fardata:ti_sysbios_heaps_HeapMem_Object__table__V)
+                  0081a5b0    00000018     dss_pe674.oe674 (.fardata:ti_sysbios_timers_rti_Timer_Module_State_0_device__A)
+                  0081a5c8    00000014     gtrackApp.oe674 (.fardata:appGatingParams)
+                  0081a5dc    00000010     gtrackApp.oe674 (.fardata:appVariationParams)
+                  0081a5ec    00000004     rts6740_elf.lib : open.c.obj (.fardata)
+                  0081a5f0    00000010     dss_pe674.oe674 (.fardata:ti_sysbios_timers_rti_Timer_Module_State_0_intFreqs__A)
+                  0081a600    00000010     dss_pe674.oe674 (.fardata:ti_sysbios_timers_rti_Timer_Module__state__V)
+                  0081a610    0000000c     rts6740_elf.lib : powf.c.obj (.fardata:Q$4)
+                  0081a61c    0000000c                     : exit.c.obj (.fardata)
+                  0081a628    0000000a     gtrackApp.oe674 (.fardata:appStateParams)
+                  0081a632    00000002     dss_pe674.oe674 (.fardata:xdc_runtime_Error_Module__state__V)
+                  0081a634    00000004     dss_pe674.oe674 (.fardata:ti_sysbios_family_c64p_Cache_Module__state__V)
+                  0081a638    00000008     rts6740_elf.lib : tanf.c.obj (.fardata:Q$2)
+                  0081a640    00000008     dss_pe674.oe674 (.fardata:ti_sysbios_gates_GateHwi_Module__root__V)
+                  0081a648    00000008     dss_pe674.oe674 (.fardata:ti_sysbios_gates_GateMutex_Module__root__V)
+                  0081a650    00000008     dss_pe674.oe674 (.fardata:ti_sysbios_hal_Hwi_Object__table__V)
+                  0081a658    00000008     dss_pe674.oe674 (.fardata:ti_sysbios_heaps_HeapMem_Module__root__V)
+                  0081a660    00000008     dss_pe674.oe674 (.fardata:ti_sysbios_knl_Queue_Module__root__V)
+                  0081a668    00000008     dss_pe674.oe674 (.fardata:ti_sysbios_knl_Semaphore_Module__root__V)
+                  0081a670    00000008     dss_pe674.oe674 (.fardata:ti_sysbios_knl_Task_Module__root__V)
+                  0081a678    00000008     dss_pe674.oe674 (.fardata:ti_sysbios_timers_rti_Timer_Module_State_0_handles__A)
+                  0081a680    00000008     dss_pe674.oe674 (.fardata:xdc_runtime_Registry_Module__state__V)
+                  0081a688    00000008     dss_pe674.oe674 (.fardata:xdc_runtime_Startup_Module__state__V)
+                  0081a690    00000008     dss_pe674.oe674 (.fardata:xdc_runtime_System_Module__state__V)
+                  0081a698    00000004     rts6740_elf.lib : tanf.c.obj (.fardata:P$1)
+                  0081a69c    00000004     dss_pe674.oe674 (.fardata:ti_sysbios_heaps_HeapBuf_Module__state__V)
+                  0081a6a0    00000004     rts6740_elf.lib : powf.c.obj (.fardata:P$3)
+                  0081a6a4    00000004     dss_pe674.oe674 (.fardata:xdc_runtime_Memory_Module__state__V)
+                  0081a6a8    00000004     dss_pe674.oe674 (.fardata:ti_sysbios_gates_GateHwi_Object__table__V)
+
+.fardata.2 
+*          0    0081a6b0    00000004     
+                  0081a6b0    00000004     dss_pe674.oe674 (.fardata:ti_sysbios_knl_Task_Module_State_0_idleTask__A)
+
+.cio       0    0081a6b8    00000120     UNINITIALIZED
+                  0081a6b8    00000120     rts6740_elf.lib : trgmsg.c.obj (.cio)
+
+.switch    0    0081a7d8    00000060     
+                  0081a7d8    00000038     rts6740_elf.lib : _printfi.c.obj (.switch:__TI_printfi)
+                  0081a810    00000018     libgtrack2D.ae674 : gtrack_create.oe674 (.switch:gtrack_create)
+                  0081a828    00000010                       : gtrack_unit_update.oe674 (.switch:gtrack_velocityStateHandling)
+
+MODULE SUMMARY
+
+       Module                      code     ro data   rw data
+       ------                      ----     -------   -------
+    /home/gtbldadm/nightlybuilds/mmwave_sdk/ti/alg/gtrack/test/usecases/dss/dss_configPkg_xwr18xx/package/cfg/
+       dss_pe674.oe674             4672     8204      53358  
+    +--+---------------------------+--------+---------+---------+
+       Total:                      4672     8204      53358  
+                                                             
+    obj_xwr18xx2D/
+       gtrackApp.oe674             3808     1836      37174  
+       main_dss.oe674              256      172       9220   
+       gtrackAlloc.oe674           96       0         4      
+       gtrackLog.oe674             64       0         0      
+    +--+---------------------------+--------+---------+---------+
+       Total:                      4224     2008      46398  
+                                                             
+    /home/gtbldadm/nightlybuilds/mmwave_sdk/scripts/jenkins/../../ti/drivers/osal/lib/libosal_xwr18xx.ae674
+       HwiP_tirtos.oe674           128      0         0      
+       MemoryP_tirtos.oe674        64       0         0      
+       DebugP_tirtos.oe674         32       0         0      
+    +--+---------------------------+--------+---------+---------+
+       Total:                      224      0         0      
+                                                             
+    /home/gtbldadm/nightlybuilds/mmwave_sdk/scripts/jenkins/../../ti/drivers/soc/lib/libsoc_xwr18xx.ae674
+       soc.oe674                   704      0         0      
+       soc_xwr18xx_dss.oe674       384      60        24     
+       soc_xwr18xx.oe674           32       0         0      
+    +--+---------------------------+--------+---------+---------+
+       Total:                      1120     60        24     
+                                                             
+    /home/gtbldadm/nightlybuilds/mmwave_sdk/scripts/jenkins/../../ti/utils/testlogger/lib/libtestlogger_xwr18xx.ae674
+       logger.oe674                704      148       12     
+    +--+---------------------------+--------+---------+---------+
+       Total:                      704      148       12     
+                                                             
+    /home/gtbldadm/nightlybuilds/mmwave_sdk/ti/alg/gtrack/test/usecases/dss/dss_configPkg_xwr18xx/package/cfg/dss_pe674.src/sysbios/sysbios.ae674
+       BIOS.obj                    30208    1304      0      
+       c64p_Hwi_disp_always.obj    512      0         0      
+       c64p_Exception_asm.obj      384      0         0      
+       c62_TaskSupport_asm.obj     224      0         0      
+       c64p_Hwi_asm_switch.obj     192      0         0      
+    +--+---------------------------+--------+---------+---------+
+       Total:                      31520    1304      0      
+                                                             
+    /opt/ti/bios_6_73_01_01/packages/ti/targets/rts6000/lib/boot.ae674
+       autoinit.oe674              288      0         0      
+       boot.oe674                  160      0         0      
+    +--+---------------------------+--------+---------+---------+
+       Total:                      448      0         0      
+                                                             
+    /opt/ti/bios_6_73_01_01/packages/ti/targets/rts6000/lib/ti.targets.rts6000.ae674
+       System.oe674                3232     24        0      
+       Text.oe674                  1824     64        0      
+       Error.oe674                 1152     88        0      
+       Startup.oe674               896      44        0      
+       Core-mem.oe674              896      0         0      
+       Memory.oe674                448      0         0      
+       Core-smem.oe674             416      0         0      
+       SysStd.oe674                224      0         0      
+       Assert.oe674                192      4         0      
+       Core-params.oe674           160      0         0      
+       Core-label.oe674            128      0         0      
+       Gate.oe674                  64       0         0      
+       Registry.oe674              64       0         0      
+    +--+---------------------------+--------+---------+---------+
+       Total:                      9696     224       0      
+                                                             
+    /opt/ti/ti-cgt-c6000_8.3.3/lib/rts6740_elf.lib
+       _printfi.c.obj              13440    92        0      
+       powf.c.obj                  1632     0         116    
+       divd.c.obj                  1536     0         0      
+       fopen.c.obj                 896      0         4      
+       defs.c.obj                  0        0         804    
+       fputs.c.obj                 800      0         0      
+       imath64.c.obj               704      0         0      
+       divf.c.obj                  672      0         0      
+       tanf.c.obj                  576      0         12     
+       fread.c.obj                 576      0         0      
+       open.c.obj                  544      0         4      
+       trgmsg.c.obj                224      0         288    
+       fputc.c.obj                 480      0         0      
+       frexp.c.obj                 448      0         0      
+       getdevice.c.obj             448      0         0      
+       imath40.c.obj               448      0         0      
+       ldexp.c.obj                 448      0         0      
+       ldexpf.c.obj                448      0         0      
+       setvbuf.c.obj               448      0         0      
+       fflush.c.obj                416      0         0      
+       frexpf.c.obj                416      0         0      
+       hostrename.c.obj            416      0         0      
+       _io_perm.c.obj              384      0         0      
+       fclose.c.obj                384      0         0      
+       write.c.obj                 96       0         280    
+       _bufread.c.obj              352      0         0      
+       sqrt.c.obj                  352      0         0      
+       logf.c.obj                  288      0         32     
+       snprintf.c.obj              320      0         0      
+       atanf.c.obj                 256      0         32     
+       printf.c.obj                288      0         0      
+       sqrtf.c.obj                 288      0         0      
+       exit.c.obj                  256      0         12     
+       ctype.c.obj                 0        257       0      
+       atoi.c.obj                  256      0         0      
+       fseek.c.obj                 256      0         0      
+       vprintf.c.obj               256      0         0      
+       hostopen.c.obj              224      0         8      
+       _ltoa.c.obj                 224      0         0      
+       close.c.obj                 224      0         0      
+       hostlseek.c.obj             224      0         0      
+       hostwrite.c.obj             224      0         0      
+       llshift.c.obj               224      0         0      
+       memset.c.obj                224      0         0      
+       divu.asm.obj                192      0         0      
+       hostread.c.obj              192      0         0      
+       hostunlink.c.obj            192      0         0      
+       sprintf.c.obj               192      0         0      
+       tls.c.obj                   192      0         0      
+       fixfu.c.obj                 160      0         0      
+       fltullf.c.obj               160      0         0      
+       hostclose.c.obj             160      0         0      
+       memcpy64.asm.obj            160      0         0      
+       remu.asm.obj                160      0         0      
+       fixdu.c.obj                 128      0         0      
+       roundf.c.obj                128      0         0      
+       unlink.c.obj                128      0         0      
+       _lock.c.obj                 96       0         8      
+       lseek.c.obj                 96       0         0      
+       memccpy.c.obj               96       0         0      
+       modff.c.obj                 96       0         0      
+       read.c.obj                  96       0         0      
+       args_main.c.obj             64       0         0      
+       frcmpyd_div.c.obj           64       0         0      
+       isinf.c.obj                 64       0         0      
+       push.asm.obj                64       0         0      
+       strasg.asm.obj              64       0         0      
+       wcslen.c.obj                64       0         0      
+       errno.c.obj                 32       0         4      
+       signbit.c.obj               32       0         0      
+       truncf.c.obj                32       0         0      
+    +--+---------------------------+--------+---------+---------+
+       Total:                      34720    349       1604   
+                                                             
+    lib/libgtrack2D.ae674
+       gtrack_unit_update.oe674    5696     900       0      
+       gtrack_math.oe674           3296     2920      0      
+       gtrack_create.oe674         2592     1134      0      
+       gtrack_module.oe674         1856     56        0      
+       gtrack_utilities_2d.oe674   1824     48        0      
+       gtrack_utilities.oe674      1856     0         0      
+       gtrack_unit_score.oe674     768      52        0      
+       gtrack_step.oe674           768      48        0      
+       gtrack_unit_event.oe674     736      80        0      
+       gtrack_unit_predict.oe674   640      124       0      
+       gtrack_unit_start.oe674     544      84        0      
+       gtrack_listlib.oe674        544      0         0      
+       gtrack_unit_create.oe674    512      0         0      
+       gtrack_delete.oe674         384      0         0      
+       gtrack_unit_stop.oe674      192      52        0      
+       gtrack_unit_report.oe674    160      0         0      
+       gtrack_unit_delete.oe674    32       0         0      
+       gtrack_unit_get.oe674       32       0         0      
+    +--+---------------------------+--------+---------+---------+
+       Total:                      22432    5498      0      
+                                                             
+       Stack:                      0        0         4096   
+    +--+---------------------------+--------+---------+---------+
+       Grand Total:                109760   17795     105492 
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                                                         
+-------   ----                                                         
+007fba80  C$$EXIT                                                      
+007fa338  C$$IO$$                                                      
+007f8800  HOSTclose                                                    
+007f7460  HOSTlseek                                                    
+007f7540  HOSTopen                                                     
+007f7fc0  HOSTread                                                     
+007f3a00  HOSTrename                                                   
+007f8080  HOSTunlink                                                   
+007f7620  HOSTwrite                                                    
+007fb7e0  HwiP_Params_init                                             
+007fae20  HwiP_create                                                  
+007fb800  HwiP_disableInterrupt                                        
+0081a83c  MCPI_FailSignature                                           
+007fae60  MCPI_Initialize                                              
+0081a838  MCPI_Result                                                  
+20000000  MCPI_logMessage                                              
+007f0360  MCPI_setFeatureTestResult                                    
+007fb820  MCPI_setTestResult                                           
+007fb840  MemoryP_ctrlAlloc                                            
+007fb860  MemoryP_ctrlFree                                             
+007f88a0  SOC_SystemISR                                                
+007f6860  SOC_deviceInit                                               
+007f5560  SOC_init                                                     
+007faea0  SOC_microDelay                                               
+007fb880  SOC_ungateClock                                              
+007fa280  SOC_unhaltBSS                                                
+007e8f00  Test_initTask                                                
+007fb8a0  _DebugP_assert                                               
+00000000  __ASM__                                                      
+0081a6b8  __CIOBUF_                                                    
+00000088  __ISA__                                                      
+000000a0  __PLAT__                                                     
+000000c0  __TARG__                                                     
+UNDEFED   __TI_CINIT_Base                                              
+UNDEFED   __TI_CINIT_Limit                                             
+UNDEFED   __TI_Handler_Table_Base                                      
+UNDEFED   __TI_Handler_Table_Limit                                     
+UNDEFED   __TI_INITARRAY_Base                                          
+UNDEFED   __TI_INITARRAY_Limit                                         
+008199a0  __TI_STACK_END                                               
+00001000  __TI_STACK_SIZE                                              
+0081a6ac  __TI_STATIC_BASE                                             
+UNDEFED   __TI_TLS_INIT_Base                                           
+UNDEFED   __TI_TLS_INIT_Limit                                          
+007f4d20  __TI_buff_read                                               
+007f8940  __TI_cleanup                                                 
+0081a61c  __TI_cleanup_ptr                                             
+007f6960  __TI_closefile                                               
+007f89e0  __TI_doflush                                                 
+0081a620  __TI_dtors_ptr                                               
+0081a624  __TI_enable_exit_profile_output                              
+007faee0  __TI_frcmpyd_div                                             
+0081a35c  __TI_ft_end                                                  
+007f7700  __TI_ltoa                                                    
+ffffffff  __TI_pprof_out_hndl                                          
+007e6f20  __TI_printfi                                                 
+ffffffff  __TI_prof_data_size                                          
+ffffffff  __TI_prof_data_start                                         
+007f8a80  __TI_rd_ok                                                   
+007f9480  __TI_readmsg                                                 
+007f8500  __TI_tls_init                                                
+00815888  __TI_tmpnams                                                 
+007fa2e0  __TI_writemsg                                                
+007f77e0  __TI_wrt_ok                                                  
+000000e8  __TRDR__                                                     
+ffffffff  __binit__                                                    
+007ec8a0  __c6xabi_divd                                                
+007ef900  __c6xabi_divf                                                
+007f8140  __c6xabi_divu                                                
+007f2c00  __c6xabi_divul                                               
+007f05c0  __c6xabi_divull                                              
+007fb8c0  __c6xabi_errno_addr                                          
+007f9500  __c6xabi_fixdu                                               
+007f8b20  __c6xabi_fixfu                                               
+007f8bc0  __c6xabi_fltullf                                             
+007faf20  __c6xabi_isinf                                               
+007f9580  __c6xabi_llshl                                               
+007fa340  __c6xabi_llshru                                              
+007fb900  __c6xabi_pop_rts                                             
+007fb920  __c6xabi_push_rts                                            
+007f8c60  __c6xabi_remu                                                
+007f9600  __c6xabi_roundf                                              
+007fafa0  __c6xabi_strasgi_64plus                                      
+007fb8e0  __c6xabi_truncf                                              
+ffffffff  __c_args__                                                   
+007f8140  __divu                                                       
+0081a40c  __errno                                                      
+007fb900  __pop_rts                                                    
+007fb920  __push_rts                                                   
+007f8c60  __remu                                                       
+007fafa0  __strasgi_64plus                                             
+007fafe0  _args_main                                                   
+007f5f60  _auto_init_elf                                               
+007f8d00  _c_int00                                                     
+00817fd8  _ctypes_                                                     
+0081a120  _device                                                      
+00819da0  _ftable                                                      
+007e6f06  _gtrackLibEnd                                                
+007e0200  _gtrackLibStart                                              
+0081a26c  _lock                                                        
+007fb940  _nop                                                         
+007fba00  _register_lock                                               
+007fba20  _register_unlock                                             
+007fba40  _signbit                                                     
+008189a0  _stack                                                       
+00819f80  _stream                                                      
+007fa3a0  _subcull                                                     
+0081a314  _unlock                                                      
+007fba80  abort                                                        
+0081a54c  appAllocationParams                                          
+0081a5c8  appGatingParams                                              
+0081a204  appSceneryParams                                             
+0081a628  appStateParams                                               
+0081a5dc  appVariationParams                                           
+007f6b60  atanf                                                        
+007f6c60  atoi                                                         
+ffffffff  binit                                                        
+007f78c0  close                                                        
+007e6e88  defaultAllocationParams                                      
+007e6eb8  defaultGatingParams                                          
+007e6c84  defaultSceneryParams                                         
+007e6efc  defaultStateParams                                           
+007e6ecc  defaultVariationParams                                       
+0081a40c  errno                                                        
+007f79a0  exit                                                         
+007f9780  fclose                                                       
+007f6d60  fflush                                                       
+007f8e40  finddevice                                                   
+007f61a0  fopen                                                        
+007f2f80  fputc                                                        
+007ef040  fputs                                                        
+007f0ce0  fread                                                        
+007fb0e0  free                                                         
+007f3140  frexp                                                        
+007f3ba0  frexpf                                                       
+007f3140  frexpl                                                       
+007f6e60  fseek                                                        
+0081a848  gMCPILogMessageSize                                          
+0081a564  gSOCHwAttrib                                                 
+007f62c0  getdevice                                                    
+007fb120  gtrack_alloc                                                 
+007e5420  gtrack_calcDim                                               
+007e4f20  gtrack_calcDistance                                          
+007e4ce0  gtrack_calcMeasurementLimits                                 
+007e3e20  gtrack_cartesian2spherical                                   
+007e26a0  gtrack_computeJacobian                                       
+007e4fc0  gtrack_computeMahalanobis                                    
+007e5480  gtrack_computeMahalanobisPartial                             
+007e13e0  gtrack_create                                                
+007e4000  gtrack_delete                                                
+007fbaa0  gtrack_free                                                  
+007e56c0  gtrack_isPointBehindTarget                                   
+007e5700  gtrack_isPointInsideBox                                      
+007e5740  gtrack_listDequeue                                           
+007e5780  gtrack_listEnqueue                                           
+007e58c0  gtrack_listGetCount                                          
+007e58e0  gtrack_listGetFirst                                          
+007e5900  gtrack_listGetNext                                           
+007e5920  gtrack_listInit                                              
+007e4400  gtrack_listRemoveElement                                     
+007fb160  gtrack_log                                                   
+007e54e0  gtrack_matrixAdd                                             
+007e4180  gtrack_matrixComputePJT                                      
+007e4b20  gtrack_matrixCovAcc                                          
+007e4c00  gtrack_matrixCovFilter                                       
+007e4520  gtrack_matrixCovNormalize                                    
+007e5540  gtrack_matrixGetDiag                                         
+007e57c0  gtrack_matrixInit                                            
+007e35c0  gtrack_matrixInv                                             
+007e4620  gtrack_matrixMakeSymmetrical                                 
+007e4720  gtrack_matrixMultiply                                        
+007e42c0  gtrack_matrixPrint                                           
+007e3a20  gtrack_matrixPrint2                                          
+007e5060  gtrack_matrixSetDiag                                         
+007e55a0  gtrack_matrixSub                                             
+007e4820  gtrack_matrixTransposeMultiply                               
+007e2260  gtrack_moduleAllocate                                        
+007e5100  gtrack_moduleAssociate                                       
+007e4da0  gtrack_modulePredict                                         
+007e51a0  gtrack_moduleReport                                          
+007e4920  gtrack_moduleUpdate                                          
+007e5240  gtrack_sincosd                                               
+007e5600  gtrack_sph2cart                                              
+007e4a20  gtrack_spherical2cartesian                                   
+007e2a60  gtrack_step                                                  
+007e3c20  gtrack_unitCreate                                            
+007e5940  gtrack_unitDelete                                            
+007e3060  gtrack_unitEvent                                             
+007e5960  gtrack_unitGetH                                              
+007e3340  gtrack_unitPredict                                           
+007e52e0  gtrack_unitReport                                            
+007e2d60  gtrack_unitScore                                             
+007e3800  gtrack_unitStart                                             
+007e4e60  gtrack_unitStop                                              
+007e0200  gtrack_unitUpdate                                            
+007e5380  gtrack_unrollRadialVelocity                                  
+007e5800  gtrack_vectorAdd                                             
+007e5980  gtrack_vectorInit                                            
+007e5840  gtrack_vectorScalarMul                                       
+007e5660  gtrack_vectorScalarMulAcc                                    
+007e5880  gtrack_vectorSub                                             
+007e1e00  gtrack_velocityStateHandling                                 
+0081a6ac  heap0                                                        
+007f3300  ldexp                                                        
+007f34c0  ldexpf                                                       
+007f3300  ldexpl                                                       
+007f63e0  logf                                                         
+007fa4c0  lseek                                                        
+007f6f60  main                                                         
+007f9e00  malloc                                                       
+007fa520  memccpy                                                      
+007f8ee0  memcpy                                                       
+0081a844  memoryBytesUsed                                              
+007f7a80  memset                                                       
+007fa580  modff                                                        
+007f1820  open                                                         
+007e6ea0  pInit                                                        
+008159c8  parmbuf                                                      
+00811208  pointCloud                                                   
+007ebc20  powf                                                         
+007f7b60  printf                                                       
+007f2f80  putc                                                         
+007fbac0  putchar                                                      
+007fa5e0  read                                                         
+007f9f00  remove                                                       
+007f3300  scalbn                                                       
+007f34c0  scalbnf                                                      
+007f3300  scalbnl                                                      
+007f3680  setvbuf                                                      
+007f9800  snprintf                                                     
+007e6ee0  spreadInit                                                   
+007e6ef0  spreadMin                                                    
+007fa640  sprintf                                                      
+007f4e80  sqrt                                                         
+007f6500  sqrtf                                                        
+007f4e80  sqrtl                                                        
+007f0f20  tanf                                                         
+0080c000  targetDescr                                                  
+0081a46c  ti_sysbios_BIOS_Module__state__V                             
+007fb360  ti_sysbios_BIOS_RtsGateProxy_Handle__label__S                
+007fbae0  ti_sysbios_BIOS_RtsGateProxy_enter__E                        
+007fbb00  ti_sysbios_BIOS_RtsGateProxy_leave__E                        
+007fbd40  ti_sysbios_BIOS_RtsGateProxy_query__E                        
+007f9880  ti_sysbios_BIOS_atExitFunc__I                                
+007fa6a0  ti_sysbios_BIOS_errorRaiseHook__I                            
+007fb1a0  ti_sysbios_BIOS_exitFunc__I                                  
+007fbb20  ti_sysbios_BIOS_exit__E                                      
+007fbb40  ti_sysbios_BIOS_linkedWithIncorrectBootLibrary__E            
+007fbb60  ti_sysbios_BIOS_nullFunc__I                                  
+007f9900  ti_sysbios_BIOS_registerRTSLock__I                           
+007fa700  ti_sysbios_BIOS_removeRTSLock__I                             
+007fb1e0  ti_sysbios_BIOS_rtsLock__I                                   
+007fb220  ti_sysbios_BIOS_rtsUnlock__I                                 
+007fbb80  ti_sysbios_BIOS_setThreadType__E                             
+007fa760  ti_sysbios_BIOS_startFunc__I                                 
+007fbba0  ti_sysbios_BIOS_start__E                                     
+007fbbc0  ti_sysbios_family_c62_TaskSupport_Module__startupDone__S     
+007fb0a0  ti_sysbios_family_c62_TaskSupport_buildTaskStack             
+007fbbe0  ti_sysbios_family_c62_TaskSupport_checkStack__E              
+007fbc00  ti_sysbios_family_c62_TaskSupport_getStackAlignment__E       
+007fba60  ti_sysbios_family_c62_TaskSupport_glue                       
+008180dc  ti_sysbios_family_c62_TaskSupport_stackAlignment__C          
+007fa7c0  ti_sysbios_family_c62_TaskSupport_start__E                   
+007f9700  ti_sysbios_family_c62_TaskSupport_swap__E                    
+00818718  ti_sysbios_family_c64p_Cache_E_invalidL1CacheSize__C         
+0081871c  ti_sysbios_family_c64p_Cache_E_invalidL2CacheSize__C         
+00818720  ti_sysbios_family_c64p_Cache_MAR0_31__C                      
+00818724  ti_sysbios_family_c64p_Cache_MAR128_159__C                   
+00818728  ti_sysbios_family_c64p_Cache_MAR160_191__C                   
+0081872c  ti_sysbios_family_c64p_Cache_MAR192_223__C                   
+00818730  ti_sysbios_family_c64p_Cache_MAR224_255__C                   
+00818734  ti_sysbios_family_c64p_Cache_MAR32_63__C                     
+00818738  ti_sysbios_family_c64p_Cache_MAR64_95__C                     
+0081873c  ti_sysbios_family_c64p_Cache_MAR96_127__C                    
+00818740  ti_sysbios_family_c64p_Cache_Module__diagsEnabled__C         
+00818744  ti_sysbios_family_c64p_Cache_Module__diagsIncluded__C        
+00818748  ti_sysbios_family_c64p_Cache_Module__diagsMask__C            
+0081738e  ti_sysbios_family_c64p_Cache_Module__id__C                   
+0081a634  ti_sysbios_family_c64p_Cache_Module__state__V                
+007f00e0  ti_sysbios_family_c64p_Cache_Module_startup__E               
+007f4fe0  ti_sysbios_family_c64p_Cache_enable__E                       
+007f56a0  ti_sysbios_family_c64p_Cache_getL1DInitSize__I               
+007f57e0  ti_sysbios_family_c64p_Cache_getL1PInitSize__I               
+007f3d40  ti_sysbios_family_c64p_Cache_getL2InitSize__I                
+00004000  ti_sysbios_family_c64p_Cache_l1dSize                         
+00004000  ti_sysbios_family_c64p_Cache_l1pSize                         
+00000000  ti_sysbios_family_c64p_Cache_l2Size                          
+007fa820  ti_sysbios_family_c64p_Cache_setMar__E                       
+007f1a40  ti_sysbios_family_c64p_Cache_setMode__E                      
+0081874c  ti_sysbios_family_c64p_EventCombiner_A_invalidEventId__C     
+008186e8  ti_sysbios_family_c64p_EventCombiner_EVTMASK__C              
+00818750  ti_sysbios_family_c64p_EventCombiner_EVTRegs__C              
+00818754  ti_sysbios_family_c64p_EventCombiner_E_unpluggedEvent__C     
+00818758  ti_sysbios_family_c64p_EventCombiner_Module__diagsEnabled__C 
+0081875c  ti_sysbios_family_c64p_EventCombiner_Module__diagsIncluded__C
+00818760  ti_sysbios_family_c64p_EventCombiner_Module__diagsMask__C    
+008180da  ti_sysbios_family_c64p_EventCombiner_Module__id__C           
+008199a0  ti_sysbios_family_c64p_EventCombiner_Module__state__V        
+007fa880  ti_sysbios_family_c64p_EventCombiner_Module_startup__E       
+007f3ee0  ti_sysbios_family_c64p_EventCombiner_disableEvent__E         
+007f2480  ti_sysbios_family_c64p_EventCombiner_dispatchPlug__E         
+007f4080  ti_sysbios_family_c64p_EventCombiner_enableEvent__E          
+007fa8e0  ti_sysbios_family_c64p_EventCombiner_unused__E               
+00818764  ti_sysbios_family_c64p_Exception_E_exceptionMax__C           
+008186e6  ti_sysbios_family_c64p_Exception_Module__id__C               
+0081a3dc  ti_sysbios_family_c64p_Exception_Module__state__V            
+007f8f80  ti_sysbios_family_c64p_Exception_Module_startup__E           
+007f48a0  ti_sysbios_family_c64p_Exception_dispatch__E                 
+00818768  ti_sysbios_family_c64p_Exception_exceptionHook__C            
+0081876c  ti_sysbios_family_c64p_Exception_externalHook__C             
+007eae40  ti_sysbios_family_c64p_Exception_handler__I                  
+007f1160  ti_sysbios_family_c64p_Exception_internalHandler__I          
+00818770  ti_sysbios_family_c64p_Exception_internalHook__C             
+00818774  ti_sysbios_family_c64p_Exception_nmiHook__C                  
+0081896c  ti_sysbios_family_c64p_Exception_useInternalBuffer__C        
+007e0000  ti_sysbios_family_c64p_Hwi0                                  
+00818778  ti_sysbios_family_c64p_Hwi_INTRMUX1Address__C                
+0081877c  ti_sysbios_family_c64p_Hwi_LD_end__C                         
+00818780  ti_sysbios_family_c64p_Hwi_LM_begin__C                       
+00818784  ti_sysbios_family_c64p_Hwi_Module__diagsEnabled__C           
+00818788  ti_sysbios_family_c64p_Hwi_Module__diagsIncluded__C          
+0081878c  ti_sysbios_family_c64p_Hwi_Module__diagsMask__C              
+0081896e  ti_sysbios_family_c64p_Hwi_Module__id__C                     
+00818970  ti_sysbios_family_c64p_Hwi_Module__loggerDefined__C          
+00818790  ti_sysbios_family_c64p_Hwi_Module__loggerFxn1__C             
+00818794  ti_sysbios_family_c64p_Hwi_Module__loggerFxn8__C             
+00818798  ti_sysbios_family_c64p_Hwi_Module__loggerObj__C              
+007fbc20  ti_sysbios_family_c64p_Hwi_Module__startupDone__F            
+007fbc20  ti_sysbios_family_c64p_Hwi_Module__startupDone__S            
+0081a198  ti_sysbios_family_c64p_Hwi_Module__state__V                  
+007f5140  ti_sysbios_family_c64p_Hwi_Module_startup__E                 
+0081a580  ti_sysbios_family_c64p_Hwi_Object__table__V                  
+007fbc40  ti_sysbios_family_c64p_Hwi_clearInterrupt__E                 
+007fb260  ti_sysbios_family_c64p_Hwi_disableInterrupt__E               
+007f2080  ti_sysbios_family_c64p_Hwi_dispatchAlways                    
+007f9020  ti_sysbios_family_c64p_Hwi_dispatchC__I                      
+007f0820  ti_sysbios_family_c64p_Hwi_dispatchCore__I                   
+007fb2a0  ti_sysbios_family_c64p_Hwi_enableInterrupt__E                
+007f90c0  ti_sysbios_family_c64p_Hwi_getStackInfo__E                   
+007e0000  ti_sysbios_family_c64p_Hwi_int0                              
+007e0020  ti_sysbios_family_c64p_Hwi_int1                              
+007e0140  ti_sysbios_family_c64p_Hwi_int10                             
+007e0160  ti_sysbios_family_c64p_Hwi_int11                             
+007e0180  ti_sysbios_family_c64p_Hwi_int12                             
+007e01a0  ti_sysbios_family_c64p_Hwi_int13                             
+007e01c0  ti_sysbios_family_c64p_Hwi_int14                             
+007e01e0  ti_sysbios_family_c64p_Hwi_int15                             
+007e0040  ti_sysbios_family_c64p_Hwi_int2                              
+007e0060  ti_sysbios_family_c64p_Hwi_int3                              
+007e0080  ti_sysbios_family_c64p_Hwi_int4                              
+007e00a0  ti_sysbios_family_c64p_Hwi_int5                              
+007e00c0  ti_sysbios_family_c64p_Hwi_int6                              
+007e00e0  ti_sysbios_family_c64p_Hwi_int7                              
+007e0100  ti_sysbios_family_c64p_Hwi_int8                              
+007e0120  ti_sysbios_family_c64p_Hwi_int9                              
+007fbc60  ti_sysbios_family_c64p_Hwi_startup__E                        
+007fa400  ti_sysbios_family_c64p_Hwi_switchAndDispatch__I              
+007fbc80  ti_sysbios_family_c64p_Hwi_switchFromBootStack__E            
+007fa460  ti_sysbios_family_xxx_Hwi_switchAndRunFunc                   
+007fb2e0  ti_sysbios_gates_GateHwi_Handle__label__S                    
+007fbca0  ti_sysbios_gates_GateHwi_Instance_init__E                    
+00818520  ti_sysbios_gates_GateHwi_Module__FXNS__C                     
+0081a640  ti_sysbios_gates_GateHwi_Module__root__V                     
+008185b0  ti_sysbios_gates_GateHwi_Object__DESC__C                     
+00818688  ti_sysbios_gates_GateHwi_Object__PARAMS__C                   
+007f9980  ti_sysbios_gates_GateHwi_Object__create__S                   
+007fb320  ti_sysbios_gates_GateHwi_Object__delete__S                   
+0081a6a8  ti_sysbios_gates_GateHwi_Object__table__V                    
+007fbcc0  ti_sysbios_gates_GateHwi_enter__E                            
+007fbce0  ti_sysbios_gates_GateHwi_leave__E                            
+007fbd00  ti_sysbios_gates_GateHwi_query__E                            
+0081879c  ti_sysbios_gates_GateMutex_A_badContext__C                   
+007fb360  ti_sysbios_gates_GateMutex_Handle__label__S                  
+008187a0  ti_sysbios_gates_GateMutex_Instance_State_sem__O             
+007fbd20  ti_sysbios_gates_GateMutex_Instance_finalize__E              
+007fb3a0  ti_sysbios_gates_GateMutex_Instance_init__E                  
+00818544  ti_sysbios_gates_GateMutex_Module__FXNS__C                   
+008187a4  ti_sysbios_gates_GateMutex_Module__diagsEnabled__C           
+008187a8  ti_sysbios_gates_GateMutex_Module__diagsIncluded__C          
+008187ac  ti_sysbios_gates_GateMutex_Module__diagsMask__C              
+00818972  ti_sysbios_gates_GateMutex_Module__id__C                     
+0081a648  ti_sysbios_gates_GateMutex_Module__root__V                   
+008185d0  ti_sysbios_gates_GateMutex_Object__DESC__C                   
+008186a0  ti_sysbios_gates_GateMutex_Object__PARAMS__C                 
+007f9a00  ti_sysbios_gates_GateMutex_Object__create__S                 
+007fa940  ti_sysbios_gates_GateMutex_Object__delete__S                 
+0081a360  ti_sysbios_gates_GateMutex_Object__table__V                  
+007f2660  ti_sysbios_gates_GateMutex_enter__E                          
+007fb3e0  ti_sysbios_gates_GateMutex_leave__E                          
+007fbd40  ti_sysbios_gates_GateMutex_query__E                          
+008187b0  ti_sysbios_hal_Hwi_E_stackOverflow__C                        
+007fbc20  ti_sysbios_hal_Hwi_HwiProxy_Module__startupDone__S           
+007fbc40  ti_sysbios_hal_Hwi_HwiProxy_clearInterrupt__E                
+007fb260  ti_sysbios_hal_Hwi_HwiProxy_disableInterrupt__E              
+007fb2a0  ti_sysbios_hal_Hwi_HwiProxy_enableInterrupt__E               
+007f90c0  ti_sysbios_hal_Hwi_HwiProxy_getStackInfo__E                  
+007fbc60  ti_sysbios_hal_Hwi_HwiProxy_startup__E                       
+007fbc80  ti_sysbios_hal_Hwi_HwiProxy_switchFromBootStack__E           
+00818974  ti_sysbios_hal_Hwi_Module__id__C                             
+007fbd60  ti_sysbios_hal_Hwi_Module_startup__E                         
+0081a650  ti_sysbios_hal_Hwi_Object__table__V                          
+007f9a80  ti_sysbios_hal_Hwi_checkStack                                
+007fbc40  ti_sysbios_hal_Hwi_clearInterrupt__E                         
+007fb260  ti_sysbios_hal_Hwi_disableInterrupt__E                       
+007fb2a0  ti_sysbios_hal_Hwi_enableInterrupt__E                        
+007f90c0  ti_sysbios_hal_Hwi_getStackInfo__E                           
+007fa9a0  ti_sysbios_hal_Hwi_initStack                                 
+007fbc60  ti_sysbios_hal_Hwi_startup__E                                
+007fbc80  ti_sysbios_hal_Hwi_switchFromBootStack__E                    
+008187b4  ti_sysbios_heaps_HeapBuf_Instance_State_freeList__O          
+0081a69c  ti_sysbios_heaps_HeapBuf_Module__state__V                    
+007f4220  ti_sysbios_heaps_HeapBuf_Module_startup__E                   
+008187b8  ti_sysbios_heaps_HeapBuf_Object__count__C                    
+007fbd80  ti_sysbios_heaps_HeapBuf_Object__get__S                      
+008187bc  ti_sysbios_heaps_HeapBuf_numConstructedHeaps__C              
+008187c0  ti_sysbios_heaps_HeapMem_A_align__C                          
+008187c4  ti_sysbios_heaps_HeapMem_A_heapSize__C                       
+008187c8  ti_sysbios_heaps_HeapMem_A_invalidFree__C                    
+008187cc  ti_sysbios_heaps_HeapMem_A_zeroBlock__C                      
+008187d0  ti_sysbios_heaps_HeapMem_E_memory__C                         
+007fb420  ti_sysbios_heaps_HeapMem_Handle__label__S                    
+00800000  ti_sysbios_heaps_HeapMem_Instance_State_0_buf__A             
+007ef360  ti_sysbios_heaps_HeapMem_Instance_init__E                    
+007fb360  ti_sysbios_heaps_HeapMem_Module_GateProxy_Handle__label__S   
+007fbda0  ti_sysbios_heaps_HeapMem_Module_GateProxy_enter__E           
+007fbdc0  ti_sysbios_heaps_HeapMem_Module_GateProxy_leave__E           
+007fbd40  ti_sysbios_heaps_HeapMem_Module_GateProxy_query__E           
+008184d4  ti_sysbios_heaps_HeapMem_Module__FXNS__C                     
+008187d4  ti_sysbios_heaps_HeapMem_Module__diagsEnabled__C             
+008187d8  ti_sysbios_heaps_HeapMem_Module__diagsIncluded__C            
+008187dc  ti_sysbios_heaps_HeapMem_Module__diagsMask__C                
+008187e0  ti_sysbios_heaps_HeapMem_Module__gateObj__C                  
+00818976  ti_sysbios_heaps_HeapMem_Module__id__C                       
+0081a658  ti_sysbios_heaps_HeapMem_Module__root__V                     
+008185f0  ti_sysbios_heaps_HeapMem_Object__DESC__C                     
+00818568  ti_sysbios_heaps_HeapMem_Object__PARAMS__C                   
+008187e4  ti_sysbios_heaps_HeapMem_Object__count__C                    
+007f9b00  ti_sysbios_heaps_HeapMem_Object__create__S                   
+007fb460  ti_sysbios_heaps_HeapMem_Object__delete__S                   
+007fb4a0  ti_sysbios_heaps_HeapMem_Object__get__S                      
+0081a598  ti_sysbios_heaps_HeapMem_Object__table__V                    
+007ec280  ti_sysbios_heaps_HeapMem_allocUnprotected__E                 
+007f7c40  ti_sysbios_heaps_HeapMem_alloc__E                            
+007ecea0  ti_sysbios_heaps_HeapMem_freeUnprotected__E                  
+007faa00  ti_sysbios_heaps_HeapMem_free__E                             
+007f8200  ti_sysbios_heaps_HeapMem_getStats__E                         
+007f9b80  ti_sysbios_heaps_HeapMem_init__I                             
+007fbde0  ti_sysbios_heaps_HeapMem_isBlocking__E                       
+008187e8  ti_sysbios_heaps_HeapMem_reqAlign__C                         
+008187ec  ti_sysbios_knl_Clock_LM_begin__C                             
+008187f0  ti_sysbios_knl_Clock_LM_tick__C                              
+008187f4  ti_sysbios_knl_Clock_LW_delayed__C                           
+008187f8  ti_sysbios_knl_Clock_Module_State_clockQ__O                  
+008187fc  ti_sysbios_knl_Clock_Module__diagsEnabled__C                 
+00818800  ti_sysbios_knl_Clock_Module__diagsIncluded__C                
+00818804  ti_sysbios_knl_Clock_Module__diagsMask__C                    
+00818978  ti_sysbios_knl_Clock_Module__id__C                           
+0081897a  ti_sysbios_knl_Clock_Module__loggerDefined__C                
+00818808  ti_sysbios_knl_Clock_Module__loggerFxn1__C                   
+0081880c  ti_sysbios_knl_Clock_Module__loggerFxn2__C                   
+00818810  ti_sysbios_knl_Clock_Module__loggerObj__C                    
+0081a440  ti_sysbios_knl_Clock_Module__state__V                        
+007faa60  ti_sysbios_knl_Clock_Module_startup__E                       
+007fbf60  ti_sysbios_knl_Clock_TimerProxy_Module__startupDone__S       
+007fbe00  ti_sysbios_knl_Clock_TimerProxy_getMaxTicks__E               
+007f4560  ti_sysbios_knl_Clock_TimerProxy_startup__E                   
+007f9c00  ti_sysbios_knl_Clock_doTick__I                               
+007f82c0  ti_sysbios_knl_Clock_logTick__E                              
+007ef640  ti_sysbios_knl_Clock_workFunc__E                             
+00818818  ti_sysbios_knl_Idle_funcList__A                              
+008186f8  ti_sysbios_knl_Idle_funcList__C                              
+007fbe20  ti_sysbios_knl_Idle_loop__E                                  
+007f9c80  ti_sysbios_knl_Idle_run__E                                   
+007fbe40  ti_sysbios_knl_Queue_Instance_init__E                        
+0081a660  ti_sysbios_knl_Queue_Module__root__V                         
+00818610  ti_sysbios_knl_Queue_Object__DESC__C                         
+008186b8  ti_sysbios_knl_Queue_Object__PARAMS__C                       
+007fbe60  ti_sysbios_knl_Queue_Object__get__S                          
+007faac0  ti_sysbios_knl_Queue_construct                               
+007fbe80  ti_sysbios_knl_Queue_destruct                                
+007fbea0  ti_sysbios_knl_Queue_empty__E                                
+00818814  ti_sysbios_knl_Semaphore_A_badContext__C                     
+0081881c  ti_sysbios_knl_Semaphore_A_noEvents__C                       
+00818820  ti_sysbios_knl_Semaphore_A_overflow__C                       
+00818824  ti_sysbios_knl_Semaphore_A_pendTaskDisabled__C               
+00818828  ti_sysbios_knl_Semaphore_Instance_State_pendQ__O             
+007fbec0  ti_sysbios_knl_Semaphore_Instance_finalize__E                
+007f5920  ti_sysbios_knl_Semaphore_Instance_init__E                    
+0081882c  ti_sysbios_knl_Semaphore_LM_pend__C                          
+00818830  ti_sysbios_knl_Semaphore_LM_post__C                          
+00818834  ti_sysbios_knl_Semaphore_Module__diagsEnabled__C             
+00818838  ti_sysbios_knl_Semaphore_Module__diagsIncluded__C            
+0081883c  ti_sysbios_knl_Semaphore_Module__diagsMask__C                
+0081897c  ti_sysbios_knl_Semaphore_Module__id__C                       
+0081897e  ti_sysbios_knl_Semaphore_Module__loggerDefined__C            
+00818840  ti_sysbios_knl_Semaphore_Module__loggerFxn2__C               
+00818844  ti_sysbios_knl_Semaphore_Module__loggerFxn4__C               
+00818848  ti_sysbios_knl_Semaphore_Module__loggerObj__C                
+0081a668  ti_sysbios_knl_Semaphore_Module__root__V                     
+00818630  ti_sysbios_knl_Semaphore_Object__DESC__C                     
+0081858c  ti_sysbios_knl_Semaphore_Object__PARAMS__C                   
+007fab20  ti_sysbios_knl_Semaphore_construct                           
+007fb4e0  ti_sysbios_knl_Semaphore_destruct                            
+007f9d00  ti_sysbios_knl_Semaphore_pendTimeout__I                      
+007ea680  ti_sysbios_knl_Semaphore_pend__E                             
+007eece0  ti_sysbios_knl_Semaphore_post__E                             
+0081884c  ti_sysbios_knl_Swi_LD_end__C                                 
+00818850  ti_sysbios_knl_Swi_LM_begin__C                               
+00818854  ti_sysbios_knl_Swi_LM_post__C                                
+0081a020  ti_sysbios_knl_Swi_Module_State_0_readyQ__A                  
+00818858  ti_sysbios_knl_Swi_Module__diagsEnabled__C                   
+0081885c  ti_sysbios_knl_Swi_Module__diagsIncluded__C                  
+00818860  ti_sysbios_knl_Swi_Module__diagsMask__C                      
+00818980  ti_sysbios_knl_Swi_Module__id__C                             
+00818982  ti_sysbios_knl_Swi_Module__loggerDefined__C                  
+00818864  ti_sysbios_knl_Swi_Module__loggerFxn1__C                     
+00818868  ti_sysbios_knl_Swi_Module__loggerFxn4__C                     
+0081886c  ti_sysbios_knl_Swi_Module__loggerObj__C                      
+0081a530  ti_sysbios_knl_Swi_Module__state__V                          
+007fab80  ti_sysbios_knl_Swi_Module_startup__E                         
+00818870  ti_sysbios_knl_Swi_Object__count__C                          
+007fb520  ti_sysbios_knl_Swi_Object__get__S                            
+0081a410  ti_sysbios_knl_Swi_Object__table__V                          
+007fbee0  ti_sysbios_knl_Swi_disable__E                                
+007f52a0  ti_sysbios_knl_Swi_post__E                                   
+007f6620  ti_sysbios_knl_Swi_restoreHwi__E                             
+007f7d20  ti_sysbios_knl_Swi_runLoop__I                                
+007f1c60  ti_sysbios_knl_Swi_run__I                                    
+007f7060  ti_sysbios_knl_Swi_schedule__I                               
+007f7e00  ti_sysbios_knl_Swi_startup__E                                
+00818874  ti_sysbios_knl_Task_A_badPriority__C                         
+00818878  ti_sysbios_knl_Task_A_badTaskState__C                        
+0081887c  ti_sysbios_knl_Task_A_badThreadType__C                       
+00818880  ti_sysbios_knl_Task_A_noPendElem__C                          
+00818884  ti_sysbios_knl_Task_E_spOutOfBounds__C                       
+00818888  ti_sysbios_knl_Task_E_stackOverflow__C                       
+00815088  ti_sysbios_knl_Task_Instance_State_0_stack__A                
+007ed460  ti_sysbios_knl_Task_Instance_finalize__E                     
+007ee5a0  ti_sysbios_knl_Task_Instance_init__E                         
+0081888c  ti_sysbios_knl_Task_LD_block__C                              
+00818890  ti_sysbios_knl_Task_LD_exit__C                               
+00818894  ti_sysbios_knl_Task_LD_ready__C                              
+00818898  ti_sysbios_knl_Task_LM_switch__C                             
+0081a6b0  ti_sysbios_knl_Task_Module_State_0_idleTask__A               
+0081a0a0  ti_sysbios_knl_Task_Module_State_0_readyQ__A                 
+0081889c  ti_sysbios_knl_Task_Module_State_inactiveQ__O                
+008188a0  ti_sysbios_knl_Task_Module__diagsEnabled__C                  
+008188a4  ti_sysbios_knl_Task_Module__diagsIncluded__C                 
+008188a8  ti_sysbios_knl_Task_Module__diagsMask__C                     
+00818984  ti_sysbios_knl_Task_Module__id__C                            
+00818986  ti_sysbios_knl_Task_Module__loggerDefined__C                 
+008188ac  ti_sysbios_knl_Task_Module__loggerFxn2__C                    
+008188b0  ti_sysbios_knl_Task_Module__loggerFxn4__C                    
+008188b4  ti_sysbios_knl_Task_Module__loggerObj__C                     
+0081a670  ti_sysbios_knl_Task_Module__root__V                          
+0081a2cc  ti_sysbios_knl_Task_Module__state__V                         
+007ee1c0  ti_sysbios_knl_Task_Module_startup__E                        
+00818650  ti_sysbios_knl_Task_Object__DESC__C                          
+008183bc  ti_sysbios_knl_Task_Object__PARAMS__C                        
+008188b8  ti_sysbios_knl_Task_Object__count__C                         
+007fb560  ti_sysbios_knl_Task_Object__get__S                           
+0081a270  ti_sysbios_knl_Task_Object__table__V                         
+007fbf00  ti_sysbios_knl_Task_Params__init__S                          
+007fbbc0  ti_sysbios_knl_Task_SupportProxy_Module__startupDone__S      
+007fbbe0  ti_sysbios_knl_Task_SupportProxy_checkStack__E               
+007fbc00  ti_sysbios_knl_Task_SupportProxy_getStackAlignment__E        
+007fa7c0  ti_sysbios_knl_Task_SupportProxy_start__E                    
+007f9700  ti_sysbios_knl_Task_SupportProxy_swap__E                     
+008188bc  ti_sysbios_knl_Task_allBlockedFunc__C                        
+007f8380  ti_sysbios_knl_Task_allBlockedFunction__I                    
+007f5a60  ti_sysbios_knl_Task_blockI__E                                
+007f3840  ti_sysbios_knl_Task_checkStacks__E                           
+007f8440  ti_sysbios_knl_Task_create                                   
+008188c0  ti_sysbios_knl_Task_defaultStackHeap__C                      
+008188c4  ti_sysbios_knl_Task_defaultStackSize__C                      
+007fbf20  ti_sysbios_knl_Task_disable__E                               
+007fabe0  ti_sysbios_knl_Task_enter__I                                 
+007f2840  ti_sysbios_knl_Task_exit__E                                  
+008188c8  ti_sysbios_knl_Task_numConstructedTasks__C                   
+007f4a20  ti_sysbios_knl_Task_postInit__I                              
+007f9d80  ti_sysbios_knl_Task_processVitalTaskFlag__I                  
+007f43c0  ti_sysbios_knl_Task_schedule__I                              
+007f4ba0  ti_sysbios_knl_Task_startCore__E                             
+007fbf40  ti_sysbios_knl_Task_startup__E                               
+007f6740  ti_sysbios_knl_Task_unblockI__E                              
+008188cc  ti_sysbios_timers_rti_Timer_E_cannotSupport__C               
+0081a5b0  ti_sysbios_timers_rti_Timer_Module_State_0_device__A         
+0081a678  ti_sysbios_timers_rti_Timer_Module_State_0_handles__A        
+0081a5f0  ti_sysbios_timers_rti_Timer_Module_State_0_intFreqs__A       
+008188d0  ti_sysbios_timers_rti_Timer_Module__diagsEnabled__C          
+008188d4  ti_sysbios_timers_rti_Timer_Module__diagsIncluded__C         
+008188d8  ti_sysbios_timers_rti_Timer_Module__diagsMask__C             
+00818988  ti_sysbios_timers_rti_Timer_Module__id__C                    
+007fbf60  ti_sysbios_timers_rti_Timer_Module__startupDone__F           
+007fbf60  ti_sysbios_timers_rti_Timer_Module__startupDone__S           
+0081a600  ti_sysbios_timers_rti_Timer_Module__state__V                 
+007ed980  ti_sysbios_timers_rti_Timer_Module_startup__E                
+0081a3a0  ti_sysbios_timers_rti_Timer_Object__table__V                 
+0081898a  ti_sysbios_timers_rti_Timer_continueOnSuspend__C             
+007f13a0  ti_sysbios_timers_rti_Timer_getFreq__E                       
+007fbf80  ti_sysbios_timers_rti_Timer_getMaxTicks__E                   
+007f5ba0  ti_sysbios_timers_rti_Timer_initDevice__I                    
+008188dc  ti_sysbios_timers_rti_Timer_numTimerDevices__C               
+007fb5a0  ti_sysbios_timers_rti_Timer_periodicStub__E                  
+008188e0  ti_sysbios_timers_rti_Timer_startupNeeded__C                 
+007f4560  ti_sysbios_timers_rti_Timer_startup__E                       
+007f9e80  ti_sysbios_timers_rti_Timer_stop__E                          
+007f9f00  unlink                                                       
+007f85c0  vprintf                                                      
+007fb5e0  wcslen                                                       
+007fac40  write                                                        
+008188e4  xdc_runtime_Assert_E_assertFailed__C                         
+007f8680  xdc_runtime_Assert_raise__I                                  
+008188e8  xdc_runtime_Core_A_initializedParams__C                      
+008188ec  xdc_runtime_Core_Module__diagsEnabled__C                     
+008188f0  xdc_runtime_Core_Module__diagsIncluded__C                    
+008188f4  xdc_runtime_Core_Module__diagsMask__C                        
+0081898c  xdc_runtime_Core_Module__id__C                               
+007f9f80  xdc_runtime_Core_assignLabel__I                              
+007f9160  xdc_runtime_Core_assignParams__I                             
+007f4700  xdc_runtime_Core_constructObject__I                          
+007f15e0  xdc_runtime_Core_createObject__I                             
+007f5ce0  xdc_runtime_Core_deleteObject__I                             
+008188f8  xdc_runtime_Error_E_memory__C                                
+0081a4f0  xdc_runtime_Error_IgnoreBlock                                
+008188fc  xdc_runtime_Error_Module__diagsEnabled__C                    
+00818900  xdc_runtime_Error_Module__diagsIncluded__C                   
+00818904  xdc_runtime_Error_Module__diagsMask__C                       
+0081898e  xdc_runtime_Error_Module__loggerDefined__C                   
+00818908  xdc_runtime_Error_Module__loggerFxn8__C                      
+0081890c  xdc_runtime_Error_Module__loggerObj__C                       
+0081a632  xdc_runtime_Error_Module__state__V                           
+007fb620  xdc_runtime_Error_check__E                                   
+007fbfa0  xdc_runtime_Error_getSite__E                                 
+007fb660  xdc_runtime_Error_init__E                                    
+00818990  xdc_runtime_Error_maxDepth__C                                
+007f2280  xdc_runtime_Error_policyDefault__E                           
+00818910  xdc_runtime_Error_policyFxn__C                               
+00818914  xdc_runtime_Error_policy__C                                  
+007f7160  xdc_runtime_Error_print__E                                   
+00818918  xdc_runtime_Error_raiseHook__C                               
+007fbfc0  xdc_runtime_Error_raiseX__E                                  
+007f8740  xdc_runtime_Error_setX__E                                    
+007fbfe0  xdc_runtime_Gate_enterSystem__E                              
+007fc000  xdc_runtime_Gate_leaveSystem__E                              
+0081891c  xdc_runtime_IGateProvider_Interface__BASE__C                 
+00818920  xdc_runtime_IHeap_Interface__BASE__C                         
+00818924  xdc_runtime_IModule_Interface__BASE__C                       
+00818928  xdc_runtime_Log_L_error__C                                   
+007fb2e0  xdc_runtime_Main_Module_GateProxy_Handle__label__S           
+007fbd00  xdc_runtime_Main_Module_GateProxy_query__E                   
+00818992  xdc_runtime_Main_Module__id__C                               
+007fb420  xdc_runtime_Memory_HeapProxy_Handle__label__S                
+007fc020  xdc_runtime_Memory_HeapProxy_alloc__E                        
+007fc040  xdc_runtime_Memory_HeapProxy_free__E                         
+00818994  xdc_runtime_Memory_Module__id__C                             
+0081a6a4  xdc_runtime_Memory_Module__state__V                          
+007f7260  xdc_runtime_Memory_alloc__E                                  
+007fc060  xdc_runtime_Memory_calloc__E                                 
+0081892c  xdc_runtime_Memory_defaultHeapInstance__C                    
+007fc080  xdc_runtime_Memory_free__E                                   
+007fc0a0  xdc_runtime_Memory_getMaxDefaultTypeAlign__E                 
+007faca0  xdc_runtime_Memory_valloc__E                                 
+0081a680  xdc_runtime_Registry_Module__state__V                        
+007fb6a0  xdc_runtime_Registry_findById__E                             
+0081a688  xdc_runtime_Startup_Module__state__V                         
+00000001  xdc_runtime_Startup__EXECFXN__C                              
+00000001  xdc_runtime_Startup__RESETFXN__C                             
+00818930  xdc_runtime_Startup_execImpl__C                              
+007f7360  xdc_runtime_Startup_exec__E                                  
+007fc0c0  xdc_runtime_Startup_exec__I                                  
+00818700  xdc_runtime_Startup_firstFxns__A                             
+00818708  xdc_runtime_Startup_firstFxns__C                             
+00818710  xdc_runtime_Startup_lastFxns__C                              
+00818934  xdc_runtime_Startup_maxPasses__C                             
+007fc0e0  xdc_runtime_Startup_reset__I                                 
+007fc100  xdc_runtime_Startup_rtsDone__E                               
+008186d0  xdc_runtime_Startup_sfxnRts__A                               
+00818938  xdc_runtime_Startup_sfxnRts__C                               
+008184a8  xdc_runtime_Startup_sfxnTab__A                               
+0081893c  xdc_runtime_Startup_sfxnTab__C                               
+007f0a80  xdc_runtime_Startup_startMods__I                             
+007fa000  xdc_runtime_SysStd_abort__E                                  
+007fc120  xdc_runtime_SysStd_exit__E                                   
+007fc140  xdc_runtime_SysStd_putch__E                                  
+007fc160  xdc_runtime_SysStd_ready__E                                  
+007fb2e0  xdc_runtime_System_Module_GateProxy_Handle__label__S         
+007fc180  xdc_runtime_System_Module_GateProxy_enter__E                 
+007fc1a0  xdc_runtime_System_Module_GateProxy_leave__E                 
+007fbd00  xdc_runtime_System_Module_GateProxy_query__E                 
+0081a510  xdc_runtime_System_Module_State_0_atexitHandlers__A          
+00818940  xdc_runtime_System_Module__gateObj__C                        
+0081a690  xdc_runtime_System_Module__state__V                          
+007fc1c0  xdc_runtime_System_Module_startup__E                         
+007fa000  xdc_runtime_System_SupportProxy_abort__E                     
+007fc120  xdc_runtime_System_SupportProxy_exit__E                      
+007fc140  xdc_runtime_System_SupportProxy_putch__E                     
+007fc160  xdc_runtime_System_SupportProxy_ready__E                     
+00818944  xdc_runtime_System_abortFxn__C                               
+007fba80  xdc_runtime_System_abortStd__E                               
+007fb6e0  xdc_runtime_System_abort__E                                  
+007fb720  xdc_runtime_System_aprintf__E                                
+007fa100  xdc_runtime_System_aprintf_va__E                             
+007fa100  xdc_runtime_System_aprintf_va__F                             
+007fa080  xdc_runtime_System_atexit__E                                 
+007fa100  xdc_runtime_System_avprintf__E                               
+007e9de0  xdc_runtime_System_doPrint__I                                
+00818948  xdc_runtime_System_exitFxn__C                                
+007f79a0  xdc_runtime_System_exitStd__E                                
+007fb760  xdc_runtime_System_exit__E                                   
+0081894c  xdc_runtime_System_extendFxn__C                              
+007f9200  xdc_runtime_System_formatNum__I                              
+00818950  xdc_runtime_System_maxAtexitHandlers__C                      
+007ee960  xdc_runtime_System_printfExtend__I                           
+007fb7a0  xdc_runtime_System_printf__E                                 
+007fa200  xdc_runtime_System_printf_va__E                              
+007fa200  xdc_runtime_System_printf_va__F                              
+007fa180  xdc_runtime_System_processAtExit__E                          
+007f92a0  xdc_runtime_System_putchar__I                                
+007fc1e0  xdc_runtime_System_snprintf_va__E                            
+007fc1e0  xdc_runtime_System_snprintf_va__F                            
+007fa200  xdc_runtime_System_vprintf__E                                
+007fc1e0  xdc_runtime_System_vsnprintf__E                              
+00818996  xdc_runtime_Text_charCnt__C                                  
+008159d0  xdc_runtime_Text_charTab__A                                  
+00818954  xdc_runtime_Text_charTab__C                                  
+007fad00  xdc_runtime_Text_cordText__E                                 
+00818998  xdc_runtime_Text_isLoaded__C                                 
+00818958  xdc_runtime_Text_nameEmpty__C                                
+0081895c  xdc_runtime_Text_nameStatic__C                               
+00818960  xdc_runtime_Text_nameUnknown__C                              
+008180e0  xdc_runtime_Text_nodeTab__A                                  
+00818964  xdc_runtime_Text_nodeTab__C                                  
+007f9340  xdc_runtime_Text_printVisFxn__I                              
+007f5e20  xdc_runtime_Text_putLab__E                                   
+007f5400  xdc_runtime_Text_putMod__E                                   
+007f2a20  xdc_runtime_Text_putSite__E                                  
+0081899a  xdc_runtime_Text_registryModsLastId__C                       
+007fc200  xdc_runtime_Text_ropeText__E                                 
+0081899c  xdc_runtime_Text_unnamedModsLastId__C                        
+007f7ee0  xdc_runtime_Text_visitRope2__I                               
+00818968  xdc_runtime_Text_visitRopeFxn__C                             
+007fc220  xdc_runtime_Text_visitRope__I                                
+007f93e0  xdc_runtime_Text_xprintf__I                                  
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                                                         
+-------   ----                                                         
+00000000  __ASM__                                                      
+00000000  ti_sysbios_family_c64p_Cache_l2Size                          
+00000001  xdc_runtime_Startup__EXECFXN__C                              
+00000001  xdc_runtime_Startup__RESETFXN__C                             
+00000088  __ISA__                                                      
+000000a0  __PLAT__                                                     
+000000c0  __TARG__                                                     
+000000e8  __TRDR__                                                     
+00001000  __TI_STACK_SIZE                                              
+00004000  ti_sysbios_family_c64p_Cache_l1dSize                         
+00004000  ti_sysbios_family_c64p_Cache_l1pSize                         
+007e0000  ti_sysbios_family_c64p_Hwi0                                  
+007e0000  ti_sysbios_family_c64p_Hwi_int0                              
+007e0020  ti_sysbios_family_c64p_Hwi_int1                              
+007e0040  ti_sysbios_family_c64p_Hwi_int2                              
+007e0060  ti_sysbios_family_c64p_Hwi_int3                              
+007e0080  ti_sysbios_family_c64p_Hwi_int4                              
+007e00a0  ti_sysbios_family_c64p_Hwi_int5                              
+007e00c0  ti_sysbios_family_c64p_Hwi_int6                              
+007e00e0  ti_sysbios_family_c64p_Hwi_int7                              
+007e0100  ti_sysbios_family_c64p_Hwi_int8                              
+007e0120  ti_sysbios_family_c64p_Hwi_int9                              
+007e0140  ti_sysbios_family_c64p_Hwi_int10                             
+007e0160  ti_sysbios_family_c64p_Hwi_int11                             
+007e0180  ti_sysbios_family_c64p_Hwi_int12                             
+007e01a0  ti_sysbios_family_c64p_Hwi_int13                             
+007e01c0  ti_sysbios_family_c64p_Hwi_int14                             
+007e01e0  ti_sysbios_family_c64p_Hwi_int15                             
+007e0200  _gtrackLibStart                                              
+007e0200  gtrack_unitUpdate                                            
+007e13e0  gtrack_create                                                
+007e1e00  gtrack_velocityStateHandling                                 
+007e2260  gtrack_moduleAllocate                                        
+007e26a0  gtrack_computeJacobian                                       
+007e2a60  gtrack_step                                                  
+007e2d60  gtrack_unitScore                                             
+007e3060  gtrack_unitEvent                                             
+007e3340  gtrack_unitPredict                                           
+007e35c0  gtrack_matrixInv                                             
+007e3800  gtrack_unitStart                                             
+007e3a20  gtrack_matrixPrint2                                          
+007e3c20  gtrack_unitCreate                                            
+007e3e20  gtrack_cartesian2spherical                                   
+007e4000  gtrack_delete                                                
+007e4180  gtrack_matrixComputePJT                                      
+007e42c0  gtrack_matrixPrint                                           
+007e4400  gtrack_listRemoveElement                                     
+007e4520  gtrack_matrixCovNormalize                                    
+007e4620  gtrack_matrixMakeSymmetrical                                 
+007e4720  gtrack_matrixMultiply                                        
+007e4820  gtrack_matrixTransposeMultiply                               
+007e4920  gtrack_moduleUpdate                                          
+007e4a20  gtrack_spherical2cartesian                                   
+007e4b20  gtrack_matrixCovAcc                                          
+007e4c00  gtrack_matrixCovFilter                                       
+007e4ce0  gtrack_calcMeasurementLimits                                 
+007e4da0  gtrack_modulePredict                                         
+007e4e60  gtrack_unitStop                                              
+007e4f20  gtrack_calcDistance                                          
+007e4fc0  gtrack_computeMahalanobis                                    
+007e5060  gtrack_matrixSetDiag                                         
+007e5100  gtrack_moduleAssociate                                       
+007e51a0  gtrack_moduleReport                                          
+007e5240  gtrack_sincosd                                               
+007e52e0  gtrack_unitReport                                            
+007e5380  gtrack_unrollRadialVelocity                                  
+007e5420  gtrack_calcDim                                               
+007e5480  gtrack_computeMahalanobisPartial                             
+007e54e0  gtrack_matrixAdd                                             
+007e5540  gtrack_matrixGetDiag                                         
+007e55a0  gtrack_matrixSub                                             
+007e5600  gtrack_sph2cart                                              
+007e5660  gtrack_vectorScalarMulAcc                                    
+007e56c0  gtrack_isPointBehindTarget                                   
+007e5700  gtrack_isPointInsideBox                                      
+007e5740  gtrack_listDequeue                                           
+007e5780  gtrack_listEnqueue                                           
+007e57c0  gtrack_matrixInit                                            
+007e5800  gtrack_vectorAdd                                             
+007e5840  gtrack_vectorScalarMul                                       
+007e5880  gtrack_vectorSub                                             
+007e58c0  gtrack_listGetCount                                          
+007e58e0  gtrack_listGetFirst                                          
+007e5900  gtrack_listGetNext                                           
+007e5920  gtrack_listInit                                              
+007e5940  gtrack_unitDelete                                            
+007e5960  gtrack_unitGetH                                              
+007e5980  gtrack_vectorInit                                            
+007e6c84  defaultSceneryParams                                         
+007e6e88  defaultAllocationParams                                      
+007e6ea0  pInit                                                        
+007e6eb8  defaultGatingParams                                          
+007e6ecc  defaultVariationParams                                       
+007e6ee0  spreadInit                                                   
+007e6ef0  spreadMin                                                    
+007e6efc  defaultStateParams                                           
+007e6f06  _gtrackLibEnd                                                
+007e6f20  __TI_printfi                                                 
+007e8f00  Test_initTask                                                
+007e9de0  xdc_runtime_System_doPrint__I                                
+007ea680  ti_sysbios_knl_Semaphore_pend__E                             
+007eae40  ti_sysbios_family_c64p_Exception_handler__I                  
+007ebc20  powf                                                         
+007ec280  ti_sysbios_heaps_HeapMem_allocUnprotected__E                 
+007ec8a0  __c6xabi_divd                                                
+007ecea0  ti_sysbios_heaps_HeapMem_freeUnprotected__E                  
+007ed460  ti_sysbios_knl_Task_Instance_finalize__E                     
+007ed980  ti_sysbios_timers_rti_Timer_Module_startup__E                
+007ee1c0  ti_sysbios_knl_Task_Module_startup__E                        
+007ee5a0  ti_sysbios_knl_Task_Instance_init__E                         
+007ee960  xdc_runtime_System_printfExtend__I                           
+007eece0  ti_sysbios_knl_Semaphore_post__E                             
+007ef040  fputs                                                        
+007ef360  ti_sysbios_heaps_HeapMem_Instance_init__E                    
+007ef640  ti_sysbios_knl_Clock_workFunc__E                             
+007ef900  __c6xabi_divf                                                
+007f00e0  ti_sysbios_family_c64p_Cache_Module_startup__E               
+007f0360  MCPI_setFeatureTestResult                                    
+007f05c0  __c6xabi_divull                                              
+007f0820  ti_sysbios_family_c64p_Hwi_dispatchCore__I                   
+007f0a80  xdc_runtime_Startup_startMods__I                             
+007f0ce0  fread                                                        
+007f0f20  tanf                                                         
+007f1160  ti_sysbios_family_c64p_Exception_internalHandler__I          
+007f13a0  ti_sysbios_timers_rti_Timer_getFreq__E                       
+007f15e0  xdc_runtime_Core_createObject__I                             
+007f1820  open                                                         
+007f1a40  ti_sysbios_family_c64p_Cache_setMode__E                      
+007f1c60  ti_sysbios_knl_Swi_run__I                                    
+007f2080  ti_sysbios_family_c64p_Hwi_dispatchAlways                    
+007f2280  xdc_runtime_Error_policyDefault__E                           
+007f2480  ti_sysbios_family_c64p_EventCombiner_dispatchPlug__E         
+007f2660  ti_sysbios_gates_GateMutex_enter__E                          
+007f2840  ti_sysbios_knl_Task_exit__E                                  
+007f2a20  xdc_runtime_Text_putSite__E                                  
+007f2c00  __c6xabi_divul                                               
+007f2f80  fputc                                                        
+007f2f80  putc                                                         
+007f3140  frexp                                                        
+007f3140  frexpl                                                       
+007f3300  ldexp                                                        
+007f3300  ldexpl                                                       
+007f3300  scalbn                                                       
+007f3300  scalbnl                                                      
+007f34c0  ldexpf                                                       
+007f34c0  scalbnf                                                      
+007f3680  setvbuf                                                      
+007f3840  ti_sysbios_knl_Task_checkStacks__E                           
+007f3a00  HOSTrename                                                   
+007f3ba0  frexpf                                                       
+007f3d40  ti_sysbios_family_c64p_Cache_getL2InitSize__I                
+007f3ee0  ti_sysbios_family_c64p_EventCombiner_disableEvent__E         
+007f4080  ti_sysbios_family_c64p_EventCombiner_enableEvent__E          
+007f4220  ti_sysbios_heaps_HeapBuf_Module_startup__E                   
+007f43c0  ti_sysbios_knl_Task_schedule__I                              
+007f4560  ti_sysbios_knl_Clock_TimerProxy_startup__E                   
+007f4560  ti_sysbios_timers_rti_Timer_startup__E                       
+007f4700  xdc_runtime_Core_constructObject__I                          
+007f48a0  ti_sysbios_family_c64p_Exception_dispatch__E                 
+007f4a20  ti_sysbios_knl_Task_postInit__I                              
+007f4ba0  ti_sysbios_knl_Task_startCore__E                             
+007f4d20  __TI_buff_read                                               
+007f4e80  sqrt                                                         
+007f4e80  sqrtl                                                        
+007f4fe0  ti_sysbios_family_c64p_Cache_enable__E                       
+007f5140  ti_sysbios_family_c64p_Hwi_Module_startup__E                 
+007f52a0  ti_sysbios_knl_Swi_post__E                                   
+007f5400  xdc_runtime_Text_putMod__E                                   
+007f5560  SOC_init                                                     
+007f56a0  ti_sysbios_family_c64p_Cache_getL1DInitSize__I               
+007f57e0  ti_sysbios_family_c64p_Cache_getL1PInitSize__I               
+007f5920  ti_sysbios_knl_Semaphore_Instance_init__E                    
+007f5a60  ti_sysbios_knl_Task_blockI__E                                
+007f5ba0  ti_sysbios_timers_rti_Timer_initDevice__I                    
+007f5ce0  xdc_runtime_Core_deleteObject__I                             
+007f5e20  xdc_runtime_Text_putLab__E                                   
+007f5f60  _auto_init_elf                                               
+007f61a0  fopen                                                        
+007f62c0  getdevice                                                    
+007f63e0  logf                                                         
+007f6500  sqrtf                                                        
+007f6620  ti_sysbios_knl_Swi_restoreHwi__E                             
+007f6740  ti_sysbios_knl_Task_unblockI__E                              
+007f6860  SOC_deviceInit                                               
+007f6960  __TI_closefile                                               
+007f6b60  atanf                                                        
+007f6c60  atoi                                                         
+007f6d60  fflush                                                       
+007f6e60  fseek                                                        
+007f6f60  main                                                         
+007f7060  ti_sysbios_knl_Swi_schedule__I                               
+007f7160  xdc_runtime_Error_print__E                                   
+007f7260  xdc_runtime_Memory_alloc__E                                  
+007f7360  xdc_runtime_Startup_exec__E                                  
+007f7460  HOSTlseek                                                    
+007f7540  HOSTopen                                                     
+007f7620  HOSTwrite                                                    
+007f7700  __TI_ltoa                                                    
+007f77e0  __TI_wrt_ok                                                  
+007f78c0  close                                                        
+007f79a0  exit                                                         
+007f79a0  xdc_runtime_System_exitStd__E                                
+007f7a80  memset                                                       
+007f7b60  printf                                                       
+007f7c40  ti_sysbios_heaps_HeapMem_alloc__E                            
+007f7d20  ti_sysbios_knl_Swi_runLoop__I                                
+007f7e00  ti_sysbios_knl_Swi_startup__E                                
+007f7ee0  xdc_runtime_Text_visitRope2__I                               
+007f7fc0  HOSTread                                                     
+007f8080  HOSTunlink                                                   
+007f8140  __c6xabi_divu                                                
+007f8140  __divu                                                       
+007f8200  ti_sysbios_heaps_HeapMem_getStats__E                         
+007f82c0  ti_sysbios_knl_Clock_logTick__E                              
+007f8380  ti_sysbios_knl_Task_allBlockedFunction__I                    
+007f8440  ti_sysbios_knl_Task_create                                   
+007f8500  __TI_tls_init                                                
+007f85c0  vprintf                                                      
+007f8680  xdc_runtime_Assert_raise__I                                  
+007f8740  xdc_runtime_Error_setX__E                                    
+007f8800  HOSTclose                                                    
+007f88a0  SOC_SystemISR                                                
+007f8940  __TI_cleanup                                                 
+007f89e0  __TI_doflush                                                 
+007f8a80  __TI_rd_ok                                                   
+007f8b20  __c6xabi_fixfu                                               
+007f8bc0  __c6xabi_fltullf                                             
+007f8c60  __c6xabi_remu                                                
+007f8c60  __remu                                                       
+007f8d00  _c_int00                                                     
+007f8e40  finddevice                                                   
+007f8ee0  memcpy                                                       
+007f8f80  ti_sysbios_family_c64p_Exception_Module_startup__E           
+007f9020  ti_sysbios_family_c64p_Hwi_dispatchC__I                      
+007f90c0  ti_sysbios_family_c64p_Hwi_getStackInfo__E                   
+007f90c0  ti_sysbios_hal_Hwi_HwiProxy_getStackInfo__E                  
+007f90c0  ti_sysbios_hal_Hwi_getStackInfo__E                           
+007f9160  xdc_runtime_Core_assignParams__I                             
+007f9200  xdc_runtime_System_formatNum__I                              
+007f92a0  xdc_runtime_System_putchar__I                                
+007f9340  xdc_runtime_Text_printVisFxn__I                              
+007f93e0  xdc_runtime_Text_xprintf__I                                  
+007f9480  __TI_readmsg                                                 
+007f9500  __c6xabi_fixdu                                               
+007f9580  __c6xabi_llshl                                               
+007f9600  __c6xabi_roundf                                              
+007f9700  ti_sysbios_family_c62_TaskSupport_swap__E                    
+007f9700  ti_sysbios_knl_Task_SupportProxy_swap__E                     
+007f9780  fclose                                                       
+007f9800  snprintf                                                     
+007f9880  ti_sysbios_BIOS_atExitFunc__I                                
+007f9900  ti_sysbios_BIOS_registerRTSLock__I                           
+007f9980  ti_sysbios_gates_GateHwi_Object__create__S                   
+007f9a00  ti_sysbios_gates_GateMutex_Object__create__S                 
+007f9a80  ti_sysbios_hal_Hwi_checkStack                                
+007f9b00  ti_sysbios_heaps_HeapMem_Object__create__S                   
+007f9b80  ti_sysbios_heaps_HeapMem_init__I                             
+007f9c00  ti_sysbios_knl_Clock_doTick__I                               
+007f9c80  ti_sysbios_knl_Idle_run__E                                   
+007f9d00  ti_sysbios_knl_Semaphore_pendTimeout__I                      
+007f9d80  ti_sysbios_knl_Task_processVitalTaskFlag__I                  
+007f9e00  malloc                                                       
+007f9e80  ti_sysbios_timers_rti_Timer_stop__E                          
+007f9f00  remove                                                       
+007f9f00  unlink                                                       
+007f9f80  xdc_runtime_Core_assignLabel__I                              
+007fa000  xdc_runtime_SysStd_abort__E                                  
+007fa000  xdc_runtime_System_SupportProxy_abort__E                     
+007fa080  xdc_runtime_System_atexit__E                                 
+007fa100  xdc_runtime_System_aprintf_va__E                             
+007fa100  xdc_runtime_System_aprintf_va__F                             
+007fa100  xdc_runtime_System_avprintf__E                               
+007fa180  xdc_runtime_System_processAtExit__E                          
+007fa200  xdc_runtime_System_printf_va__E                              
+007fa200  xdc_runtime_System_printf_va__F                              
+007fa200  xdc_runtime_System_vprintf__E                                
+007fa280  SOC_unhaltBSS                                                
+007fa2e0  __TI_writemsg                                                
+007fa338  C$$IO$$                                                      
+007fa340  __c6xabi_llshru                                              
+007fa3a0  _subcull                                                     
+007fa400  ti_sysbios_family_c64p_Hwi_switchAndDispatch__I              
+007fa460  ti_sysbios_family_xxx_Hwi_switchAndRunFunc                   
+007fa4c0  lseek                                                        
+007fa520  memccpy                                                      
+007fa580  modff                                                        
+007fa5e0  read                                                         
+007fa640  sprintf                                                      
+007fa6a0  ti_sysbios_BIOS_errorRaiseHook__I                            
+007fa700  ti_sysbios_BIOS_removeRTSLock__I                             
+007fa760  ti_sysbios_BIOS_startFunc__I                                 
+007fa7c0  ti_sysbios_family_c62_TaskSupport_start__E                   
+007fa7c0  ti_sysbios_knl_Task_SupportProxy_start__E                    
+007fa820  ti_sysbios_family_c64p_Cache_setMar__E                       
+007fa880  ti_sysbios_family_c64p_EventCombiner_Module_startup__E       
+007fa8e0  ti_sysbios_family_c64p_EventCombiner_unused__E               
+007fa940  ti_sysbios_gates_GateMutex_Object__delete__S                 
+007fa9a0  ti_sysbios_hal_Hwi_initStack                                 
+007faa00  ti_sysbios_heaps_HeapMem_free__E                             
+007faa60  ti_sysbios_knl_Clock_Module_startup__E                       
+007faac0  ti_sysbios_knl_Queue_construct                               
+007fab20  ti_sysbios_knl_Semaphore_construct                           
+007fab80  ti_sysbios_knl_Swi_Module_startup__E                         
+007fabe0  ti_sysbios_knl_Task_enter__I                                 
+007fac40  write                                                        
+007faca0  xdc_runtime_Memory_valloc__E                                 
+007fad00  xdc_runtime_Text_cordText__E                                 
+007fae20  HwiP_create                                                  
+007fae60  MCPI_Initialize                                              
+007faea0  SOC_microDelay                                               
+007faee0  __TI_frcmpyd_div                                             
+007faf20  __c6xabi_isinf                                               
+007fafa0  __c6xabi_strasgi_64plus                                      
+007fafa0  __strasgi_64plus                                             
+007fafe0  _args_main                                                   
+007fb0a0  ti_sysbios_family_c62_TaskSupport_buildTaskStack             
+007fb0e0  free                                                         
+007fb120  gtrack_alloc                                                 
+007fb160  gtrack_log                                                   
+007fb1a0  ti_sysbios_BIOS_exitFunc__I                                  
+007fb1e0  ti_sysbios_BIOS_rtsLock__I                                   
+007fb220  ti_sysbios_BIOS_rtsUnlock__I                                 
+007fb260  ti_sysbios_family_c64p_Hwi_disableInterrupt__E               
+007fb260  ti_sysbios_hal_Hwi_HwiProxy_disableInterrupt__E              
+007fb260  ti_sysbios_hal_Hwi_disableInterrupt__E                       
+007fb2a0  ti_sysbios_family_c64p_Hwi_enableInterrupt__E                
+007fb2a0  ti_sysbios_hal_Hwi_HwiProxy_enableInterrupt__E               
+007fb2a0  ti_sysbios_hal_Hwi_enableInterrupt__E                        
+007fb2e0  ti_sysbios_gates_GateHwi_Handle__label__S                    
+007fb2e0  xdc_runtime_Main_Module_GateProxy_Handle__label__S           
+007fb2e0  xdc_runtime_System_Module_GateProxy_Handle__label__S         
+007fb320  ti_sysbios_gates_GateHwi_Object__delete__S                   
+007fb360  ti_sysbios_BIOS_RtsGateProxy_Handle__label__S                
+007fb360  ti_sysbios_gates_GateMutex_Handle__label__S                  
+007fb360  ti_sysbios_heaps_HeapMem_Module_GateProxy_Handle__label__S   
+007fb3a0  ti_sysbios_gates_GateMutex_Instance_init__E                  
+007fb3e0  ti_sysbios_gates_GateMutex_leave__E                          
+007fb420  ti_sysbios_heaps_HeapMem_Handle__label__S                    
+007fb420  xdc_runtime_Memory_HeapProxy_Handle__label__S                
+007fb460  ti_sysbios_heaps_HeapMem_Object__delete__S                   
+007fb4a0  ti_sysbios_heaps_HeapMem_Object__get__S                      
+007fb4e0  ti_sysbios_knl_Semaphore_destruct                            
+007fb520  ti_sysbios_knl_Swi_Object__get__S                            
+007fb560  ti_sysbios_knl_Task_Object__get__S                           
+007fb5a0  ti_sysbios_timers_rti_Timer_periodicStub__E                  
+007fb5e0  wcslen                                                       
+007fb620  xdc_runtime_Error_check__E                                   
+007fb660  xdc_runtime_Error_init__E                                    
+007fb6a0  xdc_runtime_Registry_findById__E                             
+007fb6e0  xdc_runtime_System_abort__E                                  
+007fb720  xdc_runtime_System_aprintf__E                                
+007fb760  xdc_runtime_System_exit__E                                   
+007fb7a0  xdc_runtime_System_printf__E                                 
+007fb7e0  HwiP_Params_init                                             
+007fb800  HwiP_disableInterrupt                                        
+007fb820  MCPI_setTestResult                                           
+007fb840  MemoryP_ctrlAlloc                                            
+007fb860  MemoryP_ctrlFree                                             
+007fb880  SOC_ungateClock                                              
+007fb8a0  _DebugP_assert                                               
+007fb8c0  __c6xabi_errno_addr                                          
+007fb8e0  __c6xabi_truncf                                              
+007fb900  __c6xabi_pop_rts                                             
+007fb900  __pop_rts                                                    
+007fb920  __c6xabi_push_rts                                            
+007fb920  __push_rts                                                   
+007fb940  _nop                                                         
+007fba00  _register_lock                                               
+007fba20  _register_unlock                                             
+007fba40  _signbit                                                     
+007fba60  ti_sysbios_family_c62_TaskSupport_glue                       
+007fba80  C$$EXIT                                                      
+007fba80  abort                                                        
+007fba80  xdc_runtime_System_abortStd__E                               
+007fbaa0  gtrack_free                                                  
+007fbac0  putchar                                                      
+007fbae0  ti_sysbios_BIOS_RtsGateProxy_enter__E                        
+007fbb00  ti_sysbios_BIOS_RtsGateProxy_leave__E                        
+007fbb20  ti_sysbios_BIOS_exit__E                                      
+007fbb40  ti_sysbios_BIOS_linkedWithIncorrectBootLibrary__E            
+007fbb60  ti_sysbios_BIOS_nullFunc__I                                  
+007fbb80  ti_sysbios_BIOS_setThreadType__E                             
+007fbba0  ti_sysbios_BIOS_start__E                                     
+007fbbc0  ti_sysbios_family_c62_TaskSupport_Module__startupDone__S     
+007fbbc0  ti_sysbios_knl_Task_SupportProxy_Module__startupDone__S      
+007fbbe0  ti_sysbios_family_c62_TaskSupport_checkStack__E              
+007fbbe0  ti_sysbios_knl_Task_SupportProxy_checkStack__E               
+007fbc00  ti_sysbios_family_c62_TaskSupport_getStackAlignment__E       
+007fbc00  ti_sysbios_knl_Task_SupportProxy_getStackAlignment__E        
+007fbc20  ti_sysbios_family_c64p_Hwi_Module__startupDone__F            
+007fbc20  ti_sysbios_family_c64p_Hwi_Module__startupDone__S            
+007fbc20  ti_sysbios_hal_Hwi_HwiProxy_Module__startupDone__S           
+007fbc40  ti_sysbios_family_c64p_Hwi_clearInterrupt__E                 
+007fbc40  ti_sysbios_hal_Hwi_HwiProxy_clearInterrupt__E                
+007fbc40  ti_sysbios_hal_Hwi_clearInterrupt__E                         
+007fbc60  ti_sysbios_family_c64p_Hwi_startup__E                        
+007fbc60  ti_sysbios_hal_Hwi_HwiProxy_startup__E                       
+007fbc60  ti_sysbios_hal_Hwi_startup__E                                
+007fbc80  ti_sysbios_family_c64p_Hwi_switchFromBootStack__E            
+007fbc80  ti_sysbios_hal_Hwi_HwiProxy_switchFromBootStack__E           
+007fbc80  ti_sysbios_hal_Hwi_switchFromBootStack__E                    
+007fbca0  ti_sysbios_gates_GateHwi_Instance_init__E                    
+007fbcc0  ti_sysbios_gates_GateHwi_enter__E                            
+007fbce0  ti_sysbios_gates_GateHwi_leave__E                            
+007fbd00  ti_sysbios_gates_GateHwi_query__E                            
+007fbd00  xdc_runtime_Main_Module_GateProxy_query__E                   
+007fbd00  xdc_runtime_System_Module_GateProxy_query__E                 
+007fbd20  ti_sysbios_gates_GateMutex_Instance_finalize__E              
+007fbd40  ti_sysbios_BIOS_RtsGateProxy_query__E                        
+007fbd40  ti_sysbios_gates_GateMutex_query__E                          
+007fbd40  ti_sysbios_heaps_HeapMem_Module_GateProxy_query__E           
+007fbd60  ti_sysbios_hal_Hwi_Module_startup__E                         
+007fbd80  ti_sysbios_heaps_HeapBuf_Object__get__S                      
+007fbda0  ti_sysbios_heaps_HeapMem_Module_GateProxy_enter__E           
+007fbdc0  ti_sysbios_heaps_HeapMem_Module_GateProxy_leave__E           
+007fbde0  ti_sysbios_heaps_HeapMem_isBlocking__E                       
+007fbe00  ti_sysbios_knl_Clock_TimerProxy_getMaxTicks__E               
+007fbe20  ti_sysbios_knl_Idle_loop__E                                  
+007fbe40  ti_sysbios_knl_Queue_Instance_init__E                        
+007fbe60  ti_sysbios_knl_Queue_Object__get__S                          
+007fbe80  ti_sysbios_knl_Queue_destruct                                
+007fbea0  ti_sysbios_knl_Queue_empty__E                                
+007fbec0  ti_sysbios_knl_Semaphore_Instance_finalize__E                
+007fbee0  ti_sysbios_knl_Swi_disable__E                                
+007fbf00  ti_sysbios_knl_Task_Params__init__S                          
+007fbf20  ti_sysbios_knl_Task_disable__E                               
+007fbf40  ti_sysbios_knl_Task_startup__E                               
+007fbf60  ti_sysbios_knl_Clock_TimerProxy_Module__startupDone__S       
+007fbf60  ti_sysbios_timers_rti_Timer_Module__startupDone__F           
+007fbf60  ti_sysbios_timers_rti_Timer_Module__startupDone__S           
+007fbf80  ti_sysbios_timers_rti_Timer_getMaxTicks__E                   
+007fbfa0  xdc_runtime_Error_getSite__E                                 
+007fbfc0  xdc_runtime_Error_raiseX__E                                  
+007fbfe0  xdc_runtime_Gate_enterSystem__E                              
+007fc000  xdc_runtime_Gate_leaveSystem__E                              
+007fc020  xdc_runtime_Memory_HeapProxy_alloc__E                        
+007fc040  xdc_runtime_Memory_HeapProxy_free__E                         
+007fc060  xdc_runtime_Memory_calloc__E                                 
+007fc080  xdc_runtime_Memory_free__E                                   
+007fc0a0  xdc_runtime_Memory_getMaxDefaultTypeAlign__E                 
+007fc0c0  xdc_runtime_Startup_exec__I                                  
+007fc0e0  xdc_runtime_Startup_reset__I                                 
+007fc100  xdc_runtime_Startup_rtsDone__E                               
+007fc120  xdc_runtime_SysStd_exit__E                                   
+007fc120  xdc_runtime_System_SupportProxy_exit__E                      
+007fc140  xdc_runtime_SysStd_putch__E                                  
+007fc140  xdc_runtime_System_SupportProxy_putch__E                     
+007fc160  xdc_runtime_SysStd_ready__E                                  
+007fc160  xdc_runtime_System_SupportProxy_ready__E                     
+007fc180  xdc_runtime_System_Module_GateProxy_enter__E                 
+007fc1a0  xdc_runtime_System_Module_GateProxy_leave__E                 
+007fc1c0  xdc_runtime_System_Module_startup__E                         
+007fc1e0  xdc_runtime_System_snprintf_va__E                            
+007fc1e0  xdc_runtime_System_snprintf_va__F                            
+007fc1e0  xdc_runtime_System_vsnprintf__E                              
+007fc200  xdc_runtime_Text_ropeText__E                                 
+007fc220  xdc_runtime_Text_visitRope__I                                
+00800000  ti_sysbios_heaps_HeapMem_Instance_State_0_buf__A             
+0080c000  targetDescr                                                  
+00811208  pointCloud                                                   
+00815088  ti_sysbios_knl_Task_Instance_State_0_stack__A                
+00815888  __TI_tmpnams                                                 
+008159c8  parmbuf                                                      
+008159d0  xdc_runtime_Text_charTab__A                                  
+0081738e  ti_sysbios_family_c64p_Cache_Module__id__C                   
+00817fd8  _ctypes_                                                     
+008180da  ti_sysbios_family_c64p_EventCombiner_Module__id__C           
+008180dc  ti_sysbios_family_c62_TaskSupport_stackAlignment__C          
+008180e0  xdc_runtime_Text_nodeTab__A                                  
+008183bc  ti_sysbios_knl_Task_Object__PARAMS__C                        
+008184a8  xdc_runtime_Startup_sfxnTab__A                               
+008184d4  ti_sysbios_heaps_HeapMem_Module__FXNS__C                     
+00818520  ti_sysbios_gates_GateHwi_Module__FXNS__C                     
+00818544  ti_sysbios_gates_GateMutex_Module__FXNS__C                   
+00818568  ti_sysbios_heaps_HeapMem_Object__PARAMS__C                   
+0081858c  ti_sysbios_knl_Semaphore_Object__PARAMS__C                   
+008185b0  ti_sysbios_gates_GateHwi_Object__DESC__C                     
+008185d0  ti_sysbios_gates_GateMutex_Object__DESC__C                   
+008185f0  ti_sysbios_heaps_HeapMem_Object__DESC__C                     
+00818610  ti_sysbios_knl_Queue_Object__DESC__C                         
+00818630  ti_sysbios_knl_Semaphore_Object__DESC__C                     
+00818650  ti_sysbios_knl_Task_Object__DESC__C                          
+00818688  ti_sysbios_gates_GateHwi_Object__PARAMS__C                   
+008186a0  ti_sysbios_gates_GateMutex_Object__PARAMS__C                 
+008186b8  ti_sysbios_knl_Queue_Object__PARAMS__C                       
+008186d0  xdc_runtime_Startup_sfxnRts__A                               
+008186e6  ti_sysbios_family_c64p_Exception_Module__id__C               
+008186e8  ti_sysbios_family_c64p_EventCombiner_EVTMASK__C              
+008186f8  ti_sysbios_knl_Idle_funcList__C                              
+00818700  xdc_runtime_Startup_firstFxns__A                             
+00818708  xdc_runtime_Startup_firstFxns__C                             
+00818710  xdc_runtime_Startup_lastFxns__C                              
+00818718  ti_sysbios_family_c64p_Cache_E_invalidL1CacheSize__C         
+0081871c  ti_sysbios_family_c64p_Cache_E_invalidL2CacheSize__C         
+00818720  ti_sysbios_family_c64p_Cache_MAR0_31__C                      
+00818724  ti_sysbios_family_c64p_Cache_MAR128_159__C                   
+00818728  ti_sysbios_family_c64p_Cache_MAR160_191__C                   
+0081872c  ti_sysbios_family_c64p_Cache_MAR192_223__C                   
+00818730  ti_sysbios_family_c64p_Cache_MAR224_255__C                   
+00818734  ti_sysbios_family_c64p_Cache_MAR32_63__C                     
+00818738  ti_sysbios_family_c64p_Cache_MAR64_95__C                     
+0081873c  ti_sysbios_family_c64p_Cache_MAR96_127__C                    
+00818740  ti_sysbios_family_c64p_Cache_Module__diagsEnabled__C         
+00818744  ti_sysbios_family_c64p_Cache_Module__diagsIncluded__C        
+00818748  ti_sysbios_family_c64p_Cache_Module__diagsMask__C            
+0081874c  ti_sysbios_family_c64p_EventCombiner_A_invalidEventId__C     
+00818750  ti_sysbios_family_c64p_EventCombiner_EVTRegs__C              
+00818754  ti_sysbios_family_c64p_EventCombiner_E_unpluggedEvent__C     
+00818758  ti_sysbios_family_c64p_EventCombiner_Module__diagsEnabled__C 
+0081875c  ti_sysbios_family_c64p_EventCombiner_Module__diagsIncluded__C
+00818760  ti_sysbios_family_c64p_EventCombiner_Module__diagsMask__C    
+00818764  ti_sysbios_family_c64p_Exception_E_exceptionMax__C           
+00818768  ti_sysbios_family_c64p_Exception_exceptionHook__C            
+0081876c  ti_sysbios_family_c64p_Exception_externalHook__C             
+00818770  ti_sysbios_family_c64p_Exception_internalHook__C             
+00818774  ti_sysbios_family_c64p_Exception_nmiHook__C                  
+00818778  ti_sysbios_family_c64p_Hwi_INTRMUX1Address__C                
+0081877c  ti_sysbios_family_c64p_Hwi_LD_end__C                         
+00818780  ti_sysbios_family_c64p_Hwi_LM_begin__C                       
+00818784  ti_sysbios_family_c64p_Hwi_Module__diagsEnabled__C           
+00818788  ti_sysbios_family_c64p_Hwi_Module__diagsIncluded__C          
+0081878c  ti_sysbios_family_c64p_Hwi_Module__diagsMask__C              
+00818790  ti_sysbios_family_c64p_Hwi_Module__loggerFxn1__C             
+00818794  ti_sysbios_family_c64p_Hwi_Module__loggerFxn8__C             
+00818798  ti_sysbios_family_c64p_Hwi_Module__loggerObj__C              
+0081879c  ti_sysbios_gates_GateMutex_A_badContext__C                   
+008187a0  ti_sysbios_gates_GateMutex_Instance_State_sem__O             
+008187a4  ti_sysbios_gates_GateMutex_Module__diagsEnabled__C           
+008187a8  ti_sysbios_gates_GateMutex_Module__diagsIncluded__C          
+008187ac  ti_sysbios_gates_GateMutex_Module__diagsMask__C              
+008187b0  ti_sysbios_hal_Hwi_E_stackOverflow__C                        
+008187b4  ti_sysbios_heaps_HeapBuf_Instance_State_freeList__O          
+008187b8  ti_sysbios_heaps_HeapBuf_Object__count__C                    
+008187bc  ti_sysbios_heaps_HeapBuf_numConstructedHeaps__C              
+008187c0  ti_sysbios_heaps_HeapMem_A_align__C                          
+008187c4  ti_sysbios_heaps_HeapMem_A_heapSize__C                       
+008187c8  ti_sysbios_heaps_HeapMem_A_invalidFree__C                    
+008187cc  ti_sysbios_heaps_HeapMem_A_zeroBlock__C                      
+008187d0  ti_sysbios_heaps_HeapMem_E_memory__C                         
+008187d4  ti_sysbios_heaps_HeapMem_Module__diagsEnabled__C             
+008187d8  ti_sysbios_heaps_HeapMem_Module__diagsIncluded__C            
+008187dc  ti_sysbios_heaps_HeapMem_Module__diagsMask__C                
+008187e0  ti_sysbios_heaps_HeapMem_Module__gateObj__C                  
+008187e4  ti_sysbios_heaps_HeapMem_Object__count__C                    
+008187e8  ti_sysbios_heaps_HeapMem_reqAlign__C                         
+008187ec  ti_sysbios_knl_Clock_LM_begin__C                             
+008187f0  ti_sysbios_knl_Clock_LM_tick__C                              
+008187f4  ti_sysbios_knl_Clock_LW_delayed__C                           
+008187f8  ti_sysbios_knl_Clock_Module_State_clockQ__O                  
+008187fc  ti_sysbios_knl_Clock_Module__diagsEnabled__C                 
+00818800  ti_sysbios_knl_Clock_Module__diagsIncluded__C                
+00818804  ti_sysbios_knl_Clock_Module__diagsMask__C                    
+00818808  ti_sysbios_knl_Clock_Module__loggerFxn1__C                   
+0081880c  ti_sysbios_knl_Clock_Module__loggerFxn2__C                   
+00818810  ti_sysbios_knl_Clock_Module__loggerObj__C                    
+00818814  ti_sysbios_knl_Semaphore_A_badContext__C                     
+00818818  ti_sysbios_knl_Idle_funcList__A                              
+0081881c  ti_sysbios_knl_Semaphore_A_noEvents__C                       
+00818820  ti_sysbios_knl_Semaphore_A_overflow__C                       
+00818824  ti_sysbios_knl_Semaphore_A_pendTaskDisabled__C               
+00818828  ti_sysbios_knl_Semaphore_Instance_State_pendQ__O             
+0081882c  ti_sysbios_knl_Semaphore_LM_pend__C                          
+00818830  ti_sysbios_knl_Semaphore_LM_post__C                          
+00818834  ti_sysbios_knl_Semaphore_Module__diagsEnabled__C             
+00818838  ti_sysbios_knl_Semaphore_Module__diagsIncluded__C            
+0081883c  ti_sysbios_knl_Semaphore_Module__diagsMask__C                
+00818840  ti_sysbios_knl_Semaphore_Module__loggerFxn2__C               
+00818844  ti_sysbios_knl_Semaphore_Module__loggerFxn4__C               
+00818848  ti_sysbios_knl_Semaphore_Module__loggerObj__C                
+0081884c  ti_sysbios_knl_Swi_LD_end__C                                 
+00818850  ti_sysbios_knl_Swi_LM_begin__C                               
+00818854  ti_sysbios_knl_Swi_LM_post__C                                
+00818858  ti_sysbios_knl_Swi_Module__diagsEnabled__C                   
+0081885c  ti_sysbios_knl_Swi_Module__diagsIncluded__C                  
+00818860  ti_sysbios_knl_Swi_Module__diagsMask__C                      
+00818864  ti_sysbios_knl_Swi_Module__loggerFxn1__C                     
+00818868  ti_sysbios_knl_Swi_Module__loggerFxn4__C                     
+0081886c  ti_sysbios_knl_Swi_Module__loggerObj__C                      
+00818870  ti_sysbios_knl_Swi_Object__count__C                          
+00818874  ti_sysbios_knl_Task_A_badPriority__C                         
+00818878  ti_sysbios_knl_Task_A_badTaskState__C                        
+0081887c  ti_sysbios_knl_Task_A_badThreadType__C                       
+00818880  ti_sysbios_knl_Task_A_noPendElem__C                          
+00818884  ti_sysbios_knl_Task_E_spOutOfBounds__C                       
+00818888  ti_sysbios_knl_Task_E_stackOverflow__C                       
+0081888c  ti_sysbios_knl_Task_LD_block__C                              
+00818890  ti_sysbios_knl_Task_LD_exit__C                               
+00818894  ti_sysbios_knl_Task_LD_ready__C                              
+00818898  ti_sysbios_knl_Task_LM_switch__C                             
+0081889c  ti_sysbios_knl_Task_Module_State_inactiveQ__O                
+008188a0  ti_sysbios_knl_Task_Module__diagsEnabled__C                  
+008188a4  ti_sysbios_knl_Task_Module__diagsIncluded__C                 
+008188a8  ti_sysbios_knl_Task_Module__diagsMask__C                     
+008188ac  ti_sysbios_knl_Task_Module__loggerFxn2__C                    
+008188b0  ti_sysbios_knl_Task_Module__loggerFxn4__C                    
+008188b4  ti_sysbios_knl_Task_Module__loggerObj__C                     
+008188b8  ti_sysbios_knl_Task_Object__count__C                         
+008188bc  ti_sysbios_knl_Task_allBlockedFunc__C                        
+008188c0  ti_sysbios_knl_Task_defaultStackHeap__C                      
+008188c4  ti_sysbios_knl_Task_defaultStackSize__C                      
+008188c8  ti_sysbios_knl_Task_numConstructedTasks__C                   
+008188cc  ti_sysbios_timers_rti_Timer_E_cannotSupport__C               
+008188d0  ti_sysbios_timers_rti_Timer_Module__diagsEnabled__C          
+008188d4  ti_sysbios_timers_rti_Timer_Module__diagsIncluded__C         
+008188d8  ti_sysbios_timers_rti_Timer_Module__diagsMask__C             
+008188dc  ti_sysbios_timers_rti_Timer_numTimerDevices__C               
+008188e0  ti_sysbios_timers_rti_Timer_startupNeeded__C                 
+008188e4  xdc_runtime_Assert_E_assertFailed__C                         
+008188e8  xdc_runtime_Core_A_initializedParams__C                      
+008188ec  xdc_runtime_Core_Module__diagsEnabled__C                     
+008188f0  xdc_runtime_Core_Module__diagsIncluded__C                    
+008188f4  xdc_runtime_Core_Module__diagsMask__C                        
+008188f8  xdc_runtime_Error_E_memory__C                                
+008188fc  xdc_runtime_Error_Module__diagsEnabled__C                    
+00818900  xdc_runtime_Error_Module__diagsIncluded__C                   
+00818904  xdc_runtime_Error_Module__diagsMask__C                       
+00818908  xdc_runtime_Error_Module__loggerFxn8__C                      
+0081890c  xdc_runtime_Error_Module__loggerObj__C                       
+00818910  xdc_runtime_Error_policyFxn__C                               
+00818914  xdc_runtime_Error_policy__C                                  
+00818918  xdc_runtime_Error_raiseHook__C                               
+0081891c  xdc_runtime_IGateProvider_Interface__BASE__C                 
+00818920  xdc_runtime_IHeap_Interface__BASE__C                         
+00818924  xdc_runtime_IModule_Interface__BASE__C                       
+00818928  xdc_runtime_Log_L_error__C                                   
+0081892c  xdc_runtime_Memory_defaultHeapInstance__C                    
+00818930  xdc_runtime_Startup_execImpl__C                              
+00818934  xdc_runtime_Startup_maxPasses__C                             
+00818938  xdc_runtime_Startup_sfxnRts__C                               
+0081893c  xdc_runtime_Startup_sfxnTab__C                               
+00818940  xdc_runtime_System_Module__gateObj__C                        
+00818944  xdc_runtime_System_abortFxn__C                               
+00818948  xdc_runtime_System_exitFxn__C                                
+0081894c  xdc_runtime_System_extendFxn__C                              
+00818950  xdc_runtime_System_maxAtexitHandlers__C                      
+00818954  xdc_runtime_Text_charTab__C                                  
+00818958  xdc_runtime_Text_nameEmpty__C                                
+0081895c  xdc_runtime_Text_nameStatic__C                               
+00818960  xdc_runtime_Text_nameUnknown__C                              
+00818964  xdc_runtime_Text_nodeTab__C                                  
+00818968  xdc_runtime_Text_visitRopeFxn__C                             
+0081896c  ti_sysbios_family_c64p_Exception_useInternalBuffer__C        
+0081896e  ti_sysbios_family_c64p_Hwi_Module__id__C                     
+00818970  ti_sysbios_family_c64p_Hwi_Module__loggerDefined__C          
+00818972  ti_sysbios_gates_GateMutex_Module__id__C                     
+00818974  ti_sysbios_hal_Hwi_Module__id__C                             
+00818976  ti_sysbios_heaps_HeapMem_Module__id__C                       
+00818978  ti_sysbios_knl_Clock_Module__id__C                           
+0081897a  ti_sysbios_knl_Clock_Module__loggerDefined__C                
+0081897c  ti_sysbios_knl_Semaphore_Module__id__C                       
+0081897e  ti_sysbios_knl_Semaphore_Module__loggerDefined__C            
+00818980  ti_sysbios_knl_Swi_Module__id__C                             
+00818982  ti_sysbios_knl_Swi_Module__loggerDefined__C                  
+00818984  ti_sysbios_knl_Task_Module__id__C                            
+00818986  ti_sysbios_knl_Task_Module__loggerDefined__C                 
+00818988  ti_sysbios_timers_rti_Timer_Module__id__C                    
+0081898a  ti_sysbios_timers_rti_Timer_continueOnSuspend__C             
+0081898c  xdc_runtime_Core_Module__id__C                               
+0081898e  xdc_runtime_Error_Module__loggerDefined__C                   
+00818990  xdc_runtime_Error_maxDepth__C                                
+00818992  xdc_runtime_Main_Module__id__C                               
+00818994  xdc_runtime_Memory_Module__id__C                             
+00818996  xdc_runtime_Text_charCnt__C                                  
+00818998  xdc_runtime_Text_isLoaded__C                                 
+0081899a  xdc_runtime_Text_registryModsLastId__C                       
+0081899c  xdc_runtime_Text_unnamedModsLastId__C                        
+008189a0  _stack                                                       
+008199a0  __TI_STACK_END                                               
+008199a0  ti_sysbios_family_c64p_EventCombiner_Module__state__V        
+00819da0  _ftable                                                      
+00819f80  _stream                                                      
+0081a020  ti_sysbios_knl_Swi_Module_State_0_readyQ__A                  
+0081a0a0  ti_sysbios_knl_Task_Module_State_0_readyQ__A                 
+0081a120  _device                                                      
+0081a198  ti_sysbios_family_c64p_Hwi_Module__state__V                  
+0081a204  appSceneryParams                                             
+0081a26c  _lock                                                        
+0081a270  ti_sysbios_knl_Task_Object__table__V                         
+0081a2cc  ti_sysbios_knl_Task_Module__state__V                         
+0081a314  _unlock                                                      
+0081a35c  __TI_ft_end                                                  
+0081a360  ti_sysbios_gates_GateMutex_Object__table__V                  
+0081a3a0  ti_sysbios_timers_rti_Timer_Object__table__V                 
+0081a3dc  ti_sysbios_family_c64p_Exception_Module__state__V            
+0081a40c  __errno                                                      
+0081a40c  errno                                                        
+0081a410  ti_sysbios_knl_Swi_Object__table__V                          
+0081a440  ti_sysbios_knl_Clock_Module__state__V                        
+0081a46c  ti_sysbios_BIOS_Module__state__V                             
+0081a4f0  xdc_runtime_Error_IgnoreBlock                                
+0081a510  xdc_runtime_System_Module_State_0_atexitHandlers__A          
+0081a530  ti_sysbios_knl_Swi_Module__state__V                          
+0081a54c  appAllocationParams                                          
+0081a564  gSOCHwAttrib                                                 
+0081a580  ti_sysbios_family_c64p_Hwi_Object__table__V                  
+0081a598  ti_sysbios_heaps_HeapMem_Object__table__V                    
+0081a5b0  ti_sysbios_timers_rti_Timer_Module_State_0_device__A         
+0081a5c8  appGatingParams                                              
+0081a5dc  appVariationParams                                           
+0081a5f0  ti_sysbios_timers_rti_Timer_Module_State_0_intFreqs__A       
+0081a600  ti_sysbios_timers_rti_Timer_Module__state__V                 
+0081a61c  __TI_cleanup_ptr                                             
+0081a620  __TI_dtors_ptr                                               
+0081a624  __TI_enable_exit_profile_output                              
+0081a628  appStateParams                                               
+0081a632  xdc_runtime_Error_Module__state__V                           
+0081a634  ti_sysbios_family_c64p_Cache_Module__state__V                
+0081a640  ti_sysbios_gates_GateHwi_Module__root__V                     
+0081a648  ti_sysbios_gates_GateMutex_Module__root__V                   
+0081a650  ti_sysbios_hal_Hwi_Object__table__V                          
+0081a658  ti_sysbios_heaps_HeapMem_Module__root__V                     
+0081a660  ti_sysbios_knl_Queue_Module__root__V                         
+0081a668  ti_sysbios_knl_Semaphore_Module__root__V                     
+0081a670  ti_sysbios_knl_Task_Module__root__V                          
+0081a678  ti_sysbios_timers_rti_Timer_Module_State_0_handles__A        
+0081a680  xdc_runtime_Registry_Module__state__V                        
+0081a688  xdc_runtime_Startup_Module__state__V                         
+0081a690  xdc_runtime_System_Module__state__V                          
+0081a69c  ti_sysbios_heaps_HeapBuf_Module__state__V                    
+0081a6a4  xdc_runtime_Memory_Module__state__V                          
+0081a6a8  ti_sysbios_gates_GateHwi_Object__table__V                    
+0081a6ac  __TI_STATIC_BASE                                             
+0081a6ac  heap0                                                        
+0081a6b0  ti_sysbios_knl_Task_Module_State_0_idleTask__A               
+0081a6b8  __CIOBUF_                                                    
+0081a838  MCPI_Result                                                  
+0081a83c  MCPI_FailSignature                                           
+0081a844  memoryBytesUsed                                              
+0081a848  gMCPILogMessageSize                                          
+20000000  MCPI_logMessage                                              
+ffffffff  __TI_pprof_out_hndl                                          
+ffffffff  __TI_prof_data_size                                          
+ffffffff  __TI_prof_data_start                                         
+ffffffff  __binit__                                                    
+ffffffff  __c_args__                                                   
+ffffffff  binit                                                        
+UNDEFED   __TI_CINIT_Base                                              
+UNDEFED   __TI_CINIT_Limit                                             
+UNDEFED   __TI_Handler_Table_Base                                      
+UNDEFED   __TI_Handler_Table_Limit                                     
+UNDEFED   __TI_INITARRAY_Base                                          
+UNDEFED   __TI_INITARRAY_Limit                                         
+UNDEFED   __TI_TLS_INIT_Base                                           
+UNDEFED   __TI_TLS_INIT_Limit                                          
+
+[744 symbols]

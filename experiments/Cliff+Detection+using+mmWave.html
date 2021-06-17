@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head>
+  <meta charset="UTF-8">
+  <title>Cliff Detection using mmWave</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="../.metadata/.html/scripts/toolbox.js"></script>
+  <script src="../.metadata/.html/scripts/toolbox_fixes.js"></script>
+  <link rel="stylesheet" href="../.metadata/.html/styles/link.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/fonts/ubuntu-regular-woff.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/fonts/glyphicons-halflings-regular.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/themes/united2.min.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/themes/bootstrap-responsive.min.css">
+
+  <style>
+    .img-responsive {
+      max-height: 300px;
+    }
+
+    .btn-primary {
+      margin: 5px;
+    }
+  </style>
+</head>
+
+<body style="">
+  <div class="container">
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div id="headline" class="navbar-brand">Cliff Detection using mmWave</div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-12 col-sm-9" id="content"><h1 id="-introduction-"><strong>Introduction</strong></h1><p>The objective of this experiment is to demonstrate the ability to detect cliffs or small drop off transitions between surfaces using a TI mmWave Sensor EVM. Compared to other technologies typically used for cliff detection, mmWave sensors have the advantage of being robust to poor environmental conditions such as low light or high dust and dirt. </p><h1 id="-setup-nbsp--"><strong>Setup </strong></h1><p>The setup for this experiment can be divided into two parts, namely physical setup and software setup. These are detailed below:</p><h2 id="-physical-setup-">Physical Setup</h2><p>The physical setup includes information about the scene such as the distance between the target and the sensor antenna, the type of target used, hardware setup and any other physical considerations e.g. non-reflective surfaces or use of anechoic chamber etc. The physical setup used for this experiment is given below:</p><p><strong><span>Hardware:</span></strong></p><ul><li>IWR6843 ISK ES2.0 Antenna Module</li><li>MMWAVEICBOOST</li></ul><p><strong>Mounting:</strong></p><p><img style="height:150;" src="./images/Cliff+Detection+using+mmWave/image2020-6-16_14-15-53.png" class="img-responsive"></p><p>In this experiment, the aim was to optimize the performance of the sensor for cliff detection capabilities rather than multi functional sensing modes such as object avoidance as well as cliff detection. The mounting height and angle of the sensor was chosen so that the boresight and highest gain region of the antenna radiation pattern was oriented towards the floor. Considering the geometrical illustration above, generally the closer the sensor is mounted to the floor, the shorter the max detection range possible unless the down tilt of the sensor is adjusted. </p><p><img style="height:250;" src="./images/Cliff+Detection+using+mmWave/image2020-6-16_12-43-33.png" class="img-responsive"></p><p>For this experiment the sensor was mounted 25cm from the floor with a down tilt of 15° or θ = 75° in the diagram above.</p><h2 id="-software-setup-">Software setup</h2><p>1. The IWR6843ISK EVM was running the SDK <a href="https://dev.ti.com/tirex/explore/node?node=ACpqktzlSpFJk2yqlwohXQ__VLyFKFf__LATEST">xwr68xx out of box demo (version 3.4.0.3)</a>. </p><p><span>2. The chirp configuration (</span><a href="./images/Cliff+Detection+using+mmWave/cliff_chirp.cfg" class="btn btn-primary">cliff_chirp.cfg</a><span>) was used to configure the sensor for the following sensor parameters:</span></p><table class="table table-striped table-bordered"><tbody><tr><td><p align="center"><strong>Short Range Chirp for ISK</strong></p></td><td><p align="center"><strong> </strong></p></td></tr><tr><td><p align="center">numTXAnt</p></td><td><p align="center">3</p></td></tr><tr><td><p align="center">numRXAnt</p></td><td><p align="center">4</p></td></tr><tr><td><p align="center">Max Range</p></td><td><p align="center">2.02 m</p></td></tr><tr><td><p align="center">Range Resolution</p></td><td><p align="center">3.9cm</p></td></tr><tr><td><p align="center">Max Velocity</p></td><td><p align="center">1.85m/s</p></td></tr><tr><td><p align="center">Velocity resolution</p></td><td><p align="center">0.12m/s</p></td></tr></tbody></table><p>3. A custom visualizer was used to record and parse the range-doppler and range-azimuth heatmaps generated using the OOB demo. The visualizer implemented the following algorithm for cliff detection based off range-doppler or range-azimuth analysis. Both methods are used to add robustness of cliff detection during moving and non moving states:</p><ul><li>Range-Doppler based detection: In the range-doppler heatmap based approach for cliff detection, there is a set of range bins that are assumed to correspond to the boresight reflection with the ground at the distance r_gnd +/-2 range bins. When the surface is flat, there is a peak at these range bins (shown in the top panel of the image below). When approaching a cliff drop off, the peak disappears from the range bins of interest and generally shifts to further ranges. The presence or absence of peaks in the heatmap at the range-bins of interest is used to indicate the presence/absence of a cliff.<br><img style="height:250;" src="./images/Cliff+Detection+using+mmWave/image2020-6-16_14-15-15.png" class="img-responsive"></li><li>Range-Azimuth based detection: In the range-azimuth heatmap based approach for cliff detection, a calibration measurement is made when the device is on a surface without a cliff or object in the 1m range region in front of the sensor. After the calibration measurement is saved, for every frame a delta range-azimuth heatmap is calculated by subtracting the calibration heatmap from the current frame's heatmap. Hot regions in the delta heatmap are indicative of an obstruction or cliff within the region.<br><img style="height:150;" src="./images/Cliff+Detection+using+mmWave/image2020-6-17_15-0-26.png" class="img-responsive"><br><br></li></ul><p><br></p><p><strong>Testing and Results</strong></p><ul><li>The sensor was mounted as indicated in the previous section on a manually sliding platform. Starting from 1.5m, the sensor was moved forward to approach the cliff.</li><li>The distance at which the cliff was first be able to be detected was noted.</li><li>This was repeated 10 times for the cliff/drop offs described in the table below.<br><br></li></ul><table class="table table-striped table-bordered"><tbody><tr><td><p><strong>Cliff Height</strong></p></td><td><p align="center"><strong>Material of floor</strong></p></td><td><p align="center"><strong>Material of drop off surface</strong></p></td><td><p align="center"><strong>Max range cliff detected at</strong></p></td></tr><tr><td><p>7 cm (garage transition)</p></td><td><p align="center">Concrete</p></td><td><p align="center">Concrete</p></td><td><p align="center">48cm</p></td></tr><tr><td><p>10 cm (sunken living room)</p></td><td><p align="center">Tile</p></td><td><p align="center">Wood</p></td><td><p align="center">54 cm</p></td></tr><tr><td><p>15 cm (roadside curb)</p></td><td><p align="center">Concrete</p></td><td><p align="center">Concrete</p></td><td><p align="center">57 cm</p></td></tr><tr><td><p>19 cm (stairs)</p></td><td><p align="center">Wood</p></td><td><p align="center">Wood</p></td><td><p align="center">55 cm</p></td></tr></tbody></table><h1 id="-conclusion-"><strong>Conclusion</strong></h1><ol><li>The experiment demonstrates that mmWave sensor running the mmWave SDK out of box demo can be used to enable cliff detection. </li><li>Limitation of the experiments include the assumption that the sensor starts on the flat surface before approaching a cliff to detect the transition to the lower surface. Additionally the floor and drop off surfaces are relatively flat without significant protrusions.<br><br></li></ol></div>
+        <div class="col-xs-4 col-sm-2 sidebar-offcanvas bs-docs-sidebar hidden-print" id="sidebar-overview"><ul class="nav nav-stacked fixed" id="sidebar"><li><a href="#-introduction-">Introduction</a></li><li><a href="#-setup-nbsp--">Setup </a></li><li><ul class="nav nav-stack"><li><a href="#-physical-setup-">Physical Setup</a></li><li><a href="#-software-setup-">Software setup</a></li></ul></li><li><a href="#-conclusion-">Conclusion</a></li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../.metadata/.html/scripts/strapdown/vendor/bootstrap.min.js"></script>
+  <div class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+      <div class="modal-dialog vertical-align-center">
+        <div class="modal-dialog">
+          <div class="modal-content" style="margin-left: auto;margin-right: auto;">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button> <img src="" class="imagepreview"> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body></html>

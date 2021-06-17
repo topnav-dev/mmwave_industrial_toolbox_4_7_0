@@ -1,0 +1,33 @@
+[
+    {
+        "files": [
+            "+dss/dss_config_edma_util.c -> dss/dss_config_edma_util.c",
+            "+dss/dss_config_edma_util.h -> dss/dss_config_edma_util.h",
+            "+dss/dss_data_path.c -> dss/dss_data_path.c",
+            "+dss/dss_data_path.h -> dss/dss_data_path.h",
+            "+dss/dss_lvds_stream.c -> dss/dss_lvds_stream.c",
+            "+dss/dss_lvds_stream.h -> dss/dss_lvds_stream.h",
+            "+dss/dss_main.c -> dss/dss_main.c",
+            "+dss/dss_mmw.h -> dss/dss_mmw.h",
+            "+dss/dss_mmw.cfg -> dss/dss_mmw.cfg",
+            "+dss/dss_resources.h -> dss/dss_resources.h",
+            "+dss/gesture.c -> dss/gesture.c",
+            "+dss/gesture.h -> dss/gesture.h",
+            "+common/mmwDemo_monitor.c -> common/mmwDemo_monitor.c",
+            "+common/mmwDemo_monitor.h -> common/mmwDemo_monitor.h",
+            "+common/detected_obj.h -> common/detected_obj.h",
+            "+common/mmw_config.h -> common/mmw_config.h",
+            "+common/mmw_gesture_out.h -> common/mmw_gesture_out.h",
+            "+common/mmw_messages.h -> common/mmw_messages.h",
+            "+common/mmw_output.h -> common/mmw_output.h",
+            "+common/ANN/ANN_params_60Ghz.h -> common/ANN/ANN_params_60Ghz.h",
+            "+common/ANN/b0.h -> common/ANN/b0.h",
+            "+common/ANN/b1.h -> common/ANN/b1.h",
+            "+common/ANN/b2.h -> common/ANN/b2.h",
+            "+common/ANN/w0.h -> common/ANN/w0.h",
+            "+common/ANN/w1.h -> common/ANN/w1.h",
+            "+common/ANN/w2.h -> common/ANN/w2.h",
+            "+dss/dss_mmw_linker.cmd -> dss/dss_mmw_linker.cmd"
+        ]
+    }
+]

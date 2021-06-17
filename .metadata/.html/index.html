@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Evaluate with mmWave Sensor Experiments</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js" integrity="sha256-Bhi6GMQ/72uYZcJXCJ2LToOIcN3+Cx47AZnq/Bw1f7A=" crossorigin="anonymous"></script>
+
+<!--
+  <script src="scripts/strapdown/vendor/jquery-1.11.2.min.js"></script>
+-->
+  <script src="scripts/strapdown/vendor/bootstrap.min.js"></script>
+  <script src="scripts/highlight/highlight.pack.js"></script>
+  <script src="scripts/strapdown/v/0.2/strapdown.js"></script>
+  <script src="scripts/toolbox.js"></script>
+<!--
+  <script src="scripts/toolbox_fixes.js"></script>
+-->
+
+<!--
+  Create release notes table and convert any TIREX links after page is ready
+-->
+    <script>
+        $(document).ready(function(){
+            insert_release_notes_table("#release_notes_table");
+            insert_release_notes_table_prev("#release_notes_table_prev");
+            insert_release_notes_table_prev2("#release_notes_table_prev2");
+            var script = document.createElement( "script" );
+            script.src = "scripts/toolbox_fixes.js";
+            document.getElementsByTagName( "head" )[0].appendChild( script );
+        });
+    </script>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css" integrity="sha256-/Z28yXtfBv/6/alw+yZuODgTbKZm86IKbPE/5kjO/xY=" crossorigin="anonymous" />
+
+
+    <link rel="stylesheet" type="text/css" href="./styles/app.css">
+    <link rel="stylesheet" type="text/css" href="./styles/link.css">
+
+</head>
+    <body>
+        <div class="ui inverted vertical masthead center aligned segment">
+        <div class="ui text container">
+          <h1 class="ui inverted icon header">
+            <i class="inverted circular travel icon"></i>
+                    Industrial Toolbox for mmWave Sensors
+          </h1>
+          <h3>
+              <span class="red">Discover</span>
+              <i class="right chevron icon divider"></i>
+              <span class="teal">Evaluate</span>
+              <i class="right chevron icon divider"></i>
+              <span class="grey">Design</span>
+          </h3>
+        </div>
+      </div>
+
+        <div class="ui main container vertical segment">
+
+
+
+            <div class="ui inverted grid">
+
+                <div class="sixteen wide column">
+                    <div class="ui icon message">
+
+                      <i class="close icon"></i>
+                      <i class="announcement icon"></i>
+                      <div class="content">
+                        <div class="header">
+                          What's New
+                        </div>
+                            <ul>
+
+                              
+                                <li>Labs in the <a href="javascript:void(0)" onclick="window.parent.jumpToTirexNodeInCurrentPackage('AN-1gXp4Kn1RRFC9mOFTZQ')"> Robotics </a>  section have been updated for ROS Melodic, and ROS Kinetic is no longer supported. </li>
+                                <li>The <a href="javascript:void(0)" onclick="window.parent.jumpToTirexNodeInCurrentPackage('AN-AAl36CxwNtl29y6O1o9ZXA')"> 68xx High Accuracy Range Measurement Lab </a> has been updated to enable zoom-FFT processing on multiple objects in a single scene.</li>
+                                <li>The <a href="javascript:void(0)" onclick="window.parent.jumpToTirexNodeInCurrentPackage('AGwoSMG6A9Yh91IFs9NPmA')"> Overhead 3D People Counting Lab </a> now supports FCC compliant low-bandwidth mode. See the <a href="javascript:void(0)" onclick="window.parent.jumpToTirexNodeInCurrentPackage('AGn5r.xojDrrAKHxSfvzFg')"> Lab User Guide </a> for details.</li>
+                                                             
+                                
+                            </ul>
+                      </div>
+                    </div>
+                </div>
+          </div>
+
+
+          <a id="featured-content"></a><h2 class="ui horizontal divider header">
+                  Featured Content
+                </h2>
+
+          <div class="ui four link doubling cards">
+                  <div class="card">
+                     
+                      <img src="./images/featured/IWR6843AOPEVM.png" height="130" />
+                    <div class="content">
+                      <div class="header">New mmWave Devices now available!</div>
+<!--                                          </div>
+
+                    <div class="description">-->
+                       <ul> <li>The IWR6843AoP ES2.0 EVM is now available on ti.com. </li> <li> The new ES2.0 silicon revision brings improvements in both device packaging and RF performance</li> <li> Many labs in the toolbox have been updated with both compatibility with IWR6843AoP and support for mmWave-SDK 3.5.x.x</li></ul>
+                      </div>
+                    <div class="extra content">
+                      <span class="right floated">
+                        
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                            
+                      <img src="./images/featured/iwr6843isk_revc.png"  height="250"/>
+                    <div class="content">
+                      <div class="header">New Standalone IWR6843 Antenna Modules</div>
+
+                      <div class="description">
+                          <ul><li>New IWR6843ISK (Rev. C) and IWR6843ISK-ODS (Rev. B). Updated Lab Instructions</li><li>Modular boards with Standalone flashing and functional mode.</li><li>Direct interfacing with the DCA1000EVM.</li></ul>
+                      </div>
+                    </div>
+                    <div class="extra content">
+                      <span class="right floated">
+                      </span>
+                    </div>
+                                        </div>
+
+                    
+                    <div class="card">
+                            
+                            <img src="./images/featured/people_counting.png" height = "250"/>
+                        <div class="content">
+                            <div class="header">Area Scanner</div>
+                            <div class="description">
+                                Use TI mmWave sensor to designate intelligent keep out zones based on position and velocity of the objects in the scene. Includes algorithm for detection of static objects.
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            <span class="right floated">
+                                Works with <strong>IWR6843AOP EVM ES2.0</strong>
+                            </span>
+                        </div>
+                    </div>
+
+
+                  <div class="card">
+                      
+                      
+                      <img src="./images/featured/people_counting.png" height = "220"/>
+                    <div class="content">
+                      <div class="header">3D People Counting</div>
+                      <div class="description">
+                        This lab demonstrates the use of TI mmWave sensors to count and track multiple people simultaneously. This lab has been updated with a new 3D tracking algorithm. 
+                      </div>
+                    </div>
+                    <div class="extra content">
+                      <span class="right floated">
+                        Works with <strong>IWR6843AOP EVM ES2.0</strong>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+      </div>
+
+
+
+
+
+
+
+              <h2 class="ui horizontal divider red header">
+                  Experiments
+                </h2>
+                <div class="ui middle aligned divided grid">
+            <div class="row">
+              <div class="fourteen wide column">
+                  These experiments are run by the TI mmWave team to verify a variety of general use-cases and test mmWave sensors capability to sense objects under different environments. Each experiment contains explanation and methodology to help you understand the testing conditions and recreate the experiment yourself.
+              </div>
+              <a href="http://dev.ti.com/tirex/#/?link=Software%2FmmWave%20Sensors%2FIndustrial%20Toolbox%2FExperiments"><div class="center aligned two wide column">
+                  <div class="ui statistics">
+                              <div class="red statistic">
+                                <div class="value">
+                                  10
+                                </div>
+                                <div class="label">
+                                  Experiments
+                                </div>
+                              </div>
+                            </div>
+              </div></a>
+            </div>
+          </div>
+
+
+                <h2 class="ui horizontal divider teal header">
+                  Labs
+                </h2>
+
+                <div class="ui middle aligned divided grid">
+            <div class="row">
+                <a href="http://dev.ti.com/tirex/#/?link=Software%2FmmWave%20Sensors%2FIndustrial%20Toolbox%2FLabs"><div class="center aligned two wide column">
+                  <div class="ui statistics">
+                              <div class="teal statistic">
+                                <div class="value">
+                                 24
+                                </div>
+                                <div class="label">
+                                  Labs
+                                </div>
+                              </div>
+                            </div>
+              </div></a>
+              <div class="fourteen wide column">
+                  The labs are source code examples on how to get started with the mmWave sensors.  Each lab provides detailed instructions to follow along while evaluating. Source code of each lab can be loaded directly into Code Composer Studio through the integrated view in TI Resource Explorer.
+              </div>
+            </div>
+          </div>
+
+
+                <h2 class="ui horizontal divider blue header">
+                  Chirp Database
+                </h2>
+
+                <div class="ui middle aligned divided grid">
+            <div class="row">
+              <div class="fourteen wide column">
+                  The chirp database is an easy-to-search repository of different mmWave RF front-end configurations that the TI mmWave team has calculated for our demos and experiments. These chirp designs are available for you to get started designing quickly and can be loaded directly into mmWave Sensing Estimator.
+              </div>
+              <a href="http://dev.ti.com/tirex/#/?link=Software%2FmmWave%20Sensors%2FIndustrial%20Toolbox%2FChirp%20Database"><div class="center aligned two wide column">
+                  <div class="ui statistics">
+                              <div class="blue statistic">
+                                <div class="value">
+                                  18
+                                </div>
+                                <div class="label">
+                                  Chirps
+                                </div>
+                              </div>
+                            </div>
+              </div></a>
+            </div>
+          </div>
+
+
+                <h2 class="ui horizontal divider orange header">
+                  Antenna Database
+                </h2>
+
+                <div class="ui middle aligned divided grid">
+            <div class="row">
+                <a href="http://dev.ti.com/tirex/#/?link=Software%2FmmWave%20Sensors%2FIndustrial%20Toolbox%2FAntenna%20Database"><div class="center aligned two wide column">
+                  <div class="ui statistics">
+                              <div class="orange statistic">
+                                <div class="value">
+                                  16
+                                </div>
+                                <div class="label">
+                                  Antennas
+                                </div>
+                              </div>
+                            </div>
+              </div></a>
+              <div class="fourteen wide column">
+                mmWave Antenna Database is a repository of mmWave antennas put together by the TI mmWave team and third-parties. TI-designed antennas are available to get started by reusing the stack-up and layout to use the same antenna for your application. Each third-party designed antenna can be used as an antenna module available from that third-party to order and use. Each antenna design is validated as a part of a board design.
+              </div>
+            </div>
+          </div>
+
+
+
+        <div class="ui container">
+            <div class="ui grid">
+                <div class="row"></div>
+                <div class="ui card sixteen wide column">
+                  <div class="content sixteen wide">
+                    <div class="header">What's New -- February 25, 2021</div>
+                        <br />
+                    <div class="description">
+                      <strong>See the package <a href="javascript:void(0)" onclick="window.parent.jumpToTirexNodeInCurrentPackage('AJ9Qs1SGW99rZ.xFTTMBKQ')">Release Notes</a> for a list of updates in this Toolbox</strong>
+                    </div>
+                        <br />
+                        <div class="description">
+                            <!-- <p>In the release:</p>
+                            <br /> -->
+                            <center>
+                                <div id="release_notes_table">
+
+                                </div>
+                            </center>
+                        </div>
+                        
+
+                    
+                  </div>
+                </div>
+                <div class="row"></div>
+            </div>
+        </div>
+
+        <div class="ui container">
+            <div class="ui grid">
+                <div class="row"></div>
+                <div class="ui card sixteen wide column">
+                  <div class="content sixteen wide">
+                    <div class="header">How to access previous Industrial Toolbox versions</div>
+                        <br />
+                    <div class="description">
+                        <strong><u>From Code Composer Studio:</u></strong>
+                    </div>
+                        <br />
+                        <div class="description">
+                          <p>Open the TI Resource Explorer, click on the Home icon, select the desired version for the Industrial Toolbox and click the Download button</p>
+                          <img src="./images/package_picker_ccs.png">
+                          <img src="./images/package_picker_menu_ccs.png">
+                        </div>
+                    <div class="description">
+                      <strong><u>From the web:</u></strong>
+                    </div>
+                        <br />
+                        <div class="description">
+                          <p>Go to the mmWave Industrial Toolbox, in the feature menu choose Manage Versions and then select the desired version for the Industrial Toolbox.</p>
+                          <img src="./images/package_picker_web.png">
+                        </div>
+                  </div>
+                </div>
+                <div class="row"></div>
+            </div>
+        </div>
+
+      <div class="ui inverted vertical footer segment">
+        <h4 class="ui center aligned grey header">v3.x</h4>
+      </div>
+    </body>
+
+  <script>
+      $('.message .close')
+          .on('click', function() {
+            $(this)
+              .closest('.message')
+              .transition('fade')
+            ;
+          });
+
+        $('.link.cards .image').dimmer({
+          on: 'hover'
+        });
+  </script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head>
+  <meta charset="UTF-8">
+  <title>Response of Radar to Rain</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="../.metadata/.html/scripts/toolbox.js"></script>
+  <script src="../.metadata/.html/scripts/toolbox_fixes.js"></script>
+  <link rel="stylesheet" href="../.metadata/.html/styles/link.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/fonts/ubuntu-regular-woff.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/fonts/glyphicons-halflings-regular.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/themes/united2.min.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/themes/bootstrap-responsive.min.css">
+
+  <style>
+    .img-responsive {
+      max-height: 300px;
+    }
+
+    .btn-primary {
+      margin: 5px;
+    }
+  </style>
+</head>
+
+<body style="">
+  <div class="container">
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div id="headline" class="navbar-brand">Response of Radar to Rain</div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-12 col-sm-9" id="content"><h1 id="-introduction-"><strong>Introduction</strong></h1><p>The objective of this experiment is to determine the impact of rain on the ability of TI mmWave Radar to sense the desired object. For the purpose of this experiment, we simulated two mock rainy situations, one with a sprinkler representing light rain and the other with a garden hose representing medium to heavy rain. The experiment was repeated using two different TI mmWave platforms: IWR1443 and IWR6843 both of which showed similar performance. </p><h1 id="-setup-nbsp--"><strong>Setup </strong></h1><p>The setup for this experiment can be divided into two parts namely Physical setup and Software setup. These are detailed below:</p><h2 id="-physical-setup-">Physical Setup</h2><p>The Physical setup includes information about the scene such as the distance between the object and the sensor antenna, the type of object used, environmental conditions of interest (dry vs rainy), hardware setup etc. The physical setup used for this experiment is given below:</p><ol><li>A corner reflector with RCS of 0.5m<sup>2</sup> was used as a target object and it was kept 8-10 meters from the EVM, with the corner reflector facing the sensor antenna.</li><li>The corner reflector was mounted on a tripod and the scene was setup in the backyard of a home.</li><li>The hardware setup included an IWR1443 EVM or an IWR6843 EVM, connected to a Windows Host PC.<br><span><img style="border:1px;height:250;" src="./images/Response+of+Radar+to+Rain/image2017-9-15_18-24-25.png" class="img-responsive"><br></span></li><li>Rain was simulated using a sprinkler or a garden hose with a nozzle.<br><img style="border:1px;height:250;" src="./images/Response+of+Radar+to+Rain/dry_cornerreflectorIMG_0750.JPG" class="img-responsive"><img style="border:1px;height:250;" src="./images/Response+of+Radar+to+Rain/lawnsprinkler_IMG_0751.JPG" class="img-responsive"><img style="border:1px;height:250;" src="./images/Response+of+Radar+to+Rain/hose_CR_IMG_0754.JPG" class="img-responsive"><br>        </li></ol><h2 id="-software-setup-">Software setup</h2><ol><li>The experiment was repeated on two different EVMs: IWR1443 and IWR6843. The corresponding mmWave SDK Out-of-Box example was used on both platforms.</li><li>The Windows host PC was running the <a href="https://dev.ti.com/mmWaveDemoVisualizer">mmWave Demo Visualizer</a> to show the range and scatter plots. The <a href="https://dev.ti.com/mmWaveDemoVisualizer">mmWave Demo Visualizer</a> was configured for Best Range as shown in the setting below.<br><br></li></ol><h1 id="-method-"><strong>Method</strong></h1><p>The steps presented below were repeated for both Dry and Rainy conditions.</p><ol><li>Create the physical setup as per the details provided above.</li><li>Flash the mmWave SDK Out-of-Box Demo on the mmWave EVM and connect the EVM to the host PC.</li><li>Launch <a href="https://dev.ti.com/mmWaveDemoVisualizer">mmWave Demo Visualizer</a> on the host PC and setup the Visualizer as per the configuration shown below:<ul><li><strong>Platform</strong> - xWR14xx, xWR68xx</li><li><strong>Desired Configuration</strong> - Best Range</li><li><strong>Maximum Unambiguous Range </strong>- 30m</li><li><strong>Range Detection Threshold</strong> - 15 dB<br><img style="height:400;" src="./images/Response+of+Radar+to+Rain/mmwave_demo_visualizer_14xx.PNG" class="img-responsive"><img style="height:400;" src="./images/Response+of+Radar+to+Rain/mmwave_demo_visualizer_68xx.PNG" class="img-responsive"></li></ul></li><li>Press <strong>Send config to MMWave Device</strong></li><li>Select the<strong> Plots</strong> Tab to look at the <strong>Scatter Plot</strong> and the <strong>Range Profile </strong>plot</li><li>It is recommended to first run the experiment in Dry condition to ensure that the object can be detected in Dry condition. This serves as the control against which the effects of Rain can be compared.</li><li>Turn on the Sprinkler placed near the corner reflector to generate rainy conditions and repeat the experiment</li></ol><h1 id="-results-"><strong>Results</strong></h1><p>The steps presented above were repeated for Dry, Light rain and Medium rain conditions. The Scatter Plots and Range Profile Plots were used to determine if the object could be detected and the results are summarized below:</p><ol><li>The object was detected in both dry and rainy conditions.</li><li><p>Rain on the antenna radome, and on objects in the static scene can cause diffraction, which lowers the peak value, and with multiple objects lowers the SNR.</p></li></ol><p><br></p><table class="table table-striped table-bordered"><tbody><tr><th>Condition</th><th>Result</th><th>Visualizer Plot</th></tr><tr><td class="highlight-grey" data-highlight-colour="grey">No Rain (Dry)</td><td>Object Detected</td><td><div class="content-wrapper"><p><img style="" src="./images/Response+of+Radar+to+Rain/image2017-9-19_15-49-17.png" class="img-responsive"></p></div></td></tr><tr><td class="highlight-grey" data-highlight-colour="grey">Light Rain (Misty rain)</td><td>Object Detected</td><td><div class="content-wrapper"><p><img style="" src="./images/Response+of+Radar+to+Rain/image2017-9-19_15-49-54.png" class="img-responsive"></p></div></td></tr><tr><td class="highlight-grey" colspan="1" data-highlight-colour="grey">Medium Rain</td><td colspan="1">Object Detected</td><td colspan="1"><div class="content-wrapper"><p><img style="" src="./images/Response+of+Radar+to+Rain/image2017-9-19_15-50-6.png" class="img-responsive"></p></div></td></tr></tbody></table><p><br></p><h1 id="-conclusion-"><strong>Conclusion</strong></h1><ol><li>The mmWave radar sensor was able to detect the object in a static scene in both dry and rainy conditions.</li><li>In rain, a 1-2 db loss in peak magnitude can be noticed, along with rain-deflections of objects in the scene (this is seen as a lowering of SNR). Therefore in rainy conditions, the object detection SNR (Range detection threshold in the <a href="https://dev.ti.com/mmWaveDemoVisualizer">mmWave Demo Visualizer</a>) may need adjustment to detect the desired objects.</li></ol></div>
+        <div class="col-xs-4 col-sm-2 sidebar-offcanvas bs-docs-sidebar hidden-print" id="sidebar-overview"><ul class="nav nav-stacked fixed" id="sidebar"><li><a href="#-introduction-">Introduction</a></li><li><a href="#-setup-nbsp--">Setup </a></li><li><ul class="nav nav-stack"><li><a href="#-physical-setup-">Physical Setup</a></li><li><a href="#-software-setup-">Software setup</a></li></ul></li><li><a href="#-method-">Method</a></li><li><a href="#-results-">Results</a></li><li><a href="#-conclusion-">Conclusion</a></li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../.metadata/.html/scripts/strapdown/vendor/bootstrap.min.js"></script>
+  <div class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+      <div class="modal-dialog vertical-align-center">
+        <div class="modal-dialog">
+          <div class="modal-content" style="margin-left: auto;margin-right: auto;">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button> <img src="" class="imagepreview"> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body></html>

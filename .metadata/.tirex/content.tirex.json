@@ -1,0 +1,83 @@
+[	
+	{
+		"name": "Experiments",
+		"mainCategories": [],
+		"subCategories": [],
+		"categories": [],
+		"location": "../.html/experiments.html",
+		"resourceType": "categoryInfo"
+  },
+
+	{
+		"name": "Labs",
+		"mainCategories": [],
+		"subCategories": [],
+		"categories": [],
+		"location": "../.html/labs.html",
+		"resourceType": "categoryInfo"
+  },
+
+	{
+		"name": "Antenna Database",
+		"mainCategories": [],
+		"subCategories": [],
+		"categories": [],
+		"location": "../.html/antennas.html",
+		"resourceType": "categoryInfo"
+  },
+
+	{
+		"name": "Chirp Database",
+		"mainCategories": [],
+		"subCategories": [],
+		"categories": [],
+		"location": "../.html/chirps.html",
+		"resourceType": "categoryInfo"
+  },
+
+    {
+		"name": "Certification",
+		"mainCategories": [],
+		"subCategories": [],
+		"categories": [],
+		"location": "../../certification/TI_mmWave_Certification_Database_Release_Notes.html",
+		"resourceType": "categoryInfo"
+    },
+
+	{
+		"name": "Read Me",
+		"mainCategories": [],
+		"subCategories": [],
+		"categories": [],
+		"location": "../../docs/readme.html",
+		"resourceType": "file"
+  },
+
+	{
+		"name": "Release Notes",
+		"mainCategories": [],
+		"subCategories": [],
+		"categories": [],
+		"location": "../../docs/industrial_toolbox_release_notes.html",
+		"resourceType": "file"
+  },
+
+	{
+		"name": "Documentation and Resources",
+		"mainCategories": [],
+		"subCategories": [],
+		"categories": [],
+		"location": "../../docs/docs.html",
+		"resourceType": "file"
+  	},
+
+	{
+		"name": "Tools",
+		"mainCategories": [],
+		"subCategories": [],
+		"categories": [],
+		"resourceType": "categoryInfo"
+  	}
+	
+
+]

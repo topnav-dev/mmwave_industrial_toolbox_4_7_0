@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head>
+  <meta charset="UTF-8">
+  <title>Robotics AGV application</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="../.metadata/.html/scripts/toolbox.js"></script>
+  <script src="../.metadata/.html/scripts/toolbox_fixes.js"></script>
+  <link rel="stylesheet" href="../.metadata/.html/styles/link.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/fonts/ubuntu-regular-woff.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/fonts/glyphicons-halflings-regular.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/themes/united2.min.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/themes/bootstrap-responsive.min.css">
+
+  <style>
+    .img-responsive {
+      max-height: 300px;
+    }
+
+    .btn-primary {
+      margin: 5px;
+    }
+  </style>
+</head>
+
+<body style="">
+  <div class="container">
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div id="headline" class="navbar-brand">Robotics AGV application</div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-12 col-sm-9" id="content"><h1 id="-introduction-"><strong>Introduction</strong></h1><p>This use case provides the mmWave radar sensor configuration for Robotics / AGV (Autonomous Ground Vehicle) applications. In Robotics, mmWave radar can be used for multiple applications such as Ground Speed Sensing, Edge Detection, Avoiding collisions with objects or people etc. Typically, the maximum range and velocity requirements for such applications are fairly moderate however the system needs to be able to detect very small objects (low RCS) and also have good range and velocity resolutions.</p><p><img style="height:400;" src="./images/Robotics+AGV+application/Robotics _AGV.jpeg" class="img-responsive"></p><h1 id="-step-1-system-parameters-"><strong>Step 1: System Parameters</strong></h1><table class="table table-striped table-bordered"><tbody><tr><th class="highlight-grey" data-highlight-colour="grey"> Parameter</th><th class="highlight-grey" data-highlight-colour="grey">Specification (MIMO)</th></tr><tr><td colspan="1">Device Type</td><td colspan="1">IWR1642</td></tr><tr><td>Maximum range (m)</td><td>30</td></tr><tr><td>Range resolution (m)</td><td>0.18</td></tr><tr><td colspan="1">Range accuracy (m)</td><td colspan="1">0.03</td></tr><tr><td>Maximum velocity (km/h)</td><td><p>36</p></td></tr><tr><td>Velocity resolution (km/hr)</td><td>0.9</td></tr><tr><td>Total Sweep Bandwidth (MHz)</td><td>950</td></tr><tr><td>RCS (m<sup>2</sup> @ range)</td><td>0.001m<sup>2</sup> @ 30m</td></tr><tr><td>Update rate (Hz)</td><td>30</td></tr><tr><td>Radar Cube Size (KB)</td><td>640</td></tr><tr><td><br></td><td><br></td></tr></tbody></table><h1 id="-step-2-chirp-configuration-"><strong>Step 2: Chirp Configuration</strong></h1><table class="table table-striped table-bordered"><tbody><tr><td colspan="1">1.</td><td colspan="1"><p><strong>Chirp Configuration</strong></p></td><td colspan="2"><div class="content-wrapper"><p><strong><a href="https://dev.ti.com/gallery/view/1792614/mmWaveSensingEstimator/?platform=xWR1642&num_rx=4&num_tx=2&tx_gain=9&rx_gain=9&freq_range=76&bandwidth=1000&tx_power=12&temp=20&range=31&range_resolution=18&velocity=35.6&velocity_resolution=0.9&fps=30&rcs=0.001">Load in Sensing Estimator</a></strong></p></div></td></tr><tr><td>2.</td><td>Special considerations, Limitations etc</td><td colspan="2"><div class="content-wrapper"><p>The maximum achievable range with the xWR1642 EVM will be less than 30 m due to lower antenna gains. Higher gain antenna design is needed in order to achieve the specified detection range of 30 m.</p></div></td></tr></tbody></table><h1 id="-step-3-oob-demo-configuration-file-"><strong>Step 3: OOB Demo Configuration File</strong></h1><table class="table table-striped table-bordered"><tbody><tr><td colspan="1"><br></td><td class="highlight-grey" colspan="1" data-highlight-colour="grey"><strong>Use Case</strong></td><td class="highlight-grey" colspan="1" data-highlight-colour="grey"><strong>OOB Demo Configuration File</strong></td></tr><tr><td colspan="1">1</td><td colspan="1">Robotics AGV application (MIMO)</td><td colspan="1"><div class="content-wrapper"><p><a href="./images/Robotics+AGV+application/robotics_agv_profile_cfg.cfg" class="btn btn-primary">robotics_agv_profile_cfg.cfg</a></p></div></td></tr></tbody></table><h1 id="-assumptions-and-miscellaneous-information-"><strong>Assumptions and Miscellaneous Information</strong></h1><table class="table table-striped table-bordered"><tbody><tr><th colspan="2">System Level Assumptions</th></tr><tr><td colspan="1">Starting frequency <strong>(GHz)</strong></td><td colspan="1">76</td></tr><tr><td colspan="1">TX Antenna Gain <strong>(dB)</strong></td><td colspan="1">9*</td></tr><tr><td colspan="1">RX Antenna Gain <strong>(dB)</strong></td><td colspan="1">9*</td></tr><tr><td colspan="1">Device Type</td><td colspan="1">IWR1642</td></tr><tr><td colspan="1">Number  of TX Antennas used</td><td colspan="1">2</td></tr><tr><td colspan="1">Number of RX Antennas used</td><td colspan="1">4</td></tr><tr><td colspan="2"><strong>*Note 1:</strong> <span>The maximum achievable range with the xWR1642 EVM will be less than 30 m due to lower antenna gains. Higher gain antenna design is needed in order to achieve the specified detection range of 30 m.</span></td></tr></tbody></table><h1 id="-testing-and-results-"><strong>Testing and Results</strong></h1><p>This chirp configuration needs a dedicated processing chain to work and it cannot work with OOB Demo processing chain. However, this chirp configuration has been tested to confirm that it correctly configures the Radar Front-End for the specified sensing configuration i.e. it doesn't generate any mmWaveLink API errors. This is done by loading the chirp configuration in the OOB Demo Configuration GUI (using the OOB Demo Configuration File provided in Step 3).</p><p><br></p></div>
+        <div class="col-xs-4 col-sm-2 sidebar-offcanvas bs-docs-sidebar hidden-print" id="sidebar-overview"><ul class="nav nav-stacked fixed" id="sidebar"><li><a href="#-introduction-">Introduction</a></li><li><a href="#-step-1-system-parameters-">Step 1: System Parameters</a></li><li><a href="#-step-2-chirp-configuration-">Step 2: Chirp Configuration</a></li><li><a href="#-step-3-oob-demo-configuration-file-">Step 3: OOB Demo Configuration File</a></li><li><a href="#-assumptions-and-miscellaneous-information-">Assumptions and Miscellaneous Information</a></li><li><a href="#-testing-and-results-">Testing and Results</a></li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../.metadata/.html/scripts/strapdown/vendor/bootstrap.min.js"></script>
+  <div class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+      <div class="modal-dialog vertical-align-center">
+        <div class="modal-dialog">
+          <div class="modal-content" style="margin-left: auto;margin-right: auto;">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button> <img src="" class="imagepreview"> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body></html>

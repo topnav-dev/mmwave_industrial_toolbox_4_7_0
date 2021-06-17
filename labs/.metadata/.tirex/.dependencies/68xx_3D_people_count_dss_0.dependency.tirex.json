@@ -1,0 +1,28 @@
+[
+    {
+        "files": [
+            "+dss/dss_main.c -> dss/dss_main.c",
+            "+dss/pcount3D_dss.h -> dss/pcount3D_dss.h",
+            "+dss/c674x_linker.cmd -> dss/c674x_linker.cmd",
+            "+dss/pcount3D_dss_linker.cmd -> dss/pcount3D_dss_linker.cmd",
+            "+dss/pcount3D_dss.cfg -> dss/pcount3D_dss.cfg",
+            "+../../../common/src/dpc/capon3d/src/objectdetection.c -> dss/objectdetection.c",
+            "+../../../common/src/dpu/capon3d/src/radarProcess.c -> dss/radarProcess.c",
+            "+../../../common/src/dpu/capon3d/src/copyTranspose.c -> dss/copyTranspose.c",
+            "+../../../common/src/dpu/capon3d/modules/DoA/CaponBF2D/src/RADARDEMO_aoaEst2DCaponBF.c -> dss/modules/caponBF2D/src/RADARDEMO_aoaEst2DCaponBF.c",
+            "+../../../common/src/dpu/capon3d/modules/DoA/CaponBF2D/src/RADARDEMO_aoaEst2DCaponBF_angleEst.c -> dss/modules/caponBF2D/src/RADARDEMO_aoaEst2DCaponBF_angleEst.c",
+            "+../../../common/src/dpu/capon3d/modules/DoA/CaponBF2D/src/RADARDEMO_aoaEst2DCaponBF_DopplerEst.c -> dss/modules/caponBF2D/src/RADARDEMO_aoaEst2DCaponBF_DopplerEst.c",
+            "+../../../common/src/dpu/capon3d/modules/DoA/CaponBF2D/src/RADARDEMO_aoaEst2DCaponBF_heatmapEst.c -> dss/modules/caponBF2D/src/RADARDEMO_aoaEst2DCaponBF_heatmapEst.c",
+            "+../../../common/src/dpu/capon3d/modules/DoA/CaponBF2D/src/RADARDEMO_aoaEst2DCaponBF_staticRemoval.c -> dss/modules/caponBF2D/src/RADARDEMO_aoaEst2DCaponBF_staticRemoval.c",
+            "+../../../common/src/dpu/capon3d/modules/DoA/CaponBF2D/src/RADARDEMO_aoaEst2DCaponBF_utils.c -> dss/modules/caponBF2D/src/RADARDEMO_aoaEst2DCaponBF_utils.c",
+            "+../../../common/src/dpu/capon3d/modules/DoA/CaponBF2D/src/RADARDEMO_aoaEst2DCaponBF_rnEstInv.c -> dss/modules/caponBF2D/src/RADARDEMO_aoaEst2DCaponBF_rnEstInv.c",
+            "+../../../common/src/dpu/capon3d/modules/DoA/CaponBF2D/src/RADARDEMO_aoaEst2DCaponBF_staticHeatMapEst.c -> dss/modules/caponBF2D/src/RADARDEMO_aoaEst2DCaponBF_staticHeatMapEst.c",
+            "+../../../common/src/dpu/capon3d/modules/detection/CFAR/src/RADARDEMO_detectionCFAR.c -> dss/modules/detection/CFAR/src/RADARDEMO_detectionCFAR.c",
+            "+../../../common/src/dpu/capon3d/modules/detection/CFAR/src/RADARDEMO_detectionCFAR_priv.c -> dss/modules/detection/CFAR/src/RADARDEMO_detectionCFAR_priv.c",
+            "+../../../common/src/dpu/capon3d/modules/utilities/cycle_measure.c -> dss/modules/utilities/cycle_measure.c",
+            "+../../../common/src/dpu/capon3d/modules/utilities/radarOsal_malloc.c -> dss/modules/utilities/radarOsal_malloc.c",
+            "+../../../common/src/dpu/capon3d/modules/postProcessing/matrixFunc/src/MATRIX_cholesky.c -> dss/modules/postProcessing/matrixFunc/src/MATRIX_cholesky.c",
+            "+../../../common/src/dpu/capon3d/modules/postProcessing/matrixFunc/src/MATRIX_cholesky_dat.c -> dss/modules/postProcessing/matrixFunc/src/MATRIX_cholesky_dat.c"
+        ]
+    }
+]

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Traffic Monitoring Release Notes</title>
+</head>
+
+<!-- START PRE -->
+<link rel="stylesheet" href="../../../.metadata/.html/scripts/strapdown/v/0.2/fonts/ubuntu-regular-woff.css"/>
+<link rel="stylesheet" href="../../../.metadata/.html/scripts/strapdown/v/0.2/fonts/glyphicons-halflings-regular.css"/>
+<link rel="stylesheet" href="../../../.metadata/.html/scripts/strapdown/v/0.2/themes/united2.min.css"/>
+<link rel="stylesheet" href="../../../.metadata/.html/scripts/strapdown/v/0.2/themes/bootstrap-responsive.min.css"/>
+<link rel="stylesheet" href="../../../.metadata/.html/scripts/strapdown/v/0.2/strapdown.css"/>
+<link rel="stylesheet" href="../../../.metadata/.html/styles/link.css"/>
+<!-- END PRE -->
+
+<xmp style="display:none;" class="col-xs-6">
+
+
+Version 3.1.0
+=============
+
+Overview
+========
+This software package demonstrates the use of TI mmWave sensors to count and track multiple vehicles in a traffic monitoring application. 
+Detection and tracking algorithms run onboard the device to localize vehicles and track their movement.
+
+* Supported EVM platforms:
+  * IWR1843BOOST
+  * IWR6843ISK (ES2.0)
+* mmWave SDK 3.x architecture compliant
+* Supports 18xx and 68xx devices
+* 3D pt cloud processing and tracking enabled
+* Visualizer with data logging and playback features
+  
+New and Updated Features
+========================
+* Updated to support SDK 3.5.x
+
+Known Issues & Work Arounds
+============
+* An unresolved UART issue can result in missing bytes in packets. The work around used in this release is to introduce 1msec delays following UART writes. This impacts the maximum achievable frame rate due to increased processing time.
+
+Limitations
+=========================
+* The intended use of this traffic monitoring lab is to monitor traffic lanes along the boresight of the sensor. 
+Due to the initial assumptions of the tracking algorithm, tracking of cross traffic across the azimuth field of view will be limited.
+
+---------------------------------
+
+Release Notes Archive
+=========================
+
+Version 3.0.1
+-----------------
+New and Updated Features
+* Updated 18xx MSS projectspec with xwr18xx radarss firmware and 18xx pre-compiled binary. Enables support for XWR1843BOOST.
+Known Issues & Work Arounds
+* An unresolved UART issue can result in missing bytes in packets. The work around used in this release is to introduce 1msec delays following UART writes. This impacts the maximum achievable frame rate due to increased processing time.
+
+Limitations
+* The intended use of this traffic monitoring lab is to monitor traffic lanes along the boresight of the sensor. 
+Due to the initial assumptions of the tracking algorithm, tracking of cross traffic across the azimuth field of view will be limited.
+
+
+Version 3.0.0
+-----------------
+New and Updated Features
+* mmWave SDK 3.x architecture compliant
+* Supports 18xx and 68xx devices
+* 3D pt cloud processing and tracking enabled
+* Visualizer with data logging and playback features
+
+Known Issues & Work Arounds
+* An unresolved UART issue can result in missing bytes in packets. The work around used in this release is to introduce 1msec delays following UART writes. This impacts the maximum achievable frame rate due to increased processing time.
+
+Limitations
+* The intended use of this traffic monitoring lab is to monitor traffic lanes along the boresight of the sensor. 
+Due to the initial assumptions of the tracking algorithm, tracking of cross traffic across the azimuth field of view will be limited.
+
+
+
+</xmp>
+
+<link rel="stylesheet" href="../../../.metadata/.html/scripts/highlight/styles/zenburn.css"/>
+<script src="../../../.metadata/.html/scripts/strapdown/vendor/jquery-1.11.2.min.js"></script>
+<script src="../../../.metadata/.html/scripts/strapdown/vendor/bootstrap.min.js"></script>
+<script src="../../../.metadata/.html/scripts/highlight/highlight.pack.js"></script>
+<script src="../../../.metadata/.html/scripts/strapdown/v/0.2/strapdown.js"></script>
+<script src="../../../.metadata/.html/scripts/toolbox.js"></script>
+<script src="../../../.metadata/.html/scripts/toolbox_fixes.js"></script>
+</html>

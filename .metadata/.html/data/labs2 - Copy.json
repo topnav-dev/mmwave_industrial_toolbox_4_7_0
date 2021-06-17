@@ -1,0 +1,13 @@
+[
+["Lab Name", "Supported EVM Platform", "Lab Version", "Supported mmWave SDK Version", "Previous Industrial Toolbox Version"],
+["mmWave SDK Demo - 14xx", "IWR1443 ES2.0", "v1.2", "v1.2.0.5", "v2.5.2"],
+["mmWave SDK Demo - 16xx", "IWR1642 ES1.0", "v1.2", "v1.2.0.5", "v2.3.0"],
+["Vital Signs Demo", "IWR1443 ES2.0", "v1.3", "v1.2.0.5", "v3.2.0"],
+["Autonomous Robotics with ROS for mmWave", "IWR1443 ES2.0", "v1.1", "v1.2.0.5", "v3.0.0"],
+["High Accuracy Range Measurement - 16xx", "IWR1642 ES1.0", "v1.4", "v1.2.0.5", "v2.3.1"],
+["People Counting Demo", "IWR1642 ES1.0", "v1.4", "v1.2.0.5", "v2.3.0"],
+["ROS Point Cloud Visualizer", "IWR1443 ES2.0, IWR1642 ES1.0", "v1.3", "v1.2.0.5", "v2.3.1"],
+["ROS Point Cloud Visualizer", "IWR1443 ES2.0, IWR1642 ES2.0", "v1.4", "v1.2.0.5 (IWR1443), v2.0.0.4 (IWR1642)", "v3.0.0"],
+["Short Range Radar", "IWR1642 ES1.0", "v1.0", "v1.2.0.5", "v2.3.1"],
+["Traffic Monitoring", "IWR1642 ES1.0", "v2.0", "v1.1.0.2", "v2.3.0"]
+]

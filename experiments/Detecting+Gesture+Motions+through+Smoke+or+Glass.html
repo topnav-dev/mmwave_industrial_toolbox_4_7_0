@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head>
+  <meta charset="UTF-8">
+  <title>Detecting Gesture Motions through Smoke or Glass</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="../.metadata/.html/scripts/toolbox.js"></script>
+  <script src="../.metadata/.html/scripts/toolbox_fixes.js"></script>
+  <link rel="stylesheet" href="../.metadata/.html/styles/link.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/fonts/ubuntu-regular-woff.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/fonts/glyphicons-halflings-regular.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/themes/united2.min.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/themes/bootstrap-responsive.min.css">
+
+  <style>
+    .img-responsive {
+      max-height: 300px;
+    }
+
+    .btn-primary {
+      margin: 5px;
+    }
+  </style>
+</head>
+
+<body style="">
+  <div class="container">
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div id="headline" class="navbar-brand">Detecting Gesture Motions through Smoke or Glass</div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-12 col-sm-9" id="content"><h1 id="-introduction-"><strong>Introduction</strong></h1><p>The objective of this experiment is to demonstrate the ability to detect gesture motions using a TI mmWave Sensor EVM through two impediments, glass and smoke. Two types of gesture motions were tested, a finger twirl motion and hand double swipe motion. Gestures were performed both without any impediment and then with the impediment introduced in between the sensor and the gestures. </p><h1 id="-setup-nbsp--"><strong>Setup </strong></h1><p>The setup for this experiment can be divided into two parts, namely physical setup and software setup. These are detailed below:</p><h2 id="-physical-setup-">Physical Setup</h2><p>The physical setup includes information about the scene such as the distance between the target and the sensor antenna, the type of target used, hardware setup and any other physical considerations e.g. non-reflective surfaces or use of anechoic chamber etc. The physical setup used for this experiment is given below:</p><p>The following cases were tested for each of the two gestures:</p><table class="table table-striped table-bordered"><tbody><tr><th colspan="1"><br></th><th>Glass Impediment</th><th>Smoke Impediment</th></tr><tr><td colspan="1"><strong>Control</strong></td><td>Glass Sliding door open</td><td>Fog machine off</td></tr><tr><td colspan="1"><strong>Test Case</strong></td><td>Glass sliding door closed</td><td>Fog machine on and producing smoke</td></tr></tbody></table><p><br></p><p><strong>Glass Impediment Setup</strong></p><ol><li>The experiment was performed on a home patio with a sliding glass door.</li><li>An IWR1443 EVM was mounted on a tripod and placed with the sensor parallel to the glass door and 5cm from the glass.</li><li>The target was the hand making the gesture motion. Motions were performed directly in front of the sensor and at a distance of 10-15cm from the sensor.<ol><li>In the control case, the sliding glass door was opened so that there was nothing in between the hand and the sensor.</li><li>In the test case, the sliding glass door was closed so that a double pane glass door was in between the hand and the sensor.</li></ol></li></ol><p><strong>Smoke Impediment Setup</strong></p><ol><li>The experiment was performed in the corner of a home patio.</li><li>An IWR1443 EVM was mounted on a tripod so that it was elevated 1.1m from the ground.</li><li>A fog machine was placed on the ground with the dispensing nozzle oriented straight up and 10cm from the sensor so that fog could be dispensed to rise in front of the sensor.</li><li>The target was the hand making the gesture motion. Motions were performed directly in front of the sensor and at a distance of 20-40cm from the sensor.<ol><li>In the control case, the fog machine was off so that there was nothing in between the hand and the sensor.</li><li>In the test case, the fog machine was turned on so that a stream of smoke was introduced between the hand and the sensor.</li></ol></li></ol><h2 id="-software-setup-">Software setup</h2><ol><li>The IWR1443 EVM was running firmware developed for each gesture and connected to a Windows PC to visualize the results.</li><li>The Windows PC connected to the IWR1443 EVM was running GUI(s) specifically developed for the Gesture Demo.</li><li>The Gesture demo firmware, the associated chirp configuration(s) and visualizer GUI for <a href="http://dev.ti.com/tirex/#/?link=Software/mmWave%20Sensors/Industrial%20Toolbox/Labs/Gesture%20Recognition%20-%20Swipe%20Example">Swipe</a> and <a href="http://dev.ti.com/tirex/#/?link=Software/mmWave%20Sensors/Industrial%20Toolbox/Labs/Gesture%20Recognition%20-%20Twirl%20Example">Twirl</a> can be found on <a href="http://dev.ti.com/tirex/#/?link=Software/mmWave%20Sensors/Industrial%20Toolbox/Labs">TI Resource Explorer</a>. </li></ol><p><strong><br></strong></p><h1 id="-method-"><strong>Method</strong></h1><p>The steps presented below were repeated for each gesture and impediment combination.</p><ol><li>The physical and software setup was carried out as detailed above.</li><li>The gesture was repeated at least 5x under the control case, with a few seconds in between each gesture.</li><li>Impediment was introduced<ol><li>For glass: The glass door was close as detailed above in the Physical Setup section.</li><li>For smoke: The fog generator was turned on as detailed above in the Physical Setup section.</li></ol></li><li>The gesture was repeated at least 5x with the impediment, with a few seconds in between each gesture.</li></ol><h1 id="-results-"><strong>Results</strong></h1><p>The steps presented above were repeated for each gesture and impediment type. The results are summarized in the following table:</p><p><strong>Detection Results</strong></p><table class="table table-striped table-bordered"><tbody><tr><th colspan="1" style="text-align: center;"><br></th><th style="text-align: center;">Gesture</th><th style="text-align: center;">Control</th><th style="text-align: center;">With Impediment</th></tr><tr><td colspan="1"><strong>Glass</strong></td><td>Double Swipe</td><td>Detected</td><td>Detected</td></tr><tr><td colspan="1"><br></td><td><p>Twirl</p></td><td>Detected</td><td>Detected</td></tr><tr><td colspan="1"><strong>Smoke</strong></td><td>Double Swipe</td><td>Detected</td><td>Detected</td></tr><tr><td colspan="1"><br></td><td><p>Twirl</p></td><td>Detected</td><td>Detected</td></tr></tbody></table><p><br></p><p>The following table shows simulatenous recordings of the gesture as performed and the response of the gesture recognition GUI: </p><table class="table table-striped table-bordered"><tbody><tr><th>Gesture</th><th>Control</th><th>With Glass Door Impediment</th></tr><tr><td>Double Swipe</td><td><div class="content-wrapper"><p><img style="height:250;" src="./images/Detecting+Gesture+Motions+through+Smoke+or+Glass/exp_doubleswipe_glass-ctrl_short.gif" class="img-responsive"></p></div></td><td><div class="content-wrapper"><p><img style="height:250;" src="./images/Detecting+Gesture+Motions+through+Smoke+or+Glass/exp_doubleswipe_glass-withimped-short.gif" class="img-responsive"></p></div></td></tr><tr><td colspan="1">Twirl</td><td colspan="1"><div class="content-wrapper"><p><img style="height:250;" src="./images/Detecting+Gesture+Motions+through+Smoke+or+Glass/exp_twirl_glass-ctrl_short.gif" class="img-responsive"></p></div></td><td colspan="1"><div class="content-wrapper"><p><img style="height:250;" src="./images/Detecting+Gesture+Motions+through+Smoke+or+Glass/exp_twirl_glass-withimped_short.gif" class="img-responsive"></p></div></td></tr><tr><th><p>Gesture</p></th><th><div class="content-wrapper"><p>Control</p></div></th><th>With Smoke Impediment</th></tr><tr><td><p>Double Swipe</p></td><td><div class="content-wrapper"><p><img style="height:250;" src="./images/Detecting+Gesture+Motions+through+Smoke+or+Glass/exp_doubleswipe_smoke-ctrl_short.gif" class="img-responsive"></p></div></td><td><div class="content-wrapper"><p><img style="height:250;" src="./images/Detecting+Gesture+Motions+through+Smoke+or+Glass/exp_doubleswipe_smoke-withimped-short.gif" class="img-responsive"></p></div></td></tr><tr><td>Twirl</td><td><div class="content-wrapper"><p><img style="height:250;" src="./images/Detecting+Gesture+Motions+through+Smoke+or+Glass/exp_twirl_smoke-ctrl_short.gif" class="img-responsive"></p></div></td><td><div class="content-wrapper"><p><img style="height:250;" src="./images/Detecting+Gesture+Motions+through+Smoke+or+Glass/exp_twirl_smoke-withimped_short.gif" class="img-responsive"></p></div></td></tr></tbody></table><p><br></p><h1 id="-conclusion-"><strong>Conclusion</strong></h1><ol><li>The experiment demonstrates that an IWR1443 mmWave sensor EVM is capable of gesture recognition with either glass or smoke as impediments between the sensor and the target hand making the gesture.</li><li>The impediments do degrade the signals used for gesture detection. However, the degree to which this affects gesture recognition capabilities can be tuned by considering sensor parameters as well gesture recognition algorithm parameters.</li></ol></div>
+        <div class="col-xs-4 col-sm-2 sidebar-offcanvas bs-docs-sidebar hidden-print" id="sidebar-overview"><ul class="nav nav-stacked fixed" id="sidebar"><li><a href="#-introduction-">Introduction</a></li><li><a href="#-setup-nbsp--">Setup </a></li><li><ul class="nav nav-stack"><li><a href="#-physical-setup-">Physical Setup</a></li><li><a href="#-software-setup-">Software setup</a></li></ul></li><li><a href="#-method-">Method</a></li><li><a href="#-results-">Results</a></li><li><a href="#-conclusion-">Conclusion</a></li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../.metadata/.html/scripts/strapdown/vendor/bootstrap.min.js"></script>
+  <div class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+      <div class="modal-dialog vertical-align-center">
+        <div class="modal-dialog">
+          <div class="modal-content" style="margin-left: auto;margin-right: auto;">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button> <img src="" class="imagepreview"> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body></html>

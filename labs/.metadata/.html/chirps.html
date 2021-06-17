@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Welcome to the mmWave Chirp Database</title>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js" integrity="sha256-Bhi6GMQ/72uYZcJXCJ2LToOIcN3+Cx47AZnq/Bw1f7A=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="scripts/jquery.dataTables.js"></script>
+  <script type="text/javascript" src="scripts/dataTables.semanticui.js"></script>
+  <script src="scripts/toolbox.js"></script>
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css" integrity="sha256-/Z28yXtfBv/6/alw+yZuODgTbKZm86IKbPE/5kjO/xY=" crossorigin="anonymous" />
+  <link rel="stylesheet" type="text/css" href="styles/dataTables.semanticui.css"/>
+
+	<link rel="stylesheet" type="text/css" href="styles/toolbox.css">
+
+  <script type="text/javascript" charset="utf8">
+    $(document).ready( function () {
+      $.getJSON("data/chirpdb.json", function(json) {
+        var table = $('#chirp_table').DataTable( {
+          data: json,
+          autoWidth: false,
+					searching: false,
+    			bLengthChange: false,
+          columns: [
+            { data: 'ItemName', title: 'Name' },
+            { data: 'DeviceType', title: 'Device' },
+            { data: 'FrequencyGHz', title: 'Frequency (GHz)' },
+            { data: 'MaxRangeM', title: 'Max Range (m)' },
+            { data: 'RangeResolutionM', title: 'Range Resolution (m)' },
+            { data: 'RangeAccuracyCM', title: 'Range Accuracy (cm)' },
+            { data: 'MaxVelocityKmHr', title: 'Max Velocity (km/hr)' },
+            { data: 'VelocityResolutionKmHr', title: 'Velocity Resolution (km/hr)' },
+            { data: 'RCSM2', title: 'RCS (m^2)' },
+            { data: 'MIMO', title: 'MIMO?' },
+            { data: 'OfTxAntennas', title: '# of Tx Antennas' },
+            { data: 'OfRxAntennas', title: '# of Rx Antennas' },
+            { data: 'UpdateRateHz', title: 'Update Rate (Hz)' }
+          ],
+          columnDefs: [
+            {
+                "targets": [ 0 ],
+                "visible": false
+            },
+            {
+                "targets": [ 9 ],
+                "visible": false
+            }
+          ]
+        } );
+        $('#chirp_table tbody').on('click', 'tr', function () {
+          var data = table.row( this ).data();
+          load_link("Software/mmWave Sensors/Industrial Toolbox/Chirp Database/" + data.ItemName);
+        } );
+
+				// yadcf.init(table, [
+				// 	{column_number: 1, filter_type: "select", filter_container_id: "filter_device", style_class: "ui dropdown"},
+				// 	{column_number: 3, filter_type: "range_number_slider", filter_container_id: "filter_max_range"},
+				// 	{column_number: 6, filter_type: "range_number_slider", filter_container_id: "filter_max_velocity"}
+				// ]);
+
+				// $('.ui.dropdown').dropdown();
+      });
+    } );
+  </script>
+
+	<!-- endreplace-->
+</head>
+	<body>
+		<div class="ui container">
+			<div class="ui grid">
+				<div class="row"></div>
+				<div class="ui card sixteen wide column">
+				  <div class="content sixteen wide">
+				    <div class="header">Prototype with mmWave Chirp Database</div>
+						<br />
+				    <div class="description">
+				      <strong>Welcome to the mmWave Chirp Database!</strong>
+				    </div>
+						<br />
+						<div class="description">
+							<p>Chirp Database is an easy-to-search repository of different mmWave RF front-end configurations that the TI mmWave team has calculated for our demos and experiments. These chirp designs are available for you to get started designing quickly and can be loaded directly into mmWave Sensing Estimator.</p>
+
+							<p>Each chirp design has been validated to be compliant with the requirements of the mmWave RF front-end, but not all chirps have been tested with a full digital processing chain. Once you have found a chirp configuration which fits your application, you can click on the row to see more details about the configuration.</p>
+							<br />
+							<!-- <div class="ui form">
+							  <div class="fields">
+									<div class="one wide field"></div>
+							    <div class="four wide field">
+							      <label>Device:</label>
+										<div id="filter_device"></div>
+									</div>
+									<div class="one wide field"></div>
+									<div class="four wide field">
+							      <label>Max Range:</label>
+										<div id="filter_max_range"></div>
+									</div>
+									<div class="one wide field"></div>
+									<div class="four wide field">
+							      <label>Max Velocity:</label>
+										<div id="filter_max_velocity"></div>
+									</div>
+								</div>
+							</div> -->
+							<div>
+								<center>
+			            <table id="chirp_table" class="ui center aligned small compact selectable celled table">
+			            </table>
+								</center>
+							</div>
+					  </div>
+				  </div>
+				</div>
+				<div class="row"></div>
+			</div>
+		</div>
+	</body>
+</html>

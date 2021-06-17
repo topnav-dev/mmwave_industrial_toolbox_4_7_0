@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head>
+  <meta charset="UTF-8">
+  <title>People Tracking and Counting Application</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="../.metadata/.html/scripts/toolbox.js"></script>
+  <script src="../.metadata/.html/scripts/toolbox_fixes.js"></script>
+  <link rel="stylesheet" href="../.metadata/.html/styles/link.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/fonts/ubuntu-regular-woff.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/fonts/glyphicons-halflings-regular.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/themes/united2.min.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/themes/bootstrap-responsive.min.css">
+
+  <style>
+    .img-responsive {
+      max-height: 300px;
+    }
+
+    .btn-primary {
+      margin: 5px;
+    }
+  </style>
+</head>
+
+<body style="">
+  <div class="container">
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div id="headline" class="navbar-brand">People Tracking and Counting Application</div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-12 col-sm-9" id="content"><ac:structured-macro ac:name="note" ac:schema-version="1" ac:macro-id="38bb3ad3-68b6-4b29-beda-e29bbda99f9c"><ac:rich-text-body><p>Updated for IWR6843 ISK</p></ac:rich-text-body></ac:structured-macro><p><br></p><h1 id="-introduction-"><strong>Introduction</strong></h1><p>This use case provides the sensing configuration People Tracking and Counting  Radar which is typically mounted on a wall in the areas like Conference room, Office space, Hallway etc to detect People and track their position. This use case is based on <a href="http://www.ti.com/tool/tidep-01000">People Tracking and Counting Reference Design Using mmWave Radar Sensor</a> and the reader is encouraged to visit the <a href="http://www.ti.com/tool/tidep-01000">TI Design Webpage</a> for more details.</p><p><br></p><p><img style="" src="./images/People+Tracking+and+Counting+Application/fig_conf.png" class="img-responsive"></p><p><img style="height:250;" src="./images/People+Tracking+and+Counting+Application/fig_extended_range_entering.png" class="img-responsive"></p><h1 id="-system-parameters-and-chirp-configuration-"><strong>System Parameters and Chirp Configuration</strong></h1><p>After the chirp configuration for the particular range, range resolution, velocity, and velocity resolution is arrived at, the tracker customization/tuning needs to be done. For more details on the customization, please refer to the <a href="http://dev.ti.com/tirex/#/?link=Software%252FmmWave%2520Sensors%252FIndustrial%2520Toolbox%252FLabs%252FPeople%2520Counting%2520Demo%252FCustomization%2520Guide">People counting customization guide</a>.</p><p>Given below are five example chirp configurations designed and tuned for the environments like Conference room, Office space with Cubicles and aisles, elevators, a hall-way, and outdoors. Each configuration has had Scenery parameter changes to properly define the environment. Other parameters, such as the cumulative SNR threshold and the point threshold,  have been tuned to better detect people based on the characteristics of the expected point cloud in the target environment. These would enable customers to get to the desired demo very quickly. However, these may still require tuning for optimal performance in your environment.</p><p>Chirp 5 must be used with the Traffic Monitoring Demo Firmware for Optimal Performance.:</p><ol><li>Load the Traffic Monitoring Demo Firmware onto the device with Uniflash.  The firmware can be found at <industrial_toolbox_install>\labs\lab0013_traffic_monitoring_16xx\prebuilt_binaries\traffic_monitoring_16xx_lab.bin</industrial_toolbox_install></li><li>Use the People Counting GUI to interface with the device. This is found at <industrial_toolbox_install>\labs\lab0011-pplcount\lab0011_pplcount_quickstart\pplcount_gui.exe</industrial_toolbox_install></li><li>Use the GUI to select and load the long range configuration.</li><li>Press the Launch Button</li></ol><p><strong><br></strong></p><table class="table table-striped table-bordered"><tbody><tr><td><p align="center"><strong> Parameter</strong></p></td><td><p align="center"><strong>Case-1, 6m (MIMO), <span>Conference Room</span></strong></p></td><td colspan="1"><strong>Case-2, 5m (MIMO), Elevator</strong></td><td><p align="center"><strong>Case-2, 14m (MIMO), <span>Office Space</span></strong></p></td><td colspan="1"><strong>Case-4, 14m (MIMO), Hallway</strong></td><td colspan="1"><strong>Case 5, 50m (MIMO) Outdoor</strong></td></tr><tr><td><p>Device   Type</p></td><td><p>IWR1642</p></td><td colspan="1">IWR1642</td><td><p>IWR1642</p></td><td colspan="1"><span>IWR1642</span></td><td colspan="1">IWR1642</td></tr><tr><td><p>Maximum   range (m)</p></td><td><p>5.6</p></td><td colspan="1">5.6</td><td><p>14</p></td><td colspan="1">14</td><td colspan="1">50</td></tr><tr><td><p>Range   resolution (m)</p></td><td><p>0.049</p></td><td colspan="1">0.049</td><td><p>0.12</p></td><td colspan="1">0.12</td><td colspan="1">0.49</td></tr><tr><td><p>Maximum   velocity (km/h)</p></td><td><p>19.057</p></td><td colspan="1">19.057</td><td><p>18.9</p></td><td colspan="1">18.9</td><td colspan="1">28.06</td></tr><tr><td><p>Velocity   resolution (km/h)</p></td><td><p>0.297</p></td><td colspan="1">0.297</td><td><p>0.297</p></td><td colspan="1">0.297</td><td colspan="1">0.449</td></tr><tr><td><p>Total   Sweep Bandwidth (MHz)</p></td><td><p>3061.22</p></td><td colspan="1">3720</td><td><p>1250</p></td><td colspan="1">1250</td><td colspan="1">361.3</td></tr><tr><td><p>Update   rate (Hz)</p></td><td><p>20</p></td><td colspan="1">20</td><td><p>20</p></td><td colspan="1">20</td><td colspan="1">30</td></tr><tr><td><p>Radar   Cube Size (KB)</p></td><td><p>512</p></td><td colspan="1">512</td><td><p>512</p></td><td colspan="1">512</td><td colspan="1">512</td></tr><tr><td colspan="1">Processing Chain</td><td colspan="1">People Counting</td><td colspan="1">People Counting</td><td colspan="1">People Counting</td><td colspan="1">People Counting</td><td colspan="1">Traffic Monitoring</td></tr><tr><td colspan="1">Chirp Configuration File</td><td colspan="1"><div class="content-wrapper"><p><a href="./images/People+Tracking+and+Counting+Application/mmw_PC_6m_ConferenceRoom.cfg" class="btn btn-primary">mmw_PC_6m_ConferenceRoom.cfg</a></p></div></td><td colspan="1"><a href="./images/People+Tracking+and+Counting+Application/mmw_PC_elevator.cfg" class="btn btn-primary">mmw_PC_elevator.cfg</a></td><td colspan="1"><a href="./images/People+Tracking+and+Counting+Application/mmw_PC_14m_OfficeSpace.cfg" class="btn btn-primary">mmw_PC_14m_OfficeSpace.cfg</a></td><td colspan="1"><a href="./images/People+Tracking+and+Counting+Application/mmw_PC_14m_Hallway.cfg" class="btn btn-primary">mmw_PC_14m_Hallway.cfg</a></td><td colspan="1"><div class="content-wrapper"><p><a href="./images/People+Tracking+and+Counting+Application/50m_longRangeTM.cfg" class="btn btn-primary">50m_longRangeTM.cfg</a></p></div></td></tr></tbody></table><p><br></p><p>Chirps for the IWR6843 ISK are below. Chirp 2 must be used with the Long Range People Counting and Detection Lab.</p><p><br></p><table class="table table-striped table-bordered"><tbody><tr><th>Parameter</th><th>Chirp 1, 6m</th><th>Chirp 2, 50m (IPNC)</th></tr><tr><td><span>Device   Type</span></td><td>IWR6843 ISK</td><td>IWR6843 ISK</td></tr><tr><td><span>Maximum   range (m)</span></td><td>6.3</td><td>50</td></tr><tr><td><span>Range   resolution (m)</span></td><td>0.055</td><td>0.49</td></tr><tr><td><span>Maximum   velocity (km/h)</span></td><td>23.6</td><td>28.37</td></tr><tr><td><span>Velocity   resolution (km/h)</span></td><td>0.36</td><td>0.45</td></tr><tr><td><span>Total   Sweep Bandwidth (MHz)</span></td><td>2713.6</td><td>300</td></tr><tr><td><span>Update   rate (Hz)</span></td><td>20</td><td>33</td></tr><tr><td><span>Radar   Cube Size (KB)</span></td><td>512</td><td>512</td></tr><tr><td><span>Processing Chain</span></td><td>People Counting</td><td>Long Range People Counting and Detection</td></tr><tr><td><span>Chirp Configuration File</span></td><td><a href="./images/People+Tracking+and+Counting+Application/mmw_pplcount_demo_default.cfg" class="btn btn-primary">mmw_pplcount_demo_default.cfg</a></td><td><a href="./images/People+Tracking+and+Counting+Application/long_range_people_counting.cfg" class="btn btn-primary">long_range_people_counting.cfg</a></td></tr></tbody></table><h1 id="-assumptions-and-miscellaneous-information-"><strong><br>Assumptions and Miscellaneous Information</strong></h1><table class="table table-striped table-bordered"><tbody><tr><td colspan="3"><p><strong>System Level Assumptions</strong></p></td></tr><tr><td><p>Starting   frequency <strong>(GHz)</strong></p></td><td><p>77</p></td><td colspan="1">60</td></tr><tr><td><p>TX   Antenna Gain <strong>(dB)</strong></p></td><td><p>8</p></td><td colspan="1">8</td></tr><tr><td><p>RX   Antenna Gain <strong>(dB)</strong></p></td><td><p>8</p></td><td colspan="1">8</td></tr><tr><td><p>Device   Type</p></td><td><p>IWR1642</p></td><td colspan="1">IWR6843</td></tr><tr><td><p>Number    of TX Antennas used</p></td><td><p>2</p></td><td colspan="1">2</td></tr><tr><td><p>Number   of RX Antennas used</p></td><td><p>4</p></td><td colspan="1">4</td></tr></tbody></table><h1 id="-testing-and-results-"><strong>Testing and Results</strong></h1><p>For details on Test Setup and Results, please refer to the <strong>Testing and Results </strong>section of the <a href="http://www.ti.com/lit/ug/tidue71a/tidue71a.pdf">Design Guide</a> for the <a href="http://www.ti.com/tool/tidep-01000">People Tracking and Counting  Reference Design.</a></p><p><br></p><p><br></p></div>
+        <div class="col-xs-4 col-sm-2 sidebar-offcanvas bs-docs-sidebar hidden-print" id="sidebar-overview"><ul class="nav nav-stacked fixed" id="sidebar"><li><a href="#-introduction-">Introduction</a></li><li><a href="#-system-parameters-and-chirp-configuration-">System Parameters and Chirp Configuration</a></li><li><a href="#-assumptions-and-miscellaneous-information-">Assumptions and Miscellaneous Information</a></li><li><a href="#-testing-and-results-">Testing and Results</a></li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../.metadata/.html/scripts/strapdown/vendor/bootstrap.min.js"></script>
+  <div class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+      <div class="modal-dialog vertical-align-center">
+        <div class="modal-dialog">
+          <div class="modal-content" style="margin-left: auto;margin-right: auto;">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button> <img src="" class="imagepreview"> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body></html>

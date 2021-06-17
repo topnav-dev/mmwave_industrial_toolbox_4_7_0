@@ -1,0 +1,81 @@
+[
+    {
+        "name": "68xx - Traffic Monitoring",
+        "categories": ["Labs", "Traffic Monitoring"],
+        "mainCategories": [],
+        "subCategories": ["Labs", "Traffic Monitoring"],
+        "resourceType": "categoryInfo",
+        "location": "../../traffic_monitoring/18xx_68xx_traffic_monitoring/docs/18xx_68xx_traffic_monitoring_users_guide.html",
+        "devices": ["IWR1843", "AWR1843","IWR6843"],
+        "devtools":["IWR1843BOOST","IWR6843ISK"],
+		"license": "../../../license/SRAS 3841-325565-v1-Radar_Demo_Clickwrap.pdf"
+    },
+ 
+	{
+        "advanced": { "overrideProjectSpecDeviceId": false },
+        "compiler": ["ccs"],
+        "name": "68xx CCS Project -- DSS",
+        "categories": ["Labs", "Traffic Monitoring", "68xx - Traffic Monitoring"],
+        "mainCategories": [],
+        "resourceType": "project.ccs",
+        "location": "../../traffic_monitoring/18xx_68xx_traffic_monitoring/src/68xx_traffic_monitoring_dss.projectspec",
+        "subCategories": ["Labs", "Traffic Monitoring" , "68xx - Traffic Monitoring"],
+        "devices": ["IWR1843", "AWR1843","IWR6843"],
+        "devtools":["IWR1843BOOST","IWR6843ISK"],
+		"license": "../../../license/SRAS 3841-325565-v1-Radar_Demo_Clickwrap.pdf"
+    },
+ 
+    {
+        "advanced": { "overrideProjectSpecDeviceId": false },
+        "compiler": ["ccs"],
+        "name": "68xx CCS Project -- MSS",
+        "categories": ["Labs", "Traffic Monitoring", "68xx - Traffic Monitoring"],
+        "mainCategories": [],
+        "resourceType": "project.ccs",
+        "location": "../../traffic_monitoring/18xx_68xx_traffic_monitoring/src/68xx_traffic_monitoring_mss.projectspec",
+        "subCategories": ["Labs", "Traffic Monitoring" , "68xx - Traffic Monitoring"],
+        "devices": ["IWR1843", "AWR1843","IWR6843"],
+        "devtools":["IWR1843BOOST","IWR6843ISK"],
+		"license": "../../../license/SRAS 3841-325565-v1-Radar_Demo_Clickwrap.pdf"
+    },
+
+    {
+        "name": "User's Guide",
+        "resourceType": "file",
+        "mainCategories": [],
+        "subCategories": ["Labs", "Traffic Monitoring" , "68xx - Traffic Monitoring"],
+        "categories": ["Labs", "Traffic Monitoring", "68xx - Traffic Monitoring"],
+        "devices": [ "IWR1843", "AWR1843","IWR6843"],
+        "devtools":["IWR1843BOOST","IWR6843ISK"],
+        "tags": [ "TBD" ],
+        "location": "../../traffic_monitoring/18xx_68xx_traffic_monitoring/docs/18xx_68xx_traffic_monitoring_users_guide.html",
+		"license": "../../../license/SRAS 3841-325565-v1-Radar_Demo_Clickwrap.pdf"
+    },
+ 
+   
+    {
+        "name": "Demonstration Video",
+        "resourceType": "web.page",
+        "mainCategories": [],
+        "subCategories": ["Labs", "Traffic Monitoring" , "68xx - Traffic Monitoring"],
+        "categories": ["Labs", "Traffic Monitoring" , "68xx - Traffic Monitoring"],
+        "devices": ["IWR1843", "AWR1843","IWR6843"],
+        "devtools":["IWR1843BOOST","IWR6843ISK"],
+        "tags": [ "TBD" ],
+        "location": "https://www.youtube.com/embed/B3R-3rzmzXU",
+		"license": "../../../license/SRAS 3841-325565-v1-Radar_Demo_Clickwrap.pdf"
+    },
+
+    {
+        "name": "Release Notes",
+        "resourceType": "file",
+        "mainCategories": [],
+        "subCategories": ["Labs", "Traffic Monitoring" , "68xx - Traffic Monitoring"],
+        "categories": ["Labs", "Traffic Monitoring" , "68xx - Traffic Monitoring"],
+        "devices": [ "IWR1843", "AWR1843","IWR6843"],
+        "devtools":["IWR1843BOOST","IWR6843ISK"],
+        "tags": [ "TBD" ],
+        "location": "../../traffic_monitoring/18xx_68xx_traffic_monitoring/docs/18xx_68xx_traffic_monitoring_release_notes.html",
+		"license": "../../../license/SRAS 3841-325565-v1-Radar_Demo_Clickwrap.pdf"
+    }
+]

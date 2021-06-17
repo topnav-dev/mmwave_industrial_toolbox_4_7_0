@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head>
+  <meta charset="UTF-8">
+  <title>Elevator Position and Velocity Sensing</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="../.metadata/.html/scripts/toolbox.js"></script>
+  <script src="../.metadata/.html/scripts/toolbox_fixes.js"></script>
+  <link rel="stylesheet" href="../.metadata/.html/styles/link.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/fonts/ubuntu-regular-woff.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/fonts/glyphicons-halflings-regular.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/themes/united2.min.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/themes/bootstrap-responsive.min.css">
+
+  <style>
+    .img-responsive {
+      max-height: 300px;
+    }
+
+    .btn-primary {
+      margin: 5px;
+    }
+  </style>
+</head>
+
+<body style="">
+  <div class="container">
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div id="headline" class="navbar-brand">Elevator Position and Velocity Sensing</div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-12 col-sm-9" id="content"><h1 id="-introduction-"><strong>Introduction</strong></h1><p>This use case provides the sensing configuration for applications related to Elevator position and velocity determination. Commonly used solutions today use a combination of rotary encoders tied to motors which do not scale well past 200m shafts and their cable stretching impacts the accuracy of these encoders. mmWave Radar is well suited for this kind of application given its ability to contactlessly and accurately measure long distances and speeds with immunity to environmental factors such as dust, low/no light, smoke etc. which may be present in the elevator shaft in emergency situations.</p><p><img style="height:400;" src="./images/Elevator+Position+and+Velocity+Sensing/elevator.jpeg" class="img-responsive"></p><h1 id="-step-1-system-parameters-"><strong>Step 1: System Parameters<br></strong></h1><table class="table table-striped table-bordered"><tbody><tr><th class="highlight-grey" data-highlight-colour="grey"> Parameter</th><th class="highlight-grey" data-highlight-colour="grey">Specification (MIMO)</th></tr><tr><td colspan="1">Device Type</td><td colspan="1">IWR1642</td></tr><tr><td>Maximum range (m)</td><td>200</td></tr><tr><td>Range resolution (m)</td><td>0.40</td></tr><tr><td colspan="1">Range accuracy (m)</td><td colspan="1">0.073</td></tr><tr><td>Maximum velocity (km/h)</td><td><p>32 (Higher Layer algorithms can extend the measurable velocity by up to 3x this value)</p></td></tr><tr><td>Velocity resolution (km/hr)</td><td>1.8</td></tr><tr><td>Total Sweep Bandwidth (MHz)</td><td>395</td></tr><tr><td>RCS (m<sup>2</sup> @ range)</td><td><p>20m<sup>2</sup> @ 208m</p><p>Assumed TX/RX Antenna gain higher than the gain values provided by the xWR1642 EVM. The range will be less with the EVM due to lower antenna gains.</p></td></tr><tr><td>Update rate (Hz)</td><td>50</td></tr><tr><td>Radar Cube Size (KB)</td><td>576</td></tr><tr><td><br></td><td><br></td></tr></tbody></table><h1 id="-step-2-chirp-configuration-"><strong>Step 2: Chirp Configuration</strong></h1><table class="table table-striped table-bordered"><tbody><tr><td colspan="1">1.</td><td colspan="1"><p><strong>Chirp Configuration</strong></p></td><td><div class="content-wrapper"><p><strong><a href="https://dev.ti.com/gallery/view/1792614/mmWaveSensingEstimator/?platform=xWR1642&num_rx=4&num_tx=1&tx_gain=13.5&rx_gain=13.5&freq_range=77&bandwidth=1000&tx_power=12&temp=20&range=200&range_resolution=40&velocity=32&velocity_resolution=1.8&fps=50&rcs=20">Load in Sensing Estimator</a></strong></p></div></td></tr><tr><td>2.</td><td>Special considerations, Limitations etc</td><td><div class="content-wrapper"><p><span>This configuration assumes higher TX and RX antenna gains than those provided by the xWR1642 EVM. Hence, the maximum achievable range with the xWR1642 EVM will be less than 200 m due to lower antenna gains. </span></p></div></td></tr></tbody></table><h1 id="-step-3-oob-demo-configuration-file-"><strong>Step 3: OOB Demo Configuration File</strong></h1><table class="table table-striped table-bordered"><tbody><tr><td colspan="1"><br></td><td class="highlight-grey" colspan="1" data-highlight-colour="grey"><strong>Use Case</strong></td><td class="highlight-grey" colspan="1" data-highlight-colour="grey"><strong>OOB Demo Configuration File</strong></td></tr><tr><td colspan="1">1</td><td colspan="1">Elevator Position and Velocity Sensing</td><td colspan="1"><div class="content-wrapper"><p><a href="./images/Elevator+Position+and+Velocity+Sensing/Elevator_profile_cfg.cfg" class="btn btn-primary">Elevator_profile_cfg.cfg</a></p></div></td></tr></tbody></table><h1 id="-assumptions-and-miscellaneous-information-"><strong>Assumptions and Miscellaneous Information</strong></h1><table class="table table-striped table-bordered"><tbody><tr><th colspan="2">System Level Assumptions</th></tr><tr><td colspan="1">Starting frequency <strong>(GHz)</strong></td><td colspan="1">77</td></tr><tr><td colspan="1">TX Antenna Gain <strong>(dB)</strong></td><td colspan="1">13.5* (EVM TX antenna gain = 9)</td></tr><tr><td colspan="1">RX Antenna Gain <strong>(dB)</strong></td><td colspan="1">13.5* (EVM RX antenna gain = 9)</td></tr><tr><td colspan="1">Device Type</td><td colspan="1">IWR1642</td></tr><tr><td colspan="1">Number  of TX Antennas used</td><td colspan="1">1</td></tr><tr><td colspan="1">Number of RX Antennas used</td><td colspan="1">4</td></tr><tr><td colspan="2"><strong>*Note 1:</strong> <span>This configuration assumes higher TX and RX antenna gains than those provided by the xWR1642 EVM. Hence, t</span><span>he maximum achievable range with the xWR1642 EVM will be less than 200 m due to lower antenna gains. </span></td></tr></tbody></table><h1 id="-testing-and-results-"><strong>Testing and Results</strong></h1><p>This chirp configuration needs a dedicated processing chain to work and it cannot work with OOB Demo processing chain. However, this chirp configuration has been tested to confirm that it correctly configures the Radar Front-End for the specified sensing configuration i.e. it doesn't generate any mmWaveLink API errors. This is done by loading the chirp configuration in the OOB Demo Configuration GUI (using the OOB Demo Configuration File provided in Step 3).</p><p><br></p></div>
+        <div class="col-xs-4 col-sm-2 sidebar-offcanvas bs-docs-sidebar hidden-print" id="sidebar-overview"><ul class="nav nav-stacked fixed" id="sidebar"><li><a href="#-introduction-">Introduction</a></li><li><a href="#-step-1-system-parameters-">Step 1: System Parameters</a></li><li><a href="#-step-2-chirp-configuration-">Step 2: Chirp Configuration</a></li><li><a href="#-step-3-oob-demo-configuration-file-">Step 3: OOB Demo Configuration File</a></li><li><a href="#-assumptions-and-miscellaneous-information-">Assumptions and Miscellaneous Information</a></li><li><a href="#-testing-and-results-">Testing and Results</a></li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../.metadata/.html/scripts/strapdown/vendor/bootstrap.min.js"></script>
+  <div class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+      <div class="modal-dialog vertical-align-center">
+        <div class="modal-dialog">
+          <div class="modal-content" style="margin-left: auto;margin-right: auto;">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button> <img src="" class="imagepreview"> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body></html>

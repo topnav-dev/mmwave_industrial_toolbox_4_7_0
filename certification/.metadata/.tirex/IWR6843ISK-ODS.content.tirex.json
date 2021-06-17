@@ -1,0 +1,80 @@
+[
+    {
+        "name": "RED certification collateral",
+        "categories": ["Certification", "IWR6843ISK-ODS"],
+        "mainCategories": [],
+        "subCategories": ["Certification", "IWR6843ISK-ODS"],
+        "resourceType": "categoryInfo",
+        "devices": ["IWR6843"],
+        "devtools":["IWR6843ISKODS"],
+		"license": "../../../license/SRAS 3841-325565-v1-Radar_Demo_Clickwrap.pdf"
+    },
+ 
+    
+ 
+    {
+        "name": "Radio Equipment Directive Test Plan",
+        "resourceType": "file",
+        "mainCategories": [],
+        "categories": ["Certification", "IWR6843ISK-ODS" , "RED certification collateral"],
+        "subCategories":["Certification", "IWR6843ISK-ODS" , "RED certification collateral"],
+        "devices": ["IWR6843"],
+        "devtools":["IWR6843ISKODS"],
+        "tags": [ "TBD" ],
+        "location": "../../IWR6843ISK-ODS/RED certification collateral/12511671-TP1V2 Radio Equipment Directive Test Plan.pdf",
+		"license": "../../../license/SRAS 3841-325565-v1-Radar_Demo_Clickwrap.pdf"
+    },
+
+    {
+        "name": "EMC Test Report -  EN 301 489",
+        "resourceType": "file",
+        "mainCategories": [],
+        "categories": ["Certification", "IWR6843ISK-ODS" , "RED certification collateral"],
+        "subCategories":["Certification", "IWR6843ISK-ODS" , "RED certification collateral"],
+        "devices": ["IWR6843"],
+        "devtools":["IWR6843ISKODS"],
+        "tags": [ "TBD" ],
+        "location": "../../IWR6843ISK-ODS/RED certification collateral/12927418-E1V2 EMC TEST REPORT.pdf",
+        "license": "../../../license/SRAS 3841-325565-v1-Radar_Demo_Clickwrap.pdf"
+    },
+
+    {
+        "name": "Access to Radio Spectrum test report - EN305 550",
+        "resourceType": "file",
+        "mainCategories": [],
+        "categories": ["Certification", "IWR6843ISK-ODS" , "RED certification collateral"],
+        "subCategories":["Certification", "IWR6843ISK-ODS" , "RED certification collateral"],
+        "devices": ["IWR6843"],
+        "devtools":["IWR6843ISKODS"],
+        "tags": [ "TBD" ],
+        "location": "../../IWR6843ISK-ODS/RED certification collateral/12927418-E4V1 EN305 550 v2.1.0 Test Report IWR6843ISK-ODS.pdf",
+        "license": "../../../license/SRAS 3841-325565-v1-Radar_Demo_Clickwrap.pdf"
+    },
+
+    {
+        "name": "RF Exposure Report - EN 62311",
+        "resourceType": "file",
+        "mainCategories": [],
+        "categories": ["Certification", "IWR6843ISK-ODS" , "RED certification collateral"],
+        "subCategories":["Certification", "IWR6843ISK-ODS" , "RED certification collateral"],
+        "devices": ["IWR6843"],
+        "devtools":["IWR6843ISKODS"],
+        "tags": [ "TBD" ],
+        "location": "../../IWR6843ISK-ODS/RED certification collateral/12927418-E5V2 EN 62311 RF Exposure Report IWR6843ISK-ODS.pdf",
+        "license": "../../../license/SRAS 3841-325565-v1-Radar_Demo_Clickwrap.pdf"
+    },
+
+    {
+        "name": "Equipment Safety – IEC 62368",
+        "resourceType": "file",
+        "mainCategories": [],
+        "categories": ["Certification", "IWR6843ISK-ODS" , "RED certification collateral"],
+        "subCategories":["Certification", "IWR6843ISK-ODS" , "RED certification collateral"],
+        "devices": ["IWR6843"],
+        "devtools":["IWR6843ISKODS"],
+        "tags": [ "TBD" ],
+        "location": "../../IWR6843ISK-ODS/RED certification collateral/E508514-A6001-Informative-2-Reissue.pdf",
+        "license": "../../../license/SRAS 3841-325565-v1-Radar_Demo_Clickwrap.pdf"
+    }
+
+]

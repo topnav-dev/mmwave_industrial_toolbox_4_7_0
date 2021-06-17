@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<projectSpec>
+    <project
+        name="sense_and_direct_18xx_dss"
+        deviceFamily="C6000"
+        isTargetManual="false"
+        device="IWR1843"
+        cgtVersion="7.4.16"
+        connection="common/targetdb/connections/TIXDS110_Connection.xml"
+        toolChain="TI"
+        linkerCommandFile="dss_mmw_linker.cmd"
+        preannouncebuildStep="Deleting old BIN format image"
+        preBuildStep="rm -f ${PROJECT_ROOT}/${ProjName}.bin;"
+        postannouncebuildStep="Preparing BIN format image"
+        postBuildStep="${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/scripts/ImageCreator/out2rprc/out2rprc.exe ${ProjName}.xe674 ${ProjName}.bin"
+        description="Sense and Direct dss"
+        launchWizard="false"
+        configurations="Debug, Release"
+        compilerBuildOptions="
+        -mv6740 -ms0 -mo -O3
+        -I${PROJECT_ROOT}
+		-I${PROJECT_ROOT}/dss
+        -I${CG_TOOL_ROOT}/include
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages
+		-I${TI_PRODUCTS_DIR}/mathlib_c674x_3_1_2_1/packages
+		-I${TI_PRODUCTS_DIR}/dsplib_c674x_3_4_0_0/packages/
+		-I${TI_PRODUCTS_DIR}/dsplib_c64Px_3_4_0_0/packages/
+        -I${TI_PRODUCTS_DIR}/dsplib_c64Px_3_4_0_0/packages/ti/dsplib/src/DSP_fft16x16_imre/c64P
+		-I${TI_PRODUCTS_DIR}/dsplib_c674x_3_4_0_0/packages/ti/dsplib/src/DSPF_sp_fftSPxSP
+        -I${TI_PRODUCTS_DIR}/dsplib_c64Px_3_4_0_0/packages/ti/dsplib/src/DSP_fft32x32/c64P
+		-I${TI_IFDM_GTRACK_BASE}
+		-I${TI_IFDM_COMMON_BASE}
+		-I${TI_IFDM_SRC_BASE}
+        -I${TI_IFDM_SRC_BASE}/dss/
+        -DSOC_XWR18XX
+		-DGTRACK_2D
+        -DSUBSYS_DSS
+		-D${COM_TI_MMWAVE_SDK_SYMBOLS}
+        -D${BIOS_SYMBOLS}
+        -DMMWAVE_L3RAM_NUM_BANK=6
+        -DMMWAVE_SHMEM_TCMA_NUM_BANK=0
+        -DMMWAVE_SHMEM_TCMB_NUM_BANK=0
+        -DMMWAVE_SHMEM_BANK_SIZE=0x20000
+        -DDOWNLOAD_FROM_CCS
+        -DDebugP_ASSERT_ENABLED
+		-D_LITTLE_ENDIAN
+        --gcc -g --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --obj_extension .oe674"
+        linkerBuildOptions="
+        -m${ProjName}.map -o${ProjName}.xe674
+        -I${PROJECT_ROOT}
+        -I${CG_TOOL_ROOT}/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/control/mmwave/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/control/mmwavelink/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/alg/mmwavelib/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/crc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/mailbox/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/soc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/osal/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/uart/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/edma/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/adcbuf/lib
+        -I${TI_PRODUCTS_DIR}/dsplib_c674x_3_4_0_0/packages/ti/dsplib/lib
+		-I${TI_PRODUCTS_DIR}/dsplib_c64Px_3_4_0_0/packages/ti/dsplib/lib
+        -I${TI_PRODUCTS_DIR}/mathlib_c674x_3_1_2_1/packages/ti/mathlib/lib
+		-I${TI_IFDM_GTRACK_BASE}/lib
+        -ldsplib.lib
+		-ldsplib.ae64P
+        -lmathlib.ae674
+        -llibsoc_xwr18xx.ae674
+        -llibosal_xwr18xx.ae674
+        -llibcrc_xwr18xx.ae674
+        -llibuart_xwr18xx.ae674
+        -llibmailbox_xwr18xx.ae674
+        -llibmmwavelink_xwr18xx.ae674
+        -llibmmwave_xwr18xx.ae674
+        -llibedma_xwr18xx.ae674
+        -llibadcbuf_xwr18xx.ae674
+        -llibmmwavealg_xwr18xx.ae674
+		-llibgtrack2D.ae674
+		--define=MMWAVE_L3RAM_NUM_BANK=6
+        --define=MMWAVE_SHMEM_TCMA_NUM_BANK=0
+        --define=MMWAVE_SHMEM_TCMB_NUM_BANK=0
+        --define=MMWAVE_SHMEM_BANK_SIZE=0x20000
+        --reread_libs --diag_warning=225 --diag_wrap=off --display_error_number --warn_sections
+        --xml_link_info=xwr16xx_${ProjName}_linkInfo.xml --ram_model --unused_section_elimination=on --disable_auto_rts -lrts6740_elf.lib">
+
+        <!-- Project properties -->
+        <property name="type" value="rtsc"/>
+        <property name="products" value="com.ti.rtsc.SYSBIOS:6.73.01.01;com.ti.MMWAVE_SDK:03.05.00.04;"/>        
+		<property name="xdcToolsVersion" value="3.50.08.24_core"/>
+        <property name="target" value="ti.targets.elf.C674"/>
+        <property name="platform" value="ti.platforms.c6x:IWR18XX:false:600"/>
+        <property name="endianness" value="little"/>
+        <property name="output_format" value="elf"/>
+        <property name="buildProfile" value="release"/>
+		<pathVariable name="TI_IFDM_GTRACK_BASE" path="../src/mss/gtrack" scope="project"/>
+		<pathVariable name="TI_IFDM_COMMON_BASE" path="../src/common" scope="project"/>
+		<pathVariable name="TI_IFDM_SRC_BASE" path="../src/" scope="project"/>
+
+        <!-- Project files -->
+        <file path="dss/dss_main.c" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="dss/dss_mmw.h" targetDirectory="dss" openOnCreation="false" excludeFromBuild="false" action="link"/>	
+		<file path="dss/dss_mmw.cfg" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="dss/swpform.h" openOnCreation="false" excludeFromBuild="false" action="link"/>
+
+		<file path="dss/dss_config_edma_util.c" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="dss/dss_config_edma_util.h" openOnCreation="false" excludeFromBuild="false" action="link"/>
+ 		
+		<file path="dss/dss_data_path.h" targetDirectory="dss" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="dss/dss_data_path.c" openOnCreation="false" excludeFromBuild="false" action="link"/>
+
+		<file path="TI_IFDM_COMMON_BASE/radarProcess.c" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="TI_IFDM_COMMON_BASE/radarProcess.h" openOnCreation="false" excludeFromBuild="false" action="link"/>
+
+		<file path="TI_IFDM_COMMON_BASE/modules/rangeProc/rangeProc/api/RADARDEMO_rangeProc.h" targetDirectory="modules/rangeProc/rangeProc/api" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="TI_IFDM_COMMON_BASE/modules/rangeProc/rangeProc/src/RADARDEMO_rangeProc.c" targetDirectory="modules/rangeProc/rangeProc/src" openOnCreation="false" excludeFromBuild="false" action="link"/>        
+        <file path="TI_IFDM_COMMON_BASE/modules/rangeProc/rangeProc/src/RADARDEMO_rangeProc_priv.c" targetDirectory="modules/rangeProc/rangeProc/src" openOnCreation="false" excludeFromBuild="false" action="link"/>        
+        <file path="TI_IFDM_COMMON_BASE/modules/rangeProc/rangeProc/src/RADARDEMO_rangeProc_priv.h" targetDirectory="modules/rangeProc/rangeProc/src" openOnCreation="false" excludeFromBuild="false" action="link"/>        
+        <file path="TI_IFDM_COMMON_BASE/modules/rangeProc/rangeProc/src/RADARDEMO_rangeProc_utils.c" targetDirectory="modules/rangeProc/rangeProc/src" openOnCreation="false" excludeFromBuild="false" action="link"/>        
+ 
+		
+		<file path="TI_IFDM_COMMON_BASE/modules/detection/CFAR/src/RADARDEMO_detectionCFAR.c" targetDirectory="modules/detection/CFAR/src" openOnCreation="false" excludeFromBuild="false" action="link"/>        
+		<file path="TI_IFDM_COMMON_BASE/modules/detection/CFAR/api/RADARDEMO_detectionCFAR.h" targetDirectory="modules/detection/CFAR/api" openOnCreation="false" excludeFromBuild="false" action="link"/>        
+
+		<file path="TI_IFDM_COMMON_BASE/modules/detection/CFAR/src/RADARDEMO_detectionCFAR_priv.c" targetDirectory="modules/detection/CFAR/src" openOnCreation="false" excludeFromBuild="false" action="link"/>        
+		<file path="TI_IFDM_COMMON_BASE/modules/detection/CFAR/src/RADARDEMO_detectionCFAR_priv.h" targetDirectory="modules/detection/CFAR/src" openOnCreation="false" excludeFromBuild="false" action="link"/>        
+
+		<file path="TI_IFDM_COMMON_BASE/modules/utilities/cycle_measure.c" targetDirectory="modules/utilities" openOnCreation="false" excludeFromBuild="false" action="link"/>        
+		<file path="TI_IFDM_COMMON_BASE/modules/utilities/cycle_measure.h" targetDirectory="modules/utilities" openOnCreation="false" excludeFromBuild="false" action="link"/>        
+
+		<file path="TI_IFDM_COMMON_BASE/modules/utilities/radarOsal_malloc.c" targetDirectory="modules/utilities" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="TI_IFDM_COMMON_BASE/modules/utilities/radarOsal_malloc.h" targetDirectory="modules/utilities" openOnCreation="false" excludeFromBuild="false" action="link"/>
+
+		<file path="TI_IFDM_COMMON_BASE/modules/utilities/radar_c674x.h" targetDirectory="modules/utilities" openOnCreation="false" excludeFromBuild="false" action="link"/>
+
+		
+		<file path="TI_IFDM_COMMON_BASE/modules/DoA/CaponBF/src/RADARDEMO_aoaEstCaponBF.c" targetDirectory="modules/DoA/CaponBF/src" openOnCreation="false" excludeFromBuild="false" action="link"/>        
+        <file path="TI_IFDM_COMMON_BASE/modules/DoA/CaponBF/api/RADARDEMO_aoaEstCaponBF.h" targetDirectory="modules/DoA/CaponBF/api" openOnCreation="false" excludeFromBuild="false" action="link"/>        
+		<file path="TI_IFDM_COMMON_BASE/modules/DoA/CaponBF/src/RADARDEMO_aoaEstCaponBF_priv.h" targetDirectory="modules/DoA/CaponBF/src" openOnCreation="false" excludeFromBuild="false" action="link"/>        
+       
+		<file path="TI_IFDM_COMMON_BASE/modules/DoA/CaponBF/src/RADARDEMO_aoaEstCaponBF_DopplerEst.c" targetDirectory="modules/DoA/CaponBF/src" openOnCreation="false" excludeFromBuild="false" action="link"/>        
+       
+		<file path="TI_IFDM_COMMON_BASE/modules/DoA/CaponBF/src/RADARDEMO_aoaEstCaponBF_heatmapEst.c" targetDirectory="modules/DoA/CaponBF/src" openOnCreation="false" excludeFromBuild="false" action="link"/>        
+		
+		<file path="TI_IFDM_COMMON_BASE/modules/DoA/CaponBF/src/RADARDEMO_aoaEstCaponBF_matrixInv.c" targetDirectory="modules/DoA/CaponBF/src" openOnCreation="false" excludeFromBuild="false" action="link"/>        	
+		
+		<file path="dss/dss_mmw_linker.cmd" openOnCreation="false" excludeFromBuild="false"/>
+        <file path="dss/c674x_linker.cmd" openOnCreation="false" excludeFromBuild="false"/>
+	</project>
+</projectSpec>

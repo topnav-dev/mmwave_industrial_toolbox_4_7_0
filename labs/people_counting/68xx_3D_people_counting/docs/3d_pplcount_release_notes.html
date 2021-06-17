@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Wall Mount 3D People Counting Demo Release Notes</title>
+</head>
+
+<!-- START PRE -->
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/strapdown/v/0.2/fonts/ubuntu-regular-woff.css"/>
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/strapdown/v/0.2/fonts/glyphicons-halflings-regular.css"/>
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/strapdown/v/0.2/themes/united2.min.css"/>
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/strapdown/v/0.2/themes/bootstrap-responsive.min.css"/>
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/strapdown/v/0.2/strapdown.css"/>
+<link rel="stylesheet" href="../../../../.metadata/.html/styles/link.css"/>
+<!-- END PRE -->
+
+<xmp style="display:none;" class="col-xs-6">
+
+
+Version 2.1.0
+=============
+
+**NOTE**: Due to the ongoing social distancing guidelines and TI policies, the scope of testing for this release was limited to 1-2 person tests. The underlying algorithm and implementation should be able to detect and track 5-7 people in the given coverage area but those tests are deferred for future releases once the guidelines allow for them.
+
+
+Overview
+========
+
+This lab demonstrates the use of TI mmWave sensors to track and count people using the IWR6843ISK, IIWR6843ISK-ODS or IWR6843AOPEVM sensor module positioned in side-mount configuration (e.g. on a wall). Detection and tracking algorithms run onboard the IWR6843 mmWave sensor and are used to localize people and track their movement.The lab provides full source code and a CCS project and runs on the TI mmWave sensor IWR6843.
+
+Features
+========
+
+The following features are supported:
+* Supports IWR6843ISK-ODS antenna module (ES2.0)
+* Supports IWR6843AOP antenna module (ES2.0, Rev F or later).
+* GUI displays point cloud and tracking information
+* Supports mmWave SDK 3.5
+
+New and Updated Features
+========================
+
+The following features are new or updated in this release:
+
+* **Documentation update:** The following new documents covering People Counting demo software implementation, Detection and Tracker layer parameter tuning, and Tracker algorithm and implementation details have been released in labs\people_counting\docs directory.
+
+    1. 3D_people_counting_demo_implementation_guide.pdf
+    2. 3D_people_counting_detection_layer_tuning_guide.pdf
+    3. 3D_people_counting_tracker_layer_tuning_guide.pdf
+    4. Tracking_radar_targets_with_multiple_reflection_points.pdf
+
+* Updated config files to make boundaryBox and staticBoundaryBox parameters consistent. Also added presenceBoundaryBox configuration (this feature was already supported in code). 
+
+Resolved Incident Reports
+=========================
+
+The following are Incident Reports resolved in this release:
+* N/A
+
+Known Issues
+============
+
+The following are Known Issues in this release:
+* Device must be restarted for reconfiguration.
+* Elevation Angle Estimation on ISK may be inaccurate compared to ODS due to lower elevation angular resolution provided by ISK
+* Static Tracking within 2 meters of the device can be obscured by false static detections.
+* High speed targets may not be detected.
+
+Work Arounds for Major Known Issues
+===================================
+
+The following are workarounds for each known issue with a major severity that exists in this release:
+* Ensure the staticBoundaryBox argument for NearY is 2 or greater.
+
+Limitations
+=========================
+
+The following is a list of known limitations for this release that were known at the time of release:
+
+* Due to the ongoing social distancing guidelines and TI policies, the scope of testing for this release was limited to 1-2 person tests. The underlying algorithm and implementation should be able to detect and track 5-7 people in the given coverage area but those tests are deferred for future releases once the guidelines allow for them.
+
+</xmp>
+
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/highlight/styles/zenburn.css"/>
+<script src="../../../../.metadata/.html/scripts/strapdown/vendor/jquery-1.11.2.min.js"></script>
+<script src="../../../../.metadata/.html/scripts/strapdown/vendor/bootstrap.min.js"></script>
+<script src="../../../../.metadata/.html/scripts/highlight/highlight.pack.js"></script>
+<script src="../../../../.metadata/.html/scripts/strapdown/v/0.2/strapdown.js"></script>
+<script src="../../../../.metadata/.html/scripts/toolbox.js"></script>
+<script src="../../../../.metadata/.html/scripts/toolbox_fixes.js"></script>
+</html>

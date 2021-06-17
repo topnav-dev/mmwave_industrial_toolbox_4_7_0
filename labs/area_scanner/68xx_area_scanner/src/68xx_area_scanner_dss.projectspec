@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<projectSpec>
+    <project
+        name="area_scanner_68xx_dss"
+        deviceFamily="C6000"
+        isTargetManual="false"
+        device="IWR6843"
+        endianness="little"
+        cgtVersion="8.3.3"
+        connection="common/targetdb/connections/TIXDS110_Connection.xml"
+        toolChain="TI"
+        linkerCommandFile="mmw_dss_linker.cmd"
+        postannouncebuildStep="Preparing BIN format image"
+        postBuildStep="rm -f ${PROJECT_ROOT}/${ConfigName}/area_scanner_68xx_dss_${ConfigName}.bin;
+		${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/scripts/ImageCreator/out2rprc/out2rprc.exe area_scanner_68xx_dss_${ConfigName}.xe674 area_scanner_68xx_dss_${ConfigName}.bin"
+        description="Area Scanner 68xx - dss"
+        launchWizard="false"
+        configurations="isk, ods, aop"
+        compilerBuildOptions="
+        -mv6740 -mf3 -mo -O3
+        -I${PROJECT_ROOT}
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages
+        -I${TI_MATHLIB_C674X_INSTALL_DIR}/packages
+        -I${TI_MAS_DSPLIB_C64PX_INSTALL_DIR}/packages
+        -I${TI_MAS_DSPLIB_C64PX_INSTALL_DIR}/packages/ti/dsplib/src/DSP_fft16x16_imre/c64P
+        -I${TI_MAS_DSPLIB_C64PX_INSTALL_DIR}/packages/ti/dsplib/src/DSP_fft32x32/c64P
+        -I${AREA_SCANNER_PARENT_DIR}
+        -I${AREA_SCANNER_PARENT_DIR}/area_scanner/68xx_area_scanner/src     
+        -I${AREA_SCANNER_PARENT_DIR}/common/src/dpu/trackerproc
+        -I${AREA_SCANNER_PARENT_DIR}/common/src/dpu/aoaproc
+        -I${AREA_SCANNER_PARENT_DIR}/common/src/dpc/objectdetectionandtracking/objdetrangehwa
+        -I${AREA_SCANNER_PARENT_DIR}/common/src/dpc/objectdetectionandtracking/objdetrangehwa/include
+        -DSOC_XWR68XX
+        -DSUBSYS_DSS
+        -DMMWAVE_L3RAM_NUM_BANK=6
+        -DMMWAVE_SHMEM_TCMA_NUM_BANK=0
+        -DMMWAVE_SHMEM_TCMB_NUM_BANK=0
+        -DMMWAVE_SHMEM_BANK_SIZE=0x20000
+        -DMMWAVE_L3_CODEMEM_SIZE=0x100      
+        -DDOWNLOAD_FROM_CCS
+        -DDebugP_ASSERT_ENABLED
+        -D_LITTLE_ENDIAN
+        -DOBJDET_NO_RANGE
+        -DGTRACK_3D
+        -DAPP_RESOURCE_FILE=&apos;&lt;&apos;mmw_res.h&apos;&gt;&apos;
+        --gcc -g --diag_warning=225 --diag_error=10015 --diag_wrap=off --display_error_number --abi=eabi --obj_extension .oe674"
+        linkerBuildOptions="
+        -marea_scanner_68xx_dss_${ConfigName}.map -oarea_scanner_68xx_dss_${ConfigName}.xe674
+        -I${PROJECT_ROOT}
+        -I${CG_TOOL_ROOT}/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/control/mmwave/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/control/mmwavelink/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/control/dpm/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/alg/mmwavelib/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/crc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/soc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/osal/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/mailbox/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/edma/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/adcbuf/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/cbuff/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/utils/hsiheader/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/utils/mathutils/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/datapath/dpc/dpu/dopplerproc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/datapath/dpc/dpu/cfarcaproc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/datapath/dpedma/lib
+        -I${TI_MAS_DSPLIB_C64PX_INSTALL_DIR}/packages/ti/dsplib/lib
+        -I${TI_MATHLIB_C674X_INSTALL_DIR}/packages/ti/mathlib/lib
+        -I${AREA_SCANNER_PARENT_DIR}/common/src/alg/gtrack/lib
+        -I${AREA_SCANNER_PARENT_DIR}/common/src/dpu/aoaproc/lib             
+        -I${AREA_SCANNER_PARENT_DIR}/common/src/dpu/trackerproc/lib
+        -I${AREA_SCANNER_PARENT_DIR}/common/src/dpu/staticdetproc/lib       
+        -ldsplib.ae64P
+        -lmathlib.ae674
+        -llibmathutils.ae674
+        -llibsoc_xwr68xx.ae674
+        -llibosal_xwr68xx.ae674
+        -llibcrc_xwr68xx.ae674
+        -llibmailbox_xwr68xx.ae674
+        -llibmmwavelink_xwr68xx.ae674
+        -llibmmwave_xwr68xx.ae674
+        -llibedma_xwr68xx.ae674
+        -llibadcbuf_xwr68xx.ae674
+        -llibmmwavealg_xwr68xx.ae674
+        -llibcbuff_xwr68xx.ae674
+        -llibhsiheader_xwr68xx.ae674
+        -llibmathutils.ae674
+        -llibcfarcaproc_dsp_xwr68xx.ae674
+        -llibdopplerproc_dsp_xwr68xx.ae674
+        -llibdpm_xwr68xx.ae674
+        -llibdpedma_hwa_xwr68xx.ae674
+        -llibgtrack3D.ae674
+        -llibtrackerproc_xwr68xx.ae674
+        --define=MMWAVE_L3RAM_NUM_BANK=6
+        --define=MMWAVE_SHMEM_TCMA_NUM_BANK=0
+        --define=MMWAVE_SHMEM_TCMB_NUM_BANK=0
+        --define=MMWAVE_SHMEM_BANK_SIZE=0x20000
+        --define=MMWAVE_L3_CODEMEM_SIZE=0x100               
+        --reread_libs --diag_warning=225 --diag_error=10015 --diag_wrap=off --display_error_number --warn_sections --xml_link_info=xwr68xx_mmw_demo_dss_linkInfo.xml --ram_model --unused_section_elimination=on --disable_auto_rts -lrts6740_elf.lib">
+        
+        <!-- Device specific Configuration -->
+        <configuration name="isk"  
+        compilerBuildOptions="
+        -DXWR68XX_ISK_ANTENNA_PATTERN"
+        linkerBuildOptions="
+        -llibaoaproc_dsp_xwr68xx.ae674
+        -llibstaticdetproc_dsp_isk_xwr68xx.ae674
+        "/>
+        
+        <!-- Device specific Configuration -->
+        <configuration name="ods"  
+        compilerBuildOptions="
+        -DAOA_TYPE_2D
+        -DXWR68XX_ODS_ANTENNA_PATTERN"
+        linkerBuildOptions="
+        -llibaoa2dproc_dsp_ods_xwr68xx.ae674
+        -llibstaticdetproc_dsp_ods_xwr68xx.ae674
+        --define=AOA_TYPE_2D"/>
+
+		<!-- Device specific Configuration -->
+        <configuration name="aop"  
+        compilerBuildOptions="
+        -DAOA_TYPE_2D
+        -DXWR68XX_AOP_ANTENNA_PATTERN"
+        linkerBuildOptions="
+        -llibaoa2dproc_dsp_aop_xwr68xx.ae674
+        -llibstaticdetproc_dsp_aop_xwr68xx.ae674
+        --define=AOA_TYPE_2D"/>   
+        
+        <!-- Project PATH Variables -->
+        <pathVariable name="AREA_SCANNER_PARENT_DIR" path="../../../" scope="project" />
+
+        <!-- Project properties -->
+        <property name="type" value="rtsc"/>
+        <property name="products" value="com.ti.rtsc.SYSBIOS:6.73.01.01;ti.mathlib.c674x:3.1.2.1;ti.mas.dsplib.c64Px:3.4.0.0;com.ti.MMWAVE_SDK:03.05.00.04"/>
+        <property name="xdcToolsVersion" value="3.50.08.24_core"/>
+        <property name="target" value="ti.targets.elf.C674"/>
+        <property name="platform" value="ti.platforms.c6x:IWR68XX:false:600"/>
+        <property name="endianness" value="little"/>
+        <property name="output_format" value="elf"/>
+        <property name="buildProfile" value="release"/>
+        <property name="configuroOptions" value="--compileOptions &quot;--enum_type=int &quot; "/>
+
+        <!-- Project files -->
+        <file path="dss/dss_main.c" targetDirectory="dss" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="AREA_SCANNER_PARENT_DIR/common/src/dpc/objectdetectionandtracking/staticobjdetdsp/src/objectdetection.c" targetDirectory="dss" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="dss/mmw_dss.h" targetDirectory="dss" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="dss/mmw_dss.cfg" targetDirectory="dss" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="include/mmw_config.h" targetDirectory="include" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="include/mmw_output.h" targetDirectory="include" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="mmw_res.h" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="dss/mmw_dss_linker.cmd" targetDirectory="dss" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="dss/c674x_linker.cmd" targetDirectory="dss" openOnCreation="false" excludeFromBuild="false" action="link"/>     
+
+    </project>
+</projectSpec>

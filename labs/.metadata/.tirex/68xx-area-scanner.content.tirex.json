@@ -1,0 +1,66 @@
+[
+    {
+        "name": "68xx - Area Scanner",
+        "categories": ["Labs", "Area Scanner for Zone Occupancy Detection"],
+        "mainCategories": [],
+        "subCategories": ["Labs", "Area Scanner for Zone Occupancy Detection"],
+        "resourceType": "categoryInfo",
+        "location": "../../area_scanner/68xx_area_scanner/docs/area_scanner_68xx_users_guide.html",
+        "devices": ["IWR6843"],
+        "devtools":["IWR6843ISK","IWR6843AOPEVM"],
+		"license": "../../../license/SRAS 3841-325565-v1-Radar_Demo_Clickwrap.pdf"
+    },
+ 
+    
+    {
+        "name": "User's Guide",
+        "resourceType": "file",
+        "mainCategories": [],
+        "subCategories": ["Labs", "Area Scanner for Zone Occupancy Detection", "68xx - Area Scanner"],
+        "categories": ["Labs", "Area Scanner for Zone Occupancy Detection", "68xx - Area Scanner"],
+        "devices": ["IWR6843"],
+        "devtools":["IWR6843ISK","IWR6843AOPEVM"],
+        "tags": [ "TBD" ],
+        "location": "../../area_scanner/68xx_area_scanner/docs/area_scanner_68xx_users_guide.html",
+		"license": "../../../license/SRAS 3841-325565-v1-Radar_Demo_Clickwrap.pdf"
+    },
+
+ 	{
+        "advanced": { "overrideProjectSpecDeviceId": false },
+        "compiler": ["ccs"],
+        "name": "CCS Project -- DSS",
+         "subCategories": ["Labs", "Area Scanner for Zone Occupancy Detection", "68xx - Area Scanner"],
+        "categories": ["Labs", "Area Scanner for Zone Occupancy Detection", "68xx - Area Scanner"],
+        "mainCategories": [],
+        "resourceType": "project.ccs",
+        "location": "../../area_scanner/68xx_area_scanner/src/68xx_area_scanner_dss.projectspec",
+        "devices": ["IWR6843"],
+        "devtools":["IWR6843ISK"],
+		"license": "../../../license/SRAS 3841-325565-v1-Radar_Demo_Clickwrap.pdf"
+    },
+ 
+     {
+        "advanced": { "overrideProjectSpecDeviceId": false },
+        "compiler": ["ccs"],
+        "name": "CCS Project -- MSS",
+		"subCategories": ["Labs", "Area Scanner for Zone Occupancy Detection", "68xx - Area Scanner"],
+        "categories": ["Labs", "Area Scanner for Zone Occupancy Detection", "68xx - Area Scanner"],        "mainCategories": [],
+        "resourceType": "project.ccs",
+        "location": "../../area_scanner/68xx_area_scanner/src/68xx_area_scanner_mss.projectspec",
+        "devices": ["IWR6843"],
+        "devtools":["IWR6843ISK"],
+		"license": "../../../license/SRAS 3841-325565-v1-Radar_Demo_Clickwrap.pdf"
+    },
+    {
+        "name": "Release Notes",
+        "resourceType": "file",
+        "mainCategories": [],
+        "subCategories": ["Labs", "Area Scanner for Zone Occupancy Detection", "68xx - Area Scanner"],
+        "categories": ["Labs", "Area Scanner for Zone Occupancy Detection", "68xx - Area Scanner"],
+        "devices": ["IWR6843"],
+        "devtools":["IWR6843ISK","IWR6843AOPEVM"],
+        "tags": [ "TBD" ],
+        "location": "../../area_scanner/68xx_area_scanner/docs/area_scanner_68xx_release_notes.html",
+		"license": "../../../license/SRAS 3841-325565-v1-Radar_Demo_Clickwrap.pdf"
+    }
+]

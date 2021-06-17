@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Welcome to mmWave Labs Series</title>
+	
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js" integrity="sha256-Bhi6GMQ/72uYZcJXCJ2LToOIcN3+Cx47AZnq/Bw1f7A=" crossorigin="anonymous"></script>
+  <script src="scripts/toolbox.js"></script>
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css" integrity="sha256-/Z28yXtfBv/6/alw+yZuODgTbKZm86IKbPE/5kjO/xY=" crossorigin="anonymous" />
+	<link rel="stylesheet" type="text/css" href="./styles/toolbox.css">
+
+	<script>
+		$(document).ready(function(){
+			insert_labs_table("#labs_table");
+			insert_labs_table2("#labs_table2");
+		});
+	</script>
+
+	<!-- endreplace-->
+</head>
+	<body>
+		<div class="ui container">
+			<div class="ui grid">
+				<div class="row"></div>
+				<div class="ui card sixteen wide column">
+				  <div class="content sixteen wide">
+				    <div class="header">Learn More through mmWave Labs</div>
+						<br />
+				    <div class="description">
+				      <strong>Welcome to the mmWave Labs Repository!</strong>
+				    </div>
+						<br />
+						<div class="description">
+							<p>mmWave Labs are source code examples on how to get started with the mmWave Sensors.  Each lab provides detailed instructions to follow along while experimenting. Source code of each lab can be loaded directly into Code Composer Studio through the integrated view in TI Resource Explorer.</p>
+
+							<p>Click on the lab name below to access each lab.</p>
+							<p>NOTE: Previous lab versions supporting previous EVMs are shown in a second table below.</p>
+							<br />
+							<center>
+								<div id="labs_table">
+
+								</div>
+							</center>
+					    </div>
+						<br />
+						<br />
+				        <strong>Labs from previous Industrial Toolbox versions:</strong>
+						<br />
+						<br />
+						<div class="description">
+							<p>Previous versions of labs supporting previous EVM versions are shown in the following table and can be accessed by selecting the desired Industrial Toolbox version using the instructions at the bottom of the <a href="index.html">Industrial Toolbox overview page</a>.</p>
+							<br />
+							<center>
+								<div id="labs_table2">
+
+								</div>
+							</center>
+					    </div>
+				  </div>
+				</div>
+				<div class="row"></div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head>
+  <meta charset="UTF-8">
+  <title>Detecting Quarters Using mmWave</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="../.metadata/.html/scripts/toolbox.js"></script>
+  <script src="../.metadata/.html/scripts/toolbox_fixes.js"></script>
+  <link rel="stylesheet" href="../.metadata/.html/styles/link.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/fonts/ubuntu-regular-woff.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/fonts/glyphicons-halflings-regular.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/themes/united2.min.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/themes/bootstrap-responsive.min.css">
+
+  <style>
+    .img-responsive {
+      max-height: 300px;
+    }
+
+    .btn-primary {
+      margin: 5px;
+    }
+  </style>
+</head>
+
+<body style="">
+  <div class="container">
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div id="headline" class="navbar-brand">Detecting Quarters Using mmWave</div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-12 col-sm-9" id="content"><h1 id="-introduction-"><strong>Introduction</strong></h1><p>The objective here was to experiment with mmWave's ability to sense the position of very small objects. For the purpose of this exercise, we used standard American quarters and ran the following experiments.</p><ol><li>Detecting a single quarter in front of the mmWave Sensonr EVM. The quarter was kept in different orientations in front of the EVM and the goal was to check if it can be detected in that orientation and to what maximum distance from the sensor antenna.</li><li>Finding out the minimum separation needed between two quarters to detect them as two distinct objects. This was performed for both range and angular separation as detailed in the results below.</li></ol><h1 id="-setup-"><strong>Setup</strong></h1><p>The setup for this experiment can be divided into two parts namely, Physical setup and Software setup. These are detailed below:</p><h2 id="-physical-setup-">Physical Setup</h2><p>The Physical setup includes information about the scene such as the distance between the object and the sensor antenna, the type of object used, hardware setup and any other physical considerations e.g. non-reflective surfaces or use of anechoic chamber etc. The physical setup used for this experiment is given below:</p><ol><li>The experiment was performed on a carpeted ground to reduce unwanted detections i.e. clutter.</li><li>For the first part which relates to detecting a single quarter in front of the mmWave Sensor:<ol><li>A single quarter was mounted to the ground with masking tape. For reference, the diameter of a quarter is 24.26 mm.</li><li>The quarter was moved further away from the sensor in small increments until it was no longer detectable.</li><li>This was repeated for different orientations of the quarter: Face-facing and Side-facing and Face-down.<br><img style="border:1px;height:171;" src="./images/Detecting+Quarters+Using+mmWave/image2017-9-20_14-4-0.png" class="img-responsive"><img style="border:1px;height:171;" src="./images/Detecting+Quarters+Using+mmWave/image2017-9-20_14-13-31.png" class="img-responsive"></li></ol></li><li>A similar procedure was used for the second part i.e.finding out the minimum separation needed between two quarters to detect them as a two distinct objects.<br><ol><li>Two quarters were mounted to the ground with masking tape. For reference, the diameter of a quarter is 24.26 mm.</li><li>One quarter was moved further away in small increments until it was detected as a separate object i.e. both quarters could be separately detected.</li><li>This part was repeated for both range separation (range resolution) and azimuth angular separation as shown below.<br><img style="border:1px;height:217;" src="./images/Detecting+Quarters+Using+mmWave/image2017-9-20_14-15-34.png" class="img-responsive"><img style="border:1px;height:217;" src="./images/Detecting+Quarters+Using+mmWave/image2017-9-19_18-8-20.png" class="img-responsive"></li></ol></li><li>The hardware setup included an IWR1443 EVM connected to a Windows Host PC.</li></ol><h2 id="-software-setup-">Software setup</h2><ol><li>The IWR1443 EVM was running the mmWave SDK Out-of-Box example.</li><li>The Windows host PC was running the <a href="https://dev.ti.com/mmWaveDemoVisualizer">mmWave Demo Visualizer</a> to show the range and scatter plots. The <a href="https://dev.ti.com/mmWaveDemoVisualizer">mmWave Demo Visualizer</a> was configured for Best Range Resolution as shown in the settings below.</li></ol><h1 id="-method-nbsp--"><strong>Method </strong></h1><p>The steps presented below were repeated for both scenarios listed above.</p><ol><li>Create the physical setup as per the details provided above.</li><li>Flash the mmWave SDK Out-of-Box Demo on the mmWave EVM and connect the EVM to the host PC.</li><li>Launch <a href="https://dev.ti.com/mmWaveDemoVisualizer">mmWave Demo Visualizer</a> on the host PC and setup the Visualizer as per the configuration shown below:<ol><li><strong>Platform</strong> - xWR14xx</li><li><strong>Desired Configuration</strong> - Best Range Resolution</li><li><strong>All other settings - </strong>Default values<br><img style="border:1px;height:400;" src="./images/Detecting+Quarters+Using+mmWave/image2017-9-19_18-19-17.png" class="img-responsive"></li></ol></li><li>Press <strong>Send config to MMWave Device</strong></li><li>Select the<strong> Plots</strong> Tab to look at the <strong>Scatter Plot</strong> and the <strong>Range Profile </strong>plot</li><li>Move the coin(s) as according to the desired experiment.</li></ol><h1 id="-results-"><strong>Results</strong></h1><p>The steps presented above were repeated for the test scenarios described above. The Scatter plots and Range profile plots were used to determine</p><ol><li>The max distance at which a single quarter could be detected in the given orientation and</li><li><p>The minimum separation (both range and angular) needed between two quarters for the sensor to detect them as two separate objects.<br><br></p></li></ol><table class="table table-striped table-bordered"><tbody><tr><th style="text-align: center;" colspan="4">Single quarter detection</th></tr><tr><td class="highlight-blue" data-highlight-colour="blue"><strong>Orientation</strong></td><td class="highlight-blue" data-highlight-colour="blue"><strong>Result</strong></td><td class="highlight-blue" data-highlight-colour="blue"><strong>Max Distance</strong></td><td class="highlight-blue" data-highlight-colour="blue"><strong>Visualizer Plot</strong></td></tr><tr><td>Quarter's Face facing the EVM</td><td>Detected</td><td>~2 meters</td><td><div class="content-wrapper"><p><img style="height:244;" src="./images/Detecting+Quarters+Using+mmWave/image2017-9-20_13-53-37.png" class="img-responsive"></p></div></td></tr><tr><td colspan="1">Quarter's Side facing the EVM</td><td colspan="1">Detected</td><td colspan="1">~0.94 meters</td><td colspan="1"><div class="content-wrapper"><p><img style="height:240;" src="./images/Detecting+Quarters+Using+mmWave/image2017-9-20_13-54-56.png" class="img-responsive"></p></div></td></tr></tbody></table><table class="table table-striped table-bordered"><tbody><tr><th style="text-align: center;" colspan="3">Determine minimum seperation for distinct detection</th></tr><tr><td class="highlight-blue" data-highlight-colour="blue"><strong>Direction</strong></td><td class="highlight-blue" data-highlight-colour="blue"><p><strong>Min Seperation </strong><strong>(meters or degrees)</strong></p></td><td class="highlight-blue" data-highlight-colour="blue"><strong>Visualizer Plot</strong></td></tr><tr><td>Range</td><td>0.166 meters</td><td><div class="content-wrapper"><p><img style="height:247;" src="./images/Detecting+Quarters+Using+mmWave/image2017-9-20_14-19-25.png" class="img-responsive"></p></div></td></tr><tr><td>Angular</td><td>19.64 degrees</td><td><div class="content-wrapper"><p><img style="height:236;" src="./images/Detecting+Quarters+Using+mmWave/image2017-9-20_14-18-58.png" class="img-responsive"></p></div></td></tr></tbody></table><h1 id="-conclusion-"><strong>Conclusion</strong></h1><ol><li>The xWR14xx EVM could detect a single quarter at a maximum distance of about 2 meters with the quarter's face perpendicular of the EVM.</li><li>The maximum distance reduces to almost half when the quarter is kept side facing. The quarter could not be detected with it's face down.</li><li>The xWR14xx EVM could seperate two quarters in both range and angular directions.</li><li>The minimum range seperation with the Out of Box demo configuration was found to be 0.166 meters and the minimum angular seperation was found to be about 20 degrees.</li></ol></div>
+        <div class="col-xs-4 col-sm-2 sidebar-offcanvas bs-docs-sidebar hidden-print" id="sidebar-overview"><ul class="nav nav-stacked fixed" id="sidebar"><li><a href="#-introduction-">Introduction</a></li><li><a href="#-setup-">Setup</a></li><li><ul class="nav nav-stack"><li><a href="#-physical-setup-">Physical Setup</a></li><li><a href="#-software-setup-">Software setup</a></li></ul></li><li><a href="#-method-nbsp--">Method </a></li><li><a href="#-results-">Results</a></li><li><a href="#-conclusion-">Conclusion</a></li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../.metadata/.html/scripts/strapdown/vendor/bootstrap.min.js"></script>
+  <div class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+      <div class="modal-dialog vertical-align-center">
+        <div class="modal-dialog">
+          <div class="modal-content" style="margin-left: auto;margin-right: auto;">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button> <img src="" class="imagepreview"> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body></html>

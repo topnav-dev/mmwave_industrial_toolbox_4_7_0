@@ -1,0 +1,16 @@
+[
+    {
+        "files": [
+            "+main.c -> main.c",
+            "+data_path.c -> data_path.c",
+            "+data_path.h -> data_path.h",
+            "+config_edma_util.c -> config_edma_util.c",
+            "+config_edma_util.h -> config_edma_util.h",
+            "+mmw_high_accu_14xx.cfg -> mmw_high_accu_14xx.cfg",
+            "+mmw.h -> mmw.h",
+            "+mmw_config.h -> mmw_config.h",
+            "+mmw_high_accu_14xx_cli.c -> mmw_high_accu_14xx_cli.c",
+            "+sensor_mgmt.c -> sensor_mgmt.c"
+        ]
+    }
+]

@@ -1,0 +1,15 @@
+[
+["Partner and Design", "Device", "Azimuth FOV (deg) *", "Elevation FOV (deg) *", "Azimuth Angular Resolution (deg)", "Elevation Angular Resolution (deg)", "Max Distance for Car (m) **", "Max Distance for Human (m) **", "Outputs", "Size (mm x mm)", "Certifications"],
+["Plextek (Sectoral Horn Antenna Design) https://www.plextek.com/TI", "IWR6843 (60 GHz)", "90 (+/-45)", "17 (+/-8.5)", "* <br>Contact vendor for details</br>", "*", "*", "50", "*", "*", "TBD"],
+["Smart Radar Systems (RM14-S2) http://www.smartradarsystem.com/gb/sub/product.html", "IWR1443 (77 GHz)", "160 (+/-75)", "25", "10", "20 (with MIMO 2 Rx)", "70", "20", "CAN, UART", "40 x 60", "TBD"],
+["Smart Radar Systems (RM14-02) http://www.smartradarsystem.com/gb/sub/product.html", "IWR1443 (77 GHz)", "120 (+/-60)", "40", "20", "20 (with MIMO 2 Rx)", "70", "30", "CAN, UART", "40 x 40", "TBD"],
+["Smart Radar Systems (RM16-02) http://www.smartradarsystem.com/gb/sub/product.html", "IWR1642 (77 GHz)", "120 (+/-60)", "40", "20", "N.A.", "70", "30", "CAN, UART", "40 x 40", "TBD"],
+["Smart Radar Systems (RM16-10) http://www.smartradarsystem.com/gb/sub/product.html", "IWR1642 (77 GHz)", "120 (+/-60)", "40", "20", "N.A.", "70", "30", "UART", "30 x 30", "TBD"],
+["Smart Radar Systems (RM01) http://www.smartradarsystem.com/gb/sub/product.html", "IWR1443 (77 GHz)", "120 (+/-60)", "30 (+/-15)", "15", "60", "120", "47", "SPI, CSI", "44 x 30", "CE, FCC"],
+["D3 (Designcore) https://www.d3engineering.com/assets/uploads/data-sheets/autonomous-systems/D3Eng-IndusRadar-StartKit-FactSheet.pdf", "IWR1443 (77 GHz)", "120 (+/-60)", "30 (+/-15)", "15", "60", "120", "47", "SPI, CAN", "38 x 38", "TBD"],
+["Jorjin (MT5A61E01K) https://www.jorjin.com/product.php?id=181", "IWR1642 (77 GHz)", "120 (+/-60)", "30 (+/-15)", "15", "N.A.", "199", "37", "SPI, UART", "57 x 65 (with housing)", "UL"],
+["Smart Radar Systems (RM68-01) http://www.smartradarsystem.com/gb/sub/product.html", "IWR6843 (60 GHz)", "100 (+/-50)", "40 (+/-20)", "20", "20", "50", "20", "CAN, UART", "40 x 40", "TBD"],
+["RFBeam (V-MD3) Mode1 http://rfbeam.ch/product?id=41", "IWR6843 (60 GHz)", "70 (+/-35)", "70 (+/-35)", "20", "20", "50", "20", "I2C, SERIAL, ETHERNET, CAN", "71 x 56 x 18", "TBD"],
+["RFBeam (V-MD3) Mode2 http://rfbeam.ch/product?id=41", "IWR6843 (60 GHz)", "30 (+/-15)", "30 (+/-15)", "20", "20", "75", "25", "I2C, SERIAL, ETHERNET, CAN", "71 x 56 x 18", "TBD"],
+["D3 Engineering (DesignCore) https://www.d3engineering.com/designcore-platforms/ti-radar/", "IWR6843 (60 GHz)", "26 (+/-13)", "26 (+/-13)", "18", "17", "-", "-", "UART, CAN, I2C, SPI, GPIO", "51 x 60", "TBD"]
+]

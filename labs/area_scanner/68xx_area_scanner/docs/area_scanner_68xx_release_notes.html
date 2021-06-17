@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Area Scanner Release Notes</title>
+</head>
+
+<!-- START PRE -->
+<link rel="stylesheet" href="../../../.metadata/.html/scripts/strapdown/v/0.2/fonts/ubuntu-regular-woff.css"/>
+<link rel="stylesheet" href="../../../.metadata/.html/scripts/strapdown/v/0.2/fonts/glyphicons-halflings-regular.css"/>
+<link rel="stylesheet" href="../../../.metadata/.html/scripts/strapdown/v/0.2/themes/united2.min.css"/>
+<link rel="stylesheet" href="../../../.metadata/.html/scripts/strapdown/v/0.2/themes/bootstrap-responsive.min.css"/>
+<link rel="stylesheet" href="../../../.metadata/.html/scripts/strapdown/v/0.2/strapdown.css"/>
+<link rel="stylesheet" href="../../../.metadata/.html/styles/link.css"/>
+<!-- END PRE -->
+
+<xmp style="display:none;" class="col-xs-6">
+
+
+Version 2.2.0.0
+=============
+
+Overview
+========
+This lab demonstrates the use of TI mmWave sensors for Area Scanner applications. 
+The unique range, velocity, and angle data from mmWave sensors can enable the detection of objects or people as they enter or exit zones of interest. 
+
+* SDK Version: 3.5.0.4
+* Supported EVM platforms:
+  * IWR6843ISK (ES2.0)
+  * IWR6843ISK-ODS (ES2.0)
+  * IWR6843AOPEVM (Rev F)
+
+  
+New and Updated Features
+========================
+* SDK 3.5 Update 
+
+Known Issues & Work Arounds
+============
+* An unresolved UART issue can result in missing bytes in packets. The work around used in this release is to check and skip parsing of frame with missing bytes in gui. 
+
+Limitations
+=========================
+* The minimum range of the static object detection is currently limited by the occurence of false detections. 
+
+---------------------------------
+
+Release Notes Archive
+=========================
+
+## Version 2.0.0.0
+New and Updated Features:
+* IWR6843ISK-ODS (ES2.0) support.
+
+Known Issues & Work Arounds:
+* An unresolved UART issue can result in missing bytes in packets. The work around used in this release is to check and skip over parses with missing bytes. 
+* There can be false static object detections in the range closest to the EVM. The current work around is to set the start range bin for static detection to the 17th range bin. This limits the minimum detection region for static objects to ~1m.
+
+Limitations:
+* The minimum range of the static object detection is currently limited by the occurence of false detections. 
+
+</xmp>
+
+<link rel="stylesheet" href="../../../.metadata/.html/scripts/highlight/styles/zenburn.css"/>
+<script src="../../../.metadata/.html/scripts/strapdown/vendor/jquery-1.11.2.min.js"></script>
+<script src="../../../.metadata/.html/scripts/strapdown/vendor/bootstrap.min.js"></script>
+<script src="../../../.metadata/.html/scripts/highlight/highlight.pack.js"></script>
+<script src="../../../.metadata/.html/scripts/strapdown/v/0.2/strapdown.js"></script>
+<script src="../../../.metadata/.html/scripts/toolbox.js"></script>
+<script src="../../../.metadata/.html/scripts/toolbox_fixes.js"></script>
+</html>

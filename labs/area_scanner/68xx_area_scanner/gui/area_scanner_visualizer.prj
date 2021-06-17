@@ -1,0 +1,142 @@
+<deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
+  <configuration file="C:\ti\mmwave_industrial_toolbox_4_0_0\labs\area_scanner\68xx_area_scanner\gui\area_scanner_visualizer.prj" location="C:\ti\mmwave_industrial_toolbox_4_0_0\labs\area_scanner\68xx_area_scanner\gui" name="area_scanner_visualizer" preferred-package-location="C:\ti\mmwave_industrial_toolbox_4_0_0\labs\area_scanner\68xx_area_scanner\gui\area_scanner_visualizer\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
+    <param.appname>area_scanner_visualizer</param.appname>
+    <param.icon />
+    <param.icons />
+    <param.version>2.0</param.version>
+    <param.authnamewatermark />
+    <param.email />
+    <param.company />
+    <param.summary />
+    <param.description />
+    <param.screenshot />
+    <param.guid />
+    <param.installpath.string>\area_scanner_visualizer\</param.installpath.string>
+    <param.installpath.combo>option.installpath.programfiles</param.installpath.combo>
+    <param.logo />
+    <param.install.notes />
+    <param.target.install.notes />
+    <param.intermediate>${PROJECT_ROOT}\area_scanner_visualizer\for_testing</param.intermediate>
+    <param.files.only>${PROJECT_ROOT}\area_scanner_visualizer\for_redistribution_files_only</param.files.only>
+    <param.output>${PROJECT_ROOT}\area_scanner_visualizer\for_redistribution</param.output>
+    <param.logdir>${PROJECT_ROOT}\area_scanner_visualizer</param.logdir>
+    <param.enable.clean.build>false</param.enable.clean.build>
+    <param.user.defined.mcr.options />
+    <param.target.type>subtarget.standalone</param.target.type>
+    <param.support.packages />
+    <param.web.mcr>true</param.web.mcr>
+    <param.package.mcr>false</param.package.mcr>
+    <param.no.mcr>false</param.no.mcr>
+    <param.web.mcr.name>MyAppInstaller_web</param.web.mcr.name>
+    <param.package.mcr.name>MyAppInstaller_mcr</param.package.mcr.name>
+    <param.no.mcr.name>MyAppInstaller_app</param.no.mcr.name>
+    <param.windows.command.prompt>false</param.windows.command.prompt>
+    <param.create.log>true</param.create.log>
+    <param.log.file>area_scanner_console_log.txt</param.log.file>
+    <param.native.matlab>false</param.native.matlab>
+    <param.checkbox>false</param.checkbox>
+    <param.example />
+    <param.help.text>Syntax 
+	 area_scanner_visualizer -? 
+	 area_scanner_visualizer src callbackdata 
+ Input Arguments 
+	 -?  print help on how to use the application 
+	 src callbackdata  input arguments</param.help.text>
+    <unset>
+      <param.icon />
+      <param.icons />
+      <param.authnamewatermark />
+      <param.email />
+      <param.company />
+      <param.summary />
+      <param.description />
+      <param.screenshot />
+      <param.guid />
+      <param.installpath.string />
+      <param.installpath.combo />
+      <param.logo />
+      <param.install.notes />
+      <param.target.install.notes />
+      <param.intermediate />
+      <param.files.only />
+      <param.output />
+      <param.logdir />
+      <param.enable.clean.build />
+      <param.user.defined.mcr.options />
+      <param.target.type />
+      <param.support.packages />
+      <param.web.mcr />
+      <param.package.mcr />
+      <param.no.mcr />
+      <param.web.mcr.name />
+      <param.package.mcr.name />
+      <param.no.mcr.name />
+      <param.native.matlab />
+      <param.checkbox />
+      <param.example />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}\area_scanner_visualizer.m</file>
+    </fileset.main>
+    <fileset.resources />
+    <fileset.package />
+    <fileset.depfun>
+      <file>${PROJECT_ROOT}\calculateChirpParams.m</file>
+      <file>${PROJECT_ROOT}\defineCLICommands.m</file>
+      <file>${PROJECT_ROOT}\drawFOVLines.m</file>
+      <file>${PROJECT_ROOT}\folder_file_icon.png</file>
+      <file>${PROJECT_ROOT}\foldericon.png</file>
+      <file>${PROJECT_ROOT}\getDetObj.m</file>
+      <file>${PROJECT_ROOT}\getFrameHeader.m</file>
+      <file>${PROJECT_ROOT}\getGtrackPtCloud.m</file>
+      <file>${PROJECT_ROOT}\getGtrackPtType.m</file>
+      <file>${PROJECT_ROOT}\getGtrackTargetList.m</file>
+      <file>${PROJECT_ROOT}\getSideInfo.m</file>
+      <file>${PROJECT_ROOT}\getTLV.m</file>
+      <file>${PROJECT_ROOT}\init3DPlot_AS.m</file>
+      <file>${PROJECT_ROOT}\initCfgPort.m</file>
+      <file>${PROJECT_ROOT}\initDataPort.m</file>
+      <file>${PROJECT_ROOT}\initRadialZone.m</file>
+      <file>${PROJECT_ROOT}\loadCfg.m</file>
+      <file>${PROJECT_ROOT}\parseBytes_AS.m</file>
+      <file>${PROJECT_ROOT}\parseCLICommands2Struct.m</file>
+      <file>${PROJECT_ROOT}\readCfgFile.m</file>
+      <file>${PROJECT_ROOT}\readDATFile2Buffer.m</file>
+      <file>${PROJECT_ROOT}\readUARTtoBuffer.m</file>
+      <file>${PROJECT_ROOT}\setup_as.mlapp</file>
+      <file>${PROJECT_ROOT}\translatePoints.m</file>
+    </fileset.depfun>
+    <build-deliverables>
+      <file location="${PROJECT_ROOT}\area_scanner_visualizer\for_testing" name="area_scanner_visualizer.exe" optional="false">C:\ti\mmwave_industrial_toolbox_4_0_0\labs\area_scanner\68xx_area_scanner\gui\area_scanner_visualizer\for_testing\area_scanner_visualizer.exe</file>
+      <file location="${PROJECT_ROOT}\area_scanner_visualizer\for_testing" name="splash.png" optional="false">C:\ti\mmwave_industrial_toolbox_4_0_0\labs\area_scanner\68xx_area_scanner\gui\area_scanner_visualizer\for_testing\splash.png</file>
+      <file location="${PROJECT_ROOT}\area_scanner_visualizer\for_testing" name="readme.txt" optional="true">C:\ti\mmwave_industrial_toolbox_4_0_0\labs\area_scanner\68xx_area_scanner\gui\area_scanner_visualizer\for_testing\readme.txt</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>C:\Program Files\MATLAB\R2019a</root>
+      <toolboxes>
+        <toolbox name="matlabcoder" />
+      </toolboxes>
+      <toolbox>
+        <matlabcoder>
+          <enabled>true</enabled>
+        </matlabcoder>
+      </toolbox>
+    </matlab>
+    <platform>
+      <unix>false</unix>
+      <mac>false</mac>
+      <windows>true</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.0</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>win64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>

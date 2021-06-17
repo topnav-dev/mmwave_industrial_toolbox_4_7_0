@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Safety Bubble with ROS for mmWave Release Notes - Version 1.1</title>
+</head>
+
+<!-- START PRE -->
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/strapdown/v/0.2/fonts/ubuntu-regular-woff.css"/>
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/strapdown/v/0.2/fonts/glyphicons-halflings-regular.css"/>
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/strapdown/v/0.2/themes/united2.min.css"/>
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/strapdown/v/0.2/themes/bootstrap-responsive.min.css"/>
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/strapdown/v/0.2/strapdown.css"/>
+<link rel="stylesheet" href="../../../../.metadata/.html/styles/link.css"/>
+<!-- END PRE -->
+
+<xmp style="display:none;" class="col-xs-6">
+
+
+Safety Bubble with ROS for mmWave Release Notes
+=============
+
+
+Overview
+========
+
+This lab allows for four TI mmWave sensors and a Turtlebot2 to be used with popular mapping and libraries in the Robot Operating System (ROS) environment, familiar to many robotics engineers. 
+The lab uses the move_base libraries with TI’s mmWave ROS Driver Package software to interface to the TI mmWave sensor. The lab supports use of IWR6843ISK ES2.0 Evaluation Module. 
+With the TI ROS driver and packages from the ROS community (ros.org) engineers may evaluate robot bubble sensing quickly and easily.
+
+In this lab, the robot will move forward at a defined maximum speed. When an object come within a certain distance
+to the robot, the robot will first slow down. If the same object continues to approach the robot, the robot will then stop moving forward.
+Once the robot has cleared the object, the robot will speed up again to its maximum speed. It is assumed that the slow zone bubble is larger than the stop zone bubble.  
+
+
+Features
+========
+
+* Integrates the TI mmWave ROS driver into the ROS Turtlebot2 platform to allow
+the TI mmWave sensor IWR6843ISK EVM to be used as a 3-D sensor
+* Allows the driver to be compatible with multiple mmWave sensors. 
+* Demonstrates mapping using the the TI mmWave sensor with the ROS Octomap
+package
+* Demonstrates navigation with collision-avoidance using the TI mmWave sensor
+with the ROS move_base package 
+* Creates bubbles around the robot and performs different behavior depending on object distance.
+
+
+Resolved Incident Reports
+=========================
+
+The following are Incident Reports resolved in this release:
+* N/A
+
+
+Known Limitations
+============
+
+The following are Known Limitations in this release:
+* Currently supported/tested for IWR6843ISK ES2.0 EVM only
+* The mmWave EVM must be flashed with:
+  * The mmWave SDK version 3.5 out-of-box demo firmware for IWR6843ISK ES2.0
+* The fake_localization ROS navigation package is used to allow direct setting of
+the robot’s initial pose (position/orientation) and goal pose. Therefore, the
+gmapping and amcl ROS navigation packages are not used.
+* The robot only moves forward. 
+* When the robot stops, and after the costmaps are cleared, if an object is still in the stop zone, the robot will suddenly move forward and immediately stop. 
+
+
+Work Arounds for Major Known Issues
+===================================
+
+The following are workarounds for each known issue with a major severity that exists in this release:
+* N/A
+
+Changes in Version 1.1
+========================
+The following is a list of changes compared to the previous release.
+- Changed instructions to download code from git.ti.com 
+- Merged source code to Autonomous Robotics Lab.
+
+</xmp>
+
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/highlight/styles/zenburn.css"/>
+<script src="../../../../.metadata/.html/scripts/strapdown/vendor/jquery-1.11.2.min.js"></script>
+<script src="../../../../.metadata/.html/scripts/strapdown/vendor/bootstrap.min.js"></script>
+<script src="../../../../.metadata/.html/scripts/highlight/highlight.pack.js"></script>
+<script src="../../../../.metadata/.html/scripts/strapdown/v/0.2/strapdown.js"></script>
+<script src="../../../../.metadata/.html/scripts/toolbox.js"></script>
+<script src="../../../../.metadata/.html/scripts/toolbox_fixes.js"></script>
+</html>

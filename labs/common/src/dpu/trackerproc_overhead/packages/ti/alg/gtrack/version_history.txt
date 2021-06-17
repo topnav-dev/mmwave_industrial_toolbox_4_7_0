@@ -1,0 +1,557 @@
+MMWSDK-2315 Version 0.112
+This release is unified tracker library version 0.112.
+Release covers (matlab/mex and c sources), as well as all supported configurations)
+Library is tested against 2DWM, 3DWM, and 3DCM configurations
+Matlab results: 2DWM = 86.26, 3DWM = 97.78, 3DCM = 95.87
+Mex results: 2DWM = 86.19, 3DWM = 97.78, 3DCM = 95.77
+C/MSVC code passes autoregression for 2D and 3D.
+Changes are related to allowing boresight filtering to be enabled/disabled from configuration instead of being always enabled for ceiling mount. This is to reduce boresight track loss in low density point cloud scenario (specifically in low bandwidth ceiling mount configuration).  
+Summary of changes:
+- Documentation file is updated.
+- Added boresight filtering flag in config structure and used in gtrack_create and gtrack_step functions.
+- Updated Matlab and C sources as well as Matlab, Mex and C tests to use the new parameter.
+
+MMWSDK-2315 Version 0.111
+This release is unified tracker library version 0.111.
+Release covers (matlab/mex and c sources), as well as all supported configurations)
+Library is tested against 2DWM, 3DWM, and 3DCM configurations
+Matlab results: 2DWM = 86.26, 3DWM = 97.78, 3DCM = 95.87
+Mex results: 2DWM = 86.19, 3DWM = 97.78, 3DCM = 95.77
+C/MSVC code passes autoregression for 2D and 3D.
+Changes are mostly related to improvements required by AC customer for 2DWM configuration.
+Summary of changes:
+- Documentation file is updated.
+- Added missing matlab files polar2world and worl2polar
+- Added configurations for minimal static velocity (no points, and no dynamic points cases),
+- Added configuration for minimal velocity for slow down decision
+- Fixed no static points error in matlab script
+
+Detailed changes:
+1. Allocation function changes:
+- Added initialization of expected number of points based on allocation decision
+- Added logic for allocations in exit zone to use larger SNR
+
+2. Association function changes:
+- Ghost marking changes:
+a) ghost center is moved to +=0.8m (from +=1.2m)
+b) static decision (for ghost marking) is changed to instantenious xyVelocity
+c) marking procedure is modified as two independent decisions on "likely" and "wihin solid angle" ghosts
+d) uniqueness property is cleared only for "likely" ghosts
+- Gating changes:
+a) Static points can only be reached with unitary gain
+b) Doppler differences are magnified to 3x
+
+3. Update function changes:
+- Added support for minStatic velocities configurations
+- Spread is now allowed to change from 1x to 2x of configured limits
+- Rc formula is fixed
+4. Event management changes:
+- New definitiion of HIT event: for static targets, any point is a hit, while for dynamic target hit now requires a dynamic point
+
+MMWSDK-2282 Version 0.110
+Doxygen changes
+Klockwork warnings fixes
+
+Merge pull request #1439 in MMWAVE/mmwave_sdk from feature/MMWSDK-1928-tracker-with-static to development
+
+* commit '08bb0162325c3ca9c86a0d441847d2e908ec9307':
+  MMWSDK-1928 Version 0.109 Adds few missing Doxygen comments Deletes unused varParams structure Moved unrollingParams to internal header
+  MMWSDK-1928 Version 0.109 Adds few missing Doxygen comments Deletes unused varParams structure
+  MMWSDK-1928 Version 0.108
+  MMWSDK-1928 Version 0.107 Update to include presence detection module Added Presence Detection interface     - Updated matlab model     - Updated mex functions mex_create and mex_step     - Module level function is added to the set of functions called every frame     - Benchmarking is extended to include presence detection     - Parameters structure for presence detection includes: points threshold, approaching velocity, on to off counter, and occupancy box(es).     - Similar to other boxes, occupancy box is rotated (if required) based on sensor elevation tilt.     - Presnce indication is now returned by step functions     - Step function API changed. Added a pointer to return presence
+  MMWSDK-1928 Version 0.106 Added support for 3D separate configurations for ceiling/wall mount. - Ceiling mount configration is determined based on elevation tilt parameter. (90 +/-10 degress) Added logic to remove boresight static reflections. - This is enabled for 3D configuration with ceiling mount option. - The cone is hard codded for <6 degrees and >2m range. Added skip prediction function. - Target may not need to be in static condition (example: have non-unique dynamic points) and choose to skip the prediction. Added flag to skip estimation of expected number of points. - For 3D ceiling mount, we never see full body, hence we set it to the person geometrical shape (100). Added abs function to off-diagonal covariance matrix Changed limits in spreading calculation. It is now based within [75:200] percents from configured geometrical limits
+  MMWSDK-1928 Version 0.106 Added support for 3D separate configurations for ceiling/wall mount. - Ceiling mount configration is determined based on elevation tilt parameter. (90 +/-10 degress) Added logic to remove boresight static reflections. - This is enabled for 3D configuration with ceiling mount option. - The cone is hard codded for <6 degrees and >2m range. Added skip prediction function. - Target may not need to be in static condition (example: have non-unique dynamic points) and choose to skip the prediction. Added flag to skip estimation of expected number of points. - For 3D ceiling mount, we never see full body, hence we set it to the person geometrical shape (100). Added abs function to off-diagonal covariance matrix Changed limits in spreading calculation. It is now based within [75:200] percents from configured geometrical limits
+  MMWSDK-1928 Version 0.105 Updated with changes needed for target runs. Built and passed functional test vectors on R5F.
+  MMWSDK-1928 Version 0.104     Changes to improve performance for 3D ceiling mount tracker.     Performance is assessed based on the test suite of 10 test vectors in empty room with ODS sensor mounted at 2.8m height, facing down     RF Layer velocity resolution 0.032m/s, range is 5.2m.     PHY Layer is symmetrical, zooming based, followed by doppler compute.
+  MMWSDK-1928 Version 0.103 Changes to improve performance for 2D wallmount tracker. Performance is assessed based on the test suite of 12 test vectors in cluttered room with significant multipath present.
+  MMWSDK-1928 Version 0.102 Changes includes ghost marking feature. Points behind moving target are marked as potential ghost points. Allocations are allowed. Note that those changes aren't fully regressed. In fact, the performance is degraded in relative ghost-free scenes. We'll address the those issues in later updates.
+  MMWSDK-1928 Version 0.101 Modified scene parameters to include sensor position and orientation. Added logic to modify bondary/static box parmaeters based on sensor orientation Changed default scenery parameters Modified mex files Modified matlab files Modified autotest projects
+  MMWSDK-1928 Version 0.100 - Fixed reliable points handling Added temporary marking of unique dynamic points. Added definition in gtrack.h and logic to gtrack_unit_update.c - Added logic to release tracks that are outside of boundary box Changes are in gtrack_unit_event.c - Added logic to ignore sleep2free threshold when set to 0 Changes are in gtrack_unit_event.c - Fixed logic with static/dynamic marking of uniqueness property Changes are in gtrack_unit_score.c Similar changes are in trackUnit.m - Changed angular spreadMin from 1 to 2 degrees Changes are in gtrack_utilities_2d.c and gtrack_utilities_3d.c
+  MMWSDK-1928 Version 0.99
+  MMWSDK-1928 Version 0.98 Matlab changes. Corresponding C changes will be pushed in next update. > trackModule.m: - Allocation SNR is Range^4-scaled. The exposed allocation SNR parameters are now assumed to be the required SNR at 6m range. We calculate required SNR based allocation set range. - Added sleep2free parameter. This parameter limits the lifetime on static target. > trackUnit.m - Modified initialization of dimension parameters. It is now based on gating limits. Was a constant before. The problem with constants is observed for targets entering close to the censor. - Added skipPredict logic. In no-update cases (no reliable points), the update will be skipped (as opposed to keep moving). - Modified Gatong function to limit the doppler based on estimated doppler spread. This shall help to protect the bubles against "doppler errors". - Changed the base for initial velocity unrolling from allocationVelocity to rangeRate. - Revereted changes for reduced scoring for static targets - Changed number of points estimator to be based on number of dynamic points - Modified isBehind logic. Added doppler similarity test - Changed Hit state machine to add sleep2free logic
+  MMWSDK-1928 Version 0.97 Tracker changes to improve static targets handling Matlab code changes: trackModule.m - Added filtering off static points outside of static box - Added static identification during association process trackUnit.m - Decreased to a minimum the bidding powers of static targets - Added static indication handling during association. Staic targets can't spoil dynamic targets points. C-code changes: gtrack_create.c - Added allocation of bit array for static indication gtrack_step.c - Added filtering for static points outside the static box gtrack_module.c - Added passing static index to unit_score function gtrack_unit_score.c - Added static indication handling - Modified scoring value for static targets gtrack_event.c - Added logic to ignore misses when target had points in gate gtrack_unit_update.c - Added logic to set target static with only static points associated
+  Matlab code changes: -------------------- trackerModule.m - Added unique bit array to tracker output, trackUnit.m: - Changed filtSpread initialization for 3D, - Added Reliable = (Dynamic AND Unique) and Static points definiton - Changed criteria on minimal velocity for static hypothesis to 0.5m/s cartesian velocity vector - Once decleared static, removed all moving hypothesis logic (didn't prove to be useful at all) - Only "reliable" points are used for any updates
+
+MMWSDK-1928 Version 0.109
+Adds few missing Doxygen comments
+Deletes unused varParams structure
+Moved unrollingParams to internal header
+
+MMWSDK-1928 Version 0.108
+
+This commit represents the library version that is tested against three sets of test vectors:
+- 2D Wall mount, with 15 degree downtilt
+- 3D Ceiling Mount (i.e. 90 degree downtilt), and
+- 3D Wall mount with 15 degree downtilt
+
+Code changes for 3D configurations:
+- Since 3D configurations boxes are given in World coordinates, boundary checks are now performed by transforming tracker coordinates to the World. This is done by a rotation along the X axis followed by vertical move.
+- 3D Ceiling mounting configuration is applied when elevation angle 90 +/-20 degrees
+- 3D Wall mounting configurations are expected with 0-30 degrees elevation downtilt.
+- Removed transformation of boundary/static/presence boxes. They stay in world coordinates.
+- Added per point transformation to world coordinates to check for boundary/static/presence conditions
+
+Code changes for 2D configuration:
+- Transformations are skipped (tracking space = 2D World space)
+
+Presence detection
+- Allowed presence box to be specified, but the presence detection not. Setting the presence threshold to 0 points disables the presence detection. The same is achieved with no presence boxes specified.
+- For existing targets, presence detection is getting measurement center, transforming to the world coordinates, and checking whether inside the presence box(es)
+- Added diagnostic message for presence detection
+
+Allocation
+- Removed static points from allocation candidacy sets
+- Modified isBehind function to increase solid angle (from 0.5 to 0.75)
+- Allocation behind existing target is initialized with less confidence
+-
+Update
+- Added an option for SNR-weighted average versus arithmetic mean when centroid estimate is computed
+- Added an option to use max likelihood versus minimal distance (use log of error covariance matrix determinant or not)
+- Simplified ghost centroid calculation
+- Modified confidence update formula
+- Modified minimal spread calculations (back to minSpread)
+- Added debugging information with number of dynamic points the target is "interested"
+- Added two parameters for minimal Cartesian velocity
+- Added measurements center update and internal API to get it.
+
+Event Management
+- Detection state changes now requires reliable points
+- Boundary/Static box checks are done in world coordinates, rotating/moving tracker position
+
+API changes
+- None. Clarified (doxygen) elevation tilt as "positive down" for 3D Wall mount. I.e. +15 degree is 15 degree downtilt
+
+MMWSDK-1928 Version 0.107
+Update to include presence detection module
+Added Presence Detection interface
+    - Updated matlab model
+    - Updated mex functions mex_create and mex_step
+    - Module level function is added to the set of functions called every frame
+    - Benchmarking is extended to include presence detection
+    - Parameters structure for presence detection includes: points threshold, approaching velocity, on to off counter, and occupancy box(es).
+    - Similar to other boxes, occupancy box is rotated (if required) based on sensor elevation tilt.
+    - Presnce indication is now returned by step functions
+    - Step function API changed. Added a pointer to return presence
+
+For consistnecy reasons, allocation and presence points threasholds are now ">=", so
+    - configuration parameter of "20" points for allocation means "20 or more points",
+    - configuration parameter of "3" points for presence detection means "3 or more points"
+Removed obsolete structures (variation parameters)
+Added measurement centroid (in cartesian coordinates) to the instance structure mainated by each unit.
+Added a an API to obtain measurement centroid
+Update function changes:
+    - use simple "good points" mean (as opposed to SNR-weighted) to compute centroid
+    - added computation of measurement centroid in cartesian
+    - skip prediction is now based on absense of dynamic points
+
+MMWSDK-1928 Version 0.106
+Added support for 3D separate configurations for ceiling/wall mount.
+- Ceiling mount configration is determined based on elevation tilt parameter. (90 +/-10 degress)
+Added logic to remove boresight static reflections.
+- This is enabled for 3D configuration with ceiling mount option.
+- The cone is hard codded for <6 degrees and >2m range.
+Added skip prediction function.
+- Target may not need to be in static condition (example: have non-unique dynamic points) and choose to skip the prediction.
+Added flag to skip estimation of expected number of points.
+- For 3D ceiling mount, we never see full body, hence we set it to the person geometrical shape (100).
+Added abs function to off-diagonal covariance matrix
+Changed limits in spreading calculation. It is now based within [75:200] percents from configured geometrical limits
+
+MMWSDK-1928 Version 0.106
+Added support for 3D separate configurations for ceiling/wall mount.
+- Ceiling mount configration is determined based on elevation tilt parameter. (90 +/-10 degress)
+Added logic to remove boresight static reflections.
+- This is enabled for 3D configuration with ceiling mount option.
+- The cone is hard codded for <6 degrees and >2m range.
+Added skip prediction function.
+- Target may not need to be in static condition (example: have non-unique dynamic points) and choose to skip the prediction.
+Added flag to skip estimation of expected number of points.
+- For 3D ceiling mount, we never see full body, hence we set it to the person geometrical shape (100).
+Added abs function to off-diagonal covariance matrix
+Changed limits in spreading calculation. It is now based within [75:200] percents from configured geometrical limits
+
+MMWSDK-1928 Version 0.105
+Updated with changes needed for target runs. Built and passed functional test vectors on R5F.
+
+MMWSDK-1928 Version 0.104
+    Changes to improve performance for 3D ceiling mount tracker.
+    Performance is assessed based on the test suite of 10 test vectors in empty room with ODS sensor mounted at 2.8m height, facing down
+    RF Layer velocity resolution 0.032m/s, range is 5.2m.
+    PHY Layer is symmetrical, zooming based, followed by doppler compute.
+
+    Changes in Tracker (specific for ceiling mount):
+    - Cylindrical allocation is used. Meaning gating function is computed as normalized distance as projected to the horizontal plane
+    - Ghost marking is disabled (for all 3D configurations)
+    - Removed distribution determinant from scoring function for all configuration
+    - Spread estimation filter constant changed from 0.90 (2D) to 0.95 (3D) to slow down the adaptation.
+    - Added Box rotation based on elevation tilt parameter. This parameter shall be 90 +-10 (degrees) for celing mount configurations
+    - Minimal static velocity for 3D configurations is measured in X/Z space, and is increased from 0.1m/s (2D) to 0.5m/s (3D)
+    - Jacobian matrix is fixed. Partial derivative dx/d(elev) was not computed correctly
+    - Min spread is set for [1m, 5deg, 5deg, 0.5m/s] for 3D configurations
+
+MMWSDK-1928 Version 0.103
+Changes to improve performance for 2D wallmount tracker.
+Performance is assessed based on the test suite of 12 test vectors in cluttered room with significant multipath present.
+
+1. Ghost marking
+- Added definition for Likely Ghost points (250) and Behind Ghost Points (251).
+- Likely Ghost points are the ones that associated with Ghost target, created by single multipath reflection.
+- Behind Ghost points are the points that just are behind existing target, and can be the result of mulriple reflection paths.
+
+2. Association process changes
+- Points behind the existing targets are subject to competition between the Ghost Targets and real target.
+- Points are won by the Ghost targets become Likely Ghost points (250). Otherwise, the are tagged as 251.
+- Removed velocity unrolling logic
+- Modified win/loss logic to include uniqueness handling for ghosts
+
+3. Allocation process changes
+- Allocation is not allowed for likely ghosts (250)
+- Allocation is allowed for unique other ghost points (251)
+- C implementation of allocation loop (clustering algorithm) is changed. C code algorithm is now same as matlab.
+
+4. SNR threshold
+- SNR threshold reaches max as range^4 at 2.5m, then goes linearly down to 1/3 of the max to range 1m, then stays constant
+- Obscured thresholds is always scales with range^4
+
+5. Update process changes
+- Revereted to SNR-based weighting in centroid computing
+- Spread filter constant changed from 0.01 to 0.05. This allows for faster spread adoptaion
+- Minimal spread increased to +/-0.5m, +/-2.5deg, +/-0.25m/s
+- Minimal static velocity threshold is changed from 0.5 to 0.1
+- Estimated number of points is now computed based on number of reliable points
+- Modified static condition entering. Both cases use same cartesian velocity threshold. Added slowdown logic to static point only case.
+
+6. Events handling changes
+- Targets outside of Boundary box are cleared with exit2free time
+- Static targets with low confidence are cleared within exit2free time
+
+7. Prediction process changes
+- Added logic to skip process noise estimation (to handle the erasures)
+
+Added track confidence level calculation
+- Fast converging filter with alpha 0.1 is used.
+- Confidence is defined as a ratio between number of reliable points and number dynamic points within Gate
+- Confidence level is now reported in target description
+
+Static box bug fixed
+
+MMWSDK-1928 Version 0.102
+Changes includes ghost marking feature.
+Points behind moving target are marked as potential ghost points.
+Allocations are allowed.
+Note that those changes aren't fully regressed.
+In fact, the performance is degraded in relative ghost-free scenes.
+We'll address the those issues in later updates.
+
+MMWSDK-1928 Version 0.101
+Modified scene parameters to include sensor position and orientation.
+Added logic to modify bondary/static box parmaeters based on sensor orientation
+Changed default scenery parameters
+Modified mex files
+Modified matlab files
+Modified autotest projects
+
+MMWSDK-1928 Version 0.100
+- Fixed reliable points handling
+Added temporary marking of unique dynamic points. Added definition in gtrack.h and logic to gtrack_unit_update.c
+- Added logic to release tracks that are outside of boundary box
+Changes are in gtrack_unit_event.c
+- Added logic to ignore sleep2free threshold when set to 0
+Changes are in gtrack_unit_event.c
+- Fixed logic with static/dynamic marking of uniqueness property
+Changes are in gtrack_unit_score.c
+Similar changes are in trackUnit.m
+- Changed angular spreadMin from 1 to 2 degrees
+Changes are in gtrack_utilities_2d.c and gtrack_utilities_3d.c
+
+MMWSDK-1928 Version 0.99
+
+C code changes with reference to previous version 0.98 matlab code push:
+> trackModule.m:
+- Allocation SNR is Range^4-scaled. [DONE, gtrack_module.c]
+The exposed allocation SNR parameters are now assumed to be the required SNR at 6m range.
+We calculate required SNR based allocation set range.
+- Added sleep2free parameter [DONE, gtrack.h, gtrack_int.h, gtrack_unit_start.c]
+This parameter limits the lifetime on static target.
+> trackUnit.m
+- Modified initialization of dimension parameters. It is now based on gating limits.
+Was a constant before. The problem with constants is observed for targets entering close to the censor.
+[DONE, gtrack_utilities_2d.c, gtrack_utilities_3d.c, gtrack_unit_start.c]
+- Added skipPredict logic.
+In no-update cases (no reliable points), the update will be skipped (as opposed to keep moving).
+[DONE, gtrack_unit_update.c gtrack_unit_predict.c, gtrack_int.h]
+- Modified Gating function to limit the doppler based on estimated doppler spread.
+This shall help to protect the bubles against "doppler errors". [DONE, gtrack_unit_score.c]
+- Changed the base for initial velocity unrolling from allocationVelocity to rangeRate. [DONE. That change wasn't in C in the first place]
+- Revereted changes for reduced scoring for static targets. [DONE, That change wasn't in C in the first place].
+- Changed number of points estimator to be based on number of dynamic points. [Done. gtrack_unit_update.c].
+- Modified isBehind logic. Added doppler similarity test [DONE, gtrack_utilities_2d.c, gtrack_utilities_3d.c, gtrack_int.h ]
+- Changed Hit state machine to add sleep2free logic [DONE, gtrack_int.h, gtrack_unit_start.c, gtrack_unit_event.c]
+- Added measurment center definition to target descriptior. This information is returned by step function. Useful for debugging purposes.
+
+gtrack.h
+gtrack_int.h
+gtrack_module.c
+gtrack_unit_event.c
+gtrack_unit_get.c
+gtrack_unit_predict.c
+gtrack_unit_report.c
+gtrack_unit_score.c
+gtrack_unit_start.c
+gtrack_unit_update.c
+gtrack_utilities_2d.c
+gtrack_utilities_3d.c
+
+gtrack_create_mex.c
+gtrack_step_mex.c
+
+    - Removed isTargetCompeting logic from C code.
+
+MMWSDK-1928 Version 0.98
+Matlab changes. Corresponding C changes will be pushed in next update.
+> trackModule.m:
+- Allocation SNR is Range^4-scaled.
+The exposed allocation SNR parameters are now assumed to be the required SNR at 6m range.
+We calculate required SNR based allocation set range.
+- Added sleep2free parameter.
+This parameter limits the lifetime on static target.
+> trackUnit.m
+- Modified initialization of dimension parameters. It is now based on gating limits. Was a constant before. The problem with constants is observed for targets entering close to the censor.
+- Added skipPredict logic. In no-update cases (no reliable points), the update will be skipped (as opposed to keep moving).
+- Modified Gatong function to limit the doppler based on estimated doppler spread. This shall help to protect the bubles against "doppler errors".
+- Changed the base for initial velocity unrolling from allocationVelocity to rangeRate.
+- Revereted changes for reduced scoring for static targets
+- Changed number of points estimator to be based on number of dynamic points
+- Modified isBehind logic. Added doppler similarity test
+- Changed Hit state machine to add sleep2free logic
+
+MMWSDK-1928 Version 0.97
+Tracker changes to improve static targets handling
+Matlab code changes:
+trackModule.m
+- Added filtering off static points outside of static box
+- Added static identification during association process
+trackUnit.m
+- Decreased to a minimum the bidding powers of static targets
+- Added static indication handling during association. Staic targets can't spoil dynamic targets points.
+C-code changes:
+gtrack_create.c
+- Added allocation of bit array for static indication
+gtrack_step.c
+- Added filtering for static points outside the static box
+gtrack_module.c
+- Added passing static index to unit_score function
+gtrack_unit_score.c
+- Added static indication handling
+- Modified scoring value for static targets
+gtrack_event.c
+- Added logic to ignore misses when target had points in gate
+gtrack_unit_update.c
+- Added logic to set target static with only static points associated
+
+MMWSDK-1471 Version 0.96
+Added missing file test/win/matlab/src/computeLimits.m
+Modified initial and minimal spread values for 3D in
+test/win/matlab/src/trackUnit.m and src/gtrack_utilities_3d.c
+
+MMWSDK-1471 Version 0.95
+Modified gating function to build a gate based partial Mahalanobis (ignoring doppler), followed by scoring function with full Mahalanobis.
+- modified matlab trackUnit.m to reflect the above changes
+- added computeMahalanobisPartial functions to 2d and 3d implementations
+- added unit_score function to use partial Mahalanobis
+
+MMWSDK-1471 Version 0.94
+Moved limiter calculation to predict function.
+Cleaned up utilities_2d.c and _3d.c files.
+Added tools folder to test/vectors for matlab utilities
+Updated document (version 1.5) to include Gating function changes
+Updated gtrack.c to pass 2D and 3D test vectors in MSVC
+
+MMWSDK-1471 Version 0.93
+Fixed gating limits parameters order
+- gtrack.h
+- gtrack_create_mex.c
+Fixed allocation distance (added sqrt function).
+- gtrack_module.c
+Modified gate limiter function: instead of limiting the gating ellipsoid, we now limit the measurment deltas.
+So, we first apply "within measurment limits" criteria, then "within constant gain gating". This is simplier and avoids the "dependency" issue.
+- gtrack_unit_score.c
+- gtrack_unit_start.c
+Fixed static target determination
+-gtrack_unit_update.c
+Added save/restore of esimated doppler spread when transition to and from static conditions
+-gtrack_unit_update.c
+Added function to calculate measurement limits
+- gtrack_utilities_2d.c and _3d.c
+Added measurement limits to matlab
+- trackUnit.m
+
+MMWSDK-1471 Version 0.92
+Fixed typo in matlab file trackModule,
+Updated matlab gui fhist_play to support outdoor surveillance use case
+
+MMWSDK-1471 Version 0.91
+Fixed bug with estNumOfPoints in both c and matlab
+
+MMWSDK-1471 Version 0.90
+Removed unused track unit variables
+Added memset of track unit structure at create time
+Added state counters initialization at start time
+Added BIOS_exit() call gtrackApp.c
+Updated tracker configuration parameters for indoor runs
+
+MMWSDK-1471 Version 0.89
+Target C code gating function reverted to pure max-likelyhood
+
+MMWSDK-1471 Version 0.88
+Matlab code gating function reverted to pure max-likelyhood.
+Testing (outdoor & indoor) before making c code changes.
+
+MMWSDK-1471 Version 0.87
+Added differentiation between unique and shared points
+- Added new bit array isUniqueIndex
+- Added isUniqueIndex to unitScore and unitUpdate functions
+
+MMWSDK-1471 Version 0.86
+- Modified gating function. The gate construction uses constant gain with limiters.
+Added gain limiting functions, removed volume limited functions.
+- Added dynamicity to gating factor
+
+MMWAVESYS-51 Version 0.86
+Added readme file to MSVC builds
+
+MMWAVESYS-51 Version 0.85
+Added support files for usagecase test vector generation:
+- usagecase/people_counting/fHistScene4_0001.mat
+- usagecase/people_counting/fhist_play.m
+- usagecase/people_counting/readme.txt
+- usagecase/people_counting/mmw_pc_128x128_30_hall.cfg
+Removed
+- test/win/mex/mex_compile.m
+
+MMWAVESYS-51 Version 0.84
+Changes to resolve pull request comments
+- added and tested MSVC test infractructure
+- removed references to functional tests in make help menu
+- fixed typos and comments in gtrackApp.c
+- adjusted testlimits thresholds
+- added heap space to dss tests
+- fixed error in gtrackTestDss.mak (3D builds)
+
+MMWAVESYS-51 Version 0.83
+Updated design document (version 1.4)
+Added description 0f 3D or 2D library options
+Changed configuration parameters to support both options
+
+MMWAVESYS-51 Version 0.82
+Work to resolve pull request comments
+Removed target specific directories, moved all functional test to single directory
+Renamed pcount to people_counting
+Fixed mmwave_sdk.mak to use (MMWAVE_SDK_LIB_BUILD_OPTION) in PLATFORM_OBJ
+
+MMWAVESYS-51 Version 0.81
+Renamed vectors/usecases/pc to vectors/usecases/pcount
+Updated test/usecases/mss and /dss makefiles
+
+MMWAVESYS-51 Version 0.80
+Moved files to test/usecases/dss and mss
+
+MMWAVESYS-51 Version 0.79
+Changes to get 2d and 3d automated tests passed
+
+MMWAVESYS-51 Version 0.78
+- renamed CUSTOM_OPTION to MMWAVE_SDK_LIB_BUILD_OPTION in makefiles
+- added MCPI support to automated test case
+
+MMWAVESYS-51 Version 0.77
+- Added target physical dimensions calculations API output
+- Added elevation dimension maximum acceleration to configuration parameters
+- Removed fixing gating gain for static targets
+- Added sFactor for static targets
+- Added SNR-weighted average centroid calculation
+- Added erasures support to update function. Allowed target move on a miss
+- Algorithm learns target features. Added measurement spread calculation
+- Obsoleted variance parameter from configursation.
+- Removed Range resolution as input parameter
+
+MMWAVESYS-51 Version 0.76
+Added rangeResolution parameter
+Fixed spreading calculations
+
+MMWAVESYS-51 Version 0.76
+Added SNR-weighted centroid calculation to trackUnit.m
+Added Scoring dispersion factor to static targets to trackUnit.m
+Added re-calculation of mNum to trackModule.m
+
+MMWAVESYS-51 Version 0.75
+
+Added changes to matlab tracker to support
+- moving w/o measurments,
+- static state enter/exit
+- dynamic spread, calculations
+Matlab changes are not yet implemented in C.
+Added newline to gtrack_2d.h and gtrack_3d.h
+
+MMWAVESYS-51 Version 0.74
+	Added docs\doxygen2D and docs\doxygen3D to generate 2D/3D documentation
+	Removed docs\doxygen file
+	Fixed doxygen warnings
+	Added testlimits file
+
+MMWAVESYS-51 Version 0.73
+Added missing files:
+	include/gtrack_2d.h and
+	include/gtrack_3d.h
+
+MMWAVESYS-51 Version 0.72
+Updated matlab sources to support overhead FSS sensor.
+This version is used to produce FSS demos.
+computeH function is fixed for wider angles atan function.
+trackModule
+- changes includes 3d boundary box support,
+- fixes for obscured index,
+- adds few debugging printouts.
+trackUnit
+- changes static definition (<5m/s),
+- det2free count is now reset with any non-zero hit event,
+- added few debug prints added
+
+MMWAVESYS-51 Version 0.71
+Updated make infrastructure to support 2D and 3D build targets
+Updated msvc and mex projects to build 2D and 3D libraries and tests
+Changes in 2D and 3D test file formats
+Added linker command files to target builds to obtain code sizes
+Changed mmwve sdk to support CUSTOM OPTION passed from application makefile
+
+MMWAVESYS-51 Version 0.70
+Initial commit of group tracker with 3D support
+Build time option GTRACK_2D vs GTRACK_3D shall be used to build desired library
+usecaseMssTest includes test code and test vectors for 2D and 3D
+
+MMWSDK-1071 Version 0.64
+matlab/trackUnit.m Changed G (from 1 to 5) for TM static mode
+
+MMWSDK-1071 Version 0.63
+Added doxygen for gtrack_unit_get.c
+Added doxygen for boundary and static boxes
+Added design documentation file
+
+MMWSDK-1071 Version 0.62
+Added missing file gtrack_unit_get.c
+
+MMWSDK-1071 Version 0.61
+Added changes to gtrack functional test
+
+MMWSDK-1071 Version 0.6
+Added configuration option for the SNR threshold when candidate set is behind an existing target.
+ - For people counting, one can set this SNR higher to deny ghosts behind the targtets;
+ - For traffic monitoring, one can set this SNR lower to increase allocation chances for the obscured targets.
+Added configuration for asymetric target acceleration.
+ - For traffic monitoring, one can set the lateral acceleration small, and longitudinal acceleration large. This will allow tracker to better estimate target processing noise.
+Added changes to sync matlab sources, C-Mex libraries, and C sources.
+Added new file gtrack_unit_get to allow module level get unit level properties. Corresponding changes are added to C projects, and library makefiles
+Cleaned up static handling. Added boolean isTargetStatic.
+Process noise matrix is now based on asymtric acceleration properties is computed at start up only. No need to re-compute at update time.
+
+Version 0.31
+Fixed an error in moduleStep function

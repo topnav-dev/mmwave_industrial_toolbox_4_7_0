@@ -1,0 +1,266 @@
+[
+  {
+    "name": "Cliff Detection using mmWave",
+    "resourceType": "file",
+    "mainCategories": [],
+    "subCategories": [
+      "Experiments"
+    ],
+    "categories": [
+      "Experiments"
+    ],
+    "devices": [
+      "IWR1443",
+      "AWR1443",
+      "IWR1642",
+      "AWR1642",
+      "AWR1243",
+      "IWR6843"
+    ],
+    "tags": [
+      "TBD"
+    ],
+    "license": "../../../license/SRAS-3841-325565-v1-Radar_Demo_Clickwrap.pdf",
+    "location": "../../Cliff+Detection+using+mmWave.html"
+  },
+  {
+    "name": "Detecting Approaching Objects for Elevator Doors",
+    "resourceType": "file",
+    "mainCategories": [],
+    "subCategories": [
+      "Experiments"
+    ],
+    "categories": [
+      "Experiments"
+    ],
+    "devices": [
+      "IWR1443",
+      "AWR1443",
+      "IWR1642",
+      "AWR1642",
+      "AWR1243",
+      "IWR6843"
+    ],
+    "tags": [
+      "TBD"
+    ],
+    "license": "../../../license/SRAS-3841-325565-v1-Radar_Demo_Clickwrap.pdf",
+    "location": "../../Detecting+Approaching+Objects+for+Elevator+Doors.html"
+  },
+  {
+    "name": "Detecting Gesture Motions through Smoke or Glass",
+    "resourceType": "file",
+    "mainCategories": [],
+    "subCategories": [
+      "Experiments"
+    ],
+    "categories": [
+      "Experiments"
+    ],
+    "devices": [
+      "IWR1443",
+      "AWR1443",
+      "IWR1642",
+      "AWR1642",
+      "AWR1243",
+      "IWR6843"
+    ],
+    "tags": [
+      "TBD"
+    ],
+    "license": "../../../license/SRAS-3841-325565-v1-Radar_Demo_Clickwrap.pdf",
+    "location": "../../Detecting+Gesture+Motions+through+Smoke+or+Glass.html"
+  },
+  {
+    "name": "Detecting Humans at 50 Meters and Filtering False Detections with GTrack Software",
+    "resourceType": "file",
+    "mainCategories": [],
+    "subCategories": [
+      "Experiments"
+    ],
+    "categories": [
+      "Experiments"
+    ],
+    "devices": [
+      "IWR1443",
+      "AWR1443",
+      "IWR1642",
+      "AWR1642",
+      "AWR1243",
+      "IWR6843"
+    ],
+    "tags": [
+      "TBD"
+    ],
+    "license": "../../../license/SRAS-3841-325565-v1-Radar_Demo_Clickwrap.pdf",
+    "location": "../../Detecting+Humans+at+50+Meters+and+Filtering+False+Detections+with+GTrack+Software.html"
+  },
+  {
+    "name": "Detecting Quarters Using mmWave",
+    "resourceType": "file",
+    "mainCategories": [],
+    "subCategories": [
+      "Experiments"
+    ],
+    "categories": [
+      "Experiments"
+    ],
+    "devices": [
+      "IWR1443",
+      "AWR1443",
+      "IWR1642",
+      "AWR1642",
+      "AWR1243",
+      "IWR6843"
+    ],
+    "tags": [
+      "TBD"
+    ],
+    "license": "../../../license/SRAS-3841-325565-v1-Radar_Demo_Clickwrap.pdf",
+    "location": "../../Detecting+Quarters+Using+mmWave.html"
+  },
+  {
+    "name": "Detecting Walls of Different Materials",
+    "resourceType": "file",
+    "mainCategories": [],
+    "subCategories": [
+      "Experiments"
+    ],
+    "categories": [
+      "Experiments"
+    ],
+    "devices": [
+      "IWR1443",
+      "AWR1443",
+      "IWR1642",
+      "AWR1642",
+      "AWR1243",
+      "IWR6843"
+    ],
+    "tags": [
+      "TBD"
+    ],
+    "license": "../../../license/SRAS-3841-325565-v1-Radar_Demo_Clickwrap.pdf",
+    "location": "../../Detecting+Walls+of+Different+Materials.html"
+  },
+  {
+    "name": "Elderly Care - Fall Detection using IWR6843",
+    "resourceType": "file",
+    "mainCategories": [],
+    "subCategories": [
+      "Experiments"
+    ],
+    "categories": [
+      "Experiments"
+    ],
+    "devices": [
+      "IWR1443",
+      "AWR1443",
+      "IWR1642",
+      "AWR1642",
+      "AWR1243",
+      "IWR6843"
+    ],
+    "tags": [
+      "TBD"
+    ],
+    "license": "../../../license/SRAS-3841-325565-v1-Radar_Demo_Clickwrap.pdf",
+    "location": "../../Elderly+Care+-+Fall+Detection+using+IWR6843.html"
+  },
+  {
+    "name": "Measuring Object Height with mmWave Radar",
+    "resourceType": "file",
+    "mainCategories": [],
+    "subCategories": [
+      "Experiments"
+    ],
+    "categories": [
+      "Experiments"
+    ],
+    "devices": [
+      "IWR1443",
+      "AWR1443",
+      "IWR1642",
+      "AWR1642",
+      "AWR1243",
+      "IWR6843"
+    ],
+    "tags": [
+      "TBD"
+    ],
+    "license": "../../../license/SRAS-3841-325565-v1-Radar_Demo_Clickwrap.pdf",
+    "location": "../../Measuring+Object+Height+with+mmWave+Radar.html"
+  },
+  {
+    "name": "People Counting through Plastic and Drywall and Wood",
+    "resourceType": "file",
+    "mainCategories": [],
+    "subCategories": [
+      "Experiments"
+    ],
+    "categories": [
+      "Experiments"
+    ],
+    "devices": [
+      "IWR1443",
+      "AWR1443",
+      "IWR1642",
+      "AWR1642",
+      "AWR1243",
+      "IWR6843"
+    ],
+    "tags": [
+      "TBD"
+    ],
+    "license": "../../../license/SRAS-3841-325565-v1-Radar_Demo_Clickwrap.pdf",
+    "location": "../../People+Counting+through+Plastic+and+Drywall+and+Wood.html"
+  },
+  {
+    "name": "Very Fine Motion Detection vs PIR",
+    "resourceType": "file",
+    "mainCategories": [],
+    "subCategories": [
+      "Experiments"
+    ],
+    "categories": [
+      "Experiments"
+    ],
+    "devices": [
+      "IWR1443",
+      "AWR1443",
+      "IWR1642",
+      "AWR1642",
+      "AWR1243",
+      "IWR6843"
+    ],
+    "tags": [
+      "TBD"
+    ],
+    "license": "../../../license/SRAS-3841-325565-v1-Radar_Demo_Clickwrap.pdf",
+    "location": "../../Very+Fine+Motion+Detection+vs+PIR.html"
+  },
+  {
+    "name": "Zone Occupancy Detection with mmWave Radar",
+    "resourceType": "file",
+    "mainCategories": [],
+    "subCategories": [
+      "Experiments"
+    ],
+    "categories": [
+      "Experiments"
+    ],
+    "devices": [
+      "IWR1443",
+      "AWR1443",
+      "IWR1642",
+      "AWR1642",
+      "AWR1243",
+      "IWR6843"
+    ],
+    "tags": [
+      "TBD"
+    ],
+    "license": "../../../license/SRAS-3841-325565-v1-Radar_Demo_Clickwrap.pdf",
+    "location": "../../Zone+Occupancy+Detection+with+mmWave+Radar.html"
+  }
+]

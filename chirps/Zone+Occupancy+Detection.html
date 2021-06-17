@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head>
+  <meta charset="UTF-8">
+  <title>Zone Occupancy Detection</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="../.metadata/.html/scripts/toolbox.js"></script>
+  <script src="../.metadata/.html/scripts/toolbox_fixes.js"></script>
+  <link rel="stylesheet" href="../.metadata/.html/styles/link.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/fonts/ubuntu-regular-woff.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/fonts/glyphicons-halflings-regular.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/themes/united2.min.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/themes/bootstrap-responsive.min.css">
+
+  <style>
+    .img-responsive {
+      max-height: 300px;
+    }
+
+    .btn-primary {
+      margin: 5px;
+    }
+  </style>
+</head>
+
+<body style="">
+  <div class="container">
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div id="headline" class="navbar-brand">Zone Occupancy Detection</div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-12 col-sm-9" id="content"><h1 id="-introduction-"><strong>Introduction</strong></h1><p>This use case provides the sensing configuration for zone occupancy detection for a person walking in indoor environments. </p><p><img style="" src="./images/Zone+Occupancy+Detection/zone_occ_pic.jpg" class="img-responsive"></p><h1 id="-step-1-system-parameters-"><strong>Step 1: System Parameters<br></strong></h1><table class="table table-striped table-bordered"><tbody><tr><th class="highlight-grey" data-highlight-colour="grey"> Parameter</th><th class="highlight-grey" data-highlight-colour="grey">Case: Human Walking</th></tr><tr><td colspan="1">Device Type</td><td colspan="1">IWR1443</td></tr><tr><td>Maximum range (m)</td><td>9.62</td></tr><tr><td>Range resolution (m)</td><td>0.047</td></tr><tr><td colspan="1">Range accuracy (m)</td><td colspan="1"><span>-</span></td></tr><tr><td>Maximum velocity (m/s)</td><td><p>2.05</p></td></tr><tr><td>Velocity resolution <span>(m/s)</span></td><td>0.26</td></tr><tr><td>Total Sweep Bandwidth (MHz)</td><td>2000</td></tr><tr><td>RCS (m<sup>2</sup> @ range)</td><td>1m<sup>2</sup> @ <span>9.62</span></td></tr><tr><td>Update rate (Hz)</td><td>5 (<span>limited by the digital processing chain of the OOB demo)</span></td></tr><tr><td>Radar Cube Size (KB)</td><td>128</td></tr></tbody></table><p>** <a href="http://www.ti.com/tool/tidep-0090">TI's mmWave Traffic Monitoring Object Detection and Tracking Reference Design</a> demonstrates additional processing that can extend the maximum trackable velocity by 3x the chirp maximum velocity</p><h1 id="-step-2-chirp-configuration-"><strong>Step 2: Chirp Configuration</strong></h1><table class="table table-striped table-bordered"><tbody><tr><td colspan="1">1.</td><td colspan="1"><p>Chirp Configuration</p></td><td colspan="2"><div class="content-wrapper"><p>Provided in Step-3</p></div></td></tr><tr><td>2.</td><td>Special considerations, Limitations etc</td><td colspan="2"><div class="content-wrapper"><ol><li>Static clutter removal is enabled to filter out stationary targets such as chairs and tables etc.</li><li>Peak grouping is disabled in both Range and Doppler dimensions to visualize all the detections in the OOB Demo Visualizer plots.</li></ol></div></td></tr></tbody></table><h1 id="-step-3-oob-demo-configuration-file-"><strong>Step 3: OOB Demo Configuration File</strong></h1><table class="table table-striped table-bordered"><tbody><tr><td colspan="1"><br></td><td class="highlight-grey" colspan="1" data-highlight-colour="grey"><strong>Use Case</strong></td><td class="highlight-grey" colspan="1" data-highlight-colour="grey"><strong>OOB Demo Configuration File</strong></td></tr><tr><td colspan="1">1</td><td colspan="1">Zone detection for human walking</td><td colspan="1"><div class="content-wrapper"><p><a href="./images/Zone+Occupancy+Detection/mmw_zone_occ_demo_14xx.cfg" class="btn btn-primary">mmw_zone_occ_demo_14xx.cfg</a></p></div></td></tr></tbody></table><h1 id="-assumptions-and-miscellaneous-information-"><strong>Assumptions and Miscellaneous Information</strong></h1><table class="table table-striped table-bordered"><tbody><tr><th colspan="2">System Level Assumptions</th></tr><tr><td colspan="1">Starting frequency <strong>(GHz)</strong></td><td colspan="1">77</td></tr><tr><td colspan="1">TX Antenna Gain <strong>(dB)</strong></td><td colspan="1">9</td></tr><tr><td colspan="1">RX Antenna Gain <strong>(dB)</strong></td><td colspan="1">9</td></tr><tr><td colspan="1">Device Type</td><td colspan="1">IWR1443</td></tr><tr><td colspan="1">Number  of TX Antennas used</td><td colspan="1">3</td></tr><tr><td colspan="1">Number of RX Antennas used</td><td colspan="1">4</td></tr></tbody></table><h1 id="-testing-and-results-"><strong>Testing and Results</strong></h1><p>For details on Test Setup and Results, please refer to the <a href="http://dev.ti.com/tirex/#/?link=Software%252FmmWave%2520Sensors%252FIndustrial%2520Toolbox%252FExperiments">Zone Occupancy Detection Experiment </a></p><p><br></p></div>
+        <div class="col-xs-4 col-sm-2 sidebar-offcanvas bs-docs-sidebar hidden-print" id="sidebar-overview"><ul class="nav nav-stacked fixed" id="sidebar"><li><a href="#-introduction-">Introduction</a></li><li><a href="#-step-1-system-parameters-">Step 1: System Parameters</a></li><li><a href="#-step-2-chirp-configuration-">Step 2: Chirp Configuration</a></li><li><a href="#-step-3-oob-demo-configuration-file-">Step 3: OOB Demo Configuration File</a></li><li><a href="#-assumptions-and-miscellaneous-information-">Assumptions and Miscellaneous Information</a></li><li><a href="#-testing-and-results-">Testing and Results</a></li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../.metadata/.html/scripts/strapdown/vendor/bootstrap.min.js"></script>
+  <div class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+      <div class="modal-dialog vertical-align-center">
+        <div class="modal-dialog">
+          <div class="modal-content" style="margin-left: auto;margin-right: auto;">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button> <img src="" class="imagepreview"> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body></html>

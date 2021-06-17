@@ -1,0 +1,21 @@
+[
+    {
+        "files": [
+            "+config_edma_util.c -> config_edma_util.c",
+            "+config_edma_util.h -> config_edma_util.h",
+            "+config_hwa_util.c -> config_hwa_util.c",
+            "+config_hwa_util.h -> config_hwa_util.h",
+            "+data_path.c -> data_path.c",
+            "+data_path.h -> data_path.h",
+            "+main.c -> main.c",
+            "+vitalSigns.cfg -> vitalSigns.cfg",
+            "+sensor_mgmt.c -> sensor_mgmt.c",
+            "+vitalSignsDemo_utilsFunc.c -> vitalSignsDemo_utilsFunc.c",
+            "+vitalSignsDemo_utilsFunc.h -> vitalSignsDemo_utilsFunc.h",
+            "+vitalSigns.h -> vitalSigns.h",
+            "+vitalSigns_cli.c -> vitalSigns_cli.c",
+            "+common/mmw_config.h -> common/mmw_config.h",
+            "+common/mmw_output.h -> common/mmw_output.h"
+        ]
+    }
+]

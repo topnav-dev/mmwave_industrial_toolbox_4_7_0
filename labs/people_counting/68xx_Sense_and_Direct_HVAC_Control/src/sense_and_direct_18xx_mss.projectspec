@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<projectSpec>
+    <project
+        name="sense_and_direct_18xx_mss"
+        deviceFamily="ARM"
+        isTargetManual="false"
+        device="Cortex R.IWR1843"
+		endianness="little"
+        cgtVersion="16.9.6.LTS"
+        connection="common/targetdb/connections/TIXDS110_Connection.xml"
+        toolChain="TI"
+        linkerCommandFile="mss_mmw_linker.cmd"
+        preannouncebuildStep="Deleting old BIN format image"
+        preBuildStep="rm -f ${PROJECT_ROOT}/sense_and_direct_18xx_lab.bin;"
+        postannouncebuildStep="Preparing BIN format image"
+        postBuildStep="
+        ${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/scripts/ImageCreator/out2rprc/out2rprc.exe ${ProjName}.xer4f ${ProjName}.bin;
+		${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/scripts/ImageCreator/multicore_image_generator/MulticoreImageGen.exe LE 37 0x00000006 sense_and_direct_18xx_lab.bin 0x35510000 ${ProjName}.bin 0xb5510000 ${COM_TI_MMWAVE_SDK_INSTALL_DIR}/firmware/radarss/xwr18xx_radarss_rprc.bin 0xd5510000 ${WORKSPACE_LOC}/sense_and_direct_18xx_dss/Debug/sense_and_direct_18xx_dss.bin;
+		${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/scripts/ImageCreator/crc_multicore_image/crc_multicore_image.exe sense_and_direct_18xx_lab.bin sense_and_direct_18xx_lab.bin.tmp;
+		${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/scripts/ImageCreator/append_bin_crc/gen_bincrc32.exe sense_and_direct_18xx_lab.bin;"
+        description="Indoor False Detection Mitigation mss"
+        launchWizard="false"
+        configurations="Debug, Release"
+        compilerBuildOptions="
+        -mv7R4 --code_state=16 --float_support=VFPv3D16 -me -O3 -eo=.oer4f
+        -I${PROJECT_ROOT}
+        -I${CG_TOOL_ROOT}/include
+		-I${COM_TI_MMWAVE_SDK_INSTALL_DIR}
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages
+        -I${COM_TI_MMWAVE_SDK_INCLUDE_PATH}
+		-I${TI_IFDM_GTRACK_BASE}
+		-I${TI_IFDM_COMMON_BASE}
+		-I${TI_IFDM_SRC_BASE}
+        -I${TI_IFDM_SRC_BASE}/mss
+        -D${COM_TI_MMWAVE_SDK_SYMBOLS}
+		-D_LITTLE_ENDIAN
+        -D${BIOS_SYMBOLS}
+        -DSOC_XWR18XX
+		-DGTRACK_2D
+        -DSUBSYS_MSS
+        -DDOWNLOAD_FROM_CCS
+        -DMMWAVE_L3RAM_NUM_BANK=6
+        -DMMWAVE_SHMEM_TCMA_NUM_BANK=0
+        -DMMWAVE_SHMEM_TCMB_NUM_BANK=0
+        -DMMWAVE_SHMEM_BANK_SIZE=0x20000
+		-DDebugP_ASSERT_ENABLED
+        -D_LITTLE_ENDIAN
+        -DAPP_RESOURCE_FILE=&apos;&lt;&apos;ti/demo/xwr18xx/mmw/mmw_res.h&apos;&gt;&apos;
+
+        -g --diag_warning=225 --diag_wrap=off --display_error_number --gen_func_subsections=on --enum_type=int --c99 --abi=eabi"
+        linkerBuildOptions="
+        -m${ProjName}.map -o${ProjName}.xer4f
+        -I${COM_TI_MMWAVE_SDK_LIBRARY_PATH}
+        -I${CG_TOOL_ROOT}/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/control/mmwave/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/control/mmwavelink/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/crc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/dma/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/esm/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/gpio/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/mailbox/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/osal/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/pinmux/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/soc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/uart/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/utils/cli/lib
+		-I${TI_IFDM_GTRACK_BASE}/lib
+        -llibosal_xwr18xx.aer4f
+        -llibesm_xwr18xx.aer4f
+        -llibgpio_xwr18xx.aer4f
+        -llibsoc_xwr18xx.aer4f
+        -llibpinmux_xwr18xx.aer4f
+        -llibcrc_xwr18xx.aer4f
+        -llibdma_xwr18xx.aer4f
+        -llibuart_xwr18xx.aer4f
+        -llibmailbox_xwr18xx.aer4f
+        -llibmmwavelink_xwr18xx.aer4f
+        -llibmmwave_xwr18xx.aer4f
+        -llibcli_xwr18xx.aer4f
+		-llibgtrack2D.aer4f
+		--define=MMWAVE_L3RAM_NUM_BANK=6
+        --define=MMWAVE_SHMEM_TCMA_NUM_BANK=0
+        --define=MMWAVE_SHMEM_TCMB_NUM_BANK=0
+        --define=MMWAVE_SHMEM_BANK_SIZE=0x20000
+        --reread_libs --diag_warning=225 --diag_wrap=off --display_error_number --warn_sections --xml_link_info=${ProjName}.xml --rom_model --unused_section_elimination=on --disable_auto_rts -lrtsv7R4_T_le_v3D16_eabi.lib">
+
+        <!-- Project properties -->
+        <property name="type" value="rtsc"/>
+        <property name="products" value="com.ti.rtsc.SYSBIOS:6.73.01.01;com.ti.MMWAVE_SDK:03.05.00.04;"/>
+        <property name="xdcToolsVersion" value="3.50.08.24_core"/>
+        <property name="target" value="ti.targets.arm.elf.R4F"/>
+        <property name="platform" value="ti.platforms.cortexR:IWR18XX:false:200"/>
+		<property name="output_format" value="elf"/>
+        <property name="buildProfile" value="release"/>
+		<property name="configuroOptions" value="--compileOptions &quot;--enum_type=int &quot; "/>
+		<pathVariable name="TI_IFDM_GTRACK_BASE" path="../src/mss/gtrack" scope="project"/>
+		<pathVariable name="TI_IFDM_COMMON_BASE" path="../src/common" scope="project"/>
+		<pathVariable name="TI_IFDM_SRC_BASE" path="../src/" scope="project"/>
+	
+		
+        <!-- Project files -->
+        <file path="mss/mss_main.c" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="mss/mss_mmw.cfg" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="mss/mss_mmw.h" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="mss/cli.c" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="mss/gtrackAlloc.c" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="mss/gtrackLog.c" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="mss/task_app.c" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="mss/task_mbox.c" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="mss/swpform.h" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="mss/gtrack_filter.c" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="mss/gtrack_filter.h" openOnCreation="false" excludeFromBuild="false" action="link"/>
+  
+
+		<file path="TI_IFDM_COMMON_BASE/modules/rangeProc/rangeProc/api/RADARDEMO_rangeProc.h" targetDirectory="modules/rangeProc/rangeProc/api" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="TI_IFDM_COMMON_BASE/modules/utilities/radarOsal_malloc.c" targetDirectory="modules/utilities" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="TI_IFDM_COMMON_BASE/modules/utilities/radarOsal_malloc.h" targetDirectory="modules/utilities" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="TI_IFDM_COMMON_BASE/modules/utilities/cycle_measure.c" targetDirectory="modules/utilities" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="TI_IFDM_COMMON_BASE/modules/utilities/cycle_measure.h" targetDirectory="modules/utilities" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        
+		<file path="TI_IFDM_COMMON_BASE/modules/classification/classificationUtilities/src/RADARDEMO_distanceUtil_priv.c" targetDirectory="modules/classification/classificationUtilities/src" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="TI_IFDM_COMMON_BASE/modules/classification/classificationUtilities/src/RADARDEMO_distanceUtil_priv.h" targetDirectory="modules/classification/classificationUtilities/src" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="TI_IFDM_COMMON_BASE/modules/classification/classificationUtilities/src/RADARDEMO_featExtrUtil_priv.c" targetDirectory="modules/classification/classificationUtilities/src" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="TI_IFDM_COMMON_BASE/modules/classification/classificationUtilities/src/RADARDEMO_featExtrUtil_priv.h" targetDirectory="modules/classification/classificationUtilities/src" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="TI_IFDM_COMMON_BASE/modules/classification/classificationUtilities/src/RADARDEMO_svmKernelUtil_priv.c" targetDirectory="modules/classification/classificationUtilities/src" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="TI_IFDM_COMMON_BASE/modules/classification/classificationUtilities/src/RADARDEMO_svmKernelUtil_priv.h" targetDirectory="modules/classification/classificationUtilities/src" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		
+		<file path="TI_IFDM_COMMON_BASE/modules/classification/classifier_kNN/src/RADARDEMO_classifierkNN.c" targetDirectory="modules/classification/classifier_kNN/src" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="TI_IFDM_COMMON_BASE/modules/classification/classifier_kNN/src/RADARDEMO_classifierkNN_priv.h" targetDirectory="modules/classification/classifier_kNN/src" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="TI_IFDM_COMMON_BASE/modules/classification/classifier_kNN/src/RADARDEMO_classifierkNNCB.c" targetDirectory="modules/classification/classifier_kNN/src" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="TI_IFDM_COMMON_BASE/modules/classification/classifier_kNN/src/RADARDEMO_classifierSVM.c" targetDirectory="modules/classification/classifier_kNN/src" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="TI_IFDM_COMMON_BASE/modules/classification/classifier_kNN/src/RADARDEMO_classifierSVM_priv.h" targetDirectory="modules/classification/classifier_kNN/src" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="TI_IFDM_COMMON_BASE/modules/classification/classifier_kNN/api/RADARDEMO_classifierCommon.h" targetDirectory="modules/classification/classifier_kNN/api" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="TI_IFDM_COMMON_BASE/modules/classification/classifier_kNN/api/RADARDEMO_classifierKNN.h" targetDirectory="modules/classification/classifier_kNN/api" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="TI_IFDM_COMMON_BASE/modules/classification/classifier_kNN/api/RADARDEMO_classifierSVM.h" targetDirectory="modules/classification/classifier_kNN/api" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="TI_IFDM_COMMON_BASE/modules/classification/classifier_kNN/utils/classifierkNN_process.c" targetDirectory="modules/classification/classifier_kNN/utils" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="TI_IFDM_COMMON_BASE/modules/classification/classifier_kNN/utils/classifierkNN_process.h" targetDirectory="modules/classification/classifier_kNN/utils" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="TI_IFDM_COMMON_BASE/modules/classification/classifier_kNN/utils/Util_ClassifierkNN_inputParser.c" targetDirectory="modules/classification/classifier_kNN/utils" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="TI_IFDM_COMMON_BASE/modules/classification/classifier_kNN/utils/Util_ClassifierkNN_inputParser.h" targetDirectory="modules/classification/classifier_kNN/utils" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="TI_IFDM_COMMON_BASE/modules/classification/classifier_kNN/utils/Util_ClassifierkNN_targetManager.c" targetDirectory="modules/classification/classifier_kNN/utils" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="TI_IFDM_COMMON_BASE/modules/classification/classifier_kNN/utils/Util_ClassifierkNN_targetManager.h" targetDirectory="modules/classification/classifier_kNN/utils" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="TI_IFDM_COMMON_BASE/modules/classification/featureExtraction/src/RADARDEMO_featExtract_priv.h" targetDirectory="modules/classification/featureExtraction/src" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="TI_IFDM_COMMON_BASE/modules/classification/featureExtraction/src/RADARDEMO_featExtract.c" targetDirectory="modules/classification/featureExtraction/src" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="TI_IFDM_COMMON_BASE/modules/classification/featureExtraction/api/RADARDEMO_featExtraction.h" targetDirectory="modules/classification/featureExtraction/api" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		
+		
+		
+		<file path="mss/r4f_linker.cmd" openOnCreation="false" excludeFromBuild="false" action="link"/>
+		<file path="mss/mss_mmw_linker.cmd" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        
+    </project>
+</projectSpec>

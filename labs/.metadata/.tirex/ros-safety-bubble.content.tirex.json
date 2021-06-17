@@ -1,0 +1,55 @@
+[
+    {
+        "name": "Safety Bubble with ROS for mmWave",
+        "categories": ["Labs", "Robotics"],
+        "mainCategories": [],
+        "subCategories": ["Labs", "Robotics"],
+        "resourceType": "categoryInfo",
+        "devices": ["IWR1443", "AWR1443", "IWR1642", "AWR1642", "IWR6843"],
+        "devtools":["IWR1443BOOST","IWR1642BOOST", "IWR6843ISK","IWR6843AOPEVM"],
+        "location": "../../robotics/autonomous_robotics_ros/docs/safety_bubble/Safety_Bubble_with_ROS_for_mmWave_user_guide.html",
+		"license": "../../../license/SRAS 3841-325565-v1-Radar_Demo_Clickwrap.pdf"
+    },
+ 
+    {
+        "name": "User's Guide",
+        "resourceType": "file",
+        "mainCategories": [],
+        "subCategories": ["Labs", "Robotics", "Safety Bubble with ROS for mmWave"],
+        "categories": ["Labs", "Robotics", "Safety Bubble with ROS for mmWave"],
+        "devices": ["IWR1443", "AWR1443", "IWR1642", "AWR1642", "IWR6843"],
+        "devtools":["IWR1443BOOST","IWR1642BOOST", "IWR6843ISK","IWR6843AOPEVM"],
+        "tags": [ "TBD" ],
+        "location": "../../robotics/autonomous_robotics_ros/docs/safety_bubble/Safety_Bubble_with_ROS_for_mmWave_user_guide.html",
+		"license": "../../../license/SRAS 3841-325565-v1-Radar_Demo_Clickwrap.pdf"
+    },
+
+    {
+        "name": "Demonstration Video",
+        "resourceType": "web.page",
+        "mainCategories": [],
+        "subCategories": ["Labs", "Robotics", "Safety Bubble with ROS for mmWave"],
+        "categories": ["Labs", "Robotics", "Safety Bubble with ROS for mmWave"],
+        "devices": ["IWR1443", "AWR1443", "IWR1642", "AWR1642", "IWR6843"],
+        "devtools":["IWR1443BOOST","IWR1642BOOST", "IWR6843ISK","IWR6843AOPEVM"],
+        "tags": [ "TBD" ],
+        "location": "https://www.youtube.com/embed/ARgTL-9Mnas",
+		"license": "../../../license/SRAS 3841-325565-v1-Radar_Demo_Clickwrap.pdf"
+    },
+
+    
+
+    {
+        "name": "Release Notes",
+        "resourceType": "file",
+        "mainCategories": [],
+        "subCategories": ["Labs", "Robotics", "Safety Bubble with ROS for mmWave"],
+        "categories": ["Labs","Robotics", "Safety Bubble with ROS for mmWave"],
+        "devices": ["IWR1443", "AWR1443", "IWR1642", "AWR1642", "IWR6843"],
+        "devtools":["IWR1443BOOST","IWR1642BOOST", "IWR6843ISK","IWR6843AOPEVM"],
+        "tags": [ "TBD" ],
+        "location": "../../robotics/autonomous_robotics_ros/docs/safety_bubble/Safety_Bubble_with_ROS_for_mmWave_release_notes.html",
+		"license": "../../../license/SRAS 3841-325565-v1-Radar_Demo_Clickwrap.pdf"
+    }
+   
+]

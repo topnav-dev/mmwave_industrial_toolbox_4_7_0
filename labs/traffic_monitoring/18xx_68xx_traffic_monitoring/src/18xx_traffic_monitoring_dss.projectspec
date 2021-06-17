@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<projectSpec>
+    <project
+        name="traffic_monitoring_18xx_dss"
+        deviceFamily="C6000"
+        isTargetManual="false"
+        device="IWR1843"
+        endianness="little"
+        cgtVersion="8.3.3"
+        connection="common/targetdb/connections/TIXDS110_Connection.xml"
+        toolChain="TI"
+        linkerCommandFile="mmw_dss_linker.cmd"
+        preannouncebuildStep="Deleting old out file"
+        preBuildStep="rm -f traffic_monitoring_18xx_dss.bin"
+        postannouncebuildStep="Preparing BIN format image"
+        postBuildStep="${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/scripts/ImageCreator/out2rprc/out2rprc.exe traffic_monitoring_18xx_dss.xe674 traffic_monitoring_18xx_dss.bin"
+        description="Traffic Monitoring 18xx - DSS"
+        launchWizard="false"
+        configurations="Release"
+        compilerBuildOptions="
+        -mv6740 -mf3 -mo -O3
+        -I${PROJECT_ROOT}
+        -I${PROJECT_ROOT}/dss
+        -I${PROJECT_ROOT}/common
+        -I${CG_TOOL_ROOT}/include
+		-I${COM_TI_MMWAVE_INDUSTRIAL_TOOLBOX_INSTALL_DIR}/labs/
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/demo/utils
+        -I${TI_PRODUCTS_DIR}/mathlib_c674x_3_1_2_1/packages
+        -I${TI_PRODUCTS_DIR}/dsplib_c64Px_3_4_0_0/packages
+        -I${TI_PRODUCTS_DIR}/dsplib_c64Px_3_4_0_0/packages/ti/dsplib/src/DSP_fft16x16_imre/c64P
+        -I${TI_PRODUCTS_DIR}/dsplib_c64Px_3_4_0_0/packages/ti/dsplib/src/DSP_fft32x32/c64P
+		-I${TM_PARENT_DIR}
+        -I${TM_PARENT_DIR}/traffic_monitoring/18xx_68xx_traffic_monitoring/src     
+        -I${TM_PARENT_DIR}/traffic_monitoring/18xx_68xx_traffic_monitoring/src/common     
+        -I${TM_PARENT_DIR}/traffic_monitoring/18xx_68xx_traffic_monitoring/src/dss     
+        -I${TM_PARENT_DIR}/traffic_monitoring/18xx_68xx_traffic_monitoring/src/mss     
+        -I${TM_PARENT_DIR}/common/src/dpu/trackerproc_overhead
+        -I${TM_PARENT_DIR}/common/src/dpu/aoaproc
+        -I${TM_PARENT_DIR}/common/src/dpu/aoaproc/include
+        -I${TM_PARENT_DIR}/common/src/dpc/objectdetectionandtracking/objdetdsp
+        -I${TM_PARENT_DIR}/common/src/dpc/objectdetectionandtracking/objdetdsp/include
+        -I${TM_PARENT_DIR}/common/src/dpc/objectdetectionandtracking/objdetrangehwa
+        -I${TM_PARENT_DIR}/common/src/dpc/objectdetectionandtracking/objdetrangehwa/include
+        -DSOC_XWR18XX
+		-DUSE_TRACPROC_OVERHEAD_DPU	
+        -DSUBSYS_DSS
+        -DMMWAVE_L3RAM_NUM_BANK=6
+        -DMMWAVE_SHMEM_TCMA_NUM_BANK=0
+        -DMMWAVE_SHMEM_TCMB_NUM_BANK=0
+        -DMMWAVE_SHMEM_BANK_SIZE=0x20000
+        -DMMWAVE_L3_CODEMEM_SIZE=0x100
+        -DDOWNLOAD_FROM_CCS
+        -DDebugP_ASSERT_ENABLED
+        -D_LITTLE_ENDIAN
+        -DOBJDET_NO_RANGE
+        -DGTRACK_3D
+        -DAPP_RESOURCE_FILE=&apos;&lt;&apos;mmw_res.h&apos;&gt;&apos;
+        --gcc -g --diag_warning=225 --diag_error=10015 --diag_wrap=off --display_error_number --abi=eabi --obj_extension .oe674"
+        linkerBuildOptions="
+        -mtraffic_monitoring_18xx_dss.map -otraffic_monitoring_18xx_dss.xe674
+        -I${PROJECT_ROOT}
+        -I${CG_TOOL_ROOT}/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/control/mmwave/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/control/mmwavelink/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/control/dpm/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/alg/mmwavelib/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/crc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/soc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/osal/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/mailbox/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/edma/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/adcbuf/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/cbuff/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/utils/hsiheader/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/utils/mathutils/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/datapath/dpc/dpu/dopplerproc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/datapath/dpc/dpu/cfarcaproc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/datapath/dpedma/lib
+        -I${TI_PRODUCTS_DIR}/dsplib_c64Px_3_4_0_0/packages/ti/dsplib/lib
+        -I${TI_MATHLIB_C674X_INSTALL_DIR}/packages/ti/mathlib/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/alg/gtrack/lib
+        -I${TM_PARENT_DIR}/common/src/dpu/trackerproc_overhead/lib
+        -I${TM_PARENT_DIR}/common/src/dpu/aoaproc/lib
+        -ldsplib.ae64P
+        -lmathlib.ae674
+        -llibmathutils.ae674
+        -llibsoc_xwr18xx.ae674
+        -llibosal_xwr18xx.ae674
+        -llibcrc_xwr18xx.ae674
+        -llibmailbox_xwr18xx.ae674
+        -llibmmwavelink_xwr18xx.ae674
+        -llibmmwave_xwr18xx.ae674
+        -llibedma_xwr18xx.ae674
+        -llibadcbuf_xwr18xx.ae674
+        -llibmmwavealg_xwr18xx.ae674
+        -llibcbuff_xwr18xx.ae674
+        -llibhsiheader_xwr18xx.ae674
+        -llibmathutils.ae674
+        -llibcfarcaproc_dsp_xwr18xx.ae674
+        -llibdopplerproc_dsp_xwr18xx.ae674
+        -llibaoaproc_dsp_xwr18xx.ae674
+        -llibdpm_xwr18xx.ae674
+        -llibdpedma_hwa_xwr18xx.ae674
+        -llibgtrack3D.ae674
+        -llibtrackerproc_xwr18xx.ae674
+        --define=MMWAVE_L3RAM_NUM_BANK=6
+        --define=MMWAVE_SHMEM_TCMA_NUM_BANK=0
+        --define=MMWAVE_SHMEM_TCMB_NUM_BANK=0
+        --define=MMWAVE_SHMEM_BANK_SIZE=0x20000
+        --define=MMWAVE_L3_CODEMEM_SIZE=0x100
+        --reread_libs --diag_warning=225 --diag_error=10015 --diag_wrap=off --display_error_number --warn_sections --xml_link_info=xwr18xx_mmw_demo_dss_linkInfo.xml --ram_model --unused_section_elimination=on --disable_auto_rts -lrts6740_elf.lib">
+
+        <!-- Project PATH Variables -->
+        <pathVariable name="TM_PARENT_DIR" path="../../../" scope="project" />   
+
+        <!-- Project properties -->
+        <property name="type" value="rtsc"/>
+        <property name="products" value="com.ti.rtsc.SYSBIOS:6.73.01.01;com.ti.MMWAVE_SDK:03.05.00.04;ti.mathlib.c674x:3.1.2.1"/>
+        <property name="xdcToolsVersion" value="3.50.08.24_core"/>
+        <property name="target" value="ti.targets.elf.C674"/>
+        <property name="platform" value="ti.platforms.c6x:IWR18XX:false:600"/>
+        <property name="endianness" value="little"/>
+        <property name="output_format" value="elf"/>
+        <property name="buildProfile" value="release"/>
+        <property name="configuroOptions" value="--compileOptions &quot;--enum_type=int &quot; "/>
+
+        <!-- Project files -->
+        <file path="dss/dss_main.c" targetDirectory="dss" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="TM_PARENT_DIR/common/src/dpc/objectdetectionandtracking/objdetdsp/src/objectdetection.c" targetDirectory="dss" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="dss/mmw_dss.h" targetDirectory="dss" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="dss/mmw_dss.cfg" targetDirectory="dss" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="common/mmw_config.h" targetDirectory="common" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="common/mmw_output.h" targetDirectory="common" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="common/tracker_output.h" targetDirectory="common" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="mmw_res.h" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="dss/c674x_linker.cmd" targetDirectory="dss" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="dss/mmw_dss_linker.cmd" targetDirectory="dss" openOnCreation="false" excludeFromBuild="false" action="link"/>
+
+    </project>
+</projectSpec>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<projectSpec>
+    <project
+        name="high_accuracy_14xx_mss"
+        deviceFamily="ARM"
+        isTargetManual="false"
+        device="IWR1443"
+        cgtVersion="16.9.4.LTS"
+        connection="common/targetdb/connections/TIXDS110_Connection.xml"
+        toolChain="TI"
+        linkerCommandFile="mss_mmw_linker.cmd"
+        preannouncebuildStep="Deleting old BIN format image"
+        preBuildStep="rm -f ${PROJECT_ROOT}/${MMWAVE_SDK_DEVICE}_high_accuracy_mss.bin;"
+        postannouncebuildStep="Preparing BIN format image"
+        postBuildStep="${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/scripts/ImageCreator/create_ConfigRPRC/create_ConfigRPRC.exe -s 0x00000006;${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/scripts/ImageCreator/out2rprc/out2rprc.exe ${MMWAVE_SDK_DEVICE}_high_accuracy_mss.xer4f ${MMWAVE_SDK_DEVICE}_high_accuracy_mss.tmp;${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/scripts/ImageCreator/multicore_image_generator/MulticoreImageGen.exe LE 37 0x00000006 ${MMWAVE_SDK_DEVICE}_high_accuracy_mss.bin 0xCF910000 ar1xxx_conf.bin 0x35510000 ${MMWAVE_SDK_DEVICE}_high_accuracy_mss.tmp 0xb5510000 ${COM_TI_MMWAVE_SDK_INSTALL_DIR}/firmware/radarss/xwr12xx_xwr14xx_radarss_rprc.bin;${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/scripts/ImageCreator/crc_multicore_image/crc_multicore_image.exe ${MMWAVE_SDK_DEVICE}_high_accuracy_mss.bin ${MMWAVE_SDK_DEVICE}_high_accuracy_mss.tmp;${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/scripts/ImageCreator/append_bin_crc/gen_bincrc32.exe ${MMWAVE_SDK_DEVICE}_high_accuracy_mss.bin;"
+        description="ixr14xx mmWave high accuracy demo: high_accuracy_14xx"
+        launchWizard="false"
+        configurations="Debug, Release"
+        compilerBuildOptions="
+        -mv7R4 --code_state=32 --float_support=VFPv3D16 -me -O3
+        -I${PROJECT_ROOT}
+        -I${CG_TOOL_ROOT}/include
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages
+        -I${COM_TI_MMWAVE_SDK_INCLUDE_PATH}
+        -D${COM_TI_MMWAVE_SDK_SYMBOLS}
+        -D${BIOS_SYMBOLS}
+        -DSOC_XWR14XX
+        -DSUBSYS_MSS
+        -DDOWNLOAD_FROM_CCS
+        -DDebugP_ASSERT_ENABLED
+		-DMMWAVE_L3RAM_SIZE=0x40000
+		-DMMWAVE_L3RAM_NUM_BANK=6
+        -DMMWAVE_SHMEM_TCMA_NUM_BANK=0
+        -DMMWAVE_SHMEM_TCMB_NUM_BANK=0
+        -DMMWAVE_SHMEM_BANK_SIZE=0x10000
+        -g --diag_warning=225 --diag_wrap=off --display_error_number --gen_func_subsections=on --enum_type=packed --abi=eabi"
+        linkerBuildOptions="
+        -m${MMWAVE_SDK_DEVICE}_high_accuracy_mss.map -o${MMWAVE_SDK_DEVICE}_high_accuracy_mss.xer4f
+        -I${COM_TI_MMWAVE_SDK_LIBRARY_PATH}
+        -I${CG_TOOL_ROOT}/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/control/mmwave/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/control/mmwavelink/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/adcbuf/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/crc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/dma/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/edma/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/esm/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/gpio/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/hwa/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/mailbox/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/osal/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/pinmux/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/soc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/uart/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/utils/cli/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/cbuff/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/utils/hsiheader/lib
+        -llibosal_${MMWAVE_SDK_DEVICE}.aer4f
+        -llibesm_${MMWAVE_SDK_DEVICE}.aer4f
+        -llibgpio_${MMWAVE_SDK_DEVICE}.aer4f
+        -llibsoc_${MMWAVE_SDK_DEVICE}.aer4f
+        -llibpinmux_${MMWAVE_SDK_DEVICE}.aer4f
+        -llibcrc_${MMWAVE_SDK_DEVICE}.aer4f
+        -llibuart_${MMWAVE_SDK_DEVICE}.aer4f
+        -llibmailbox_${MMWAVE_SDK_DEVICE}.aer4f
+        -llibmmwavelink_${MMWAVE_SDK_DEVICE}.aer4f
+        -llibmmwave_${MMWAVE_SDK_DEVICE}.aer4f
+        -llibadcbuf_${MMWAVE_SDK_DEVICE}.aer4f
+        -llibdma_${MMWAVE_SDK_DEVICE}.aer4f
+        -llibedma_${MMWAVE_SDK_DEVICE}.aer4f
+        -llibcli_${MMWAVE_SDK_DEVICE}.aer4f
+        -llibhwa_${MMWAVE_SDK_DEVICE}.aer4f
+        -llibcbuff_xwr14xx.aer4f
+        -llibhsiheader_xwr14xx.aer4f
+        --define=MMWAVE_L3RAM_NUM_BANK=6
+        --define=MMWAVE_SHMEM_TCMA_NUM_BANK=0
+        --define=MMWAVE_SHMEM_TCMB_NUM_BANK=0
+        --define=MMWAVE_SHMEM_BANK_SIZE=0x10000
+        --reread_libs --diag_warning=225 --diag_wrap=off --display_error_number --warn_sections --xml_link_info=${MMWAVE_SDK_DEVICE}_${ProjName}_linkInfo.xml --rom_model --unused_section_elimination=on --disable_auto_rts -lrtsv7R4_T_le_v3D16_eabi.lib">
+
+        <!-- Project properties -->
+        <property name="type" value="rtsc"/>
+        <property name="products" value="com.ti.rtsc.SYSBIOS:6.53.02.00;com.ti.MMWAVE_SDK:2.1.0.04;"/>
+        <property name="xdcToolsVersion" value="3.50.04.43_core"/>
+        <property name="target" value="ti.targets.arm.elf.R4F"/>
+        <property name="platform" value="ti.platforms.cortexR:IWR14XX:false:200"/>
+        <property name="endianness" value="little"/>
+        <property name="output_format" value="elf"/>
+        <property name="buildProfile" value="release"/>
+        <buildVariable name="MMWAVE_SDK_DEVICE" value="xwr14xx"/>
+        <buildVariable name="LOAD_ADDRESS" value="0x200000"/>
+
+
+        <!-- Project files -->
+        <file path="main.c" openOnCreation="false" excludeFromBuild="false" action="copy"/>
+        <file path="data_path.c" openOnCreation="false" excludeFromBuild="false" action="copy"/>
+        <file path="data_path.h" openOnCreation="false" excludeFromBuild="false" action="copy"/>
+        <file path="config_edma_util.c" openOnCreation="false" excludeFromBuild="false" action="copy"/>
+        <file path="config_edma_util.h" openOnCreation="false" excludeFromBuild="false" action="copy"/>
+        <file path="mmw_high_accu_14xx.cfg" openOnCreation="false" excludeFromBuild="false" action="copy"/>
+        <file path="mmw.h" openOnCreation="false" excludeFromBuild="false" action="copy"/>
+		<file path="mmw_config.h" openOnCreation="false" excludeFromBuild="false" action="copy"/>
+        <file path="mmw_high_accu_14xx_cli.c" openOnCreation="false" excludeFromBuild="false" action="copy"/>
+        <file path="sensor_mgmt.c" openOnCreation="false" excludeFromBuild="false" action="copy"/>
+        <file path="COM_TI_MMWAVE_SDK_INSTALL_DIR/packages/ti/platform/xwr14xx/r4f_linker.cmd" openOnCreation="false" excludeFromBuild="false"/>
+
+    </project>
+</projectSpec>

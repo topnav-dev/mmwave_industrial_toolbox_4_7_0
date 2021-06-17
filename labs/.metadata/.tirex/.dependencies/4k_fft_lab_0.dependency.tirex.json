@@ -1,0 +1,24 @@
+[
+    {
+        "files": [
+            "+config_edma_util.c -> config_edma_util.c",
+            "+config_edma_util.h -> config_edma_util.h",
+            "+config_hwa_util_4k_fft.c -> config_hwa_util_4k_fft.c",
+            "+config_hwa_util_4k_fft.h -> config_hwa_util_4k_fft.h",
+            "+data_path_4k_fft.c -> data_path_4k_fft.c",
+            "+data_path_4k_fft.h -> data_path_4k_fft.h",
+            "+mmw_lvds_stream.c -> mmw_lvds_stream.c",
+            "+mmw_lvds_stream.h -> mmw_lvds_stream.h",
+            "+post_processing.c -> post_processing.c",
+            "+post_processing.h -> post_processing.h",
+            "+rx_ch_bias_measure.c -> rx_ch_bias_measure.c",
+            "+main.c -> main.c",
+            "+mmw.cfg -> mmw.cfg",
+            "+sensor_mgmt.c -> sensor_mgmt.c",
+            "+mmw.h -> mmw.h",
+            "+mmw_cli.c -> mmw_cli.c",
+            "+mmwDemo_monitor.c -> mmwDemo_monitor.c",
+            "+profile_4K.txt -> profile_4K.txt"
+        ]
+    }
+]

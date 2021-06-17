@@ -1,0 +1,38 @@
+[
+    {
+        "files": [
+            "+dss/dss_main.c -> dss_main.c",
+            "+dss/dss_mmw.h -> dss/dss_mmw.h",
+            "+dss/dss_mmw.cfg -> dss_mmw.cfg",
+            "+dss/swpform.h -> swpform.h",
+            "+dss/dss_config_edma_util.c -> dss_config_edma_util.c",
+            "+dss/dss_config_edma_util.h -> dss_config_edma_util.h",
+            "+dss/dss_data_path.h -> dss/dss_data_path.h",
+            "+dss/dss_data_path.c -> dss_data_path.c",
+            "+common/radarProcess.c -> radarProcess.c",
+            "+common/radarProcess.h -> radarProcess.h",
+            "+common/modules/rangeProc/rangeProc/api/RADARDEMO_rangeProc.h -> modules/rangeProc/rangeProc/api/RADARDEMO_rangeProc.h",
+            "+common/modules/rangeProc/rangeProc/src/RADARDEMO_rangeProc.c -> modules/rangeProc/rangeProc/src/RADARDEMO_rangeProc.c",
+            "+common/modules/rangeProc/rangeProc/src/RADARDEMO_rangeProc_priv.c -> modules/rangeProc/rangeProc/src/RADARDEMO_rangeProc_priv.c",
+            "+common/modules/rangeProc/rangeProc/src/RADARDEMO_rangeProc_priv.h -> modules/rangeProc/rangeProc/src/RADARDEMO_rangeProc_priv.h",
+            "+common/modules/rangeProc/rangeProc/src/RADARDEMO_rangeProc_utils.c -> modules/rangeProc/rangeProc/src/RADARDEMO_rangeProc_utils.c",
+            "+common/modules/detection/CFAR/src/RADARDEMO_detectionCFAR.c -> modules/detection/CFAR/src/RADARDEMO_detectionCFAR.c",
+            "+common/modules/detection/CFAR/api/RADARDEMO_detectionCFAR.h -> modules/detection/CFAR/api/RADARDEMO_detectionCFAR.h",
+            "+common/modules/detection/CFAR/src/RADARDEMO_detectionCFAR_priv.c -> modules/detection/CFAR/src/RADARDEMO_detectionCFAR_priv.c",
+            "+common/modules/detection/CFAR/src/RADARDEMO_detectionCFAR_priv.h -> modules/detection/CFAR/src/RADARDEMO_detectionCFAR_priv.h",
+            "+common/modules/utilities/cycle_measure.c -> modules/utilities/cycle_measure.c",
+            "+common/modules/utilities/cycle_measure.h -> modules/utilities/cycle_measure.h",
+            "+common/modules/utilities/radarOsal_malloc.c -> modules/utilities/radarOsal_malloc.c",
+            "+common/modules/utilities/radarOsal_malloc.h -> modules/utilities/radarOsal_malloc.h",
+            "+common/modules/utilities/radar_c674x.h -> modules/utilities/radar_c674x.h",
+            "+common/modules/DoA/CaponBF/src/RADARDEMO_aoaEstCaponBF.c -> modules/DoA/CaponBF/src/RADARDEMO_aoaEstCaponBF.c",
+            "+common/modules/DoA/CaponBF/api/RADARDEMO_aoaEstCaponBF.h -> modules/DoA/CaponBF/api/RADARDEMO_aoaEstCaponBF.h",
+            "+common/modules/DoA/CaponBF/src/RADARDEMO_aoaEstCaponBF_priv.h -> modules/DoA/CaponBF/src/RADARDEMO_aoaEstCaponBF_priv.h",
+            "+common/modules/DoA/CaponBF/src/RADARDEMO_aoaEstCaponBF_DopplerEst.c -> modules/DoA/CaponBF/src/RADARDEMO_aoaEstCaponBF_DopplerEst.c",
+            "+common/modules/DoA/CaponBF/src/RADARDEMO_aoaEstCaponBF_heatmapEst.c -> modules/DoA/CaponBF/src/RADARDEMO_aoaEstCaponBF_heatmapEst.c",
+            "+common/modules/DoA/CaponBF/src/RADARDEMO_aoaEstCaponBF_matrixInv.c -> modules/DoA/CaponBF/src/RADARDEMO_aoaEstCaponBF_matrixInv.c",
+            "+dss/dss_mmw_linker.cmd -> dss_mmw_linker.cmd",
+            "+dss/c674x_linker.cmd -> c674x_linker.cmd"
+        ]
+    }
+]

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<projectSpec>
+    <project
+        name="traffic_monitoring_18xx_mss"
+        deviceFamily="ARM"
+        isTargetManual="false"
+        device="Cortex R.IWR1843"
+        endianness="little"
+        cgtVersion="16.9.6.LTS"
+        connection="common/targetdb/connections/TIXDS110_Connection.xml"
+        toolChain="TI"
+        linkerCommandFile="mmw_mss_linker.cmd"
+        preannouncebuildStep="Deleting old Metaimage bin file"
+        preBuildStep="rm -f ${PROJECT_ROOT}/traffic_monitoring_18xx_demo.bin"
+        postannouncebuildStep="Preparing BIN format image"
+        postBuildStep="${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/scripts/ImageCreator/out2rprc/out2rprc.exe traffic_monitoring_18xx_mss.xer4f traffic_monitoring_18xx_mss.tmp;
+        ${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/scripts/ImageCreator/multicore_image_generator/MulticoreImageGen.exe LE 37 0x02000006 traffic_monitoring_18xx_demo.bin 0x35510000 traffic_monitoring_18xx_mss.tmp 0xb5510000 ${COM_TI_MMWAVE_SDK_INSTALL_DIR}/firmware/radarss/xwr18xx_radarss_rprc.bin 0xd5510000 ${WORKSPACE_LOC}/traffic_monitoring_18xx_dss/Release/traffic_monitoring_18xx_dss.bin;
+        ${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/scripts/ImageCreator/crc_multicore_image/crc_multicore_image.exe traffic_monitoring_18xx_demo.bin traffic_monitoring_18xx_demo.tmp;
+        ${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/scripts/ImageCreator/append_bin_crc/gen_bincrc32.exe traffic_monitoring_18xx_demo.bin;"
+        description="Traffic Monitoring 18xx - MSS"
+        launchWizard="false"
+        configurations="Release"
+        compilerBuildOptions="
+        -mv7R4 --code_state=16 --float_support=VFPv3D16 -me -O3 -eo=.oer4f
+        -I${PROJECT_ROOT}
+        -I${CG_TOOL_ROOT}/include
+		-I${COM_TI_MMWAVE_INDUSTRIAL_TOOLBOX_INSTALL_DIR}/labs/
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/demo/utils
+        -I${TM_PARENT_DIR}
+        -I${TM_PARENT_DIR}/traffic_monitoring/18xx_68xx_traffic_monitoring/src     
+        -I${TM_PARENT_DIR}/traffic_monitoring/18xx_68xx_traffic_monitoring/src/common     
+        -I${TM_PARENT_DIR}/traffic_monitoring/18xx_68xx_traffic_monitoring/src/dss     
+        -I${TM_PARENT_DIR}/traffic_monitoring/18xx_68xx_traffic_monitoring/src/mss     
+        -I${TM_PARENT_DIR}/common/src/dpu/trackerproc_overhead
+        -I${TM_PARENT_DIR}/common/src/dpu/aoaproc
+        -I${TM_PARENT_DIR}/common/src/dpu/aoaproc/include
+        -I${TM_PARENT_DIR}/common/src/dpc/objectdetectionandtracking/objdetdsp
+        -I${TM_PARENT_DIR}/common/src/dpc/objectdetectionandtracking/objdetdsp/include
+        -I${TM_PARENT_DIR}/common/src/dpc/objectdetectionandtracking/objdetrangehwa
+        -I${TM_PARENT_DIR}/common/src/dpc/objectdetectionandtracking/objdetrangehwa/include
+        -DSOC_XWR18XX
+		-DUSE_TRACPROC_OVERHEAD_DPU	
+        -DSUBSYS_MSS
+        -DMMWAVE_L3RAM_NUM_BANK=6
+        -DMMWAVE_SHMEM_TCMA_NUM_BANK=0
+        -DMMWAVE_SHMEM_TCMB_NUM_BANK=0
+        -DMMWAVE_SHMEM_BANK_SIZE=0x20000
+        -DMMWAVE_L3_CODEMEM_SIZE=0x100
+        -DDOWNLOAD_FROM_CCS
+        -DDebugP_ASSERT_ENABLED
+        -D_LITTLE_ENDIAN
+        -DOBJDET_NO_RANGE
+        -DGTRACK_3D
+        -DAPP_RESOURCE_FILE=&apos;&lt;&apos;ti/demo/xwr18xx/mmw/mmw_res.h&apos;&gt;&apos;
+        -g --diag_warning=225 --diag_wrap=off --display_error_number --gen_func_subsections=on --enum_type=int --abi=eabi"
+        linkerBuildOptions="
+        -mtraffic_monitoring_18xx_mss.map -otraffic_monitoring_18xx_mss.xer4f
+        -I${PROJECT_ROOT}
+        -I${CG_TOOL_ROOT}/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/control/mmwave/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/control/mmwavelink/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/control/dpm/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/adcbuf/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/crc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/dma/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/edma/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/esm/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/gpio/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/hwa/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/mailbox/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/osal/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/pinmux/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/soc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/uart/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/utils/cli/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/utils/mathutils/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/datapath/dpu/rangeproc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/datapath/dpedma/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/cbuff/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/utils/hsiheader/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/alg/gtrack/lib
+        -I${TM_PARENT_DIR}/common/src/dpu/trackerproc_overhead/lib
+        -llibosal_xwr18xx.aer4f
+        -llibesm_xwr18xx.aer4f
+        -llibgpio_xwr18xx.aer4f
+        -llibsoc_xwr18xx.aer4f
+        -llibpinmux_xwr18xx.aer4f
+        -llibcrc_xwr18xx.aer4f
+        -llibuart_xwr18xx.aer4f
+        -llibmailbox_xwr18xx.aer4f
+        -llibmmwavelink_xwr18xx.aer4f
+        -llibmmwave_xwr18xx.aer4f
+        -llibadcbuf_xwr18xx.aer4f
+        -llibdma_xwr18xx.aer4f
+        -llibedma_xwr18xx.aer4f
+        -llibcli_xwr18xx.aer4f
+        -llibhwa_xwr18xx.aer4f
+        -llibdpm_xwr18xx.aer4f
+        -llibmathutils.aer4f
+        -llibcbuff_xwr18xx.aer4f
+        -llibhsiheader_xwr18xx.aer4f
+        -llibrangeproc_hwa_xwr18xx.aer4f
+        -llibdpedma_hwa_xwr18xx.aer4f
+        -llibgtrack3D.aer4f
+        -llibtrackerproc_xwr18xx.aer4f
+        --define=MMWAVE_L3RAM_NUM_BANK=6
+        --define=MMWAVE_SHMEM_TCMA_NUM_BANK=0
+        --define=MMWAVE_SHMEM_TCMB_NUM_BANK=0
+        --define=MMWAVE_SHMEM_BANK_SIZE=0x20000
+        --define=MMWAVE_L3_CODEMEM_SIZE=0x100
+        --reread_libs --diag_warning=225 --diag_error=10015 --diag_wrap=off --display_error_number --warn_sections --xml_link_info=xwr18xx_mmw_demo_mss_linkInfo.xml --rom_model --unused_section_elimination=on --disable_auto_rts -lrtsv7R4_T_le_v3D16_eabi.lib">
+
+        <!-- Project PATH Variables -->
+        <pathVariable name="TM_PARENT_DIR" path="../../../" scope="project" />   
+		
+        <!-- Project properties -->
+        <property name="type" value="rtsc"/>
+        <property name="products" value="com.ti.rtsc.SYSBIOS:6.73.01.01;com.ti.MMWAVE_SDK:03.05.00.04"/>
+        <property name="xdcToolsVersion" value="3.50.08.24_core"/>
+        <property name="target" value="ti.targets.arm.elf.R4Ft"/>
+        <property name="platform" value="ti.platforms.cortexR:IWR18XX:false:200"/>
+        <property name="endianness" value="little"/>
+        <property name="output_format" value="elf"/>
+        <property name="buildProfile" value="release"/>
+        <property name="configuroOptions" value="--compileOptions &quot;--enum_type=int &quot; "/>
+
+        <!-- Project files -->
+        <file path="TM_PARENT_DIR/common/src/dpc/objectdetectionandtracking/objdetrangehwa/src/objdetrangehwa.c" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="mss/mss_main.c" targetDirectory="mss" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="mss/mmw_cli.c" targetDirectory="mss" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="mss/mmw_lvds_stream.c" targetDirectory="mss" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="mss/tracker_utils.c" targetDirectory="mss" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="mss/tracker_utils.h" targetDirectory="mss" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="mss/mmw_mss.h" targetDirectory="mss" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="common/mmw_config.h" targetDirectory="common" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="common/mmw_output.h" targetDirectory="common" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="common/tracker_output.h" targetDirectory="common" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="mmw_res.h" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="mss/mmw_mss.cfg" targetDirectory="mss" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="COM_TI_MMWAVE_SDK_INSTALL_DIR/packages/ti/demo/utils/mmwdemo_rfparser.c" openOnCreation="false" targetDirectory="mss" excludeFromBuild="false" action="link"/>
+        <file path="COM_TI_MMWAVE_SDK_INSTALL_DIR/packages/ti/demo/utils/mmwdemo_adcconfig.c" openOnCreation="false" targetDirectory="mss" excludeFromBuild="false" action="link"/>
+        <file path="COM_TI_MMWAVE_SDK_INSTALL_DIR/packages/ti/demo/utils/mmwdemo_monitor.c" openOnCreation="false" targetDirectory="mss" excludeFromBuild="false" action="link"/>
+        <file path="mss/mmw_mss_linker.cmd" targetDirectory="mss" openOnCreation="false" excludeFromBuild="false" action="link"/>
+        <file path="mss/r4f_linker.cmd" targetDirectory="mss" openOnCreation="false" excludeFromBuild="false" action="link"/>
+
+    </project>
+</projectSpec>

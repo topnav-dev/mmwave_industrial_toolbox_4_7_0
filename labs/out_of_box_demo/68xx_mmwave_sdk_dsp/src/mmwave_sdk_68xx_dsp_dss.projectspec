@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<projectSpec>
+    <project
+        name="mmwave_sdk_68xx_dsp_dss"
+        deviceFamily="C6000"
+        isTargetManual="false"
+        device="IWR6843"
+        endianness="little"
+        cgtVersion="8.3.3"
+        connection="common/targetdb/connections/TIXDS110_Connection.xml"
+        toolChain="TI"
+        linkerCommandFile="mmw_dss_linker.cmd"
+        preannouncebuildStep="Deleting old out file"
+        preBuildStep="rm -f ${PROJECT_ROOT}/Debug/mmwave_sdk_68xx_dss.bin"
+        postannouncebuildStep="Preparing BIN format image"
+        postBuildStep="${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/scripts/ImageCreator/out2rprc/out2rprc.exe xwr68xx_mmw_demo_dss.xe674 xwr68xx_mmw_demo_dss.bin"
+        description="mmWave SDK demo 68xx - dss"
+        launchWizard="false"
+        configurations="Debug, Release"
+        compilerBuildOptions="
+        -mv6740 -mf3 -mo -O3
+        -I${PROJECT_ROOT}
+        -I${CG_TOOL_ROOT}/include
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/demo/xwr68xx/mmw
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/demo/utils
+        -I${TI_PRODUCTS_DIR}/mathlib_c674x_3_1_2_1/packages
+        -I${TI_PRODUCTS_DIR}/dsplib_c64Px_3_4_0_0/packages
+        -I${TI_PRODUCTS_DIR}/dsplib_c64Px_3_4_0_0/packages/ti/dsplib/src/DSP_fft16x16/c64P
+        -I${TI_PRODUCTS_DIR}/dsplib_c64Px_3_4_0_0/packages/ti/dsplib/src/DSP_fft32x32/c64P
+        -DSOC_XWR68XX
+        -DSUBSYS_DSS
+        -DMMWAVE_L3RAM_NUM_BANK=6
+        -DMMWAVE_SHMEM_TCMA_NUM_BANK=0
+        -DMMWAVE_SHMEM_TCMB_NUM_BANK=0
+        -DMMWAVE_SHMEM_BANK_SIZE=0x20000
+        -DDOWNLOAD_FROM_CCS
+        -DDebugP_ASSERT_ENABLED
+        -D_LITTLE_ENDIAN
+        -DOBJDET_NO_RANGE
+        -DAPP_RESOURCE_FILE=&apos;&lt;&apos;ti/demo/xwr68xx/mmw/mmw_res.h&apos;&gt;&apos;
+        --gcc -g --diag_warning=225 --diag_error=10015 --diag_wrap=off --display_error_number --abi=eabi --obj_extension .oe674"
+        linkerBuildOptions="
+        -mxwr68xx_mmw_demo_dss.map -oxwr68xx_mmw_demo_dss.xe674
+        -I${PROJECT_ROOT}
+        -I${CG_TOOL_ROOT}/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/control/mmwave/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/control/mmwavelink/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/control/dpm/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/alg/mmwavelib/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/crc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/soc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/osal/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/mailbox/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/edma/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/adcbuf/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/drivers/cbuff/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/utils/hsiheader/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/utils/mathutils/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/alg/mmwavelib/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/datapath/dpc/dpu/dopplerproc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/datapath/dpc/dpu/cfarcaproc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/datapath/dpc/dpu/aoaproc/lib
+        -I${COM_TI_MMWAVE_SDK_INSTALL_DIR}/packages/ti/datapath/dpedma/lib
+        -I${TI_PRODUCTS_DIR}/dsplib_c64Px_3_4_0_0/packages/ti/dsplib/lib
+        -I${TI_PRODUCTS_DIR}/mathlib_c674x_3_1_2_1/packages/ti/mathlib/lib
+        -ldsplib.ae64P
+        -lmathlib.ae674
+        -llibmathutils.ae674
+        -llibsoc_xwr68xx.ae674
+        -llibosal_xwr68xx.ae674
+        -llibcrc_xwr68xx.ae674
+        -llibmailbox_xwr68xx.ae674
+        -llibmmwavelink_xwr68xx.ae674
+        -llibmmwave_xwr68xx.ae674
+        -llibedma_xwr68xx.ae674
+        -llibadcbuf_xwr68xx.ae674
+        -llibmmwavealg_xwr68xx.ae674
+        -llibcbuff_xwr68xx.ae674
+        -llibhsiheader_xwr68xx.ae674
+        -llibmathutils.ae674
+        -llibcfarcaproc_dsp_xwr68xx.ae674
+        -llibdopplerproc_dsp_xwr68xx.ae674
+        -llibaoaproc_dsp_xwr68xx.ae674
+        -llibdpm_xwr68xx.ae674
+        -llibdpedma_hwa_xwr68xx.ae674
+        --define=MMWAVE_L3RAM_NUM_BANK=6
+        --define=MMWAVE_SHMEM_TCMA_NUM_BANK=0
+        --define=MMWAVE_SHMEM_TCMB_NUM_BANK=0
+        --define=MMWAVE_SHMEM_BANK_SIZE=0x20000
+        --reread_libs --diag_warning=225 --diag_error=10015 --diag_wrap=off --display_error_number --warn_sections --xml_link_info=xwr68xx_mmw_demo_dss_linkInfo.xml --ram_model --unused_section_elimination=on --disable_auto_rts -lrts6740_elf.lib">
+
+        <!-- Project properties -->
+        <property name="type" value="rtsc"/>
+        <property name="products" value="com.ti.rtsc.SYSBIOS:6.73.01.01;com.ti.MMWAVE_SDK:03.05.00.04;"/>
+        <property name="xdcToolsVersion" value="3.50.08.24_core"/>
+        <property name="target" value="ti.targets.elf.C674"/>
+        <property name="platform" value="ti.platforms.c6x:IWR68XX:false:600"/>
+        <property name="endianness" value="little"/>
+        <property name="output_format" value="elf"/>
+        <property name="buildProfile" value="release"/>
+        <property name="configuroOptions" value="--compileOptions &quot;--enum_type=int &quot; "/>
+
+        <!-- Project files -->
+        <file path="COM_TI_MMWAVE_SDK_INSTALL_DIR/packages/ti/demo/xwr68xx/mmw/dss/dss_main.c" openOnCreation="false" excludeFromBuild="false"/>
+        <file path="COM_TI_MMWAVE_SDK_INSTALL_DIR/packages/ti/demo/xwr68xx/mmw/dss/mmw_dss.cfg" openOnCreation="false" excludeFromBuild="false"/>
+        <file path="COM_TI_MMWAVE_SDK_INSTALL_DIR/packages/ti/demo/xwr68xx/mmw/dss/mmw_dss_linker.cmd" openOnCreation="false" excludeFromBuild="false"/>
+        <file path="COM_TI_MMWAVE_SDK_INSTALL_DIR/packages/ti/datapath/dpc/objectdetection/objdetdsp/src/objectdetection.c" openOnCreation="false" excludeFromBuild="false"/>
+        <file path="COM_TI_MMWAVE_SDK_INSTALL_DIR/packages/ti/platform/xwr68xx/c674x_linker.cmd" openOnCreation="false" excludeFromBuild="false"/>
+
+    </project>
+</projectSpec>

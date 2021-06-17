@@ -1,0 +1,29 @@
+[
+    {
+        "files": [
+            "+dss_main.c -> dss_main.c",
+            "+dss_mmw.cfg -> dss_mmw.cfg",
+            "+dss_mmw.h -> dss_mmw.h",
+            "+dss_config_edma_util.c -> dss_config_edma_util.c",
+            "+dss_config_edma_util.h -> dss_config_edma_util.h",
+            "+dss_data_path.c -> dss_data_path.c",
+            "+dss_data_path.h -> dss_data_path.h",
+            "+../common/mmw_config.h -> mmw_config.h",
+            "+../common/mmw_messages.h -> mmw_messages.h",
+            "+../../radarProcess.h -> radarProcess.h",
+            "+../../../../modules/rangeProc/highAccuRangeProc/api/RADARDEMO_highAccuRangeProc.h -> RADARDEMO_highAccuRangeProc.h",
+            "+../../../../common/cplx_types.h -> cplx_types.h",
+            "+../../../../common/swpform.h -> swpform.h",
+            "+../../../../modules/rangeProc/highAccuRangeProc/src/RADARDEMO_highAccuRangeProc_utils.c -> RADARDEMO_highAccuRangeProc_utils.c",
+            "+../../../../modules/rangeProc/highAccuRangeProc/src/RADARDEMO_highAccuRangeProc.c -> RADARDEMO_highAccuRangeProc.c",
+            "+../../../../modules/rangeProc/highAccuRangeProc/src/RADARDEMO_highAccuRangeProc_priv.c -> RADARDEMO_highAccuRangeProc_priv.c",
+            "+../../../../modules/rangeProc/highAccuRangeProc/src/RADARDEMO_highAccuRangeProc_priv.h -> RADARDEMO_highAccuRangeProc_priv.h",
+            "+../../../../modules/utilities/cycle_measure.c -> cycle_measure.c",
+            "+../../../../modules/utilities/cycle_measure.h -> cycle_measure.h",
+            "+../../../../modules/utilities/radarOsal_malloc.c -> radarOsal_malloc.c",
+            "+../../../../modules/utilities/radarOsal_malloc.h -> radarOsal_malloc.h",
+            "+../../../../modules/utilities/radar_c674x.h -> radar_c674x.h",
+            "+c674x_linker.cmd -> c674x_linker.cmd"
+        ]
+    }
+]

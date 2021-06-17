@@ -1,0 +1,23 @@
+[
+    {
+        "files": [
+            "+../../../common/src/dpc/objectdetectionandtracking/objdethwa/src/objectdetection.c -> objectdetection.c",
+            "+mss/data_path.c -> mss/data_path.c",
+            "+mss/data_path.h -> mss/data_path.h",
+            "+mss/main.c -> mss/main.c",
+            "+mss/mmw_cli.c -> mss/mmw_cli.c",
+            "+mss/mmw_lvds_stream.c -> mss/mmw_lvds_stream.c",
+            "+mss/mmw_lvds_stream.h -> mss/mmw_lvds_stream.h",
+            "+mss/tracker_utils.c -> mss/tracker_utils.c",
+            "+mss/tracker_utils.h -> mss/tracker_utils.h",
+            "+mss/mmw.h -> mss/mmw.h",
+            "+mss/mmw_config.h -> mss/mmw_config.h",
+            "+mss/mmw_output.h -> mss/mmw_output.h",
+            "+mss/tracker_output.h -> mss/tracker_output.h",
+            "+mss/mmw_res.h -> mss/mmw_res.h",
+            "+mss/mmw.cfg -> mss/mmw.cfg",
+            "+mss/mss_mmw_linker.cmd -> mss/mss_mmw_linker.cmd",
+            "+mss/r4f_linker.cmd -> mss/r4f_linker.cmd"
+        ]
+    }
+]

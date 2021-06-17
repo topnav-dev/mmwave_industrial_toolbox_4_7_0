@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Welcome to the mmWave Antenna Database</title>
+	
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js" integrity="sha256-Bhi6GMQ/72uYZcJXCJ2LToOIcN3+Cx47AZnq/Bw1f7A=" crossorigin="anonymous"></script>
+  <script src="scripts/toolbox.js"></script>
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css" integrity="sha256-/Z28yXtfBv/6/alw+yZuODgTbKZm86IKbPE/5kjO/xY=" crossorigin="anonymous" />
+	<link rel="stylesheet" type="text/css" href="./styles/toolbox.css">
+
+	<script>
+		$(document).ready(function(){
+			insert_ant_rad_patterns_table("#ant_rad_patterns_table");
+		});
+	</script>
+
+	<script>
+		$(document).ready(function(){
+			insert_ant_rad_patterns_table2("#ant_rad_patterns_table2");
+		});
+	</script>
+
+	<!-- endreplace-->
+</head>
+	<body>
+		<div class="ui container">
+			<div class="ui grid">
+				<div class="row"></div>
+				<div class="ui card sixteen wide column">
+				  <div class="content sixteen wide">
+				    <div class="header">Design with mmWave Antennas and Modules</div>
+						<br />
+
+				    <div class="description">
+				      <strong>Welcome to mmWave Antennas!</strong>
+				    </div>
+						<br />
+						<div class="description">
+                            <p>The mmWave Antennas collection is an easy-to-search repository of different mmWave antennas put together by the TI mmWave team.</p>
+                            <p>TI-designed antennas are available to get started reusing the stack-up and layout for the same antenna for your application.</p>
+							<p>Each antenna design is validated as a part of a board design. Depending on your application, you can choose an antenna from the table below. Please click on the respective row below to get details about it.</p>
+							<br />
+							<center>
+								<div id="ant_rad_patterns_table">
+								</div>
+							</center>
+							<br />
+							<p>Angular resolution is defined as how far apart two objects need to be (in angle) for them to be detected as different/separate objects. It is different from ‘Angular Accuracy’ which is how accurately the angle of an object is detected.</p>
+							<p>*6dB beam width of resultant pattern due to Tx and Rx combination</p>
+							<p>**Max distance is calculated only at the zero degree bore sight, performance decreases as targets move to the side angles</p>
+					    </div>
+
+						<br />
+
+				    <div class="description">
+				      <strong>Welcome to mmWave Modules!</strong>
+				    </div>
+						<br />
+						<div class="description">
+                            <p>The mmWave Modules collection is an easy-to-search repository of TI Ecosystem partner designed antenna modules available to order and use.</p>
+							<p>Depending on your application, you can choose an antenna module from the table below. Please click on the respective row below to go to our partner's website to get more details about the module and get contact information for the partner.</p>
+							<br />
+							<center>
+								<div id="ant_rad_patterns_table2">
+								</div>
+							</center>
+							<br />
+							<p>Angular resolution is defined as how far apart two objects need to be (in angle) for them to be detected as different/separate objects. It is different from ‘Angular Accuracy’ which is how accurately the angle of an object is detected.</p>
+							<p>*6dB beam width of resultant pattern due to Tx and Rx combination</p>
+							<p>**Max distance is calculated only at the zero degree bore sight, performance decreases as targets move to the side angles</p>
+					    </div>
+
+				  </div>
+				</div>
+				<div class="row"></div>
+			</div>
+		</div>
+	</body>
+</html>

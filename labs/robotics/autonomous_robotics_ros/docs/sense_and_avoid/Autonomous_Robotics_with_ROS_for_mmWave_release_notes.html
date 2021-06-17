@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Autonomous Robotics with ROS for mmWave Release Notes - Version 1.7</title>
+</head>
+
+<!-- START PRE -->
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/strapdown/v/0.2/fonts/ubuntu-regular-woff.css"/>
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/strapdown/v/0.2/fonts/glyphicons-halflings-regular.css"/>
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/strapdown/v/0.2/themes/united2.min.css"/>
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/strapdown/v/0.2/themes/bootstrap-responsive.min.css"/>
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/strapdown/v/0.2/strapdown.css"/>
+<link rel="stylesheet" href="../../../../.metadata/.html/styles/link.css"/>
+<!-- END PRE -->
+
+<xmp style="display:none;" class="col-xs-6">
+
+
+Autonomous Robotics with ROS for mmWave Release Notes
+=============
+
+
+Overview
+========
+
+This lab allows for the TI mmWave sensor to be used with popular mapping and
+navigation libraries in the Robot Operating System (ROS) environment, familiar to
+many robotics engineers. The lab uses the Octomap server and move_base libraries
+with TI’s mmWave ROS Driver Package software interface to the TI mmWave sensor
+IWR6843ISK EVM or the IWR6843AOP EVM running the mmWave
+SDK out-of-box demo. With this TI driver and the software from the
+ROS community (ros.org) engineers may evaluate robot navigation and object
+avoidance quickly and easily.
+
+
+Features
+========
+
+* Integrates the TI mmWave ROS driver into the ROS Turtlebot2 platform to allow
+the TI mmWave sensor IWR6843ISK EVM, or TI mmWave sensor IWR6843AOP EVM to be used as a 3-D sensor
+* Demonstrates mapping using the the TI mmWave sensor with the ROS Octomap
+package
+* Demonstrates navigation with collision-avoidance using the TI mmWave sensor
+with the ROS move_base package 
+
+
+New and Updated Features
+========================
+
+The following is a list of changes present in this version of the driver compared to
+the previous release.
+* Chirp profile config (.cfg) file name changed 'IWR6843ISK_3d_custom.cfg' to 'IWR6843ISK_3d.cfg'
+* Chirp profile config (.cfg) added to support IWR6843AOP.
+* Added note on editing configuration to Navigation Demo section of user's guide
+
+
+Resolved Incident Reports
+=========================
+
+The following are Incident Reports resolved in this release:
+* N/A
+
+
+Known Limitations
+============
+
+The following are Known Limitations in this release:
+* Currently supported/tested for IWR6843ISK
+ES2.0 EVM, IWR6843AOP ES2.0 EVM only
+* The mmWave EVM must be flashed with:
+  * The mmWave SDK version 3.5 out-of-box demo firmware for IWR6843ISK ES2.0
+  * The mmWave SDK version 3.5 out-of-box demo firmware for IWR6843AOP ES2.0
+* The fake_localization ROS navigation package is used to allow direct setting of
+the robot’s initial pose (position/orientation) and goal pose. Therefore, the
+gmapping and amcl ROS navigation packages are not used.
+
+
+Work Arounds for Major Known Issues
+===================================
+
+The following are workarounds for each known issue with a major severity that exists in this release:
+* N/A
+
+Changes in Version 1.8
+========================
+
+The following is a list of changes compared to the previous release.
+- Added instructions on how to use 1843.
+- Moved source code to https://git.ti.com/cgit/mmwave_radar/mmwave_ti_ros/
+
+Changes in Version 1.7
+========================
+
+The following is a list of changes compared to the previous release.
+- Changed cfg files to support SDK 3.5
+- Merged source files from safety bubble lab into Autonomous robotics lab
+- Added support for quad sensor operation
+
+</xmp>
+
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/highlight/styles/zenburn.css"/>
+<script src="../../../../.metadata/.html/scripts/strapdown/vendor/jquery-1.11.2.min.js"></script>
+<script src="../../../../.metadata/.html/scripts/strapdown/vendor/bootstrap.min.js"></script>
+<script src="../../../../.metadata/.html/scripts/highlight/highlight.pack.js"></script>
+<script src="../../../../.metadata/.html/scripts/strapdown/v/0.2/strapdown.js"></script>
+<script src="../../../../.metadata/.html/scripts/toolbox.js"></script>
+<script src="../../../../.metadata/.html/scripts/toolbox_fixes.js"></script>
+</html>

@@ -1,0 +1,6 @@
+[
+["Design", "Azimuth FOV (deg) *", "Elevation FOV (deg) *", "Azimuth Angular Resolution (deg)", "Elevation Angular Resolution (deg)", "Max Distance for Car (m) **", "Max Distance for People (m) **"],
+["IWR1443BOOST (77GHz)", "+/- 60", "+/- 15", "15", "60", "120", "47"],
+["IWR1642BOOST (77GHz)", "+/- 60", "+/- 15", "15", "N/A", "199", "37"],
+["IWR6843ISK (60GHz)", "+/- 55", "+/-20", "15", "58", "175", "98"]
+]

@@ -1,0 +1,9 @@
+[
+["Lab/Experiment/Chirp Name", "Changes"],
+["<a href=\"http://dev.ti.com/tirex/#/?link=Software%2FmmWave Sensors%2FIndustrial%20Toolbox%2FLabs%2FVital Signs - 68xx\">Vital Signs - 68xx (new)</a>", "<ul><li>New lab featuring Vital Signs Demo on IWR68xx Devices</li></ul>"],
+["<a href=\"http://dev.ti.com/tirex/#/?link=Software%2FmmWave Sensors%2FIndustrial%20Toolbox%2FExperiments%2FDetecting Human Falls and Stance with IWR6843ODS\">Detecting Human Falls and Stance with IWR6843ODS (new)</a>", "<ul><li>Stance Detection Experiment with ODS Wall Mount</li></ul>"],
+["<a href=\"http://dev.ti.com/tirex/#/?link=Software%2FmmWave%20Sensors%2FIndustrial%20Toolbox%2FLabs%2FPeople Counting Demo 68xx\"> People Counting Demo - 68xx (Update)</a>", "<ul><li>Update Firmware and GUI to allow live tuning of CFAR and GTrack parameters</li></ul>"],
+["<a href=\"http://dev.ti.com/tirex/#/?link=Software%2FmmWave Sensors%2FODS Point Cloud Demo - 68xx\">ODS Point Cloud Demo - 68xx (Update)</a>", "<ul><li>Fixed range computation scaling for 60GHz</li></ul>"],
+["<a href=\"http://dev.ti.com/tirex/#/?link=Software%2FmmWave Sensors%2FODS Automated Doors - 68xx\">Automated Doors - 68xx (Update)</a>", "<ul><li>Included Software implementing on-chip timing calculation and estimation</li></ul>"]
+]
+

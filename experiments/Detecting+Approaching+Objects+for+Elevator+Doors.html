@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head>
+  <meta charset="UTF-8">
+  <title>Detecting Approaching Objects for Elevator Doors</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="../.metadata/.html/scripts/toolbox.js"></script>
+  <script src="../.metadata/.html/scripts/toolbox_fixes.js"></script>
+  <link rel="stylesheet" href="../.metadata/.html/styles/link.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/fonts/ubuntu-regular-woff.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/fonts/glyphicons-halflings-regular.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/themes/united2.min.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/themes/bootstrap-responsive.min.css">
+
+  <style>
+    .img-responsive {
+      max-height: 300px;
+    }
+
+    .btn-primary {
+      margin: 5px;
+    }
+  </style>
+</head>
+
+<body style="">
+  <div class="container">
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div id="headline" class="navbar-brand">Detecting Approaching Objects for Elevator Doors</div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-12 col-sm-9" id="content"><h1 id="-introduction-"><strong>Introduction</strong></h1><p>The objective of this experiment is to showcase the capabilities of the IWR6843 mmWave Sensor in detecting approaching objects for elevator doors. In late 2019 the <strong>American Society of Mechanical Engineers (ASME)</strong> revised their elevator safety code to include stipulations for detecting approaching objects and bodies. Traditional sensors used in elevator doors only detect objects in the elevator's doorway while providing virtually no means for detection of either approaching objects or nearby bodies. Chance occurrences such as a hurried passenger or wandering pet present a risk for a quickly closing elevator door.</p><p><br></p><p><img style="" src="./images/Detecting+Approaching+Objects+for+Elevator+Doors/IMG_3983.JPG" class="img-responsive"></p><p><br></p><h1 id="-requirements-asme-a17-1-2019-csa-b44-19--"><strong>Requirements (ASME A17.1-2019/CSA B44:19)<br></strong></h1><p>The <u><strong>ASME A17.1-2019/ Safety Code for Elevators and Escalators </strong>(2.13.5.3) </u>requires that objects and bodies approaching the elevator are detected before the door fully closes. The safety code stipulates that the elevator sensor must detect approaching objects up to <strong>500 mm (20 in.)</strong> away from the elevator door. The code also states that these the elevator sensor must detect objects that are traveling at a speed of up to <strong>1 m/s (3 ft/s). </strong>The diagram below illustrates the requirement in a 3D space.</p><p><br></p><p><img style="height:400;" src="./images/Detecting+Approaching+Objects+for+Elevator+Doors/2020-05-10 00_12_25-AKASH_EDITED_Elevator Doors Offering Test Pitch V.3.pptx - Microsoft PowerPoint.png" class="img-responsive"></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><h1 id="-setup--"><strong>Setup <br></strong></h1><h2 id="-physical-setup-"><strong>Physical Setup</strong></h2><p>The physical setup includes information about the scene such as the distance between the target and the sensor antenna, the type of target used, hardware setup and any other physical considerations e.g. non-reflective surfaces or use of anechoic chamber etc. The physical setup used for this experiment is given below:<strong><br></strong></p><p>The scene was landing area of an ordinary passenger elevator as shown below. The elevator used was about <strong>210 cm (~7 ft.) tall </strong>with a door opening that was <strong>120 cm</strong> <strong>(~4 ft.) wide</strong>.  The landing area was <strong>500 cm (~16 ft.) long </strong>and <strong>230 cm (7.5 ft.) wide.</strong></p><p><img style="height:400;" src="./images/Detecting+Approaching+Objects+for+Elevator+Doors/IMG_4646.jpg" class="img-responsive"></p><p><br></p><p>An<strong> IWR6843ODS</strong> EVM was connected to an Industrial Carrier Board (<strong>MMWAVEICBOOST</strong>) and mounted in the center of the elevator doorway as shown below. It was then given a down-tilt of about <strong>60 degrees.  <br></strong></p><p><img style="height:250;" src="./images/Detecting+Approaching+Objects+for+Elevator+Doors/IMG_4582light.jpg" class="img-responsive"></p><h3>Why ODS?</h3><p>The <strong>IWR6843ODS</strong> antenna is recommended because it is better suited for Elevator Door applications than the <strong>IWR6843ISK</strong> antenna. The <strong>IWR6843ODS</strong> features angular improvements while trading off maximum distance. Since the required detection zone is <strong>50 cm</strong> this is a trivial compromise. If a detection range of more than <strong>500 cm </strong>is desired then the <strong>IWR6843ISK </strong>should be considered. For more information on antenna performance please see the <strong>Antenna Database</strong> in the <strong>mmWave Industrial Toolbox</strong> where data on all of the mmWave EVMs have been compiled.</p><h2 id="-software-setup-"><strong>Software setup</strong></h2><p>The <strong>68xx - Door Activation and Protection Sensor Lab </strong>from the <strong>mmWave Industrial Toolbox</strong> was used for evaluation. The software uses the group tracking feature to gauge a moving object's speed and trajectory. A modified visualizer showing post-processed object data was used and is shown below on the left. Then a simple webcam was used to verify the results which is on the right. The blue zone and blue line each represent the area of interest as per the <strong>ASME/CSA Safety Requirement</strong>, (<strong>50 cm</strong> away from the sensor).</p><p><img style="height:400;" src="./images/Detecting+Approaching+Objects+for+Elevator+Doors/2020-05-09 23_14_02-elev0503upto.html.png" class="img-responsive"></p><h1 id="-results-"><strong>Results</strong></h1><p><span><span> The sensor proved to be able to reliably and accurately track an approaching person.</span> The below recording shows a person approaching the elevator at a normal walking speed. Worth noting is that the sensor was able to detect the person approaching at a distance of <strong>3 m</strong> away from the sensor, six times further than the <strong>50 cm</strong> stipulated in the <strong>ASME</strong><strong>/CSA Safety Requirement. </strong><br></span></p><p><span><br></span></p><p><img style="" src="./images/Detecting+Approaching+Objects+for+Elevator+Doors/walkingin5-final.gif" class="img-responsive"></p><p><br></p><p>Furthermore the sensor showed the same performance for a person leaving the elevator space. Detection begins at the placement of the sensor and continues out to <strong>3 m</strong>.</p><p><img style="" src="./images/Detecting+Approaching+Objects+for+Elevator+Doors/walkingout33-2.gif" class="img-responsive"></p><p><br></p><p>The below recording, which shows a person waiting in the landing area, illustrates the sensor's wide field of view. The sensor is able to provide coverage from wall-to-wall about <strong>1m </strong>each side. The recording also shows how the sensor's group tracking feature can reliably keep a person's track even in an otherwise idle situation.</p><p><img style="" src="./images/Detecting+Approaching+Objects+for+Elevator+Doors/walkingside1-final.gif" class="img-responsive"></p><h1 id="-conclusion-"><strong>Conclusion</strong></h1><p>This experiment sought to determine compliance of TI mmWave Sensors with the new <strong>ASME/CSA</strong> <strong>Safety Requirement</strong>. The results above demonstrate mmWave's particular aptitude for achieving this as its detection capability far exceeds what is mandated. This would serve well to avoid elevator-related accidents and injuries as safety and protection needs become more ubiquitous. Moreover, improved performance would serve lower the prevalence of elevator damage which reduces the need for costly call-outs and repairs. While TI mmWave Sensors represent an alternative to traditional elevator door sensors, they also meet several engineering demands as a single sensor solution.</p><p><br></p><p><br></p></div>
+        <div class="col-xs-4 col-sm-2 sidebar-offcanvas bs-docs-sidebar hidden-print" id="sidebar-overview"><ul class="nav nav-stacked fixed" id="sidebar"><li><a href="#-introduction-">Introduction</a></li><li><a href="#-requirements-asme-a17-1-2019-csa-b44-19--">Requirements (ASME A17.1-2019/CSA B44:19)</a></li><li><a href="#-setup--">Setup </a></li><li><ul class="nav nav-stack"><li><a href="#-physical-setup-">Physical Setup</a></li><li><a href="#-software-setup-">Software setup</a></li></ul></li><li><a href="#-results-">Results</a></li><li><a href="#-conclusion-">Conclusion</a></li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../.metadata/.html/scripts/strapdown/vendor/bootstrap.min.js"></script>
+  <div class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+      <div class="modal-dialog vertical-align-center">
+        <div class="modal-dialog">
+          <div class="modal-content" style="margin-left: auto;margin-right: auto;">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button> <img src="" class="imagepreview"> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body></html>

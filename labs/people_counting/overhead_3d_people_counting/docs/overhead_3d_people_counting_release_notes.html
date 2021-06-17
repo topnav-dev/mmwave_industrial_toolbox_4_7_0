@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Overhead Mount 3D People Counting Demo Release Notes</title>
+</head>
+
+<!-- START PRE -->
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/strapdown/v/0.2/fonts/ubuntu-regular-woff.css"/>
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/strapdown/v/0.2/fonts/glyphicons-halflings-regular.css"/>
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/strapdown/v/0.2/themes/united2.min.css"/>
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/strapdown/v/0.2/themes/bootstrap-responsive.min.css"/>
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/strapdown/v/0.2/strapdown.css"/>
+<link rel="stylesheet" href="../../../../.metadata/.html/styles/link.css"/>
+<!-- END PRE -->
+
+<xmp style="display:none;" class="col-xs-6">
+
+
+Version 3.1.0
+=============
+
+**NOTE**: Due to the ongoing social distancing guidelines and TI policies, the scope of testing for this release was limited to 1-2 person tests. The underlying algorithm and implementation should be able to detect and track 5-7 people in the given coverage area but those tests are deferred for future releases once the guidelines allow for them.
+
+
+Overview
+========
+
+This lab demonstrates the use of TI mmWave sensors to track and count people using the IWR6843ISK-ODS or IWR6843AOPEVM sensor module mounted directly above the area of interest (i.e. overhead mounting). Detection and tracking algorithms run onboard the IWR6843 mmWave sensor and are used to localize people and track their movements. The lab provides full source code and CCS projects for building the binaries from source.
+
+ 
+Features
+========
+
+The following features are supported:
+* Supports IWR6843ISK-ODS antenna module (ES2.0)
+* Supports IWR6843AOP antenna module (ES2.0, Rev F or later).
+* Supports a new FCC compliant low bandwidth mode (compile time selectable)
+* GUI displays point cloud and tracking information
+* Supports mmWave SDK 3.5
+
+New and Updated Features
+========================
+
+The following features are new or updated in this release:
+
+**Documentation update:** The following new documents covering People Counting demo software implementation, Detection and Tracker layer parameter tuning, and Tracker algorithm and implementation details have been released in labs\people_counting\docs directory.
+
+    1. 3D_people_counting_demo_implementation_guide.pdf
+    2. 3D_people_counting_detection_layer_tuning_guide.pdf
+    3. 3D_people_counting_tracker_layer_tuning_guide.pdf
+    4. Tracking_radar_targets_with_multiple_reflection_points.pdf
+
+Resolved Incident Reports
+=========================
+
+The following are Incident Reports resolved in this release:
+* N/A
+
+Known Issues
+============
+
+The following are Known Issues in this release:
+* Device must be restarted for reconfiguration.
+* **Delayed track allocation in NE and NW quadrants (positive Z-axis) under certain conditions**: There may be a delay in track allocation in the NE and NW quadrants for targets walking towards the center position. The tracking performance is not affected while walking away from the center position in the same quadrants.  
+* **Mirroring in EVM elevation axis (Z-axis)**: Objects/People at the edge of elevation FoV (around +/- 60 degrees) may result in ghost objects in the opposite direction (i.e. Mirroring)
+* **Height distortion in EVM elevation axis (Z-ais)**: The height of the objects/people at the edge of elevation FoV (around +/- 60 degrees) may appear to be higher than actual in the point cloud display. 
+
+
+Limitations
+=========================
+
+The following is a list of known limitations for this release that were known at the time of release:
+
+* Due to the ongoing social distancing guidelines and TI policies, the scope of testing for this release was limited to 1-2 person tests. The underlying algorithm and implementation should be able to detect and track 5-7 people in the given coverage area but those tests are deferred for future releases once the guidelines allow for them.
+
+</xmp>
+
+<link rel="stylesheet" href="../../../../.metadata/.html/scripts/highlight/styles/zenburn.css"/>
+<script src="../../../../.metadata/.html/scripts/strapdown/vendor/jquery-1.11.2.min.js"></script>
+<script src="../../../../.metadata/.html/scripts/strapdown/vendor/bootstrap.min.js"></script>
+<script src="../../../../.metadata/.html/scripts/highlight/highlight.pack.js"></script>
+<script src="../../../../.metadata/.html/scripts/strapdown/v/0.2/strapdown.js"></script>
+<script src="../../../../.metadata/.html/scripts/toolbox.js"></script>
+<script src="../../../../.metadata/.html/scripts/toolbox_fixes.js"></script>
+</html>

@@ -1,0 +1,14 @@
+[
+    {
+        "files": [
+            "+mss/cli.c -> mss/cli.c",
+            "+mss/mss_main.c -> mss/mss_main.c",
+            "+mss/mss_mmw.cfg -> mss/mss_mmw.cfg",
+            "+mss/mss_mmw.h -> mss/mss_mmw.h",
+            "+common/mmw_config.h -> common/mmw_config.h",
+            "+common/mmw_messages.h -> common/mmw_messages.h",
+            "+common/mmw_output.h -> common/mmw_output.h",
+            "+mss/mss_mmw_linker.cmd -> mss/mss_mmw_linker.cmd"
+        ]
+    }
+]

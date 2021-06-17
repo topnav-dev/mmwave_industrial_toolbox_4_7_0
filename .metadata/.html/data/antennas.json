@@ -1,0 +1,10 @@
+[
+["Design", "Azimuth FOV (deg) *", "Elevation FOV (deg) *", "Azimuth Angular Resolution (deg)", "Elevation Angular Resolution (deg)", "Max Distance for People (m) **",""],
+["IWR1443BOOST (77GHz)", "+/- 60", "+/- 15", "15",  "60", "70",""],
+["IWR1642BOOST (77GHz)", "+/- 60", "+/- 15", "15", "N/A", "90",""],
+["IWR1843BOOST (77GHz)", "+/- 60", "+/- 15", "15", "58", "80",""],
+["IWR6843ISK (60GHz)", "+/- 60", "+/-15", "15", "58", "75",""],
+["IWR6843ODS (60GHz)", "+/- 60", "+/-60", "29", "29", "60",""],
+["IWR6843AoP (60GHz)", "+/- 60", "+/-60", "29", "29", "60",""]
+
+]

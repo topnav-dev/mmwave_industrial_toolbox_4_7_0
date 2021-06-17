@@ -1,0 +1,22 @@
+[
+    {
+        "files": [
+            "+mss_main.c -> mss_main.c",
+            "+mss_mmw.cfg -> mss_mmw.cfg",
+            "+mss_mmw.h -> mss_mmw.h",
+            "+cli.c -> cli.c",
+            "+../common/mmw_config.h -> mmw_config.h",
+            "+../common/mmw_messages.h -> mmw_messages.h",
+            "+mmw_output.h -> mmw_output.h",
+            "+../../radarProcess.h -> radarProcess.h",
+            "+../../../../modules/rangeProc/highAccuRangeProc/api/RADARDEMO_highAccuRangeProc.h -> RADARDEMO_highAccuRangeProc.h",
+            "+../../../../../api/notarget/cplx_types.h -> cplx_types.h",
+            "+../../../../../api/notarget/swpform.h -> swpform.h",
+            "+../../../../modules/utilities/radarOsal_malloc.c -> radarOsal_malloc.c",
+            "+../../../../modules/utilities/radarOsal_malloc.h -> radarOsal_malloc.h",
+            "+../../../../modules/utilities/cycle_measure.c -> cycle_measure.c",
+            "+../../../../modules/utilities/cycle_measure.h -> cycle_measure.h",
+            "+r4f_linker.cmd -> r4f_linker.cmd"
+        ]
+    }
+]

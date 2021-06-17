@@ -1,0 +1,16 @@
+[
+    {
+        "files": [
+            "+dss/dss_main.c -> dss/dss_main.c",
+            "+../../../common/src/dpc/objectdetectionandtracking/objdetdsp/src/objectdetection.c -> dss/objectdetection.c",
+            "+dss/mmw_dss.h -> dss/mmw_dss.h",
+            "+dss/mmw_dss.cfg -> dss/mmw_dss.cfg",
+            "+common/mmw_config.h -> common/mmw_config.h",
+            "+common/mmw_output.h -> common/mmw_output.h",
+            "+common/tracker_output.h -> common/tracker_output.h",
+            "+mmw_res.h -> mmw_res.h",
+            "+dss/c674x_linker.cmd -> dss/c674x_linker.cmd",
+            "+dss/mmw_dss_linker.cmd -> dss/mmw_dss_linker.cmd"
+        ]
+    }
+]

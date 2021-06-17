@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head>
+  <meta charset="UTF-8">
+  <title>Traffic Monitoring Radar</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="../.metadata/.html/scripts/toolbox.js"></script>
+  <script src="../.metadata/.html/scripts/toolbox_fixes.js"></script>
+  <link rel="stylesheet" href="../.metadata/.html/styles/link.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/fonts/ubuntu-regular-woff.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/fonts/glyphicons-halflings-regular.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/themes/united2.min.css">
+  <link rel="stylesheet" href="../.metadata/.html/scripts/strapdown/v/0.2/themes/bootstrap-responsive.min.css">
+
+  <style>
+    .img-responsive {
+      max-height: 300px;
+    }
+
+    .btn-primary {
+      margin: 5px;
+    }
+  </style>
+</head>
+
+<body style="">
+  <div class="container">
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div id="headline" class="navbar-brand">Traffic Monitoring Radar</div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-12 col-sm-9" id="content"><h1 id="-introduction-"><strong>Introduction</strong></h1><p>This use case provides the sensing configuration for a Medium to Long Range Traffic Monitoring Radar which is typically mounted on a post on the opposite side of the intersection to detect vehicles across multiple lanes and track their position and velocity as they approach the intersection and the stop bar. This use case is based on <a href="http://www.ti.com/tool/tidep-0090">TI's mmWave Traffic Monitoring Object Detection and Tracking Reference Design</a> and the reader is encouraged to visit the <a href="http://www.ti.com/tool/tidep-0090">design webpage</a> for more details.</p><p><img style="height:400;" src="./images/Traffic+Monitoring+Radar/traffic_monitoring.jpeg" class="img-responsive"></p><h1 id="-step-1-system-parameters-"><strong>Step 1: System Parameters<br></strong></h1><table class="table table-striped table-bordered"><tbody><tr><th class="highlight-grey" data-highlight-colour="grey"> Parameter</th><th class="highlight-grey" data-highlight-colour="grey">Case-1, Mid Range (MIMO)</th><th class="highlight-grey" data-highlight-colour="grey">Case-2, Long Range (Non-MIMO)</th></tr><tr><td colspan="1">Device Type</td><td colspan="1">IWR1642</td><td colspan="1">IWR1642</td></tr><tr><td>Maximum range (m)</td><td>70</td><td>120</td></tr><tr><td>Range resolution (m)</td><td>0.25</td><td>1.0</td></tr><tr><td colspan="1">Range accuracy (m)</td><td colspan="1"><span>0.25</span></td><td colspan="1"><span>1.0</span></td></tr><tr><td>Maximum velocity** (km/h | m/s)</td><td><p>27 | 7.5</p></td><td><p>65 | 18</p></td></tr><tr><td>Velocity resolution <span>(km/h | m/s)</span></td><td>1.7 | 0.47</td><td>1.1 | 0.3</td></tr><tr><td>Total Sweep Bandwidth (MHz)</td><td>600</td><td>186</td></tr><tr><td>RCS (m<sup>2</sup> @ range)</td><td>Car (5m<sup>2</sup>) @ 75m</td><td>Car (5m<sup>2</sup>) @ 109m</td></tr><tr><td>Update rate (Hz)</td><td>20</td><td>20</td></tr><tr><td>Radar Cube Size (KB)</td><td>512</td><td>480</td></tr></tbody></table><p>** <a href="http://www.ti.com/tool/tidep-0090">TI's mmWave Traffic Monitoring Object Detection and Tracking Reference Design</a> demonstrates additional processing that can extend the maximum trackable velocity by 3x the chirp maximum velocity</p><h1 id="-step-2-chirp-configuration-"><strong>Step 2: Chirp Configuration</strong></h1><table class="table table-striped table-bordered"><tbody><tr><td colspan="1">1.</td><td colspan="1"><p><strong>Chirp Configuration</strong></p></td><td><div class="content-wrapper"><p><strong>Case-1, Mid Range (MIMO)</strong></p><p><strong><a href="https://dev.ti.com/gallery/view/1792614/mmWaveSensingEstimator/?platform=xWR1642&num_rx=4&num_tx=2&tx_gain=8&rx_gain=8&freq_range=76&bandwidth=1000&tx_power=12&temp=20&range=70&range_resolution=25&velocity=27&velocity_resolution=1.7&fps=20&rcs=5">Load in Sensing Estimator</a></strong></p></div></td><td><div class="content-wrapper"><p><strong>Case-2, Long Range (Non-MIMO)</strong></p><p><strong><a href="https://dev.ti.com/gallery/view/1792614/mmWaveSensingEstimator/?platform=xWR1642&num_rx=4&num_tx=1&tx_gain=10&rx_gain=10&freq_range=76&bandwidth=1000&tx_power=12&temp=20&range=120&range_resolution=100&velocity=65&velocity_resolution=1.1&fps=20&rcs=5">Load in Sensing Estimator</a></strong></p></div></td></tr><tr><td>2.</td><td>Special considerations, Limitations etc</td><td colspan="2"><div class="content-wrapper"><p>The Chirp Configuration used in <a href="http://www.ti.com/tool/tidep-0090">TI's mmWave Traffic Monitoring Object Detection and Tracking Reference Design</a> assumes a fixed sampling rate of 5 Msps whereas the Sensing Estimator calculates the minimum required sampling rate based on the maximum beat frequency. Because of this, the chirp configuration presented here does not exactly match the one used in the TI Design.</p></div></td></tr></tbody></table><h1 id="-step-3-oob-demo-configuration-file-"><strong>Step 3: OOB Demo Configuration File</strong></h1><table class="table table-striped table-bordered"><tbody><tr><td colspan="1"><br></td><td class="highlight-grey" colspan="1" data-highlight-colour="grey"><strong>Use Case</strong></td><td class="highlight-grey" colspan="1" data-highlight-colour="grey"><strong>OOB Demo Configuration File</strong></td></tr><tr><td colspan="1">1</td><td colspan="1">Traffic Monitoring Case-1, Mid Range (MIMO)</td><td colspan="1"><div class="content-wrapper"><p><a href="./images/Traffic+Monitoring+Radar/mmw_tm_demo_ph2.cfg" class="btn btn-primary">mmw_tm_demo_ph2.cfg</a></p></div></td></tr><tr><td colspan="1">2</td><td colspan="1">Traffic Monitoring Case-2, Long Range (Non-MIMO)</td><td colspan="1"><div class="content-wrapper"><p><a href="./images/Traffic+Monitoring+Radar/mmw_tm_demo_longRange.cfg" class="btn btn-primary">mmw_tm_demo_longRange.cfg</a></p></div></td></tr></tbody></table><h1 id="-assumptions-and-miscellaneous-information-"><strong>Assumptions and Miscellaneous Information</strong></h1><table class="table table-striped table-bordered"><tbody><tr><th colspan="3">System Level Assumptions</th></tr><tr><td colspan="1"><br></td><td class="highlight-blue" colspan="1" data-highlight-colour="blue"><strong>Case-1, Mid Range (MIMO)</strong></td><td class="highlight-blue" colspan="1" data-highlight-colour="blue"><strong>Case-2, Long Range (Non-MIMO)<br></strong></td></tr><tr><td colspan="1">Starting frequency <strong>(GHz)</strong></td><td colspan="1">76</td><td colspan="1">76</td></tr><tr><td colspan="1">TX Antenna Gain <strong>(dB)</strong></td><td colspan="1">8</td><td colspan="1">10</td></tr><tr><td colspan="1">RX Antenna Gain <strong>(dB)</strong></td><td colspan="1">8</td><td colspan="1">10</td></tr><tr><td colspan="1">Device Type</td><td colspan="1">IWR1642</td><td colspan="1">IWR1642</td></tr><tr><td colspan="1">Number  of TX Antennas used</td><td colspan="1">2</td><td colspan="1">1</td></tr><tr><td colspan="1">Number of RX Antennas used</td><td colspan="1">4</td><td colspan="1">4</td></tr></tbody></table><h1 id="-testing-and-results-"><strong>Testing and Results</strong></h1><p>For details on Test Setup and Results, please refer to the <strong>Testing and Results </strong>section of the <a href="http://www.ti.com/lit/pdf/tidud31">Design Guide</a> for the <a href="http://www.ti.com/tool/tidep-0090">Traffic Monitoring Object Detection and Tracking Reference Design</a>.</p><p><br></p></div>
+        <div class="col-xs-4 col-sm-2 sidebar-offcanvas bs-docs-sidebar hidden-print" id="sidebar-overview"><ul class="nav nav-stacked fixed" id="sidebar"><li><a href="#-introduction-">Introduction</a></li><li><a href="#-step-1-system-parameters-">Step 1: System Parameters</a></li><li><a href="#-step-2-chirp-configuration-">Step 2: Chirp Configuration</a></li><li><a href="#-step-3-oob-demo-configuration-file-">Step 3: OOB Demo Configuration File</a></li><li><a href="#-assumptions-and-miscellaneous-information-">Assumptions and Miscellaneous Information</a></li><li><a href="#-testing-and-results-">Testing and Results</a></li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../.metadata/.html/scripts/strapdown/vendor/bootstrap.min.js"></script>
+  <div class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="vertical-alignment-helper">
+      <div class="modal-dialog vertical-align-center">
+        <div class="modal-dialog">
+          <div class="modal-content" style="margin-left: auto;margin-right: auto;">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button> <img src="" class="imagepreview"> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body></html>
